@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210023240) do
+ActiveRecord::Schema.define(version: 20140210041119) do
 
   create_table "fcqs", force: true do |t|
     t.integer  "yearterm"
@@ -20,24 +20,24 @@ ActiveRecord::Schema.define(version: 20140210023240) do
     t.integer  "sec"
     t.string   "instructor_last"
     t.string   "instructor_first"
-    t.integer  "formsrequested"
-    t.integer  "formsReturned"
-    t.string   "courseOverallPctValid"
-    t.float    "courseOverall"
-    t.float    "courseOverall_SD"
-    t.float    "instructorOverall"
-    t.float    "instructorOverall_SD"
-    t.string   "hoursPerWkInclClass"
-    t.float    "priorInterest"
-    t.float    "instrEffective"
+    t.integer  "forms_requested"
+    t.integer  "forms_returned"
+    t.string   "percentage_passed"
+    t.float    "course_overall"
+    t.float    "course_overall_SD"
+    t.float    "instructor_overall"
+    t.float    "instructor_overall_SD"
+    t.string   "total_hours"
+    t.float    "prior_interest"
+    t.float    "effectiveness"
     t.float    "availability"
     t.float    "challenge"
-    t.float    "howMuchLearned"
-    t.float    "instrRespect"
-    t.string   "crsTitle"
+    t.float    "amount_learned"
+    t.float    "respect"
+    t.string   "course_title"
     t.string   "campus"
     t.string   "college"
-    t.string   "instr_Group"
+    t.string   "instructor_group"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
