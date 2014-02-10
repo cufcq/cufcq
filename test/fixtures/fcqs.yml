@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  yearterm: 1
+  subject: MyString
+  crse: 1
+  sec: 1
+  instructor_last: MyString
+  instructor_first: MyString
+  formsrequested: 1
+  formsReturned: 1
+  courseOverallPctValid: MyString
+  courseOverall: 1.5
+  courseOverall_SD: 1.5
+  instructorOverall: 1.5
+  instructorOverall_SD: 1.5
+  hoursPerWkInclClass: MyString
+  priorInterest: 1.5
+  instrEffective: 1.5
+  availability: 1.5
+  challenge: 1.5
+  howMuchLearned: 1.5
+  instrRespect: 1.5
+  crsTitle: MyString
+  campus: MyString
+  college: MyString
+  instr_Group: MyString
+
+two:
+  yearterm: 1
+  subject: MyString
+  crse: 1
+  sec: 1
+  instructor_last: MyString
+  instructor_first: MyString
+  formsrequested: 1
+  formsReturned: 1
+  courseOverallPctValid: MyString
+  courseOverall: 1.5
+  courseOverall_SD: 1.5
+  instructorOverall: 1.5
+  instructorOverall_SD: 1.5
+  hoursPerWkInclClass: MyString
+  priorInterest: 1.5
+  instrEffective: 1.5
+  availability: 1.5
+  challenge: 1.5
+  howMuchLearned: 1.5
+  instrRespect: 1.5
+  crsTitle: MyString
+  campus: MyString
+  college: MyString
+  instr_Group: MyString
