@@ -10,6 +10,9 @@ task :import => :environment do
           next
       rescue ActiveRecord::RecordNotUnique => unique
         next
+      rescue ActiveRecord::UnknownAttributeError => unknown
+        puts unknown.message
+        next
       end
     end
 end
