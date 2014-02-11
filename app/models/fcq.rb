@@ -17,11 +17,14 @@ class Fcq < ActiveRecord::Base
   #validates entries match established patterns
   validates :yearterm, length: { is: 5}
   validates :subject, :crse, length: {is: 4}
-  validates :sec, length: {is: 3}
+  validates :sec, length: {maximum: 3}
   #validates instructor group is one of the specified types
   #validates :instructor_group, inclusion: { in: %w(TA, TTT, OTH)}
   #checks some more specific bits
   validates_with FcqValidator
+  #validates uniqueness
+  #validates :yearterm, uniqueness: true
+  validates_uniqueness_of :sec, scope: [:crse, :subject, :yearterm]
 
   def float_passed
     return percentage_passed.delete("%").to_f / 100
