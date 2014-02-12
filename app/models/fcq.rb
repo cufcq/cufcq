@@ -12,6 +12,10 @@ class FcqValidator < ActiveModel::Validator
 end
 
 class Fcq < ActiveRecord::Base
+  #Belongs to
+  belongs_to :instructor
+  belongs_to :course
+
   #validates the minimum entries are present
   validates :yearterm, :subject, :crse, :sec, :instructor_last, :instructor_first, :forms_requested, :forms_returned, :course_title, :campus, :college, :instructor_group, presence: true
   #validates entries match established patterns
@@ -26,12 +30,25 @@ class Fcq < ActiveRecord::Base
   #validates :yearterm, uniqueness: true
   validates_uniqueness_of :sec, scope: [:crse, :subject, :yearterm]
 
+  attr_reader :float_passed
   def float_passed
-    return percentage_passed.delete("%").to_f / 100
+    return :percentage_passed.delete("%").to_f / 100
   end
 
   def uid
-    return "#{yearterm}#{subject}#{crse}#{sec}"
+    return "#{:yearterm}#{:subject}#{:crse}#{:sec}"
+  end
+
+  def ld?
+    return (:crse < 5000)
+  end
+
+  def ud?
+    return (:crse >= 5000)
+  end
+
+  def year
+    return yearterm / 10
   end
 
 end
