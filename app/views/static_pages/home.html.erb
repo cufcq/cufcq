@@ -68,9 +68,24 @@ Released   : 20131117
 					<h2>Alex, Sam and Cris made this</h2>
 					<span class="byline">Faculty-Course Quuestionaires made easy</span>
 				</div>
+
+				<%= form_tag("/search", method: "get") do %>
+				  <%= label_tag(:q, "Search for:") %>
+				  <%= text_field_tag(:q) %>
+				  <br>
+				  <%= submit_tag("Search") %>
+				  <br>
+				  <a href="#" class="button">This is a button!</a>
+
+				<% end %>
+			
+				<%= check_box_tag(:search_class) %>
+				<%= label_tag(:serach_class, "Search by class") %>
+				<%= check_box_tag(:search_instructor) %>
+				<%= label_tag(:search_instructor, "Search by Instructor") %>
+
 				<p>The current CU website <strong>sucks dick.</strong> This is a website designed to help you find everything about CU teachers and courses, and their past track records.
 				<br>
-				<a href="#" class="button">This is a button!</a>
 			</div>			
 
 		</div>	
