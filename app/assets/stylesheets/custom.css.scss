@@ -338,6 +338,7 @@ ul.contact li a:before
 
 	#header
 	{
+	color: #FFF;
 	}
 
 #triangle-up {
@@ -930,3 +931,28 @@ ul.contact li a:before
 }
 
 
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 00px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}

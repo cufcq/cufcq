@@ -1,0 +1,14 @@
+class Fcq < ActiveRecord::Base
+	validates :yearterm, length: {is: 5}
+	validates :subject, length: {is: 4}
+	validates :crse, length: {is: 4}
+	validates :sec, length: {maximum:  3} 
+	validates :yearterm, :subject, :crse, :sec, :instructor_last, :instructor_first, :forms_requested, :forms_returned, :course_title, :campus, :college, :instructor_group, presence: true
+	def collected?
+		if(:forms_returned == 0)
+			return false
+		else
+			return true
+		end			
+	end
+end
