@@ -24,19 +24,19 @@ Released   : 20131117
 -->
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
-
-<header class="navbar navbar-fixed-top navbar-inverse">
-      <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Home",    '#' %></li>
-          <li><%= link_to "Help",    '#' %></li>
-          <li><%= link_to "Sign in", '#' %></li>
-        </ul>
-      </nav>
-    </div>
+<header class="navbar navbar-top navbar-inverse">
+	<div id="header-wrapper" class="container">
+        <nav>
+          <ul class="nav pull-right">
+            <li><%= link_to "Sign In",    '#' %></li>
+            <li><%= link_to "Home",    '#' %></li>
+            <li><%= link_to "Help", '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    <div>
   </div>
 </header>
-
 
 </head>
 <body>
@@ -65,17 +65,19 @@ Released   : 20131117
 		<div class="extra2 container">
 			<div class="ebox1">
 				<div class="title">
-					<h2>Alex, Sam and Cris made this</h2>
-					<span class="byline">Faculty-Course Quuestionaires made easy</span>
+					<!-- <h2>Alex, Sam and Cris made this</h2> -->
+					<span class="byline">Faculty-Course Questionaires made easy</span>
 				</div>
 
 				<%= form_tag("/search", method: "get") do %>
-				  <%= label_tag(:q, "Search for:") %>
+				  <!--<%= label_tag(:q, "Search for:") %>-->
 				  <%= text_field_tag(:q) %>
-				  <br>
+				  <!-- <br>
 				  <%= submit_tag("Search") %>
+				  <br>  -->
 				  <br>
-				  <a href="#" class="button">This is a button!</a>
+				  <a href="submit_tag" class="button">Search</a>
+				  <br> 
 
 				<% end %>
 			
@@ -84,7 +86,7 @@ Released   : 20131117
 				<%= check_box_tag(:search_instructor) %>
 				<%= label_tag(:search_instructor, "Search by Instructor") %>
 
-				<p>The current CU website <strong>sucks dick.</strong> This is a website designed to help you find everything about CU teachers and courses, and their past track records.
+				<p>This is a website designed to help you find everything about CU teachers and courses, and their past track records.
 				<br>
 			</div>			
 

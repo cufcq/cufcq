@@ -332,7 +332,7 @@ ul.contact li a:before
 	#header-wrapper
 	{
 		overflow: hidden;
-		padding: 5em 0em 0em 0em;
+		padding: 0em 0em 0em 0em;
 		background: #FFC000 url(images/overlay.png) repeat;
 	}
 
@@ -595,7 +595,7 @@ ul.contact li a:before
 #featured-wrapper
 {
 	overflow: hidden;
-	padding: 10em 0em;
+	padding: 5em 0em;
 	background: #FFF;
 	text-align: center;
 }
@@ -880,7 +880,7 @@ ul.contact li a:before
 
 .extra2 .button
 {
-	margin-top: 2em;
+	margin-top: 1em;
 }
 
 .extra2 .title h2
@@ -901,6 +901,7 @@ ul.contact li a:before
 
 .extra2  .ebox1
 {
+	margin-top: 0em;
 }
 
 .extra2 .ebox2
