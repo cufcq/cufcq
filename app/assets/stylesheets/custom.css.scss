@@ -333,7 +333,7 @@ ul.contact li a:before
 	#header-wrapper
 	{
 		overflow: hidden;
-		padding: 5em 0em 0em 0em;
+		padding: 0.5em 0em 0em 0em;
 		background: #FFC000 url(images/overlay.png) repeat;
 	}
 
@@ -341,6 +341,9 @@ ul.contact li a:before
 	{
 	color: #FFF;
 	background: #FFC000;
+	text-align:center;
+	padding: 1em 0em;
+	font-size: 3.5em;
 	}
 
 #triangle-up {
@@ -351,6 +354,7 @@ ul.contact li a:before
 	border-right: 60px solid transparent;
 	border-bottom: 30px solid #3D3D3D;
 }
+
 
 /*********************************************************************************/
 /* Logo                                                                          */
