@@ -333,21 +333,37 @@ ul.contact li a:before
 	#header-wrapper
 	{
 		overflow: hidden;
+<<<<<<< HEAD
 		padding: 0.5em 0em 0em 0em;
 		background: #FFC000 url(images/overlay.png) repeat;
+=======
+		padding: 5em 0em 0em 0em;
+		background: #FFC000 url(overlay.png) repeat;
+>>>>>>> 23b14ac0d1ffa3b1f1b91c367a6bec85f65cc7a8
 	}
 
 	#header
 	{
+<<<<<<< HEAD
 	color: #FFF;
 	background: #FFC000;
 	text-align:center;
 	padding: 1em 0em;
 	font-size: 3.5em;
+=======
+		text-align: center;
+		display: block;
+		padding-top: 1em;
+		letter-spacing: 0.10em;
+		text-transform: uppercase;
+		font-size: 4.0em;
+		color: rgba(255,255,255,1.0);
+>>>>>>> 23b14ac0d1ffa3b1f1b91c367a6bec85f65cc7a8
 	}
 
 #triangle-up {
 	margin: 0 auto;
+	padding-bottom: 1em;
 	width: 0;
 	height: 0;
 	border-left: 60px solid transparent;
@@ -684,6 +700,7 @@ ul.contact li a:before
 
 	#header-featured
 	{
+
 		height: 30em;
 		background-image: url(images/banner.jpg);
 		background-position: center;

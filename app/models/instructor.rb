@@ -1,7 +1,8 @@
 class Instructor < ActiveRecord::Base
 has_many :fcqs
 has_many :courses, through: :fcqs
-
+validates :instructor_first, :instructor_last, presence: true
+validates_uniqueness_of :instructor_first, scope: [:instructor_last]
 #respect
 #availability
 #effectiveness
@@ -10,7 +11,9 @@ has_many :courses, through: :fcqs
 #classes taught
 #students taught
 #records since
-
+def full_name
+	return "#{self.instructor_first} #{self.instructor_last}"
+end
 
 def average_respect
   self.fcqs.average(:respect)
