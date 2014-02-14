@@ -29,8 +29,17 @@ Released   : 20131117
 <body>
 
 <div id="header-wrapper">
+	<header class="navbar navbar-inverse">
+        <nav>
+          	<ul class="nav pull-right">
+           		<li><%= link_to "Sign In", '#' %></li>
+            	<li><%= link_to "Home", '#' %></li>
+           		<li><%= link_to "Help", '#' %></li>
+         	</ul>
+       	</nav>
+	</header>
 	<div id="header" class="container">
-		Search like you give a FCQ
+		<th> Search like you give a FCQ
 
 	<div id="triangle-up"></div>
 	</div>
@@ -41,7 +50,7 @@ Released   : 20131117
 				<li class="current_page_item"><a href="#" accesskey="1" title="">About Us</a></li>
 				<li><a href="#" accesskey="2" title="">Fcqs</a></li>
 				<li><a href="#" accesskey="3" title="">Search</a></li>
-				<li><a href="#" accesskey="4" title="">Bees?</a></li>
+				<li><a href="#" accesskey="4" title="">Sign Up</a></li>
 				<li><a href="#" accesskey="5" title="">Contact Us</a></li>
 			</ul>
 		</div>
@@ -52,17 +61,19 @@ Released   : 20131117
 		<div class="extra2 container">
 			<div class="ebox1">
 				<div class="title">
-					<h2>Alex, Sam and Cris made this</h2>
-					<span class="byline">Faculty-Course Quuestionaires made easy</span>
+					<!-- <h2>Alex, Sam and Cris made this</h2> -->
+					<span class="byline">Faculty-Course Questionaires made easy</span>
 				</div>
 
 				<%= form_tag("/search", method: "get") do %>
-				  <%= label_tag(:q, "Search for:") %>
+				  <!--<%= label_tag(:q, "Search for:") %>-->
 				  <%= text_field_tag(:q) %>
-				  <br>
+				  <!-- <br>
 				  <%= submit_tag("Search") %>
+				  <br>  -->
 				  <br>
-				  <a href="#" class="button">This is a button!</a>
+				  <a href="submit_tag" class="button">Search</a>
+				  <br> 
 
 				<% end %>
 			
@@ -71,7 +82,7 @@ Released   : 20131117
 				<%= check_box_tag(:search_instructor) %>
 				<%= label_tag(:search_instructor, "Search by Instructor") %>
 
-				<p>The current CU website <strong>sucks dick.</strong> This is a website designed to help you find everything about CU teachers and courses, and their past track records.
+				<p>This is a website designed to help you find everything about CU teachers and courses, and their past track records.
 				<br>
 			</div>			
 

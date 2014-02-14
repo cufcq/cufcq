@@ -12,7 +12,7 @@ validates_uniqueness_of :instructor_first, scope: [:instructor_last]
 #students taught
 #records since
 def full_name
-	:instructor_first + :instructor_last
+	return "#{self.instructor_first} #{self.instructor_last}"
 end
 
 def average_respect
