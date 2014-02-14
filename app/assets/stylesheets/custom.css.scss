@@ -329,16 +329,18 @@ ul.contact li a:before
 /* Header                                                                        */
 /*********************************************************************************/
 
+
 	#header-wrapper
 	{
 		overflow: hidden;
-		padding: 0em 0em 0em 0em;
+		padding: 5em 0em 0em 0em;
 		background: #FFC000 url(images/overlay.png) repeat;
 	}
 
 	#header
 	{
 	color: #FFF;
+	background: #FFC000;
 	}
 
 #triangle-up {
