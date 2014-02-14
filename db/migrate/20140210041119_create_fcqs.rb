@@ -28,5 +28,7 @@ class CreateFcqs < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :fcqs, [:instructor_first, :instructor_last]
+    add_index :fcqs, [:course_title]
   end
 end

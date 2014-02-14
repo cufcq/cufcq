@@ -2,7 +2,10 @@ VALID_TERMS = {1 => "Spring",4 => "Summer",7=>"Fall"}
 VALID_GROUPS = ["TA", "TTT", "OTH"]
 class FcqValidator < ActiveModel::Validator
   def validate(record)
-    if !VALID_TERMS.has_key?(record.yearterm % 10)
+    key = record.yearterm || 0
+    puts key
+    key %= 10
+    if !VALID_TERMS.has_key?(key)
       record.errors[:base] << "term is not valid! must end in 1, 4, 7 to indicate Spring, Summer and Fall respectively"
     end
     if !VALID_GROUPS.include?(record.instructor_group)
@@ -28,7 +31,7 @@ class Fcq < ActiveRecord::Base
   validates_with FcqValidator
   #validates uniqueness
   #validates :yearterm, uniqueness: true
-  validates_uniqueness_of :sec, scope: [:crse, :subject, :yearterm]
+  validates_uniqueness_of :sec, scope: [:crse, :subject, :yearterm, :instructor_last, :instructor_first]
 
   attr_reader :float_passed
   def float_passed

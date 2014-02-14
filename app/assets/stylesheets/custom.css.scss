@@ -333,15 +333,23 @@ ul.contact li a:before
 	{
 		overflow: hidden;
 		padding: 5em 0em 0em 0em;
-		background: #FFC000 url(images/overlay.png) repeat;
+		background: #FFC000 url(overlay.png) repeat;
 	}
 
 	#header
 	{
+		text-align: center;
+		display: block;
+		padding-top: 1em;
+		letter-spacing: 0.10em;
+		text-transform: uppercase;
+		font-size: 4.0em;
+		color: rgba(255,255,255,1.0);
 	}
 
 #triangle-up {
 	margin: 0 auto;
+	padding-bottom: 1em;
 	width: 0;
 	height: 0;
 	border-left: 60px solid transparent;
@@ -677,6 +685,7 @@ ul.contact li a:before
 
 	#header-featured
 	{
+
 		height: 30em;
 		background-image: url(images/banner.jpg);
 		background-position: center;
