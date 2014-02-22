@@ -16,15 +16,15 @@ def full_name
 end
 
 def average_respect
-  self.fcqs.average(:respect)
+  self.fcqs.average(:respect).round(1)
 end
 
 def average_availability
-  self.fcqs.average(:availability)
+  self.fcqs.average(:availability).round(1)
 end
 
 def average_effectiveness
-  self.fcqs.average(:effectiveness)
+  self.fcqs.average(:effectiveness).round(1)
 end
 
 def total_requested
@@ -44,7 +44,7 @@ def average_percentage_passed
 end
 
 def average_instructor_overall
-  self.fcqs.average(:instructor_overall)
+  self.fcqs.average(:instructor_overall).round(1)
 end
 
 def courses_taught

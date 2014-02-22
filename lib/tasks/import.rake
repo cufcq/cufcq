@@ -23,18 +23,6 @@ task :import => :environment do
     end
 end
 
-def get_instructor(params)
-  begin
-    return Instructor.create!(params)
-  rescue ActiveRecord::RecordNotUnique => unique
-    return Instructor.where(instructor_first: h["instructor_first"], instructor_last: h["instructor_last"])
-  rescue e
-    puts e.message
-    return nil
-  end
-end
-
-
 
 task :instructor_populate => :environment do
   Fcq.find_each do |x|
@@ -42,25 +30,11 @@ task :instructor_populate => :environment do
       params = {"instructor_first" => x.instructor_first, "instructor_last" => x.instructor_last}
       puts params
       i = Instructor.create!(params)
-      #puts i
-      puts insert(i, x)
-      rescue ActiveRecord::RecordInvalid => invalid
-        #puts invalid.message
-      rescue ActiveRecord::RecordNotUnique => unique
-        puts "skip!" + params
-        i = Instructor.where({instructor_first: x.instructor_first, instructor_last: x.instructor_last})
-        puts insert(i, x)
-        next
       rescue
-      end
+      puts "rescued"
     end
-end
-
-def insert(inst, fcq)
-  if(inst.fcqs.exists?(fcq))
-    return inst
-  else
-    inst.fcqs << fcq
-    return inst
-  end
+      i = i.nil? ? Instructor.where(params).first : i
+      i.fcqs << x  unless (i.fcqs.exists?(x))
+      puts i.id + x.id
+    end      
 end

@@ -1,6 +1,11 @@
 class CreateFcqs < ActiveRecord::Migration
   def change
+
+
+
     create_table :fcqs do |t|
+      t.belongs_to :instructor
+      t.belongs_to :course
       t.integer :yearterm
       t.string :subject
       t.integer :crse
@@ -25,6 +30,7 @@ class CreateFcqs < ActiveRecord::Migration
       t.string :campus
       t.string :college
       t.string :instructor_group
+
 
       t.timestamps
     end
