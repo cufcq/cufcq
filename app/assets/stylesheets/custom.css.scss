@@ -47,7 +47,7 @@ a:hover
 .container
 {
 	margin: 0px auto;
-	width: 1200px;
+	width: 800px;
 }
 
 /*********************************************************************************/
@@ -333,19 +333,50 @@ ul.contact li a:before
 	#header-wrapper
 	{
 		overflow: hidden;
+		white-space: nowrap;
 		padding: 5em 0em 0em 0em;
 		background: #FFC000 url(overlay.png) repeat;
+		text-align: center;
 	}
 
 	#header
 	{
-		text-align: center;
+		
 		display: block;
 		padding-top: 1em;
 		letter-spacing: 0.10em;
 		text-transform: uppercase;
 		font-size: 4.0em;
 		color: rgba(255,255,255,1.0);
+		z-index: 5;
+	}
+
+	table
+	{
+	
+	         display: inline-block;
+             top: 20%;
+             bottom: 20%;
+             right: 20%;
+             left: 30%;
+             vertical-align: middle;
+	border:0px;
+	font-size: 0.3em;
+	
+	}
+	td
+	{
+	width: 64px;
+	padding: 32px 16px 0px 16px;
+	}
+
+	bold
+	{
+		font-size: 1.6em;
+	}
+	big
+	{
+		font-size: 2.0em;
 	}
 
 #triangle-up {
@@ -428,8 +459,7 @@ ul.contact li a:before
 	{
 		display: inline-block;
 		margin-left: 0.50em;
-		padding: 2em 1.5em 1em 1.5em;
-		letter-spacing: 0.20em;
+		padding: 2em 1.5em 2em 1.5em;
 		text-decoration: none;
 		font-size: 0.90em;
 		font-weight: 600;
@@ -440,6 +470,7 @@ ul.contact li a:before
 	
 	#menu li:hover a, #menu li.active a, #menu li.active span
 	{
+		color: rgba(0,255,255,.5);
 	}
 	
 	#menu .current_page_item a
@@ -987,3 +1018,54 @@ text-align: center;
 font-size: 1.5em;
 color: rgba(255,255,255,1.0);
 }
+
+	#data
+	{
+		background: #3D3D3D;
+		color: #FFF;
+	}
+	
+	#data ul
+	{
+		text-align: center;
+		margin: 0px auto;
+	}
+	
+	#data li
+	{
+		display: inline-block;
+	}
+
+	#data li a, #data li span
+	{
+		display: inline-block;
+		padding: 1em 1em 1em 1em;
+		width: 104px;
+		text-align: center;
+		text-decoration: none;
+  		letter-spacing: 0.15em;
+  		text-transform: uppercase;
+  		font-weight: 400;
+  		font-size: 1.1em;
+		outline: 0;
+		color: #FFF;
+	}
+
+	#data li:hover a, #menu li.active a, #menu li.active span
+	{
+		color: rgba(0,255,255,.5);
+	}
+
+	strong
+	{
+		font-size:35px;
+		font-weight: 500;
+
+	}
+
+	overall
+	{
+		font-size:43px;
+		font-weight: 600;
+	}
+

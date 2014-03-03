@@ -61,6 +61,12 @@ class InstructorsController < ApplicationController
     end
   end
 
+attr_reader :chart
+def test_chart
+  @chart = Instructor.test_chart
+end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_instructor

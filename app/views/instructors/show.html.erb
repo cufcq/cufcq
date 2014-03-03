@@ -1,25 +1,54 @@
-<div id="header-wrapper">
-	<div id="header" class="container">
-		Instructor
-	<div id="triangle-up"></div>
-	</div>
-</div>
 
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/titlecard' %>
+<%= render 'layouts/scorecard' %>
 
-<p>
-  <strong>Instructor first:</strong>
-  <%= @instructor.full_name %>
-</p>
-<div id="data">
-<div class="box1">
-<%= @instructor.average_instructor_overall %>
-</div>
-</div>
-<p>
-  <strong>Instructor last:</strong>
-  <%= @instructor.instructor_last %>
-</p>
+<% @instructor.overall_query %>
+<script type="text/javascript">
+  $(function () {
+    new Highcharts.Chart({
+      title: {text: "OVERALL",
+            verticalAlign: 'bottom',
+          },
+      chart: { renderTo: 'container' },
+        legend: {
+            enabled: false
+        },
+        xAxis: {
+            tickPositions: [],
+            type: 'category',
+            categories: []
+        },
+        yAxis: {
+          max: 6,
+          min: 0,
+          title: {
+            text: null
+            }
+        },
+      tooltip: {
+        formatter: function () {
+          var n = this.x%10
+          var y = Math.floor(this.x/10);
+          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error "
+          return s+y+" : "+this.y
+      }
+    },
+    exporting: {
+        buttons: {
+            contextButtons: {
+                enabled: false,
+                menuItems: null
+            }
+        },
+        enabled: true
+    },    
+    series: [{
+        data: <%= @instructor.chart_data %>
+    }]
+    });
+  });
+</script>
+<div id="container" style="height: 300px"></div>
 
 <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
 <%= link_to 'Back', instructors_path %>

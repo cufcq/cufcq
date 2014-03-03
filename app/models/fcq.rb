@@ -33,9 +33,10 @@ class Fcq < ActiveRecord::Base
   #validates :yearterm, uniqueness: true
   validates_uniqueness_of :sec, scope: [:crse, :subject, :yearterm, :instructor_last, :instructor_first]
 
-  attr_reader :float_passed
   def float_passed
-    return :percentage_passed.delete("%").to_f / 100
+    passed = self.percentage_passed || "-100%"
+    return (passed.chop.to_f) / 100
+    #return 0.99
   end
 
   def uid
@@ -51,7 +52,21 @@ class Fcq < ActiveRecord::Base
   end
 
   def year
-    return yearterm / 10
+    return :yearterm / 10
+  end
+
+  attr_reader :semterm
+  def semterm
+    return (VALID_TERMS[:yearterm % 10] + year.to_S)
+  end
+
+  def self.semterm_from_int(s)
+    return (VALID_TERMS[s % 10] + " " + (s/10).to_s)
+  end
+
+
+  def bad?
+    return (:forms_returned < 1)
   end
 
 end
