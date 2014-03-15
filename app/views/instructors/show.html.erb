@@ -2,53 +2,23 @@
 <%= render 'layouts/titlecard' %>
 <%= render 'layouts/scorecard' %>
 
-<% @instructor.overall_query %>
-<script type="text/javascript">
-  $(function () {
-    new Highcharts.Chart({
-      title: {text: "OVERALL",
-            verticalAlign: 'bottom',
-          },
-      chart: { renderTo: 'container' },
-        legend: {
-            enabled: false
-        },
-        xAxis: {
-            tickPositions: [],
-            type: 'category',
-            categories: []
-        },
-        yAxis: {
-          max: 6,
-          min: 0,
-          title: {
-            text: null
-            }
-        },
-      tooltip: {
-        formatter: function () {
-          var n = this.x%10
-          var y = Math.floor(this.x/10);
-          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error "
-          return s+y+" : "+this.y
-      }
-    },
-    exporting: {
-        buttons: {
-            contextButtons: {
-                enabled: false,
-                menuItems: null
-            }
-        },
-        enabled: true
-    },    
-    series: [{
-        data: <%= @instructor.chart_data %>
-    }]
-    });
-  });
-</script>
-<div id="container" style="height: 300px"></div>
+<%= render 'layouts/graph' %>
+
+Name: <%= @instructor.full_name %> <br>
+Department: <%= @instructor.department %> <br>
+Started Teaching: <%= @instructor.started_teaching %> <br>
+<center>
+<% @instructor.fcqs.each do |fcq| %>
+<div id="Data" class=<%= fcq.color%>> <%= fcq.fcq_object%> </div> <br>
+<% end %>
+</center>
+
+
+
+
+
+
+
 
 <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
 <%= link_to 'Back', instructors_path %>

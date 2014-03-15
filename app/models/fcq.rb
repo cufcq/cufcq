@@ -44,29 +44,45 @@ class Fcq < ActiveRecord::Base
   end
 
   def ld?
-    return (:crse < 5000)
+    return (crse < 3000)
   end
 
   def ud?
-    return (:crse >= 5000)
+    return !(self.ld?) && (crse < 5000)
+  end
+
+  def grad?
+    return (crse >= 5000)
   end
 
   def year
-    return :yearterm / 10
+    return yearterm / 10
   end
 
   attr_reader :semterm
   def semterm
-    return (VALID_TERMS[:yearterm % 10] + year.to_S)
+    return (VALID_TERMS[yearterm % 10] + " " + year.to_s)
   end
 
   def self.semterm_from_int(s)
     return (VALID_TERMS[s % 10] + " " + (s/10).to_s)
   end
 
-
   def bad?
-    return (:forms_returned < 1)
+    return (forms_returned < 1)
   end
 
+  def color
+    if ld?
+      return "box1"
+    elsif ud?
+      return "box2"
+    else
+      return "box3"
+    end
+  end
+
+  def fcq_object
+    return %Q{#{semterm} | #{subject} #{crse}-#{sec} | #{course_title} | #{instructor_first} #{instructor_last}}
+  end
 end
