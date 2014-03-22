@@ -18,7 +18,7 @@ class Fcq < ActiveRecord::Base
   #Belongs to
   belongs_to :instructor
   belongs_to :course
-
+  belongs_to :department
   #validates the minimum entries are present
   validates :yearterm, :subject, :crse, :sec, :instructor_last, :instructor_first, :forms_requested, :forms_returned, :course_title, :campus, :college, :instructor_group, presence: true
   #validates entries match established patterns
@@ -54,6 +54,17 @@ class Fcq < ActiveRecord::Base
   def grad?
     return (crse >= 5000)
   end
+
+  def rank_string
+    if ld?
+      return "LD"
+    elsif ud?
+      return "UD"
+    else
+      return "GD"
+    end
+  end
+
 
   def year
     return yearterm / 10

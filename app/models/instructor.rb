@@ -29,6 +29,10 @@ def started_teaching
   Fcq.semterm_from_int(self.fcqs.minimum(:yearterm))
 end
 
+def latest_teaching
+  Fcq.semterm_from_int(self.fcqs.maximum(:yearterm))
+end
+
 def average_respect
   self.fcqs.average(:respect).round(1)
 end

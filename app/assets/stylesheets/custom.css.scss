@@ -285,10 +285,6 @@ ul.contact li a:before
 	color: #FFF;
 }
 
-.button:hover
-{
-}
-
 .button:active
 {
 }
@@ -1027,6 +1023,7 @@ font-size: 1.2em;
 color: rgba(255,255,255,1.0);
 background: #3D3D3D;
 }
+
 .box2
 {
 border:4px solid #004d7c;
@@ -1043,6 +1040,24 @@ border-radius:32px;
 text-align: center;
 font-size: 1.2em;
 }
+	.box1 bold
+	{
+	
+	font-size: 1.2em;
+		color: #007f46;
+	}
+	.box2 bold
+	{
+	
+	font-size: 1.2em;
+		color: #004d7c;
+	}
+	.box3 bold
+	{
+	
+	font-size: 1.2em;
+		color: #990033;
+	}
 
 	#data
 	{
@@ -1093,7 +1108,6 @@ font-size: 1.2em;
 	{
 		font-size:35px;
 		font-weight: 500;
-
 	}
 
 	overall
@@ -1101,4 +1115,3 @@ font-size: 1.2em;
 		font-size:43px;
 		font-weight: 600;
 	}
-

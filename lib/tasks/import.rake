@@ -38,3 +38,18 @@ task :instructor_populate => :environment do
       puts i.id + x.id
     end      
 end
+
+task :department_populate => :environment do
+  Fcq.find_each do |x|
+    begin
+      params = {"name" => x.subject, "college" => x.college, "campus" => x.campus}
+      puts params
+      i = Department.create!(params)
+      rescue
+      puts "rescued"
+     end
+      i = i.nil? ? Department.where(params).first : i
+      i.fcqs << x unless (i.fcqs.exists?(x))
+      puts i.id + x.id
+    end
+end

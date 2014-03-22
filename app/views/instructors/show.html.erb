@@ -4,14 +4,22 @@
 
 <%= render 'layouts/graph' %>
 
+
 Name: <%= @instructor.full_name %> <br>
 Department: <%= @instructor.department %> <br>
-Started Teaching: <%= @instructor.started_teaching %> <br>
-<center>
-<% @instructor.fcqs.each do |fcq| %>
-<div id="Data" class=<%= fcq.color%>> <%= fcq.fcq_object%> </div> <br>
-<% end %>
-</center>
+Earliest FCQ: <%= @instructor.started_teaching %> <br>
+Latest FCQ: <%= @instructor.latest_teaching %> <br>
+Group: <%= @instructor.instructor_group %> <br>
+
+Classes Taught: <%= @instructor.courses_taught %> <br>
+Students Taught: <%= @instructor.courses_taught %> <br>
+FCQS Requested: <%= @instructor.total_requested %> <br>
+FCQS Returned: <%= @instructor.total_returned %> <br>
+Requested_Returned_Ratio: <%= @instructor.requested_returned_ratio %> <br>
+
+ <%= render 'layouts/fcqcard' %><br>
+ 
+
 
 
 

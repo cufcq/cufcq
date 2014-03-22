@@ -1,8 +1,8 @@
 body {
   background-color: #fff;
-  color: #6c6c6c;
+  color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 18px;
 }
 
@@ -22,6 +22,10 @@ a {
   color: #000;
   &:visited {
     color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
   }
 }
 
