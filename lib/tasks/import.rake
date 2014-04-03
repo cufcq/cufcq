@@ -49,6 +49,7 @@ task :department_populate => :environment do
       puts "rescued"
      end
       i = i.nil? ? Department.where(params).first : i
+      #puts i
       i.fcqs << x unless (i.fcqs.exists?(x))
       puts i.id + x.id
     end
