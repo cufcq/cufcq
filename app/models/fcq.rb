@@ -40,7 +40,23 @@ class Fcq < ActiveRecord::Base
   end
 
   def uid
-    return "#{:yearterm}#{:subject}#{:crse}#{:sec}"
+    return "#{yearterm}#{subject}#{crse}#{sec}"
+  end
+
+  def title
+    if recitation?
+      return "#{capitalized_title}-REC"
+    else
+      return capitalized_title
+    end
+  end
+
+  def capitalized_title
+    return course_title.split.map(&:capitalize).join(' ')
+  end
+
+  def recitation?
+    return (course_title == "REC" || course_title == "RECITATION")
   end
 
   def ld?
@@ -94,6 +110,8 @@ class Fcq < ActiveRecord::Base
   end
 
   def fcq_object
-    return %Q{#{semterm} | #{subject} #{crse}-#{sec} | #{course_title} | #{instructor_first} #{instructor_last}}
+    #return %Q{#{semterm} | #{subject} #{crse}-#{sec} | #{title} | #{instructor_first} #{instructor_last}}
+    return %Q{#{semterm} #{subject} #{crse}-#{sec} #{title}}
   end
+
 end

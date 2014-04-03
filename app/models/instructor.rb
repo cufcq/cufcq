@@ -1,3 +1,7 @@
+IG_TTT = "tenured or tenure-track instructors"
+IG_OTH = "other primary instructors, such as GPTI, adjunct, visiting, honorarium, etc."
+IG_TA = "teaching assistants"
+
 class Instructor < ActiveRecord::Base
 has_many :fcqs
 has_many :courses, through: :fcqs
@@ -14,16 +18,27 @@ validates_uniqueness_of :instructor_first, scope: [:instructor_last]
 
 
 def full_name
-	return "#{self.instructor_first} #{self.instructor_last}"
+	return "#{self.instructor_first} #{self.instructor_last}".split.map(&:capitalize).join(' ')
 end
 
 def department
   self.fcqs.pluck(:subject).mode
 end
 
+def college
+  #currently defaults to string literal. This should be changed!
+  "Engineering"
+end
+
+def campus
+    #currently defaults to string literal. This should be changed!
+  "CU Boulder"
+end
+
 def instructor_group
   self.fcqs.pluck(:instructor_group).mode
 end
+
 
 def started_teaching
   Fcq.semterm_from_int(self.fcqs.minimum(:yearterm))
@@ -54,7 +69,7 @@ def total_returned
 end
 
 def requested_returned_ratio
-  total_requested.to_f / total_returned
+   (total_returned.to_f / total_requested.to_f).round(1)
 end
 
 def average_percentage_passed_float
@@ -105,12 +120,17 @@ def overall_query
   puts @chart_data
 end
 
-
-
-
-
-
-
-
+def instructor_group_flavor_text
+  case self.instructor_group
+  when "TTT" 
+    return "title = \"#{IG_TTT}\""
+  when "OTH"
+    return "other primary instructors, such as GPTI, adjunct, visiting, honorarium, etc."
+  when "TA"
+    return "title = \"#{IG_TA}\""
+  else
+    return "ERROR! Flavor text not found"
+  end
 end
 
+end

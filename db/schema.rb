@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140319211640) do
   create_table "fcqs", force: true do |t|
     t.integer  "instructor_id"
     t.integer  "course_id"
+    t.integer  "department_id"
     t.integer  "yearterm"
     t.string   "subject"
     t.integer  "crse"

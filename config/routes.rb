@@ -1,11 +1,10 @@
 Cufcq::Application.routes.draw do
-  resources :departments
 
-  get "static_pages/home"
+  root 'static_pages#home'
   get "static_pages/help"
   get "static_pages/about"
   resources :courses
-
+  resources :departments
   resources :instructors
 
   resources :fcqs

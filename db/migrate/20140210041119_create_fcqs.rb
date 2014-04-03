@@ -6,6 +6,7 @@ class CreateFcqs < ActiveRecord::Migration
     create_table :fcqs do |t|
       t.belongs_to :instructor
       t.belongs_to :course
+      t.belongs_to :department
       t.integer :yearterm
       t.string :subject
       t.integer :crse
