@@ -49,8 +49,19 @@ This combines all of our data and allows to work with different indivudal depart
 
 ###Models:
 
-####courses.rb 
+####course.rb 
 
 This has the methods to work with each course. 
 
+####department.rb 
+
+This has the methods to analyze department-wide data. 
+
+####fcq.rb 
+
+This has the methods to work with each individual FCQ. 
+
+####instructor.rb 
+
+We can use this model to parse individual instructor data.  
 
