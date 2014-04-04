@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 this is sam's edit
+=======
+This is Cris's Edit.
+>>>>>>> 804a17291b9e77b87df652e70589e5d5ed232db9
