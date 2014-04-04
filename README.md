@@ -33,16 +33,24 @@ Example: Find out the overall average respect rating for a teacher based on all 
 
 ####instructors_controller.rb
 
-We can use this controller to mine specific data about each instructor.
+We can use this controller to get specific data about each instructor from the DB.
 
 ####fcqa_controller.rb
 
-This controller is used to access info about each individual fcq. 
+This controller is used to access info about each individual fcq from the DB. 
 
 ####courses_controller.rb
 
-The courses controller has methods to work with each individual course. 
+The courses controller pull by individual course. 
 
 ####departments_controller.rb
 
-This combines all of our data and allows to analyze different indivudal departments. 
+This combines all of our data and allows to work with different indivudal departments. 
+
+###Models:
+
+####courses.rb 
+
+This has the methods to work with each course. 
+
+
