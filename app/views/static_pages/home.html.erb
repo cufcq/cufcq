@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Plushiness 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20131117
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!--
+
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+-->
+
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+<body>
+
+<div id="header-wrapper">
+	<header class="navbar navbar-inverse">
+        <nav>
+          	<ul class="nav pull-right">
+           		<li><%= link_to "Sign In", '#' %></li>
+            	<li><%= link_to "Home", '#' %></li>
+           		<li><%= link_to "Help", '#' %></li>
+         	</ul>
+       	</nav>
+	</header>
+	<div id="header" class="container">
+		<th> Search like you give a FCQ
+	</div>
+
+	<div id="triangle-up"></div>
+	</div>
+	
+</div>
+<div id="menu-wrapper">
+		<div id="menu">
+			<ul>
+				<li class="current_page_item"><a href="#" accesskey="1" title="">About Us</a></li>
+				<li class="current_page_item"><a href="#" accesskey="2" title="">Fcqs</a></li>
+				<li class="current_page_item"><a href="#" accesskey="3" title="">Search</a></li>
+				<li class="current_page_item"><a href="#" accesskey="4" title="">Sign Up</a></li>
+				<li class="current_page_item"><a href="#" accesskey="5" title="">Contact Us</a></li>
+			</ul>
+		</div>
+</div>
+<div id="wrapper">
+	<div id="featured-wrapper">
+	
+		<div class="extra2 container">
+			<div class="ebox1">
+				<div class="title">
+					<!-- <h2>Alex, Sam and Cris made this</h2> -->
+					<span class="byline">Faculty-Course Questionaires made easy</span>
+				</div>
+
+				<%= form_tag("/search", method: "get") do %>
+				  <!--<%= label_tag(:q, "Search for:") %>-->
+				  <%= text_field_tag(:q) %>
+				  <!-- <br>
+				  <%= submit_tag("Search") %>
+				  <br>  -->
+				  <br>
+				  <a href="submit_tag" class="button">Search</a>
+				  <br> 
+
+				<% end %>
+			
+				<%= check_box_tag(:search_class) %>
+				<%= label_tag(:serach_class, "Search by class") %>
+				<%= check_box_tag(:search_instructor) %>
+				<%= label_tag(:search_instructor, "Search by Instructor") %>
+
+				<p>This is a website designed to help you find everything about CU teachers and courses, and their past track records.
+				<br>
+			</div>			
+
+		</div>	
+
+	</div>
+</div>
+</body>
+</html>

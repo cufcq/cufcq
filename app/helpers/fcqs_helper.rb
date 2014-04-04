@@ -1,0 +1,2 @@
+module FcqsHelper
+end
