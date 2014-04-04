@@ -15,5 +15,10 @@
   <%= @department.campus %>
 </p>
 
+
+<%= @department.instructors_by_courses_taught %><br>
+
+<%= @department.course_count %><br>
+
 <%= link_to 'Edit', edit_department_path(@department) %> |
 <%= link_to 'Back', departments_path %>

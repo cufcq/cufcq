@@ -16,9 +16,12 @@ validates_uniqueness_of :instructor_first, scope: [:instructor_last]
 #students taught
 #records since
 
+def name
+  return "#{self.instructor_first} #{self.instructor_last}"
+end
 
 def full_name
-	return "#{self.instructor_first} #{self.instructor_last}".split.map(&:capitalize).join(' ')
+	return name.split.map(&:capitalize).join(' ')
 end
 
 def department
@@ -39,6 +42,9 @@ def instructor_group
   self.fcqs.pluck(:instructor_group).mode
 end
 
+def is_TA
+  return (instructor_group == "TA") ? true : false
+end
 
 def started_teaching
   Fcq.semterm_from_int(self.fcqs.minimum(:yearterm))
