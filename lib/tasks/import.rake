@@ -24,20 +24,7 @@ task :import => :environment do
 end
 
 
-task :instructor_populate => :environment do
-  Fcq.find_each do |x|
-    begin
-      params = {"instructor_first" => x.instructor_first, "instructor_last" => x.instructor_last}
-      puts params
-      i = Instructor.create!(params)
-      rescue
-      puts "rescued"
-    end
-      i = i.nil? ? Instructor.where(params).first : i
-      i.fcqs << x  unless (i.fcqs.exists?(x))
-      puts i.id + x.id
-    end      
-end
+
 
 task :department_populate => :environment do
   Fcq.find_each do |x|
@@ -53,4 +40,36 @@ task :department_populate => :environment do
       i.fcqs << x unless (i.fcqs.exists?(x))
       puts i.id + x.id
     end
+end
+
+task :instructor_populate => :environment do
+  Fcq.find_each do |x|
+    begin
+      params = {"instructor_first" => x.instructor_first, "instructor_last" => x.instructor_last}
+      puts params
+      i = Instructor.create!(params)
+      rescue
+      puts "rescued"
+    end
+      i = i.nil? ? Instructor.where(params).first : i
+      i.fcqs << x  unless (i.fcqs.exists?(x))
+      i.build_department
+      puts i.id + x.id
+    end      
+end
+
+task :course_populate => :environment do
+  Fcq.find_each do |x|
+    begin
+      params = {"course_title" => x.course_title, "crse" => x.crse, "subject" => x.subject}
+      puts params
+      i = Course.create!(params)
+      rescue
+      puts "rescued"
+    end
+      i = i.nil? ? Instructor.where(params).first : i
+      i.fcqs << x  unless (i.fcqs.exists?(x))
+      i.build_department
+      puts i.id + x.id
+    end      
 end

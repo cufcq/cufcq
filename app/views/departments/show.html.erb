@@ -15,8 +15,11 @@
   <%= @department.campus %>
 </p>
 
-
+<%= @department.instructors_by_courses_taught.class %><br>
 <%= @department.instructors_by_courses_taught %><br>
+<% @department.set_rank %>
+
+<%= @department.instructors_rank %>
 
 <%= @department.course_count %><br>
 

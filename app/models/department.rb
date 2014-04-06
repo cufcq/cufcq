@@ -16,11 +16,27 @@ class Department < ActiveRecord::Base
 	end
 
 	def instructors_by_courses_taught
+		#taught a minimum of 3 courses
 		set = instructors_count.delete_if{|k,v| v < 3}
+		#no TAs allowed
 		set = set.delete_if{|k,v| get_instructor(k).is_TA}
+		#sort by average overall
 		set.sort_by{|k,v| get_instructor(k).average_instructor_overall}
 	end
 
+	def set_rank
+		ibct = instructors_by_courses_taught
+		result = Hash.new
+		s = ibct.length
+		i = 0
+		ibct.each {|k,v| result[k] = s - i; i+=1}
+		@instructors_rank = result
+	end
+
+	def instructor_rank(fname,lname),
+		a = [fname,lname]
+		@instructors_rank.include?(a) ? @instructors_rank[a] : "N/A"
+	end
 
 
 	def course_count

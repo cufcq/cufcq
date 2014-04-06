@@ -330,17 +330,16 @@ ul.contact li a:before
 	{
 		overflow: hidden;
 		white-space: nowrap;
-		padding: 5em 0em 0em 0em;
+		padding: 3em 0em 0em 0em;
 		background: #FFC000 url(overlay.png) repeat;
 		text-align: center;
 		-webkit-touch-callout: none;
 -webkit-user-select: none; /* Webkit */
 -moz-user-select: none;    /* Firefox */
 -ms-user-select: none;     /* IE 10  */
-
-/* Currently not supported in Opera but will be soon */
 -o-user-select: none;
-user-select: none;  
+user-select: none;
+ 
 	}
 
 	#header
@@ -353,6 +352,13 @@ user-select: none;
 		font-size: 4.0em;
 		color: rgba(255,255,255,1.0);
 		z-index: 5;
+	}
+
+	#instructor_icon {
+    	background-image: url('/images/instructor_icon_256.png');
+    	background-size:contain;
+    	width: 64px;
+    	height: 64px;
 	}
 
 	table

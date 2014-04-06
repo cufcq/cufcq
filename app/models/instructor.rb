@@ -5,6 +5,7 @@ IG_TA = "teaching assistants"
 class Instructor < ActiveRecord::Base
 has_many :fcqs
 has_many :courses, through: :fcqs
+has_one :department, through: :fcqs
 validates :instructor_first, :instructor_last, presence: true
 validates_uniqueness_of :instructor_first, scope: [:instructor_last]
 #respect
@@ -25,7 +26,12 @@ def full_name
 end
 
 def department
-  self.fcqs.pluck(:subject).mode
+  #self.fcqs.pluck(:subject).mode
+  self.fcqs.class
+end
+
+def department_instance
+  return 5
 end
 
 def college
@@ -73,6 +79,7 @@ end
 def total_returned
   self.fcqs.sum(:forms_returned)
 end
+
 
 def requested_returned_ratio
    (total_returned.to_f / total_requested.to_f).round(1)
