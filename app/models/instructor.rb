@@ -136,11 +136,11 @@ end
 def instructor_group_flavor_text
   case self.instructor_group
   when "TTT" 
-    return "title = \"#{IG_TTT}\""
+    return IG_TTT
   when "OTH"
-    return "other primary instructors, such as GPTI, adjunct, visiting, honorarium, etc."
+    return IG_OTH
   when "TA"
-    return "title = \"#{IG_TA}\""
+    return IG_TA
   else
     return "ERROR! Flavor text not found"
   end
