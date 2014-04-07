@@ -1,4 +1,3 @@
-<%= render 'layouts/fcq_titlecard' %>
 <p id="notice"><%= notice %></p>
 
 <p>

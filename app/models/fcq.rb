@@ -55,8 +55,18 @@ class Fcq < ActiveRecord::Base
     return course_title.split.map(&:capitalize).join(' ')
   end
 
+  def correct_title(title)
+    course_title = title
+  end
+
   def recitation?
-    return (course_title == "REC" || course_title == "RECITATION")
+    if (course_title == "REC" || course_title == "RECITATION")
+      return true
+    elsif (sec == 1 || sec == 10 || sec == 100)
+      return false
+    else 
+      return true
+    end
   end
 
   def ld?
@@ -73,11 +83,11 @@ class Fcq < ActiveRecord::Base
 
   def rank_string
     if ld?
-      return "LD"
+      return "Lower Division"
     elsif ud?
-      return "UD"
+      return "Upper Division"
     else
-      return "GD"
+      return "Graduate Level"
     end
   end
 
@@ -112,6 +122,29 @@ class Fcq < ActiveRecord::Base
   def fcq_object
     #return %Q{#{semterm} | #{subject} #{crse}-#{sec} | #{title} | #{instructor_first} #{instructor_last}}
     return %Q{#{semterm} #{subject} #{crse}-#{sec} #{title}}
+  end
+
+  def fcq_header
+    #return %Q{#{semterm} | #{subject} #{crse}-#{sec} | #{title} | #{instructor_first} #{instructor_last}}
+    return "#{subject} #{crse}-#{sec}"
+  end
+
+  def img_file
+    if ld?
+      return "fcq_64_ld.png"
+    elsif ud?
+      return "fcq_64_ud.png"
+    else
+      return "fcq_64_gd.png"
+    end
+  end
+
+  def requested_returned_string
+    "#{forms_returned} / #{forms_requested}"
+  end
+
+  def instructor_full_name
+    "#{instructor_first} #{instructor_last}"
   end
 
 end

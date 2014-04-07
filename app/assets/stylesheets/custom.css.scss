@@ -330,7 +330,7 @@ ul.contact li a:before
 	{
 		overflow: hidden;
 		white-space: nowrap;
-		padding: 3em 0em 0em 0em;
+		padding: 0em 0em 0em 0em;
 		background: #FFC000 url(overlay.png) repeat;
 		text-align: center;
 		-webkit-touch-callout: none;
@@ -350,6 +350,18 @@ user-select: none;
 		letter-spacing: 0.10em;
 		text-transform: uppercase;
 		font-size: 4.0em;
+		color: rgba(255,255,255,1.0);
+		z-index: 5;
+	}
+
+	#fcq_header
+	{
+		
+		display: block;
+		padding-top: 1em;
+		letter-spacing: 0.10em;
+		text-transform: uppercase;
+		font-size: 2.0em;
 		color: rgba(255,255,255,1.0);
 		z-index: 5;
 	}
@@ -390,6 +402,8 @@ user-select: none;
 	}
 
 #triangle-up {
+	text-align: left;
+	vertical-align:text-top;
 	margin: 0 auto;
 	padding-bottom: 1em;
 	width: 0;
@@ -398,6 +412,7 @@ user-select: none;
 	border-right: 60px solid transparent;
 	border-bottom: 30px solid #3D3D3D;
 }
+
 
 /*********************************************************************************/
 /* Logo                                                                          */

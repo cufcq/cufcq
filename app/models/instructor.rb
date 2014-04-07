@@ -1,11 +1,11 @@
-IG_TTT = "tenured or tenure-track instructors"
-IG_OTH = "other primary instructors, such as GPTI, adjunct, visiting, honorarium, etc."
-IG_TA = "teaching assistants"
+IG_TTT = "tenured or tenure-track instructor"
+IG_OTH = "other primary instructor, such as GPTI, adjunct, visiting, honorarium, etc."
+IG_TA = "teaching assistant"
 
 class Instructor < ActiveRecord::Base
 has_many :fcqs
 has_many :courses, through: :fcqs
-has_one :department, through: :fcqs
+has_many :department, through: :fcqs
 validates :instructor_first, :instructor_last, presence: true
 validates_uniqueness_of :instructor_first, scope: [:instructor_last]
 #respect
