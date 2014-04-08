@@ -56,11 +56,13 @@ class Fcq < ActiveRecord::Base
   end
 
   def correct_title(title)
-    course_title = title
+    write_attribute(:course_title, title)
   end
 
   def recitation?
     if (course_title == "REC" || course_title == "RECITATION")
+      return true
+    elsif instructor_group == "TA"
       return true
     elsif (sec == 1 || sec == 10 || sec == 100)
       return false
@@ -91,6 +93,15 @@ class Fcq < ActiveRecord::Base
     end
   end
 
+  def rank_string_abridged
+    if ld?
+      return "ld"
+    elsif ud?
+      return "ud"
+    else
+      return "gd"
+    end
+  end
 
   def year
     return yearterm / 10

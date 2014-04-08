@@ -1,6 +1,6 @@
 <div id="header-wrapper">
-	<div id="fcq_header" class="container">
-		 <%= @fcq.fcq_header %><br><%= @fcq.course_title %> <%= image_tag "fcq_64.png", alt: @fcq.rank_string, title: @fcq.rank_string%><br>
-		<table><tr><td></td><td><bold><%= @fcq.semterm %></bold></td><td><div id="triangle-up"></div></td><td><bold><%= @fcq.instructor_full_name %></bold></td><td></td></tr></table>
+	<div id="fcq_header" class=<%= @fcq.rank_string_abridged %>>
+		 <%= image_tag "fcq_64_w.png", alt: @fcq.rank_string, title: @fcq.rank_string%><%= @fcq.fcq_header %><br><%= @fcq.course_title %> <br>
+		<table><tr><td><bold><%= @fcq.semterm %></bold></td><td><bold><%= @fcq.instructor_full_name %></bold></td></tr></table>
 	</div>
 </div>

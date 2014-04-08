@@ -70,7 +70,7 @@ task :course_populate => :environment do
       end
       i = Course.create!(params)
       rescue Exception => e
-        puts "rescued -" + e.message      
+        puts "rescued -" + e.inspect     
     end
       #puts params
       i = i.nil? ? Course.where(params).first : i
@@ -79,19 +79,51 @@ task :course_populate => :environment do
     end      
 end
 
+task :ic_relations => :environment do
+  Instructor.find_each do |i|
+    begin
+      puts i.instructor_last
+      i.fcqs.to_a.each do |f|
+
+        params = {"course_title" => f.course_title, "crse" => f.crse, "subject" => f.subject}
+
+
+        c = Course.where(params).first
+
+        c.instructors << i unless c.instructors.exists?(i)
+        i.courses << c unless i.courses.exists?(c)
+        puts c.course_title.to_s + " <-> " + i.full_name.to_s
+      end
+      #puts c.instructors
+
+      rescue ActiveRecord::RecordInvalid => e
+        puts "skipping invalid record, this is intentional"
+        next
+      rescue ActiveRecord::AssociationTypeMismatch => e
+        puts "association mismatch error, this means courses are having a hard time being found/associated. This is bad"
+      rescue Exception => e
+        puts "rescued -" + e.inspect
+      end
+    end     
+end
+
+
 task :recitation_correction => :environment do
   Fcq.find_each do |x|
     begin
-      if(x.recitation?)
+      if(!x.recitation?)
         next
       end
-      params = {"course_title" => x.course_title, "crse" => x.crse, "subject" => x.subject}
+      params = {"crse" => x.crse, "subject" => x.subject}
       i = Course.where(params).first
+      puts i.course_title
       pre = x.course_title
       x.correct_title(i.course_title)
-      puts pre + " - " + x.course_title
-      rescue Exception => e
+      puts pre + " -> " + x.course_title
+    rescue Exception => e
         puts "rescued -" + e.message + " - " + x.course_title
-    end      
+    end     
   end
+
+#eof
 end

@@ -46,9 +46,29 @@ a:hover
 
 .container
 {
-	margin: 0px auto;
-	width: 800px;
+	min-width: 100%;
+	background: #FFC000 url(overlay.png) repeat;
+	margin: 0px fixed;
 }
+
+.ld
+{
+	background: #007f46 url(overlay.png) repeat;;
+	margin: 0px fixed;
+}
+
+.ud
+{
+	background: #004d7c url(overlay.png) repeat;;
+		margin: 0px fixed;
+}
+
+.gd
+{
+	background: #990033 url(overlay.png) repeat;;
+		margin: 0px fixed;
+}
+
 
 /*********************************************************************************/
 /* Image Style                                                                   */
@@ -331,8 +351,9 @@ ul.contact li a:before
 		overflow: hidden;
 		white-space: nowrap;
 		padding: 0em 0em 0em 0em;
-		background: #FFC000 url(overlay.png) repeat;
+		background: inherit;
 		text-align: center;
+		height: 172px;
 		-webkit-touch-callout: none;
 -webkit-user-select: none; /* Webkit */
 -moz-user-select: none;    /* Firefox */
@@ -344,7 +365,6 @@ user-select: none;
 
 	#header
 	{
-		
 		display: block;
 		padding-top: 1em;
 		letter-spacing: 0.10em;
@@ -356,11 +376,11 @@ user-select: none;
 
 	#fcq_header
 	{
-		
 		display: block;
 		padding-top: 1em;
 		letter-spacing: 0.10em;
 		text-transform: uppercase;
+		height: 172px;
 		font-size: 2.0em;
 		color: rgba(255,255,255,1.0);
 		z-index: 5;
@@ -375,21 +395,18 @@ user-select: none;
 
 	table
 	{
-	
-	         display: inline-block;
-             top: 20%;
-             bottom: 20%;
-             right: 20%;
-             left: 30%;
-             vertical-align: middle;
-	border:0px;
-	font-size: 0.3em;
-	
+	   display: inline-block;
+             vertical-align: top;
+	border: 0px;
+	font-size: 13px;
 	}
 	td
 	{
-	width: 64px;
+
+	text-overflow: string;
+		white-space: nowrap;
 	padding: 32px 16px 0px 16px;
+	min-width: 64px;
 	}
 
 	bold
@@ -403,8 +420,11 @@ user-select: none;
 
 #triangle-up {
 	text-align: left;
-	vertical-align:text-top;
-	margin: 0 auto;
+	position: absolute;
+	left: 45%;
+	top: 130px;
+
+	margin: 0 fixed;
 	padding-bottom: 1em;
 	width: 0;
 	height: 0;
@@ -1148,7 +1168,7 @@ color: #3d3d3d;
 
 	detail
 	{
-		font-size:20px;
+		font-size:28px;
 		font-weight: 500;
 	}
 
