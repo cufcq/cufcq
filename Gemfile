@@ -6,7 +6,7 @@ gem 'bootstrap-sass', '2.3.2.0'
 # Use sqlite3 as the database for Active Record
 group :development do
 gem 'sqlite3'
-gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'debugger', group: [:development, :test]
 gem 'database_cleaner'
 gem 'capybara'
 gem 'launchy'
