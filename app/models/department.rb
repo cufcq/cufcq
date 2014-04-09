@@ -33,7 +33,7 @@ class Department < ActiveRecord::Base
 		@instructors_rank = result
 	end
 
-	def instructor_rank(fname,lname),
+	def instructor_rank(fname,lname)
 		a = [fname,lname]
 		@instructors_rank.include?(a) ? @instructors_rank[a] : "N/A"
 	end

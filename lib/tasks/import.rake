@@ -86,12 +86,20 @@ task :ic_relations => :environment do
       i.fcqs.to_a.each do |f|
 
         params = {"course_title" => f.course_title, "crse" => f.crse, "subject" => f.subject}
-
+        dep_params = {"name" => f.subject, "college" => f.college, "campus" => f.campus}
 
         c = Course.where(params).first
-
+        d = Department.where(dep_params).first
+        
         c.instructors << i unless c.instructors.exists?(i)
         i.courses << c unless i.courses.exists?(c)
+        puts d.class
+        d.instructors << i unless d.instructors.exists?(i)
+
+        c.departments << d unless c.departments.exists(d)
+        i.departments << d unless i.departments.exists(d)
+        d.courses << c unless d.instructors.exists?(c)
+
         puts c.course_title.to_s + " <-> " + i.full_name.to_s
       end
       #puts c.instructors
@@ -103,6 +111,7 @@ task :ic_relations => :environment do
         puts "association mismatch error, this means courses are having a hard time being found/associated. This is bad"
       rescue Exception => e
         puts "rescued -" + e.inspect
+        puts __LINE__
       end
     end     
 end
