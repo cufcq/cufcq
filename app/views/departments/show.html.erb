@@ -1,3 +1,4 @@
+<%= render "layouts/department_titlecard" %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,13 +16,16 @@
   <%= @department.campus %>
 </p>
 
-<%= @department.instructors_by_courses_taught.class %><br>
+<%= @department.course_ld_count.class %> <%= @department.course_ld_count %><br>
 <%= @department.instructors_by_courses_taught %><br>
 <% @department.set_rank %>
 
-<%= @department.instructors_rank %>
-
 <%= @department.course_count %><br>
+
+<bold>test test</bold>
+
+<%= @department.instructors.count %>
+<%= @department.courses.count %>
 
 <%= link_to 'Edit', edit_department_path(@department) %> |
 <%= link_to 'Back', departments_path %>

@@ -3,9 +3,9 @@ IG_OTH = "other primary instructor, such as GPTI, adjunct, visiting, honorarium,
 IG_TA = "teaching assistant"
 
 class Instructor < ActiveRecord::Base
+belongs_to :department
 has_many :fcqs
 has_many :courses, through: :fcqs
-has_many :departments, through: :fcqs
 validates :instructor_first, :instructor_last, presence: true
 validates_uniqueness_of :instructor_first, scope: [:instructor_last]
 #respect
@@ -25,17 +25,8 @@ def full_name
 	return name.split.map(&:capitalize).join(' ')
 end
 
-def department
-  #self.fcqs.pluck(:subject).mode
-  self.departments.count
-end
-
 def instructor_object
   return %Q{#{college}}
-end
-
-def department_instance
-  return 5
 end
 
 def college

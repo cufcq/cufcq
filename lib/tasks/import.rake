@@ -10,8 +10,8 @@ task :import => :environment do
           #h = row.to_hash.select {|k,v| k == "instructor_first" || "k == instructor_last"}
           #inst = get_instructor(params)
           #inst.fcqs.create!(row.to_hash)
-      puts Fcq.create!(row.to_hash)
-
+      f = Fcq.create!(row.to_hash)
+      puts f.fcq_object
       rescue ActiveRecord::RecordInvalid => invalid
           puts invalid.message
           next
@@ -24,15 +24,20 @@ task :import => :environment do
     end
 end
 
-
+task :drop_tables => :environment do
+  drop_table :departments
+  drop_table :instructors
+  drop_table :courses
+end
 
 
 task :department_populate => :environment do
-  Fcq.find_each do |x|
+  Fcq.find_each(:batch_size => 200) do |x|
     begin
       params = {"name" => x.subject, "college" => x.college, "campus" => x.campus}
-      puts params
       i = Department.create!(params)
+
+      puts i
       rescue Exception => e
         puts "rescued -" + e.message
      end
@@ -44,11 +49,11 @@ task :department_populate => :environment do
 end
 
 task :instructor_populate => :environment do
-  Fcq.find_each do |x|
+  Fcq.find_each(:batch_size => 200) do |x|
     begin
       params = {"instructor_first" => x.instructor_first, "instructor_last" => x.instructor_last}
-      puts params
       i = Instructor.create!(params)
+      puts i
       rescue Exception => e
         puts "rescued -" + e.message
     end
@@ -59,10 +64,9 @@ task :instructor_populate => :environment do
 end
 
 task :course_populate => :environment do
-  Fcq.find_each do |x|
+  Fcq.find_each(:batch_size => 200) do |x|
     begin
       params = {"course_title" => x.course_title, "crse" => x.crse, "subject" => x.subject}
-      puts params
       title = x.course_title
       sec = x.sec
       if x.recitation?
@@ -90,31 +94,61 @@ task :ic_relations => :environment do
 
         c = Course.where(params).first
         d = Department.where(dep_params).first
-        
-        c.instructors << i unless c.instructors.exists?(i)
-        i.courses << c unless i.courses.exists?(c)
-        puts d.class
-        d.instructors << i unless d.instructors.exists?(i)
+        if c.nil? 
+          next
+        elsif d.nil?
+          next
+        end
 
-        c.departments << d unless c.departments.exists(d)
-        i.departments << d unless i.departments.exists(d)
-        d.courses << c unless d.instructors.exists?(c)
+        c.instructors << i unless c.instructors.exists?(i)
+        puts "added " + i.full_name.to_s + " to " + c.course_title.to_s
+        i.courses << c unless i.courses.exists?(c)
+        puts "added " + c.course_title.to_s + " to " + i.full_name.to_s
+        d.instructors << i unless d.instructors.exists?(i)
+        puts "added " + i.full_name.to_s + " to " + d.name.to_s
+        d.courses << c unless d.courses.exists?(c)
+        puts "added " + c.course_title.to_s + " to " + d.name.to_s
 
         puts c.course_title.to_s + " <-> " + i.full_name.to_s
       end
       #puts c.instructors
 
       rescue ActiveRecord::RecordInvalid => e
-        puts "skipping invalid record, this is intentional"
-        next
+        #puts "skipping invalid record, this is intentional"
       rescue ActiveRecord::AssociationTypeMismatch => e
         puts "association mismatch error, this means courses are having a hard time being found/associated. This is bad"
+      #end
       rescue Exception => e
         puts "rescued -" + e.inspect
-        puts __LINE__
       end
     end     
 end
+
+
+task :set_department_name => :environment do
+    puts "Setting Depart Long Names"
+    puts "For every Department code, Enter it's long name, eg"
+    puts "CSCI: Computer Science"
+  Department.find_each do |d|
+    begin
+      print d.name + ": "
+      ln = STDIN.gets.chomp
+      d.long_name = ln
+      puts d.long_name
+      d.save!
+      rescue Exception => e
+        puts "rescued -" + e.message
+     end
+     puts "finished"
+     d.save!
+    end
+         Department.find_each do |d|
+      puts d.long_name
+      end
+end
+
+
+
 
 
 task :recitation_correction => :environment do

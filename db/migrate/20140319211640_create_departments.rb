@@ -4,7 +4,7 @@ class CreateDepartments < ActiveRecord::Migration
       t.string :name
       t.string :college
       t.string :campus
-
+      t.string :long_name
       t.timestamps
     end
   end

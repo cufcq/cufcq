@@ -12,6 +12,5 @@ class CreateInstructors < ActiveRecord::Migration
 
 
 
-
   end
 end

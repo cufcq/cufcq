@@ -1,9 +1,25 @@
 class Department < ActiveRecord::Base
-	has_many :instructors, through: :fcqs
-	has_many :courses, through: :fcqs
-	has_many :fcqs
+	has_many :instructors, through: :fcqs, :uniq => true
+	has_many :courses, through: :fcqs, :uniq => true
+	has_many :fcqs, :uniq => true
 	validates :name, :college, :campus, presence: true
 	validates_uniqueness_of :name, scope: [:college, :campus]
+
+	def get_campus()
+		case campus
+		when "BD"
+			"University of Colorado Boulder -- "
+		else
+			"University of Colorado Boulder -- "
+		end
+	end
+
+	def get_college()
+		case college
+		when "EN"
+			"College of Engineering"
+		end
+	end
 
 	def get_instructor(a)
 		set = Instructor.where("instructor_first = ? AND instructor_last = ?", a[0], a[1])
@@ -17,11 +33,11 @@ class Department < ActiveRecord::Base
 
 	def instructors_by_courses_taught
 		#taught a minimum of 3 courses
-		set = instructors_count.delete_if{|k,v| v < 3}
+		set = self.instructors.group([:instructor_first,:instructor_last])
 		#no TAs allowed
-		set = set.delete_if{|k,v| get_instructor(k).is_TA}
+		set = set.delete_if{|x| x.instructor_group == "TA"}
 		#sort by average overall
-		set.sort_by{|k,v| get_instructor(k).average_instructor_overall}
+		set.sort_by{|x| x.average_instructor_overall}
 	end
 
 	def set_rank
@@ -40,7 +56,25 @@ class Department < ActiveRecord::Base
 
 
 	def course_count
-		self.fcqs.where('percentage_passed IS NOT NULL').group([:crse]).count.sort_by{|k,v| v}
+		self.courses.count
+	end
+	def course_ld_count
+		self.courses
+	end
+	def course_ud_count
+		self.courses.where("crse = ?",3000...5000).group("crse").to_a
+	end
+	def course_gd_count
+		self.courses.where("crse = ?",5000...10000).group("crse").to_a
+	end
+	def instructor_total_count
+		self.instructors.count
+	end
+	def instructor_ta_count
+		self.instructors.count
+	end
+	def instructor_nonta_count
+		self.instructors.count
 	end
 
 	def instructor_order

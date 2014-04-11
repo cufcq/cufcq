@@ -1,7 +1,8 @@
 class Course < ActiveRecord::Base
+belongs_to :department
 has_many :fcqs
 has_many :instructors, through: :fcqs
-has_many :departments, through: :fcqs
+
 
 validates :course_title, :crse, :subject, presence: true
 validates_uniqueness_of :crse, scope: [:subject, :course_title]
@@ -52,12 +53,6 @@ def overall_query
   interest.each {|k,v| @interest_data << [k,v.to_f.round(1)]}
   learned.each {|k,v| @learned_data << [k,v.to_f.round(1)]}
   #if any of the data is < 1.0, it marks it with an x marker
-  overall_data.swap(0.0, "{
-                    y: 0.0,
-                    marker: {
-                        symbol: \"url(http://hakenberg.de/_images/icon.red.gif)\"
-                    }
-                }")
   puts overall_data
   #@chart_data = fixedrecords.values
   puts @chart_data
