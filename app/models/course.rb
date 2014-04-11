@@ -1,3 +1,4 @@
+CURRENT_YEARTERM = 20141
 class Course < ActiveRecord::Base
 belongs_to :department
 has_many :fcqs
@@ -34,6 +35,10 @@ end
 def total_students_enrolled
 	return self.fcqs.sum(:forms_requested) 
 end
+
+def top_three_instructors
+  self.fcqs.sort(:)
+
 
 attr_reader :semesters, :overall_data, :challenge_data, :interest_data, :learned_data, :categories
 

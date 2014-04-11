@@ -5,21 +5,35 @@ class Department < ActiveRecord::Base
 	validates :name, :college, :campus, presence: true
 	validates_uniqueness_of :name, scope: [:college, :campus]
 
-	def get_campus()
+
+	def get_campus
 		case campus
 		when "BD"
-			"University of Colorado Boulder -- "
+			"University of Colorado Boulder"
 		else
-			"University of Colorado Boulder -- "
+			"Error!"
 		end
 	end
 
-	def get_college()
+	def get_college
 		case college
 		when "EN"
 			"College of Engineering"
 		end
 	end
+
+	def average_course_overall
+		return self.fcqs.average(:course_overall).round(1)
+	end
+
+	def average_instructor_overall
+		return self.fcqs.average(:course_overall).round(1)
+	end
+
+	def average_student_enrollment
+		return self.fcqs.group(:semterm).average(:course_overall).round(1)
+	end
+
 
 	def get_instructor(a)
 		set = Instructor.where("instructor_first = ? AND instructor_last = ?", a[0], a[1])

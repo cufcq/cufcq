@@ -126,25 +126,24 @@ end
 
 
 task :set_department_name => :environment do
-    puts "Setting Depart Long Names"
+    puts "Setting Department Long Names"
     puts "For every Department code, Enter it's long name, eg"
-    puts "CSCI: Computer Science"
   Department.find_each do |d|
     begin
       print d.name + ": "
       ln = STDIN.gets.chomp
-      d.long_name = ln
-      puts d.long_name
-      d.save!
+      #puts d.update_attribute(:long_name, ln)
+      
+      Department.update(d.id, :long_name => ln)
+      #puts d.long_name
       rescue Exception => e
         puts "rescued -" + e.message
      end
      puts "finished"
-     d.save!
     end
-         Department.find_each do |d|
+  Department.find_each do |d|
       puts d.long_name
-      end
+  end
 end
 
 
