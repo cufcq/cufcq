@@ -1,7 +1,8 @@
 class Department < ActiveRecord::Base
-	has_many :instructors, through: :fcqs, :uniq => true
-	has_many :courses, through: :fcqs, :uniq => true
-	has_many :fcqs, :uniq => true
+	has_many :instructors, -> { distinct }, through: :fcqs
+	has_many :courses, -> { distinct }, through: :fcqs
+	has_many :fcqs, -> { distinct },
+
 	validates :name, :college, :campus, presence: true
 	validates_uniqueness_of :name, scope: [:college, :campus]
 
