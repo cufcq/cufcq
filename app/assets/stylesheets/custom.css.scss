@@ -1071,7 +1071,6 @@ padding:8px 12px;
 border-radius:32px;
 text-align: center;
 font-size: 1.2em;
-
 }
 
 .box2
@@ -1085,6 +1084,22 @@ font-size: 1.2em;
 .box3
 {
 border:4px solid #990033;
+padding:8px 12px;
+border-radius:32px;
+text-align: center;
+font-size: 1.2em;
+}
+.box4 /* instructors */
+{
+border:4px solid #FFC000;
+padding:8px 12px;
+border-radius:32px;
+text-align: center;
+font-size: 1.2em;
+}
+.box5 /* courses */
+{
+border:4px solid #FF8000;
 padding:8px 12px;
 border-radius:32px;
 text-align: center;
@@ -1107,6 +1122,18 @@ font-size: 1.2em;
 	text-align: left !important;
 	font-size: 1.2em;
 		color: #990033;
+	}
+	.box4 bold
+	{
+	text-align: left !important;
+	font-size: 1.2em;
+		color: #FFC000;
+	}
+	.box5 bold
+	{
+	text-align: left !important;
+	font-size: 1.2em;
+		color: #FF8000;
 	}
 
 

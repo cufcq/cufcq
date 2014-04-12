@@ -36,9 +36,20 @@ def total_students_enrolled
 	return self.fcqs.sum(:forms_requested) 
 end
 
-def top_three_instructors
-  self.fcqs.sort(:)
+def instructors_sorted_by_instructor_overall
+  self.instructors.sort_by(:instructor_overall)
+end
 
+def course_object
+  %Q{#{subject} #{crse} - #{course_title}}
+end
+
+def overall_from_instructor(i)
+  fname = i.instructor_first
+  lname = i.instructor_last
+  set = self.fcqs.where("instructor_first = ? AND instructor_last = ?", fname, lname)
+  return set.average(:course_overall).round(1)
+end
 
 attr_reader :semesters, :overall_data, :challenge_data, :interest_data, :learned_data, :categories
 

@@ -47,6 +47,13 @@ def is_TA
   return (instructor_group == "TA") ? true : false
 end
 
+def overall_from_course(c)
+  subject = c.subject
+  crse = c.crse
+  set = self.fcqs.where("subject = ? AND crse = ?", subject, crse)
+  return set.average(:instructor_overall).round(1)
+end
+
 def started_teaching
   Fcq.semterm_from_int(self.fcqs.minimum(:yearterm))
 end
