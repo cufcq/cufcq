@@ -1,7 +1,7 @@
 # Add a declarative step here for populating the DB with movies.
 
-Given /^(?:|I )am on (.+)$/ do |page_name|
-  visit path_to(page_name)
+Given /^(?:|I )am on the (.+)$/ do |page_name|
+  visit( path_to(page_name))
 end
 
 # Make sure that one string (regexp) occurs before or after another one
@@ -23,7 +23,6 @@ end
 
 Then /^(?:|I )will see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
-
   if page.respond_to? :should
     page.should have_xpath('//*', :text => regexp)
   else
