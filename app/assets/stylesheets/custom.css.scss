@@ -34,15 +34,7 @@ strong
 {
 }
 
-a
-{
-	color: #2C383B;
-}
 
-a:hover
-{
-	text-decoration: none;
-}
 
 .instructor
 {
@@ -400,6 +392,18 @@ user-select: none;
 		color: rgba(255,255,255,1.0);
 		z-index: 5;
 	}
+
+#header-wrapper a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#header-wrapper a:hover
+{
+	color: #0088cc;
+	text-decoration: underline;
+}
+
 
 	#instructor_icon {
     	background-image: url('/images/instructor_icon_256.png');
@@ -1214,3 +1218,15 @@ color: #3d3d3d;
 		font-size:43px;
 		font-weight: 600;
 	}
+
+
+a {
+  color: #3d3d3d;
+  text-decoration: none;
+}
+
+a:hover
+{
+	color: #0088cc;
+	text-decoration: none;
+}

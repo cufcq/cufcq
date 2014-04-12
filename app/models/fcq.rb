@@ -137,7 +137,7 @@ class Fcq < ActiveRecord::Base
 
   def fcq_header
     #return %Q{#{semterm} | #{subject} #{crse}-#{sec} | #{title} | #{instructor_first} #{instructor_last}}
-    return "#{subject} #{crse}-#{sec}"
+    return "#{crse}-#{sec}"
   end
 
   def img_file

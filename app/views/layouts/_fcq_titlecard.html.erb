@@ -1,6 +1,6 @@
 <div id="header-wrapper">
 	<div id="fcq_header" class=<%= @fcq.rank_string_abridged %>>
-		 <%= image_tag "fcq_64_w.png", alt: @fcq.rank_string, title: @fcq.rank_string%><%= @fcq.fcq_header %><br><%= @fcq.course_title %> <br>
-		<table><tr><td><bold><%= @fcq.semterm %></bold></td><td><bold><%= @fcq.instructor_full_name %></bold></td></tr></table>
+		 <%= image_tag "fcq_64_w.png", alt: @fcq.rank_string, title: @fcq.rank_string%><%= link_to @fcq.subject, department_path(@fcq.department) %> <%= @fcq.fcq_header %><br><%= link_to @fcq.course_title, course_path(@fcq.course) %> <br>
+		<table><tr><td><bold><%= @fcq.semterm %></bold></td><td><bold><%= link_to @fcq.instructor_full_name, instructor_path(@fcq.instructor) %></bold></td></tr></table>
 	</div>
 </div>
