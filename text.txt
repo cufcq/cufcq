@@ -1,0 +1,1993 @@
+EISENBERG
+{"course_title"=>nil, "crse"=>1240, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Michael Eisenberg to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Michael Eisenberg
+added Michael Eisenberg to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Michael Eisenberg
+{"course_title"=>nil, "crse"=>6402, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2824, "subject"=>"CSCI"}
+{"course_title"=>"COMPUTATIONAL WORLD", "crse"=>1240, "subject"=>"CSCI"}
+added Michael Eisenberg to COMPUTATIONAL WORLD
+added COMPUTATIONAL WORLD to Michael Eisenberg
+added Michael Eisenberg to CSCI
+added COMPUTATIONAL WORLD to CSCI
+COMPUTATIONAL WORLD <-> Michael Eisenberg
+{"course_title"=>nil, "crse"=>1240, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Michael Eisenberg to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Michael Eisenberg
+added Michael Eisenberg to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Michael Eisenberg
+{"course_title"=>nil, "crse"=>6402, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3202, "subject"=>"CSCI"}
+{"course_title"=>"COMPUTATIONAL WORLD", "crse"=>1240, "subject"=>"CSCI"}
+added Michael Eisenberg to COMPUTATIONAL WORLD
+added COMPUTATIONAL WORLD to Michael Eisenberg
+added Michael Eisenberg to CSCI
+added COMPUTATIONAL WORLD to CSCI
+COMPUTATIONAL WORLD <-> Michael Eisenberg
+{"course_title"=>nil, "crse"=>1240, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3002, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3202, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1240, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Michael Eisenberg to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Michael Eisenberg
+added Michael Eisenberg to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Michael Eisenberg
+{"course_title"=>nil, "crse"=>1240, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Michael Eisenberg to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Michael Eisenberg
+added Michael Eisenberg to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Michael Eisenberg
+{"course_title"=>nil, "crse"=>5582, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4830, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7000, "subject"=>"CSCI"}
+DUPLYAKIN
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Dmitry Duplyakin to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Dmitry Duplyakin
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Dmitry Duplyakin to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Dmitry Duplyakin
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Dmitry Duplyakin to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Dmitry Duplyakin
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Dmitry Duplyakin to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Dmitry Duplyakin
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added Dmitry Duplyakin to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> Dmitry Duplyakin
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added Dmitry Duplyakin to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> Dmitry Duplyakin
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added Dmitry Duplyakin to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> Dmitry Duplyakin
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added Dmitry Duplyakin to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> Dmitry Duplyakin
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added Dmitry Duplyakin to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> Dmitry Duplyakin
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Dmitry Duplyakin to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Dmitry Duplyakin
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Dmitry Duplyakin to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Dmitry Duplyakin
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Dmitry Duplyakin to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Dmitry Duplyakin
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Dmitry Duplyakin to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Dmitry Duplyakin
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Dmitry Duplyakin to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Dmitry Duplyakin
+added Dmitry Duplyakin to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Dmitry Duplyakin
+WING
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Rowan Wing to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Rowan Wing
+added Rowan Wing to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Rowan Wing
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Rowan Wing to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Rowan Wing
+added Rowan Wing to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Rowan Wing
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Rowan Wing to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Rowan Wing
+added Rowan Wing to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Rowan Wing
+{"course_title"=>"INTRODUCTION TO ROBOTICS", "crse"=>3302, "subject"=>"CSCI"}
+added Rowan Wing to INTRODUCTION TO ROBOTICS
+added INTRODUCTION TO ROBOTICS to Rowan Wing
+added Rowan Wing to CSCI
+added INTRODUCTION TO ROBOTICS to CSCI
+INTRODUCTION TO ROBOTICS <-> Rowan Wing
+{"course_title"=>"INTRODUCTION TO ROBOTICS", "crse"=>3302, "subject"=>"CSCI"}
+added Rowan Wing to INTRODUCTION TO ROBOTICS
+added INTRODUCTION TO ROBOTICS to Rowan Wing
+added Rowan Wing to CSCI
+added INTRODUCTION TO ROBOTICS to CSCI
+INTRODUCTION TO ROBOTICS <-> Rowan Wing
+BARRENECHEA
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Mario Barrenechea to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Mario Barrenechea
+added Mario Barrenechea to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Mario Barrenechea
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Mario Barrenechea to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Mario Barrenechea
+added Mario Barrenechea to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Mario Barrenechea
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Mario Barrenechea to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Mario Barrenechea
+added Mario Barrenechea to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Mario Barrenechea
+{"course_title"=>"SOFTWARE ENG METHODS AND", "crse"=>3308, "subject"=>"CSCI"}
+added Mario Barrenechea to SOFTWARE ENG METHODS AND
+added SOFTWARE ENG METHODS AND to Mario Barrenechea
+added Mario Barrenechea to CSCI
+added SOFTWARE ENG METHODS AND to CSCI
+SOFTWARE ENG METHODS AND <-> Mario Barrenechea
+{"course_title"=>"SOFTWARE ENG METHODS AND", "crse"=>3308, "subject"=>"CSCI"}
+added Mario Barrenechea to SOFTWARE ENG METHODS AND
+added SOFTWARE ENG METHODS AND to Mario Barrenechea
+added Mario Barrenechea to CSCI
+added SOFTWARE ENG METHODS AND to CSCI
+SOFTWARE ENG METHODS AND <-> Mario Barrenechea
+BASAWAPATNA
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Ashok Basawapatna to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Ashok Basawapatna
+added Ashok Basawapatna to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Ashok Basawapatna
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Ashok Basawapatna to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Ashok Basawapatna
+added Ashok Basawapatna to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Ashok Basawapatna
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Ashok Basawapatna to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Ashok Basawapatna
+added Ashok Basawapatna to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Ashok Basawapatna
+{"course_title"=>"SOFTWARE ENG METHODS AND", "crse"=>3308, "subject"=>"CSCI"}
+added Ashok Basawapatna to SOFTWARE ENG METHODS AND
+added SOFTWARE ENG METHODS AND to Ashok Basawapatna
+added Ashok Basawapatna to CSCI
+added SOFTWARE ENG METHODS AND to CSCI
+SOFTWARE ENG METHODS AND <-> Ashok Basawapatna
+{"course_title"=>"SOFTWARE ENG METHODS AND", "crse"=>3308, "subject"=>"CSCI"}
+added Ashok Basawapatna to SOFTWARE ENG METHODS AND
+added SOFTWARE ENG METHODS AND to Ashok Basawapatna
+added Ashok Basawapatna to CSCI
+added SOFTWARE ENG METHODS AND to CSCI
+SOFTWARE ENG METHODS AND <-> Ashok Basawapatna
+COLEMAN
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added David Coleman to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to David Coleman
+added David Coleman to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> David Coleman
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added David Coleman to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to David Coleman
+added David Coleman to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> David Coleman
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added David Coleman to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to David Coleman
+added David Coleman to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> David Coleman
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added David Coleman to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to David Coleman
+added David Coleman to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> David Coleman
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added David Coleman to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to David Coleman
+added David Coleman to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> David Coleman
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added David Coleman to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to David Coleman
+added David Coleman to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> David Coleman
+MISHRA
+{"course_title"=>nil, "crse"=>2270, "subject"=>"CSCI"}
+{"course_title"=>"DISTRIBUTED SYSTEMS", "crse"=>5673, "subject"=>"CSCI"}
+added Shivakant Mishra to DISTRIBUTED SYSTEMS
+added DISTRIBUTED SYSTEMS to Shivakant Mishra
+added Shivakant Mishra to CSCI
+added DISTRIBUTED SYSTEMS to CSCI
+DISTRIBUTED SYSTEMS <-> Shivakant Mishra
+{"course_title"=>nil, "crse"=>4273, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2270, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7123, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5573, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2270, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5673, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5573, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2270, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5673, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4273, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2270, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5673, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4273, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2270, "subject"=>"CSCI"}
+SULTAN
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Md Sultan to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Md Sultan
+added Md Sultan to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Md Sultan
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Md Sultan to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Md Sultan
+added Md Sultan to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Md Sultan
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Md Sultan to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Md Sultan
+added Md Sultan to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Md Sultan
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Md Sultan to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Md Sultan
+added Md Sultan to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Md Sultan
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Md Sultan to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Md Sultan
+added Md Sultan to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Md Sultan
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Md Sultan to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Md Sultan
+added Md Sultan to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Md Sultan
+MAHDIAN
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Alireza Mahdian to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Alireza Mahdian
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Alireza Mahdian to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Alireza Mahdian
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Alireza Mahdian to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Alireza Mahdian
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Alireza Mahdian to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Alireza Mahdian
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Alireza Mahdian to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Alireza Mahdian
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Alireza Mahdian to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Alireza Mahdian
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Alireza Mahdian to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Alireza Mahdian
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+added Alireza Mahdian to ALGORITHMS
+added ALGORITHMS to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added ALGORITHMS to CSCI
+ALGORITHMS <-> Alireza Mahdian
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+added Alireza Mahdian to ALGORITHMS
+added ALGORITHMS to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added ALGORITHMS to CSCI
+ALGORITHMS <-> Alireza Mahdian
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+added Alireza Mahdian to ALGORITHMS
+added ALGORITHMS to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added ALGORITHMS to CSCI
+ALGORITHMS <-> Alireza Mahdian
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Alireza Mahdian to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Alireza Mahdian
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Alireza Mahdian to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Alireza Mahdian
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Alireza Mahdian to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Alireza Mahdian
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Alireza Mahdian to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Alireza Mahdian
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Alireza Mahdian to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Alireza Mahdian
+added Alireza Mahdian to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Alireza Mahdian
+SANKARANARAYANAN
+{"course_title"=>nil, "crse"=>2824, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5654, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2824, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7154, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7154, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+0
+LEWIS
+{"course_title"=>"HUMAN-CENTERED COMPUTING", "crse"=>3002, "subject"=>"CSCI"}
+added Clayton Lewis to HUMAN-CENTERED COMPUTING
+added HUMAN-CENTERED COMPUTING to Clayton Lewis
+added Clayton Lewis to CSCI
+added HUMAN-CENTERED COMPUTING to CSCI
+HUMAN-CENTERED COMPUTING <-> Clayton Lewis
+{"course_title"=>nil, "crse"=>1000, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Clayton Lewis to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Clayton Lewis
+added Clayton Lewis to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Clayton Lewis
+{"course_title"=>nil, "crse"=>1000, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5839, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Clayton Lewis to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Clayton Lewis
+added Clayton Lewis to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Clayton Lewis
+{"course_title"=>nil, "crse"=>1000, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3112, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Clayton Lewis to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Clayton Lewis
+added Clayton Lewis to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Clayton Lewis
+{"course_title"=>nil, "crse"=>1000, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3112, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3112, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Clayton Lewis to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Clayton Lewis
+added Clayton Lewis to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Clayton Lewis
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Clayton Lewis to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Clayton Lewis
+added Clayton Lewis to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Clayton Lewis
+{"course_title"=>nil, "crse"=>1000, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+EHRENFEUCHT
+{"course_title"=>nil, "crse"=>3104, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5444, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Andrzej Ehrenfeucht to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Andrzej Ehrenfeucht
+added Andrzej Ehrenfeucht to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Andrzej Ehrenfeucht
+{"course_title"=>nil, "crse"=>2824, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5444, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5454, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3434, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5444, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5454, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3434, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5444, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3434, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3104, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5444, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3434, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3434, "subject"=>"CSCI"}
+PETERSON
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+added Daniel Peterson to ALGORITHMS
+added ALGORITHMS to Daniel Peterson
+added Daniel Peterson to CSCI
+added ALGORITHMS to CSCI
+ALGORITHMS <-> Daniel Peterson
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+added Daniel Peterson to ALGORITHMS
+added ALGORITHMS to Daniel Peterson
+added Daniel Peterson to CSCI
+added ALGORITHMS to CSCI
+ALGORITHMS <-> Daniel Peterson
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+added Daniel Peterson to ALGORITHMS
+added ALGORITHMS to Daniel Peterson
+added Daniel Peterson to CSCI
+added ALGORITHMS to CSCI
+ALGORITHMS <-> Daniel Peterson
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Daniel Peterson to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Daniel Peterson
+added Daniel Peterson to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Daniel Peterson
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Daniel Peterson to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Daniel Peterson
+added Daniel Peterson to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Daniel Peterson
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Daniel Peterson to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Daniel Peterson
+added Daniel Peterson to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Daniel Peterson
+CHANG
+{"course_title"=>nil, "crse"=>3155, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4555, "subject"=>"CSCI"}
+{"course_title"=>"TPCS IN PROGRAMMING LANG", "crse"=>7135, "subject"=>"CSCI"}
+added Bor-yuh Chang to TPCS IN PROGRAMMING LANG
+added TPCS IN PROGRAMMING LANG to Bor-yuh Chang
+added Bor-yuh Chang to CSCI
+added TPCS IN PROGRAMMING LANG to CSCI
+TPCS IN PROGRAMMING LANG <-> Bor-yuh Chang
+{"course_title"=>nil, "crse"=>7135, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5535, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3155, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5535, "subject"=>"CSCI"}
+CHAKAROV
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added Aleksandar Chakarov to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to Aleksandar Chakarov
+added Aleksandar Chakarov to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> Aleksandar Chakarov
+BENNETT
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added Huxley Bennett to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to Huxley Bennett
+added Huxley Bennett to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> Huxley Bennett
+BLACKSHEAR
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added Samuel Blackshear to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to Samuel Blackshear
+added Samuel Blackshear to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> Samuel Blackshear
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Samuel Blackshear to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Samuel Blackshear
+added Samuel Blackshear to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Samuel Blackshear
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Samuel Blackshear to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Samuel Blackshear
+added Samuel Blackshear to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Samuel Blackshear
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Samuel Blackshear to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Samuel Blackshear
+added Samuel Blackshear to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Samuel Blackshear
+TSAI
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added Yi-fan Tsai to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to Yi-fan Tsai
+added Yi-fan Tsai to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> Yi-fan Tsai
+GOLDBERG
+{"course_title"=>nil, "crse"=>3434, "subject"=>"CSCI"}
+{"course_title"=>"SEMINAR IN CB & HI", "crse"=>4810, "subject"=>"CSCI"}
+0
+JESSUP
+{"course_title"=>nil, "crse"=>3656, "subject"=>"CSCI"}
+{"course_title"=>"SPECIAL TOPICS", "crse"=>2830, "subject"=>"CSCI"}
+added Elizabeth Jessup to SPECIAL TOPICS
+added SPECIAL TOPICS to Elizabeth Jessup
+added Elizabeth Jessup to CSCI
+added SPECIAL TOPICS to CSCI
+SPECIAL TOPICS <-> Elizabeth Jessup
+{"course_title"=>nil, "crse"=>4576, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5646, "subject"=>"CSCI"}
+{"course_title"=>"HIGH-PERFORMANCE SCI COM", "crse"=>4576, "subject"=>"CSCI"}
+added Elizabeth Jessup to HIGH-PERFORMANCE SCI COM
+added HIGH-PERFORMANCE SCI COM to Elizabeth Jessup
+added Elizabeth Jessup to CSCI
+added HIGH-PERFORMANCE SCI COM to CSCI
+HIGH-PERFORMANCE SCI COM <-> Elizabeth Jessup
+{"course_title"=>"HIGH-PERFORMANCE SCI COM", "crse"=>4576, "subject"=>"CSCI"}
+added Elizabeth Jessup to HIGH-PERFORMANCE SCI COM
+added HIGH-PERFORMANCE SCI COM to Elizabeth Jessup
+added Elizabeth Jessup to CSCI
+added HIGH-PERFORMANCE SCI COM to CSCI
+HIGH-PERFORMANCE SCI COM <-> Elizabeth Jessup
+{"course_title"=>"HIGH-PERF SCI COMPUTING", "crse"=>5576, "subject"=>"CSCI"}
+0
+HAN
+{"course_title"=>nil, "crse"=>3753, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5573, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7143, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3753, "subject"=>"CSCI"}
+{"course_title"=>"DISTRIBUTED SYSTEMS", "crse"=>5673, "subject"=>"CSCI"}
+added Richard Han to DISTRIBUTED SYSTEMS
+added DISTRIBUTED SYSTEMS to Richard Han
+added Richard Han to CSCI
+added DISTRIBUTED SYSTEMS to CSCI
+DISTRIBUTED SYSTEMS <-> Richard Han
+{"course_title"=>nil, "crse"=>4273, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3753, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4273, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3753, "subject"=>"CSCI"}
+{"course_title"=>"TPCS-COMPUTER SYSTEMS", "crse"=>7143, "subject"=>"CSCI"}
+added Richard Han to TPCS-COMPUTER SYSTEMS
+added TPCS-COMPUTER SYSTEMS to Richard Han
+added Richard Han to CSCI
+added TPCS-COMPUTER SYSTEMS to CSCI
+TPCS-COMPUTER SYSTEMS <-> Richard Han
+{"course_title"=>nil, "crse"=>4273, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4273, "subject"=>"CSCI"}
+{"course_title"=>"TPCS-COMPUTER SYSTEMS", "crse"=>7143, "subject"=>"CSCI"}
+added Richard Han to TPCS-COMPUTER SYSTEMS
+added TPCS-COMPUTER SYSTEMS to Richard Han
+added Richard Han to CSCI
+added TPCS-COMPUTER SYSTEMS to CSCI
+TPCS-COMPUTER SYSTEMS <-> Richard Han
+SAYLER
+{"course_title"=>"OPERATING SYSTEMS", "crse"=>3753, "subject"=>"CSCI"}
+added Andrew Sayler to OPERATING SYSTEMS
+added OPERATING SYSTEMS to Andrew Sayler
+added Andrew Sayler to CSCI
+added OPERATING SYSTEMS to CSCI
+OPERATING SYSTEMS <-> Andrew Sayler
+{"course_title"=>"OPERATING SYSTEMS", "crse"=>3753, "subject"=>"CSCI"}
+added Andrew Sayler to OPERATING SYSTEMS
+added OPERATING SYSTEMS to Andrew Sayler
+added Andrew Sayler to CSCI
+added OPERATING SYSTEMS to CSCI
+OPERATING SYSTEMS <-> Andrew Sayler
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Andrew Sayler to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Andrew Sayler
+added Andrew Sayler to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Andrew Sayler
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Andrew Sayler to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Andrew Sayler
+added Andrew Sayler to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Andrew Sayler
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Andrew Sayler to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Andrew Sayler
+added Andrew Sayler to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Andrew Sayler
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Andrew Sayler to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Andrew Sayler
+added Andrew Sayler to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Andrew Sayler
+AHN
+{"course_title"=>"OPERATING SYSTEMS", "crse"=>3753, "subject"=>"CSCI"}
+added Junho Ahn to OPERATING SYSTEMS
+added OPERATING SYSTEMS to Junho Ahn
+added Junho Ahn to CSCI
+added OPERATING SYSTEMS to CSCI
+OPERATING SYSTEMS <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Junho Ahn to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Junho Ahn
+added Junho Ahn to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Junho Ahn
+ELATOV
+{"course_title"=>nil, "crse"=>4113, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4113, "subject"=>"CSCI"}
+SANTOS
+{"course_title"=>"NETWORK LAB", "crse"=>4123, "subject"=>"CSCI"}
+added Jose Santos to NETWORK LAB
+added NETWORK LAB to Jose Santos
+added Jose Santos to CSCI
+added NETWORK LAB to CSCI
+NETWORK LAB <-> Jose Santos
+{"course_title"=>nil, "crse"=>4123, "subject"=>"CSCI"}
+{"course_title"=>"NETWORK LAB", "crse"=>4123, "subject"=>"CSCI"}
+added Jose Santos to NETWORK LAB
+added NETWORK LAB to Jose Santos
+added Jose Santos to CSCI
+added NETWORK LAB to CSCI
+NETWORK LAB <-> Jose Santos
+{"course_title"=>"NETWORK LAB", "crse"=>4123, "subject"=>"CSCI"}
+added Jose Santos to NETWORK LAB
+added NETWORK LAB to Jose Santos
+added Jose Santos to CSCI
+added NETWORK LAB to CSCI
+NETWORK LAB <-> Jose Santos
+{"course_title"=>nil, "crse"=>4123, "subject"=>"CSCI"}
+{"course_title"=>"NETWORK LAB", "crse"=>4123, "subject"=>"CSCI"}
+added Jose Santos to NETWORK LAB
+added NETWORK LAB to Jose Santos
+added Jose Santos to CSCI
+added NETWORK LAB to CSCI
+NETWORK LAB <-> Jose Santos
+{"course_title"=>"NETWORK LAB", "crse"=>4123, "subject"=>"CSCI"}
+added Jose Santos to NETWORK LAB
+added NETWORK LAB to Jose Santos
+added Jose Santos to CSCI
+added NETWORK LAB to CSCI
+NETWORK LAB <-> Jose Santos
+{"course_title"=>"NETWORK LAB", "crse"=>4123, "subject"=>"CSCI"}
+added Jose Santos to NETWORK LAB
+added NETWORK LAB to Jose Santos
+added Jose Santos to CSCI
+added NETWORK LAB to CSCI
+NETWORK LAB <-> Jose Santos
+{"course_title"=>nil, "crse"=>4123, "subject"=>"CSCI"}
+{"course_title"=>"NETWORK LAB", "crse"=>4123, "subject"=>"CSCI"}
+added Jose Santos to NETWORK LAB
+added NETWORK LAB to Jose Santos
+added Jose Santos to CSCI
+added NETWORK LAB to CSCI
+NETWORK LAB <-> Jose Santos
+{"course_title"=>"NETWORK LAB", "crse"=>4123, "subject"=>"CSCI"}
+added Jose Santos to NETWORK LAB
+added NETWORK LAB to Jose Santos
+added Jose Santos to CSCI
+added NETWORK LAB to CSCI
+NETWORK LAB <-> Jose Santos
+{"course_title"=>"NETWORK LAB", "crse"=>4123, "subject"=>"CSCI"}
+added Jose Santos to NETWORK LAB
+added NETWORK LAB to Jose Santos
+added Jose Santos to CSCI
+added NETWORK LAB to CSCI
+NETWORK LAB <-> Jose Santos
+KESSEL
+{"course_title"=>nil, "crse"=>4318, "subject"=>"CSCI"}
+{"course_title"=>"SOFTWARE ENGINEERING PRO", "crse"=>4308, "subject"=>"CSCI"}
+added Andrew Kessel to SOFTWARE ENGINEERING PRO
+added SOFTWARE ENGINEERING PRO to Andrew Kessel
+added Andrew Kessel to CSCI
+added SOFTWARE ENGINEERING PRO to CSCI
+SOFTWARE ENGINEERING PRO <-> Andrew Kessel
+{"course_title"=>"SOFTWARE ENG PROJECT 2", "crse"=>4318, "subject"=>"CSCI"}
+added Andrew Kessel to SOFTWARE ENG PROJECT 2
+added SOFTWARE ENG PROJECT 2 to Andrew Kessel
+added Andrew Kessel to CSCI
+added SOFTWARE ENG PROJECT 2 to CSCI
+SOFTWARE ENG PROJECT 2 <-> Andrew Kessel
+{"course_title"=>"SOFTWARE ENGINEERING PRO", "crse"=>4308, "subject"=>"CSCI"}
+added Andrew Kessel to SOFTWARE ENGINEERING PRO
+added SOFTWARE ENGINEERING PRO to Andrew Kessel
+added Andrew Kessel to CSCI
+added SOFTWARE ENGINEERING PRO to CSCI
+SOFTWARE ENGINEERING PRO <-> Andrew Kessel
+KANAKIA
+{"course_title"=>"SOFTWARE ENG PROJECT 2", "crse"=>4318, "subject"=>"CSCI"}
+added Anshul Kanakia to SOFTWARE ENG PROJECT 2
+added SOFTWARE ENG PROJECT 2 to Anshul Kanakia
+added Anshul Kanakia to CSCI
+added SOFTWARE ENG PROJECT 2 to CSCI
+SOFTWARE ENG PROJECT 2 <-> Anshul Kanakia
+{"course_title"=>"SOFTWARE ENGINEERING PRO", "crse"=>4308, "subject"=>"CSCI"}
+added Anshul Kanakia to SOFTWARE ENGINEERING PRO
+added SOFTWARE ENGINEERING PRO to Anshul Kanakia
+added Anshul Kanakia to CSCI
+added SOFTWARE ENGINEERING PRO to CSCI
+SOFTWARE ENGINEERING PRO <-> Anshul Kanakia
+DI NATALE
+{"course_title"=>"SOFTWARE ENG PROJECT 2", "crse"=>4318, "subject"=>"CSCI"}
+added Francesco Di Natale to SOFTWARE ENG PROJECT 2
+added SOFTWARE ENG PROJECT 2 to Francesco Di Natale
+added Francesco Di Natale to CSCI
+added SOFTWARE ENG PROJECT 2 to CSCI
+SOFTWARE ENG PROJECT 2 <-> Francesco Di Natale
+{"course_title"=>"SOFTWARE ENGINEERING PRO", "crse"=>4308, "subject"=>"CSCI"}
+added Francesco Di Natale to SOFTWARE ENGINEERING PRO
+added SOFTWARE ENGINEERING PRO to Francesco Di Natale
+added Francesco Di Natale to CSCI
+added SOFTWARE ENGINEERING PRO to CSCI
+SOFTWARE ENGINEERING PRO <-> Francesco Di Natale
+BRADLEY
+{"course_title"=>nil, "crse"=>4446, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>6000, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4446, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>6000, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4446, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4446, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4446, "subject"=>"CSCI"}
+HAUSER
+{"course_title"=>nil, "crse"=>4576, "subject"=>"CSCI"}
+LUNACEK
+{"course_title"=>"HIGH-PERFORMANCE SCI COM", "crse"=>4576, "subject"=>"CSCI"}
+added Monte Lunacek to HIGH-PERFORMANCE SCI COM
+added HIGH-PERFORMANCE SCI COM to Monte Lunacek
+added Monte Lunacek to CSCI
+added HIGH-PERFORMANCE SCI COM to CSCI
+HIGH-PERFORMANCE SCI COM <-> Monte Lunacek
+GRUNWALD
+{"course_title"=>"COMP PERFORM MODELING", "crse"=>4753, "subject"=>"CSCI"}
+added Dirk Grunwald to COMP PERFORM MODELING
+added COMP PERFORM MODELING to Dirk Grunwald
+added Dirk Grunwald to CSCI
+added COMP PERFORM MODELING to CSCI
+COMP PERFORM MODELING <-> Dirk Grunwald
+{"course_title"=>nil, "crse"=>2400, "subject"=>"CSCI"}
+{"course_title"=>"COMP PERFORM MODELING", "crse"=>4753, "subject"=>"CSCI"}
+added Dirk Grunwald to COMP PERFORM MODELING
+added COMP PERFORM MODELING to Dirk Grunwald
+added Dirk Grunwald to CSCI
+added COMP PERFORM MODELING to CSCI
+COMP PERFORM MODELING <-> Dirk Grunwald
+{"course_title"=>nil, "crse"=>2400, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2400, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>6000, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4753, "subject"=>"CSCI"}
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Dirk Grunwald to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Dirk Grunwald
+added Dirk Grunwald to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Dirk Grunwald
+{"course_title"=>nil, "crse"=>5573, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2400, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4273, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>"TPCS-COMPUTER SYSTEMS", "crse"=>7143, "subject"=>"CSCI"}
+0
+KING
+{"course_title"=>nil, "crse"=>4830, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5817, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3287, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4809, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4809, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Roger King to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Roger King
+added Roger King to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Roger King
+{"course_title"=>nil, "crse"=>5817, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3287, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4809, "subject"=>"CSCI"}
+{"course_title"=>"COMPUTER ANIMATION", "crse"=>4809, "subject"=>"CSCI"}
+added Roger King to COMPUTER ANIMATION
+added COMPUTER ANIMATION to Roger King
+added Roger King to CSCI
+added COMPUTER ANIMATION to CSCI
+COMPUTER ANIMATION <-> Roger King
+{"course_title"=>nil, "crse"=>5817, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3287, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4809, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5817, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3287, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4809, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5817, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3287, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4830, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5817, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3287, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Roger King to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Roger King
+added Roger King to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Roger King
+{"course_title"=>"TP-INFORMATION RETRIEVAL", "crse"=>7000, "subject"=>"CSCI"}
+0
+SCHREUDER
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Willem Schreuder to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Willem Schreuder
+added Willem Schreuder to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Willem Schreuder
+{"course_title"=>nil, "crse"=>4229, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4229, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Willem Schreuder to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Willem Schreuder
+added Willem Schreuder to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Willem Schreuder
+{"course_title"=>nil, "crse"=>4229, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4229, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Willem Schreuder to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Willem Schreuder
+added Willem Schreuder to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Willem Schreuder
+{"course_title"=>nil, "crse"=>4229, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4229, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Willem Schreuder to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Willem Schreuder
+added Willem Schreuder to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Willem Schreuder
+{"course_title"=>nil, "crse"=>4229, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4229, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4229, "subject"=>"CSCI"}
+{"course_title"=>"COMPUTER GRAPHICS", "crse"=>4229, "subject"=>"CSCI"}
+added Willem Schreuder to COMPUTER GRAPHICS
+added COMPUTER GRAPHICS to Willem Schreuder
+added Willem Schreuder to CSCI
+added COMPUTER GRAPHICS to CSCI
+COMPUTER GRAPHICS <-> Willem Schreuder
+LV
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Qin Lv to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Qin Lv
+added Qin Lv to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Qin Lv
+{"course_title"=>nil, "crse"=>3104, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Qin Lv to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Qin Lv
+added Qin Lv to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Qin Lv
+{"course_title"=>"TP-INFORMATION RETRIEVAL", "crse"=>7000, "subject"=>"CSCI"}
+0
+CORRELL
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Nikolaus Correll to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Nikolaus Correll
+added Nikolaus Correll to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Nikolaus Correll
+{"course_title"=>nil, "crse"=>3302, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4830, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Nikolaus Correll to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Nikolaus Correll
+added Nikolaus Correll to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Nikolaus Correll
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Nikolaus Correll to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Nikolaus Correll
+added Nikolaus Correll to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Nikolaus Correll
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Nikolaus Correll to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Nikolaus Correll
+added Nikolaus Correll to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Nikolaus Correll
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Nikolaus Correll to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Nikolaus Correll
+added Nikolaus Correll to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Nikolaus Correll
+REPENNING
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Alex Repenning to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Alex Repenning
+added Alex Repenning to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Alex Repenning
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Alex Repenning to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Alex Repenning
+added Alex Repenning to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Alex Repenning
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Alex Repenning to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Alex Repenning
+added Alex Repenning to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Alex Repenning
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Alex Repenning to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Alex Repenning
+added Alex Repenning to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Alex Repenning
+SMITH
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added John Smith to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to John Smith
+added John Smith to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> John Smith
+CLAUSET
+{"course_title"=>nil, "crse"=>5454, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4830, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5454, "subject"=>"CSCI"}
+{"course_title"=>"TP-INFORMATION RETRIEVAL", "crse"=>7000, "subject"=>"CSCI"}
+0
+CAI
+{"course_title"=>"NUM SOL PART DIF EQUAT", "crse"=>5636, "subject"=>"CSCI"}
+added Xiao Cai to NUM SOL PART DIF EQUAT
+added NUM SOL PART DIF EQUAT to Xiao Cai
+added Xiao Cai to CSCI
+added NUM SOL PART DIF EQUAT to CSCI
+NUM SOL PART DIF EQUAT <-> Xiao Cai
+{"course_title"=>nil, "crse"=>5606, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5606, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5636, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7176, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5606, "subject"=>"CSCI"}
+ANDERSON
+{"course_title"=>nil, "crse"=>5828, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4448, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4448, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5828, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4448, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5828, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4448, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7818, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5828, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4448, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5828, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3308, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7818, "subject"=>"CSCI"}
+PALEN
+{"course_title"=>nil, "crse"=>5919, "subject"=>"CSCI"}
+{"course_title"=>"TP-INFORMATION RETRIEVAL", "crse"=>7000, "subject"=>"CSCI"}
+0
+KIM
+{"course_title"=>nil, "crse"=>6402, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>6402, "subject"=>"CSCI"}
+{"course_title"=>"COGNITIVE SCIENCE", "crse"=>3702, "subject"=>"CSCI"}
+added Albert Kim to COGNITIVE SCIENCE
+added COGNITIVE SCIENCE to Albert Kim
+added Albert Kim to CSCI
+added COGNITIVE SCIENCE to CSCI
+COGNITIVE SCIENCE <-> Albert Kim
+{"course_title"=>"COGNITIVE SCIENCE", "crse"=>3702, "subject"=>"CSCI"}
+added Albert Kim to COGNITIVE SCIENCE
+added COGNITIVE SCIENCE to Albert Kim
+added Albert Kim to CSCI
+added COGNITIVE SCIENCE to CSCI
+COGNITIVE SCIENCE <-> Albert Kim
+{"course_title"=>"COGNITIVE SCIENCE", "crse"=>3702, "subject"=>"CSCI"}
+added Albert Kim to COGNITIVE SCIENCE
+added COGNITIVE SCIENCE to Albert Kim
+added Albert Kim to CSCI
+added COGNITIVE SCIENCE to CSCI
+COGNITIVE SCIENCE <-> Albert Kim
+SIEK
+{"course_title"=>"TP-INFORMATION RETRIEVAL", "crse"=>7000, "subject"=>"CSCI"}
+0
+MOZER
+{"course_title"=>nil, "crse"=>7412, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7422, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7772, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7412, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7422, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7772, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4202, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Michael Mozer to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Michael Mozer
+added Michael Mozer to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Michael Mozer
+{"course_title"=>nil, "crse"=>3702, "subject"=>"CSCI"}
+{"course_title"=>"COGNITIVE SCIENCE", "crse"=>3702, "subject"=>"CSCI"}
+added Michael Mozer to COGNITIVE SCIENCE
+added COGNITIVE SCIENCE to Michael Mozer
+added Michael Mozer to CSCI
+added COGNITIVE SCIENCE to CSCI
+COGNITIVE SCIENCE <-> Michael Mozer
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Michael Mozer to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Michael Mozer
+added Michael Mozer to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Michael Mozer
+{"course_title"=>nil, "crse"=>3702, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4202, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7222, "subject"=>"CSCI"}
+{"course_title"=>"COGNITIVE SCIENCE", "crse"=>3702, "subject"=>"CSCI"}
+added Michael Mozer to COGNITIVE SCIENCE
+added COGNITIVE SCIENCE to Michael Mozer
+added Michael Mozer to CSCI
+added COGNITIVE SCIENCE to CSCI
+COGNITIVE SCIENCE <-> Michael Mozer
+MAIN
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Michael Main to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Michael Main
+added Michael Main to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Michael Main
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added Michael Main to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to Michael Main
+added Michael Main to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> Michael Main
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added Michael Main to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to Michael Main
+added Michael Main to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> Michael Main
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2824, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2830, "subject"=>"CSCI"}
+{"course_title"=>"SPECIAL TOPICS", "crse"=>2830, "subject"=>"CSCI"}
+0
+WHITE
+{"course_title"=>nil, "crse"=>2270, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3308, "subject"=>"CSCI"}
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Elizabeth White to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Elizabeth White
+added Elizabeth White to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Elizabeth White
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Elizabeth White to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Elizabeth White
+added Elizabeth White to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Elizabeth White
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Elizabeth White to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Elizabeth White
+added Elizabeth White to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Elizabeth White
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Elizabeth White to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Elizabeth White
+added Elizabeth White to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Elizabeth White
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Elizabeth White to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Elizabeth White
+added Elizabeth White to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Elizabeth White
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Elizabeth White to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Elizabeth White
+added Elizabeth White to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Elizabeth White
+GU
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+added Hansu Gu to ALGORITHMS
+added ALGORITHMS to Hansu Gu
+added Hansu Gu to CSCI
+added ALGORITHMS to CSCI
+ALGORITHMS <-> Hansu Gu
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+added Hansu Gu to ALGORITHMS
+added ALGORITHMS to Hansu Gu
+added Hansu Gu to CSCI
+added ALGORITHMS to CSCI
+ALGORITHMS <-> Hansu Gu
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+added Hansu Gu to ALGORITHMS
+added ALGORITHMS to Hansu Gu
+added Hansu Gu to CSCI
+added ALGORITHMS to CSCI
+ALGORITHMS <-> Hansu Gu
+MARTIN
+{"course_title"=>nil, "crse"=>5417, "subject"=>"CSCI"}
+{"course_title"=>"NATURAL LANG PROCESSING", "crse"=>5832, "subject"=>"CSCI"}
+added James Martin to NATURAL LANG PROCESSING
+added NATURAL LANG PROCESSING to James Martin
+added James Martin to CSCI
+added NATURAL LANG PROCESSING to CSCI
+NATURAL LANG PROCESSING <-> James Martin
+{"course_title"=>nil, "crse"=>5417, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7772, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5832, "subject"=>"CSCI"}
+{"course_title"=>"TPCS-COGNITIVE SCIENCE", "crse"=>7772, "subject"=>"CSCI"}
+added James Martin to TPCS-COGNITIVE SCIENCE
+added TPCS-COGNITIVE SCIENCE to James Martin
+added James Martin to CSCI
+added TPCS-COGNITIVE SCIENCE to CSCI
+TPCS-COGNITIVE SCIENCE <-> James Martin
+{"course_title"=>nil, "crse"=>5417, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5832, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7000, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5832, "subject"=>"CSCI"}
+{"course_title"=>"TP-INFORMATION RETRIEVAL", "crse"=>7000, "subject"=>"CSCI"}
+added James Martin to TP-INFORMATION RETRIEVAL
+added TP-INFORMATION RETRIEVAL to James Martin
+added James Martin to CSCI
+added TP-INFORMATION RETRIEVAL to CSCI
+TP-INFORMATION RETRIEVAL <-> James Martin
+{"course_title"=>nil, "crse"=>5832, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5582, "subject"=>"CSCI"}
+PELLOM
+{"course_title"=>nil, "crse"=>6302, "subject"=>"CSCI"}
+REISHUS
+{"course_title"=>"TP-INFORMATION RETRIEVAL", "crse"=>7000, "subject"=>"CSCI"}
+0
+LAMARCHE
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Jeffrey Lamarche to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Jeffrey Lamarche
+added Jeffrey Lamarche to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Jeffrey Lamarche
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Jeffrey Lamarche to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Jeffrey Lamarche
+added Jeffrey Lamarche to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Jeffrey Lamarche
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Jeffrey Lamarche to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Jeffrey Lamarche
+added Jeffrey Lamarche to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Jeffrey Lamarche
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Jeffrey Lamarche to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Jeffrey Lamarche
+added Jeffrey Lamarche to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Jeffrey Lamarche
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Jeffrey Lamarche to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Jeffrey Lamarche
+added Jeffrey Lamarche to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Jeffrey Lamarche
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Jeffrey Lamarche to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Jeffrey Lamarche
+added Jeffrey Lamarche to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Jeffrey Lamarche
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Jeffrey Lamarche to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Jeffrey Lamarche
+added Jeffrey Lamarche to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Jeffrey Lamarche
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Jeffrey Lamarche to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Jeffrey Lamarche
+added Jeffrey Lamarche to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Jeffrey Lamarche
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Jeffrey Lamarche to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Jeffrey Lamarche
+added Jeffrey Lamarche to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Jeffrey Lamarche
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Jeffrey Lamarche to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Jeffrey Lamarche
+added Jeffrey Lamarche to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Jeffrey Lamarche
+MCCRICKARD
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+added Scott Mccrickard to SPEC TPCS IN COMPUTER SC
+added SPEC TPCS IN COMPUTER SC to Scott Mccrickard
+added Scott Mccrickard to CSCI
+added SPEC TPCS IN COMPUTER SC to CSCI
+SPEC TPCS IN COMPUTER SC <-> Scott Mccrickard
+BROWN
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Allison Brown to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Allison Brown
+added Allison Brown to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Allison Brown
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Allison Brown to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Allison Brown
+added Allison Brown to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Allison Brown
+HARIDAS MARUTHUR
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Sr Haridas Maruthur to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Sr Haridas Maruthur
+added Sr Haridas Maruthur to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Sr Haridas Maruthur
+SHEN
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Alan Shen to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Alan Shen
+added Alan Shen to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Alan Shen
+DIETRICH
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Charles Dietrich to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Charles Dietrich
+added Charles Dietrich to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Charles Dietrich
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Charles Dietrich to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Charles Dietrich
+added Charles Dietrich to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Charles Dietrich
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Charles Dietrich to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Charles Dietrich
+added Charles Dietrich to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Charles Dietrich
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Charles Dietrich to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Charles Dietrich
+added Charles Dietrich to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Charles Dietrich
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Charles Dietrich to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Charles Dietrich
+added Charles Dietrich to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Charles Dietrich
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Charles Dietrich to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Charles Dietrich
+added Charles Dietrich to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Charles Dietrich
+BEACH
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Aaron Beach to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Aaron Beach
+added Aaron Beach to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Aaron Beach
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Aaron Beach to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Aaron Beach
+added Aaron Beach to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Aaron Beach
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Aaron Beach to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Aaron Beach
+added Aaron Beach to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Aaron Beach
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Aaron Beach to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Aaron Beach
+added Aaron Beach to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Aaron Beach
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Aaron Beach to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Aaron Beach
+added Aaron Beach to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Aaron Beach
+{"course_title"=>"OPERATING SYSTEMS", "crse"=>3753, "subject"=>"CSCI"}
+0
+GONZALES
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Harold Gonzales to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Harold Gonzales
+added Harold Gonzales to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Harold Gonzales
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Harold Gonzales to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Harold Gonzales
+added Harold Gonzales to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Harold Gonzales
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Harold Gonzales to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Harold Gonzales
+added Harold Gonzales to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Harold Gonzales
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+added Harold Gonzales to ALGORITHMS
+added ALGORITHMS to Harold Gonzales
+added Harold Gonzales to CSCI
+added ALGORITHMS to CSCI
+ALGORITHMS <-> Harold Gonzales
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+added Harold Gonzales to ALGORITHMS
+added ALGORITHMS to Harold Gonzales
+added Harold Gonzales to CSCI
+added ALGORITHMS to CSCI
+ALGORITHMS <-> Harold Gonzales
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Harold Gonzales to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Harold Gonzales
+added Harold Gonzales to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Harold Gonzales
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Harold Gonzales to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Harold Gonzales
+added Harold Gonzales to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Harold Gonzales
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Harold Gonzales to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Harold Gonzales
+added Harold Gonzales to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Harold Gonzales
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Harold Gonzales to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Harold Gonzales
+added Harold Gonzales to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Harold Gonzales
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+added Harold Gonzales to COMP SCI II: DATA STRUCT
+added COMP SCI II: DATA STRUCT to Harold Gonzales
+added Harold Gonzales to CSCI
+added COMP SCI II: DATA STRUCT to CSCI
+COMP SCI II: DATA STRUCT <-> Harold Gonzales
+BLACK
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+added John Black to ALGORITHMS
+added ALGORITHMS to John Black
+added John Black to CSCI
+added ALGORITHMS to CSCI
+ALGORITHMS <-> John Black
+{"course_title"=>nil, "crse"=>4830, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2270, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3104, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3104, "subject"=>"CSCI"}
+{"course_title"=>"TP-INFORMATION RETRIEVAL", "crse"=>7000, "subject"=>"CSCI"}
+0
+BYRD
+{"course_title"=>nil, "crse"=>3656, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3656, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>6676, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2830, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5606, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>6686, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>2830, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5606, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3656, "subject"=>"CSCI"}
+{"course_title"=>"NUM METHS UNCONSTD OPTM", "crse"=>6676, "subject"=>"CSCI"}
+added Richard Byrd to NUM METHS UNCONSTD OPTM
+added NUM METHS UNCONSTD OPTM to Richard Byrd
+added Richard Byrd to CSCI
+added NUM METHS UNCONSTD OPTM to CSCI
+NUM METHS UNCONSTD OPTM <-> Richard Byrd
+{"course_title"=>nil, "crse"=>3656, "subject"=>"CSCI"}
+MERRITT
+{"course_title"=>"OPERATING SYSTEMS", "crse"=>3753, "subject"=>"CSCI"}
+added Sears Merritt to OPERATING SYSTEMS
+added OPERATING SYSTEMS to Sears Merritt
+added Sears Merritt to CSCI
+added OPERATING SYSTEMS to CSCI
+OPERATING SYSTEMS <-> Sears Merritt
+{"course_title"=>"OPERATING SYSTEMS", "crse"=>3753, "subject"=>"CSCI"}
+added Sears Merritt to OPERATING SYSTEMS
+added OPERATING SYSTEMS to Sears Merritt
+added Sears Merritt to CSCI
+added OPERATING SYSTEMS to CSCI
+OPERATING SYSTEMS <-> Sears Merritt
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Sears Merritt to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Sears Merritt
+added Sears Merritt to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Sears Merritt
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Sears Merritt to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Sears Merritt
+added Sears Merritt to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Sears Merritt
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Sears Merritt to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Sears Merritt
+added Sears Merritt to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Sears Merritt
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+added Sears Merritt to COMPUTER SYSTEMS
+added COMPUTER SYSTEMS to Sears Merritt
+added Sears Merritt to CSCI
+added COMPUTER SYSTEMS to CSCI
+COMPUTER SYSTEMS <-> Sears Merritt
+CHEN
+{"course_title"=>"OPERATING SYSTEMS", "crse"=>3753, "subject"=>"CSCI"}
+added Wei-te Chen to OPERATING SYSTEMS
+added OPERATING SYSTEMS to Wei-te Chen
+added Wei-te Chen to CSCI
+added OPERATING SYSTEMS to CSCI
+OPERATING SYSTEMS <-> Wei-te Chen
+MACKEY
+{"course_title"=>nil, "crse"=>4133, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4133, "subject"=>"CSCI"}
+RYAN
+{"course_title"=>nil, "crse"=>4143, "subject"=>"CSCI"}
+SANDERS
+{"course_title"=>nil, "crse"=>4318, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4308, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4318, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4308, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4318, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4308, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4318, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4308, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4318, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4308, "subject"=>"CSCI"}
+WOITASZEK
+{"course_title"=>"HIGH-PERFORMANCE SCI COM", "crse"=>4576, "subject"=>"CSCI"}
+added Matthew Woitaszek to HIGH-PERFORMANCE SCI COM
+added HIGH-PERFORMANCE SCI COM to Matthew Woitaszek
+added Matthew Woitaszek to CSCI
+added HIGH-PERFORMANCE SCI COM to CSCI
+HIGH-PERFORMANCE SCI COM <-> Matthew Woitaszek
+{"course_title"=>"HIGH-PERFORMANCE SCI COM", "crse"=>4576, "subject"=>"CSCI"}
+added Matthew Woitaszek to HIGH-PERFORMANCE SCI COM
+added HIGH-PERFORMANCE SCI COM to Matthew Woitaszek
+added Matthew Woitaszek to CSCI
+added HIGH-PERFORMANCE SCI COM to CSCI
+HIGH-PERFORMANCE SCI COM <-> Matthew Woitaszek
+{"course_title"=>"HIGH-PERFORMANCE SCI COM", "crse"=>4576, "subject"=>"CSCI"}
+added Matthew Woitaszek to HIGH-PERFORMANCE SCI COM
+added HIGH-PERFORMANCE SCI COM to Matthew Woitaszek
+added Matthew Woitaszek to CSCI
+added HIGH-PERFORMANCE SCI COM to CSCI
+HIGH-PERFORMANCE SCI COM <-> Matthew Woitaszek
+{"course_title"=>"HIGH-PERF SCI COMPUTING", "crse"=>5576, "subject"=>"CSCI"}
+0
+THOMPSON
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Allison Thompson to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Allison Thompson
+added Allison Thompson to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Allison Thompson
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Allison Thompson to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Allison Thompson
+added Allison Thompson to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Allison Thompson
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Allison Thompson to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Allison Thompson
+added Allison Thompson to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Allison Thompson
+TUFO
+{"course_title"=>nil, "crse"=>2830, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5576, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5576, "subject"=>"CSCI"}
+{"course_title"=>"HIGH-PERF SCI COMPUTING", "crse"=>5576, "subject"=>"CSCI"}
+added Henry Tufo to HIGH-PERF SCI COMPUTING
+added HIGH-PERF SCI COMPUTING to Henry Tufo
+added Henry Tufo to CSCI
+added HIGH-PERF SCI COMPUTING to CSCI
+HIGH-PERF SCI COMPUTING <-> Henry Tufo
+FISCHER
+{"course_title"=>nil, "crse"=>3002, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4412, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3002, "subject"=>"CSCI"}
+{"course_title"=>"TP-INFORMATION RETRIEVAL", "crse"=>7000, "subject"=>"CSCI"}
+0
+BUTLER
+{"course_title"=>nil, "crse"=>3308, "subject"=>"CSCI"}
+{"course_title"=>"SOFTWARE ENG METHODS AND", "crse"=>3308, "subject"=>"CSCI"}
+added William Butler to SOFTWARE ENG METHODS AND
+added SOFTWARE ENG METHODS AND to William Butler
+added William Butler to CSCI
+added SOFTWARE ENG METHODS AND to CSCI
+SOFTWARE ENG METHODS AND <-> William Butler
+SCHRAM
+{"course_title"=>"SOFTWARE ENG METHODS AND", "crse"=>3308, "subject"=>"CSCI"}
+added Aaron Schram to SOFTWARE ENG METHODS AND
+added SOFTWARE ENG METHODS AND to Aaron Schram
+added Aaron Schram to CSCI
+added SOFTWARE ENG METHODS AND to CSCI
+SOFTWARE ENG METHODS AND <-> Aaron Schram
+{"course_title"=>"SOFTWARE ENG METHODS AND", "crse"=>3308, "subject"=>"CSCI"}
+added Aaron Schram to SOFTWARE ENG METHODS AND
+added SOFTWARE ENG METHODS AND to Aaron Schram
+added Aaron Schram to CSCI
+added SOFTWARE ENG METHODS AND to CSCI
+SOFTWARE ENG METHODS AND <-> Aaron Schram
+{"course_title"=>"SOFTWARE ENG METHODS AND", "crse"=>3308, "subject"=>"CSCI"}
+added Aaron Schram to SOFTWARE ENG METHODS AND
+added SOFTWARE ENG METHODS AND to Aaron Schram
+added Aaron Schram to CSCI
+added SOFTWARE ENG METHODS AND to CSCI
+SOFTWARE ENG METHODS AND <-> Aaron Schram
+PALMER
+{"course_title"=>"COGNITIVE SCIENCE", "crse"=>3702, "subject"=>"CSCI"}
+added Martha Palmer to COGNITIVE SCIENCE
+added COGNITIVE SCIENCE to Martha Palmer
+added Martha Palmer to CSCI
+added COGNITIVE SCIENCE to CSCI
+COGNITIVE SCIENCE <-> Martha Palmer
+{"course_title"=>"COGNITIVE SCIENCE", "crse"=>3702, "subject"=>"CSCI"}
+added Martha Palmer to COGNITIVE SCIENCE
+added COGNITIVE SCIENCE to Martha Palmer
+added Martha Palmer to CSCI
+added COGNITIVE SCIENCE to CSCI
+COGNITIVE SCIENCE <-> Martha Palmer
+{"course_title"=>"COGNITIVE SCIENCE", "crse"=>3702, "subject"=>"CSCI"}
+added Martha Palmer to COGNITIVE SCIENCE
+added COGNITIVE SCIENCE to Martha Palmer
+added Martha Palmer to CSCI
+added COGNITIVE SCIENCE to CSCI
+COGNITIVE SCIENCE <-> Martha Palmer
+{"course_title"=>nil, "crse"=>7422, "subject"=>"CSCI"}
+{"course_title"=>"TPCS-COGNITIVE SCIENCE", "crse"=>7772, "subject"=>"CSCI"}
+added Martha Palmer to TPCS-COGNITIVE SCIENCE
+added TPCS-COGNITIVE SCIENCE to Martha Palmer
+added Martha Palmer to CSCI
+added TPCS-COGNITIVE SCIENCE to CSCI
+TPCS-COGNITIVE SCIENCE <-> Martha Palmer
+MULLIGAN
+{"course_title"=>nil, "crse"=>5722, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5722, "subject"=>"CSCI"}
+PHILLIPS
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+0
+GARTRELL
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+0
+ZHENG
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+0
+RAMANARAYAMAN
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+0
+DIWAN
+{"course_title"=>nil, "crse"=>3155, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3308, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3155, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3308, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>7135, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3155, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3308, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5535, "subject"=>"CSCI"}
+DIXON
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+0
+HOMAEI
+{"course_title"=>"SOFTWARE ENG METHODS AND", "crse"=>3308, "subject"=>"CSCI"}
+0
+ROBISON
+{"course_title"=>"SOFTWARE ENG METHODS AND", "crse"=>3308, "subject"=>"CSCI"}
+0
+WAILES
+{"course_title"=>"OPERATING SYSTEMS", "crse"=>3753, "subject"=>"CSCI"}
+0
+COBB
+{"course_title"=>"SOFTWARE ENG PROJECT 2", "crse"=>4318, "subject"=>"CSCI"}
+0
+BENNETT
+{"course_title"=>nil, "crse"=>1220, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1220, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1220, "subject"=>"CSCI"}
+NUTT
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3753, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3753, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5473, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+0
+CHEESEMAN
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+0
+HUANG
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+0
+FROHARDT
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+0
+YEE
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+0
+WAGLE
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+0
+ELLIS
+{"course_title"=>nil, "crse"=>4342, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4342, "subject"=>"CSCI"}
+{"course_title"=>"TP-INFORMATION RETRIEVAL", "crse"=>7000, "subject"=>"CSCI"}
+0
+NIELSEN
+{"course_title"=>"MACHINE LEARNING", "crse"=>5622, "subject"=>"CSCI"}
+added Rodney Nielsen to MACHINE LEARNING
+added MACHINE LEARNING to Rodney Nielsen
+added Rodney Nielsen to CSCI
+added MACHINE LEARNING to CSCI
+MACHINE LEARNING <-> Rodney Nielsen
+MUNAKATA
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+0
+MEYERS
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+0
+REICHENBACH
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added C Reichenbach to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to C Reichenbach
+added C Reichenbach to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> C Reichenbach
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added C Reichenbach to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to C Reichenbach
+added C Reichenbach to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> C Reichenbach
+{"course_title"=>"SOFTWARE ENG METHODS AND", "crse"=>3308, "subject"=>"CSCI"}
+0
+SCHENK
+{"course_title"=>nil, "crse"=>4113, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4113, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4113, "subject"=>"CSCI"}
+ROBINSON
+{"course_title"=>"SOFTWARE ENG PROJECT 2", "crse"=>4318, "subject"=>"CSCI"}
+0
+SIEK
+{"course_title"=>"TPCS/SOFTWARE ENGINEER", "crse"=>7818, "subject"=>"CSCI"}
+0
+BAUER
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+0
+BETHARD
+{"course_title"=>nil, "crse"=>3202, "subject"=>"CSCI"}
+RUPERT
+{"course_title"=>nil, "crse"=>3702, "subject"=>"CSCI"}
+{"course_title"=>"COGNITIVE SCIENCE", "crse"=>3702, "subject"=>"CSCI"}
+added Robert Rupert to COGNITIVE SCIENCE
+added COGNITIVE SCIENCE to Robert Rupert
+added Robert Rupert to CSCI
+added COGNITIVE SCIENCE to CSCI
+COGNITIVE SCIENCE <-> Robert Rupert
+{"course_title"=>"COGNITIVE SCIENCE", "crse"=>3702, "subject"=>"CSCI"}
+added Robert Rupert to COGNITIVE SCIENCE
+added COGNITIVE SCIENCE to Robert Rupert
+added Robert Rupert to CSCI
+added COGNITIVE SCIENCE to CSCI
+COGNITIVE SCIENCE <-> Robert Rupert
+{"course_title"=>"COGNITIVE SCIENCE", "crse"=>3702, "subject"=>"CSCI"}
+added Robert Rupert to COGNITIVE SCIENCE
+added COGNITIVE SCIENCE to Robert Rupert
+added Robert Rupert to CSCI
+added COGNITIVE SCIENCE to CSCI
+COGNITIVE SCIENCE <-> Robert Rupert
+GRUDIC
+{"course_title"=>nil, "crse"=>5622, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5622, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3202, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3202, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5622, "subject"=>"CSCI"}
+JIANG
+{"course_title"=>nil, "crse"=>3155, "subject"=>"CSCI"}
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+added Yifei Jiang to PRINCIP OF PROG LANGS
+added PRINCIP OF PROG LANGS to Yifei Jiang
+added Yifei Jiang to CSCI
+added PRINCIP OF PROG LANGS to CSCI
+PRINCIP OF PROG LANGS <-> Yifei Jiang
+GALLAGHER
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+0
+KOH
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+0
+PFEIFFER
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+0
+MACFERRIN
+{"course_title"=>"COMPUTER SYSTEMS", "crse"=>2400, "subject"=>"CSCI"}
+0
+GABOW
+{"course_title"=>nil, "crse"=>3104, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5454, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5654, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>3104, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>5454, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>6454, "subject"=>"CSCI"}
+NIE
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+0
+KHAN
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+0
+OVTCHINNIKOV
+{"course_title"=>nil, "crse"=>3656, "subject"=>"CSCI"}
+SHIPLEY
+{"course_title"=>"SOFTWARE ENG PROJECT 2", "crse"=>4318, "subject"=>"CSCI"}
+0
+JONES
+{"course_title"=>"SPEC TPCS IN COMPUTER SC", "crse"=>4830, "subject"=>"CSCI"}
+0
+SUMNER
+{"course_title"=>"TPCS-COGNITIVE SCIENCE", "crse"=>7772, "subject"=>"CSCI"}
+added Tamara Sumner to TPCS-COGNITIVE SCIENCE
+added TPCS-COGNITIVE SCIENCE to Tamara Sumner
+added Tamara Sumner to CSCI
+added TPCS-COGNITIVE SCIENCE to CSCI
+TPCS-COGNITIVE SCIENCE <-> Tamara Sumner
+{"course_title"=>"TPCS-COGNITIVE SCIENCE", "crse"=>7772, "subject"=>"CSCI"}
+added Tamara Sumner to TPCS-COGNITIVE SCIENCE
+added TPCS-COGNITIVE SCIENCE to Tamara Sumner
+added Tamara Sumner to CSCI
+added TPCS-COGNITIVE SCIENCE to CSCI
+TPCS-COGNITIVE SCIENCE <-> Tamara Sumner
+{"course_title"=>"USER INTERFACE DESIGN", "crse"=>4838, "subject"=>"CSCI"}
+added Tamara Sumner to USER INTERFACE DESIGN
+added USER INTERFACE DESIGN to Tamara Sumner
+added Tamara Sumner to CSCI
+added USER INTERFACE DESIGN to CSCI
+USER INTERFACE DESIGN <-> Tamara Sumner
+{"course_title"=>nil, "crse"=>6838, "subject"=>"CSCI"}
+HOENIGMAN
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+0
+MARSHALL
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+0
+WETZLER
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+0
+ANDERSON
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+0
+SHERBA
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+added Susanne Sherba to COMP SCI I: PROGRAMMING
+added COMP SCI I: PROGRAMMING to Susanne Sherba
+added Susanne Sherba to CSCI
+added COMP SCI I: PROGRAMMING to CSCI
+COMP SCI I: PROGRAMMING <-> Susanne Sherba
+{"course_title"=>nil, "crse"=>1200, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>1300, "subject"=>"CSCI"}
+{"course_title"=>nil, "crse"=>4448, "subject"=>"CSCI"}
+LIN
+{"course_title"=>"OPERATING SYSTEMS", "crse"=>3753, "subject"=>"CSCI"}
+added Wang Lin to OPERATING SYSTEMS
+added OPERATING SYSTEMS to Wang Lin
+added Wang Lin to CSCI
+added OPERATING SYSTEMS to CSCI
+OPERATING SYSTEMS <-> Wang Lin
+{"course_title"=>"OPERATING SYSTEMS", "crse"=>3753, "subject"=>"CSCI"}
+added Wang Lin to OPERATING SYSTEMS
+added OPERATING SYSTEMS to Wang Lin
+added Wang Lin to CSCI
+added OPERATING SYSTEMS to CSCI
+OPERATING SYSTEMS <-> Wang Lin
+{"course_title"=>"OPERATING SYSTEMS", "crse"=>3753, "subject"=>"CSCI"}
+added Wang Lin to OPERATING SYSTEMS
+added OPERATING SYSTEMS to Wang Lin
+added Wang Lin to CSCI
+added OPERATING SYSTEMS to CSCI
+OPERATING SYSTEMS <-> Wang Lin
+{"course_title"=>"OPERATING SYSTEMS", "crse"=>3753, "subject"=>"CSCI"}
+added Wang Lin to OPERATING SYSTEMS
+added OPERATING SYSTEMS to Wang Lin
+added Wang Lin to CSCI
+added OPERATING SYSTEMS to CSCI
+OPERATING SYSTEMS <-> Wang Lin
+{"course_title"=>"PRINCIP OF PROG LANGS", "crse"=>3155, "subject"=>"CSCI"}
+0
+CRUMLY
+{"course_title"=>"COMP SCI I: PROGRAMMING", "crse"=>1300, "subject"=>"CSCI"}
+0
+DOERR
+{"course_title"=>"COMP SCI II: DATA STRUCT", "crse"=>2270, "subject"=>"CSCI"}
+0
+COCHRAN
+{"course_title"=>"ALGORITHMS", "crse"=>3104, "subject"=>"CSCI"}
+0
+COLE
+{"course_title"=>nil, "crse"=>7212, "subject"=>"CSCI"}
+HEIMBIGNER
+{"course_title"=>nil, "crse"=>7818, "subject"=>"CSCI"}

@@ -2,6 +2,7 @@
 <%= render 'layouts/instructor_scorecard' %>
 
 <%= render 'layouts/instructor_graph' %>
+<%= render 'layouts/fcqcard' %>
 <data>
 <instructorgroup>
 <a href="" accesskey="1" title=<%= @instructor.instructor_group_flavor_text %> ><%= @instructor.instructor_group %></a>
@@ -22,13 +23,15 @@ FCQS Returned: <%= @instructor.total_returned %> <br>
 Requested Returned Ratio: <%= @instructor.requested_returned_ratio %> <br>
 </data>
 
+
+
 <center>
 
 <% @instructor.courses.each do |course| %>
-<div id="Data" class="box5"> <bold>Course</bold> <%= link_to course.course_object, course_path(course)%> - <bold> <%=course.overall_from_instructor(@instructor) %></bold></div> <br>
+<div id="Data" class="box5"> <bold>Course</bold> <%= link_to course.course_object, course_path(course)%> - <bold> <%=course.overall_from_instructor(@instructor) %></bold></div>
 <% end %>
 
 </center>
 
- <%= render 'layouts/fcqcard' %><br>
+
 

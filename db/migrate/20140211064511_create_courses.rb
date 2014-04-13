@@ -4,7 +4,7 @@ class CreateCourses < ActiveRecord::Migration
       t.string :course_title
       t.string :crse
       t.string :subject
-
+      t.string :corrected_course_title
       t.timestamps
     end
   end

@@ -45,7 +45,7 @@ class Fcq < ActiveRecord::Base
 
   def title
     if recitation?
-      return "#{capitalized_title}-REC"
+      return corrected_course_title
     else
       return capitalized_title
     end
@@ -56,7 +56,7 @@ class Fcq < ActiveRecord::Base
   end
 
   def correct_title(title)
-    write_attribute(:course_title, title)
+    write_attribute(:corrected_course_title, title)
   end
 
   def recitation?
