@@ -1,6 +1,7 @@
 <%= render 'layouts/fcq_titlecard' %>
-<%= render 'layouts/fcq_scorecard' %>
 <% if @fcq.bad? %>
 	<%= render 'layouts/fcq_errorbar' %>
 <% end %>
+<%= render 'layouts/fcq_scorecard' %>
+
 <p id="notice"><%= notice %></p>

@@ -23,15 +23,3 @@ FCQS Returned: <%= @instructor.total_returned %> <br>
 Requested Returned Ratio: <%= @instructor.requested_returned_ratio %> <br>
 </data>
 
-
-
-<center>
-
-<% @instructor.courses.each do |course| %>
-<div id="Data" class="box5"> <bold>Course</bold> <%= link_to course.course_object, course_path(course)%> - <bold> <%=course.overall_from_instructor(@instructor) %></bold></div>
-<% end %>
-
-</center>
-
-
-

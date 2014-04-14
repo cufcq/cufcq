@@ -81,6 +81,7 @@ strong
 {
 	background: #ff0000 url(overlay.png) repeat;;
 		margin: 0px fixed;
+		a:link {color:#fff;}
 }
 
 
@@ -401,10 +402,10 @@ user-select: none;
 	}
 	#error_header
 	{
+		text-align: center;
 		display: block;
 		letter-spacing: 0.10em;
 		text-transform: uppercase;
-		height: 172px;
 		font-size: 2.0em;
 		color: rgba(255,255,255,1.0);
 		z-index: 5;
@@ -1189,18 +1190,22 @@ font-size: 1.2em;
 		display: inline-block;
 	}
 
-	#data li a, #data li span
+	#data li a, #data li span, #data li button,
 	{
+		box-sizing: content-box;
+		font: inherit;
 		display: inline-block;
 		padding: 1em 1em 1em 1em;
-		width: 104px;
+		width: 120px;
 		text-align: center;
 		text-decoration: none;
   		letter-spacing: 0.15em;
   		text-transform: uppercase;
   		font-weight: 400;
   		font-size: 1.1em;
-		outline: 0;
+  		background-color: inherit;
+		outline: none;
+		border: none;
 		color: #FFF;
 	}
 
@@ -1274,6 +1279,7 @@ a:hover
 	color: #FFF;}
 .spoiler {overflow:hidden;background: #fff;}
 .spoiler > div {-webkit-transition: all 0.2s ease;-moz-transition: margin 0.2s ease;-o-transition: all 0.2s ease;transition: margin 0.2s ease;}
-.spoilerbutton[value^="Show"][type="button"] + .spoiler > div {margin-top:-100%;border: 0px;}
+/* If spiler content is escaping the tag, set the margin-top: percentage to a smaller value (more negative */
+.spoilerbutton[value^="Show"][type="button"] + .spoiler > div {margin-top:-500%;border: 0px;}
 .spoilerbutton[value^="Hide"][type="button"] + .spoiler {padding:5px;border: 0px;} 
 
