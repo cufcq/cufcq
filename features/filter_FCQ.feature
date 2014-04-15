@@ -1,5 +1,4 @@
 Feature: Be able to filter information
-#what we want to do 
 	As the a prospective student
 	#This is who is doing it 
 	I want to see only courses that apply to me
