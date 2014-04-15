@@ -1,12 +1,29 @@
-<!-- 
-<div id="spoiler" style="display:none"> 
+<!-- <input class="spoilerbutton" type="button" value="Show fcqs" onclick="this.value=this.value=='Show fcqs'?'Hide':'Show fcqs';">
+<div class="spoiler"><div>
+PUT CONTENT YOU WISH TO HIDE HERE
+</div></div> -->
 
-<button title="FCQS" type="button" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}else{document.getElementById('spoiler') .style.display='none'}">FCQS</button>
-</center> -->
-<center>
-
+<!-- FCQS -->
+<table><tr><td><li type=disc> Courses Taught</li></td><td><li type=disc> semesters taught Taught</li></td><td><li type=disc> Courses Taught</li></td></tr></table>
+<input class="spoilerbutton" type="button" value="Show fcqs" onclick="this.value=this.value=='Show fcqs'?'Hide fcqs':'Show fcqs';" width=100%>
+<div class="spoiler"><div>
+<div width=640px align=center>These FCQs are used to generate most other statistics on this page. Click any FCQ to be taken to that page.
 <% @instructor.fcqs.each do |fcq| %>
-<div id="Data" class=<%= fcq.color%>> <bold><%= fcq.rank_string%></bold> <%= link_to fcq.fcq_object, fcq_path(fcq)%> </div> <br>
+<div id="Data" class=<%= fcq.color%>> <bold><%= fcq.rank_string%></bold> <%= link_to fcq.fcq_object, fcq_path(fcq)%> </div>
 <% end %>
+</div>
+</div></div>
+<!-- Courses -->
+<input class="spoilerbutton" type="button" value="Show courses" onclick="this.value=this.value=='Show courses'?'Hide courses':'Show courses';" width=100%>
+<div class="spoiler"><div>
+<div width=640px align=center>These courses were taught / TA'd by this instructor
+<% @instructor.courses.each do |course| %>
+<div id="Data" class="box5"> <bold>Course</bold> <%= link_to course.course_object, course_path(course)%> </div>
+<% end %>
+</div>
+</div></div>
 
-</center>
+
+
+
+

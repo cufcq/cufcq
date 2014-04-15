@@ -66,12 +66,12 @@ end
 task :course_populate => :environment do
   Fcq.find_each(:batch_size => 200) do |x|
     begin
-      params = {"course_title" => x.course_title, "crse" => x.crse, "subject" => x.subject}
-      title = x.course_title
-      sec = x.sec
       if x.recitation?
         next
       end
+      params = {"course_title" => x.course_title, "crse" => x.crse, "subject" => x.subject}
+      title = x.course_title
+      sec = x.sec
       i = Course.create!(params)
       rescue Exception => e
         puts "rescued -" + e.inspect     
@@ -80,7 +80,24 @@ task :course_populate => :environment do
       i = i.nil? ? Course.where(params).first : i
       i.fcqs << x  unless (i.fcqs.exists?(x))
       puts i.id + x.id
-    end      
+    end 
+  #recitation correction
+  Fcq.find_each(:batch_size => 200) do |x|
+  begin
+    unless x.recitation?
+      next
+    end
+    params = {"course_title" => x.course_title, "crse" => x.crse, "subject" => x.subject}
+    i = Course.where(params).first
+    if i.nil?
+      next
+    end
+    i.fcqs << x
+    puts i.id + x.id
+   rescue Exception => e
+     puts "rescued -" + e.inspect
+   end
+ end
 end
 
 task :ic_relations => :environment do
@@ -88,10 +105,10 @@ task :ic_relations => :environment do
     begin
       puts i.instructor_last
       i.fcqs.to_a.each do |f|
-
-        params = {"course_title" => f.course_title, "crse" => f.crse, "subject" => f.subject}
+        title = f.recitation? ? f.corrected_course_title : f.course_title 
+        params = {"course_title" => title, "crse" => f.crse, "subject" => f.subject}
+        puts params
         dep_params = {"name" => f.subject, "college" => f.college, "campus" => f.campus}
-
         c = Course.where(params).first
         d = Department.where(dep_params).first
         if c.nil? 
@@ -99,7 +116,9 @@ task :ic_relations => :environment do
         elsif d.nil?
           next
         end
-
+        if f.course.nil?
+          c.fcqs << f
+        end
         c.instructors << i unless c.instructors.exists?(i)
         puts "added " + i.full_name.to_s + " to " + c.course_title.to_s
         i.courses << c unless i.courses.exists?(c)
@@ -157,11 +176,14 @@ task :recitation_correction => :environment do
         next
       end
       params = {"crse" => x.crse, "subject" => x.subject}
-      i = Course.where(params).first
-      puts i.course_title
+      c = Course.where(params).first
+      if c.nil?
+        next
+      end
       pre = x.course_title
-      x.correct_title(i.course_title)
-      puts pre + " -> " + x.course_title
+      Fcq.update(x.id, :corrected_course_title => c.course_title)
+      #Course.update(c.id, :corrected_course_title => x.corrected_course_title)
+      puts pre.to_s + " -> " + x.corrected_course_title.to_s
     rescue Exception => e
         puts "rescued -" + e.message + " - " + x.course_title
     end     

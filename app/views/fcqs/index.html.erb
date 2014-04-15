@@ -27,6 +27,8 @@
       <th>Campus</th>
       <th>College</th>
       <th>Instructor group</th>
+      <th>is recitation?</th>
+      <th>Corrected_Course_Title</th>
       <th></th>
       <th></th>
       <th></th>
@@ -60,6 +62,8 @@
         <td><%= fcq.campus %></td>
         <td><%= fcq.college %></td>
         <td><%= fcq.instructor_group %></td>
+        <td><%= fcq.recitation? %></td>
+        <td><%= fcq.corrected_course_title %></td>
         <td><%= link_to 'Show', fcq %></td>
         <td><%= link_to 'Edit', edit_fcq_path(fcq) %></td>
         <td><%= link_to 'Destroy', fcq, method: :delete, data: { confirm: 'Are you sure?' } %></td>

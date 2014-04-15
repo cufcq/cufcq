@@ -28,6 +28,7 @@ class CreateFcqs < ActiveRecord::Migration
       t.float :amount_learned
       t.float :respect
       t.string :course_title
+      t.string :corrected_course_title
       t.string :campus
       t.string :college
       t.string :instructor_group
