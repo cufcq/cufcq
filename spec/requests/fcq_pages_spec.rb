@@ -35,7 +35,19 @@ describe "FCQ Pages" do
     it { should have_content('Corrected_Course_Title') }
   end
   describe "FCQ 148 page" do
-    before {visit "/fcqs/148"}
-    it { should have_content('CSCI 1300-106') }
+    before {visit fcqs_path(148)}
+    it { should have_content(@instructor) }
+    it { should have_content(@course) }
+    it { should have_content(@department) }
+    it { should have_content(@yearterm) }
+    it { should have_content(@crse) }
+    it { should have_content(@subject) }
+    it { should have_content(@sec) }
+    it { should have_content(@course_title) }
+    it { should have_content(@forms_requested) }
+    it { should have_content(@forms_returned) }
+    it { should have_content(@campus) }
+    it { should have_content(@college) }
+    it { should have_content(@instructor_group) }
   end
 end

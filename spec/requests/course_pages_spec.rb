@@ -18,7 +18,10 @@ describe "Course Pages" do
     #things we should check on page 
   end
   describe "Courses page" do
-    before {visit "/courses/1"}
-    it { should have_content('Discrete Structures') }
+    before {visit courses_path(1)}
+    it { should have_content(@chart) }
+    it { should have_content(@course_title) }
+    it { should have_content(@crse) }
+    it { should have_content(@subject) }
   end
 end
