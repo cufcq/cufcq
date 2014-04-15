@@ -8,9 +8,11 @@ describe "Course Pages" do
     before { visit courses_path }
     it { should have_content('Listing courses') }
     it { should have_content('Course title') }
+    it { should have_content('Crse') }
+    it { should have_content('Subject') }
   end
   describe "Courses page" do
-    before {visit courses_path + "/1"}
+    before {visit "/courses/1"}
     it { should have_content('Discrete Structures') }
   end
 end
