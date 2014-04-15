@@ -1,8 +1,6 @@
 Feature: Be able to filter information
 	As the a prospective student
-	#This is who is doing it 
 	I want to see only courses that apply to me
-	#This is what the objective is 
 
 Scenario: View filtered information
 #this is the part with the regex 
