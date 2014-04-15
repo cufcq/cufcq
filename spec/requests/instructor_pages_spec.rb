@@ -12,6 +12,7 @@ describe "Instructor Pages" do
   end
   describe "Michael Eisenburg page" do
     before {visit instructors_path(1)}
+    it { should have_content(@chart) }
     it { should have_content(@fcqs) }
     it { should have_content(@courses) }
     it { should have_content(@instructor_first) }
