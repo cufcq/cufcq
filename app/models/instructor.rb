@@ -167,10 +167,9 @@ def self.search(query)
   if query.nil?
     return Instructors.all
   end
-  q = "%" + query.upcase + "%"
-  #this makes capital 
-  #TODO: deal with commas and spaces (use regex?), get strip to work. 
-  if query.include? " "
+  q =  query.upcase.strip
+  #this makes capital and strips whitespace 
+  if q.include?(" ")
     where("instructor_last like ? AND instructor_first like ? OR instructor_first like ? AND instructor_last like ?",q.split[1],q.split[0],q.split[1],q.split[0])
   else
     where("instructor_last = ? OR instructor_first = ? ",q,q) 
