@@ -2,38 +2,42 @@ CURRENT_YEARTERM = 20141
 class Course < ActiveRecord::Base
 belongs_to :department
 has_many :fcqs
-has_many :instructors, through: :fcqs
+has_many :instructors, -> { distinct }, through: :fcqs
 
 
 validates :course_title, :crse, :subject, presence: true
 validates_uniqueness_of :crse, scope: [:subject, :course_title]
 
 def average_prior_interest
-	self.fcqs.average(:prior_interest).round(1)
+	self.fcqs.where.not(instructor_group: 'TA').average(:prior_interest).round(1)
 end
 
 def average_challenge
-	self.fcqs.average(:challenge).round(1)
+	self.fcqs.where.not(instructor_group: 'TA').average(:challenge).round(1)
 end
 
 def average_course_overall
-	return self.fcqs.average(:course_overall).round(1)
+	return self.fcqs.where.not(instructor_group: 'TA').average(:course_overall).round(1)
 end
 
 def total_hours_string
-	return self.fcqs.pluck(:total_hours).mode
+	return self.fcqs.where.not(instructor_group: 'TA').pluck(:total_hours).mode
 end
 
 def average_amount_learned
-	return self.fcqs.average(:amount_learned).round(1)
+	return self.fcqs.where.not(instructor_group: 'TA').average(:amount_learned).round(1)
 end
 
 def total_sections_offered
-	return self.fcqs.count
+	return self.fcqs.where.not(instructor_group: 'TA').count
 end
 
 def total_students_enrolled
-	return self.fcqs.sum(:forms_requested) 
+	return self.fcqs.where.not(instructor_group: 'TA').sum(:forms_requested) 
+end
+
+def average_class_size
+  return self.fcqs.where.not(instructor_group: 'TA').average(:forms_requested)
 end
 
 def instructors_sorted_by_instructor_overall
@@ -54,10 +58,10 @@ end
 attr_reader :semesters, :overall_data, :challenge_data, :interest_data, :learned_data, :categories
 
 def overall_query
-  overalls = self.fcqs.group("yearterm").average(:course_overall)
-  challenge = self.fcqs.group("yearterm").average(:challenge)
-  interest = self.fcqs.group("yearterm").average(:prior_interest)
-  learned = self.fcqs.group("yearterm").average(:amount_learned)
+  overalls = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:course_overall)
+  challenge = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:challenge)
+  interest = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:prior_interest)
+  learned = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:amount_learned)
   @semesters = []
   @overall_data = []
   @challenge_data = [] 

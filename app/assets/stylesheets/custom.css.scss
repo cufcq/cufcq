@@ -10,7 +10,7 @@ h1, h2, h3
 {
 	margin: 0;
 	padding: 0;
-	font-weight: 600;
+	font-weight: 13px;
 	color: #454445;
 }
 
@@ -21,8 +21,8 @@ p, ol, ul
 
 ol, ul
 {
-	padding: 0;
-	list-style: none;
+	padding: inherit;
+	list-style: disc outside none;
 }
 
 p
@@ -40,6 +40,13 @@ strong
 {
 	min-width: 100%;
 	background: #FFC000 url(overlay.png) repeat;
+	margin: 0px fixed;
+}
+
+.teaching
+{
+	min-width: 100%;
+	background: #8bbc20 url(overlay.png) repeat;
 	margin: 0px fixed;
 }
 
@@ -384,7 +391,7 @@ user-select: none;
 		padding-top: 1em;
 		letter-spacing: 0.10em;
 		text-transform: uppercase;
-		font-size: 4.0em;
+		font-size: 3.8em;
 		color: rgba(255,255,255,1.0);
 		z-index: 5;
 	}
@@ -1132,35 +1139,56 @@ border-radius:32px;
 text-align: center;
 font-size: 1.2em;
 }
+.box6 /* teaching_assistants */
+{
+border:4px solid #8bbc20;
+padding:8px 12px;
+margin: 8px;
+border-radius:32px;
+text-align: center;
+font-size: 1.2em;
+}
+	/* ld */
 	.box1 bold
 	{
 	text-align: left;
 	font-size: 1.2em;
 		color: #007f46;
 	}
+	/* ud */
 	.box2 bold
 	{
 	text-align: left;
 	font-size: 1.2em;
 		color: #004d7c;
 	}
+	/* gd */
 	.box3 bold
 	{
 	text-align: left;
 	font-size: 1.2em;
 		color: #990033;
 	}
+	/* instructor */
 	.box4 bold
 	{
 	text-align: left;
 	font-size: 1.2em;
 		color: #FFC000;
 	}
+	/* course */
 	.box5 bold
 	{
 	text-align: left;
 	font-size: 1.2em;
 		color: #FF8000;
+	}
+	/* ta */
+	.box6 bold
+	{
+	text-align: left;
+	font-size: 1.2em;
+		color: #8bbc20;
 	}
 
 
@@ -1277,9 +1305,17 @@ a:hover
 	text-transform: uppercase;
 	font-weight: 600;
 	color: #FFF;}
-.spoiler {overflow:hidden;background: #fff;}
-.spoiler > div {-webkit-transition: all 0.2s ease;-moz-transition: margin 0.2s ease;-o-transition: all 0.2s ease;transition: margin 0.2s ease;}
+.spoiler {
+	overflow:hidden;
+	background: #fff;
+
+	}
+.spoiler > div {-webkit-transition: all 0.5s ease;-moz-transition: margin 0.5s ease;-o-transition: all 0.5s ease;transition: margin 0.5s ease;}
+.spoiler set1
+{
+	padding:0% 10% 0% 10%;
+}
 /* If spiler content is escaping the tag, set the margin-top: percentage to a smaller value (more negative */
-.spoilerbutton[value^="Show"][type="button"] + .spoiler > div {margin-top:-500%;border: 0px;}
+.spoilerbutton[value^="Show"][type="button"] + .spoiler > div {margin-top:-600%;border: 0px;}
 .spoilerbutton[value^="Hide"][type="button"] + .spoiler {padding:5px;border: 0px;} 
 

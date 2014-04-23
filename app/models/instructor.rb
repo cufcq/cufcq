@@ -5,7 +5,7 @@ IG_TA = "teaching assistant"
 class Instructor < ActiveRecord::Base
 belongs_to :department
 has_many :fcqs
-has_many :courses, through: :fcqs
+has_many :courses, -> { distinct }, through: :fcqs
 validates :instructor_first, :instructor_last, presence: true
 validates_uniqueness_of :instructor_first, scope: [:instructor_last]
 #respect
@@ -45,6 +45,10 @@ end
 
 def is_TA
   return (instructor_group == "TA") ? true : false
+end
+
+def instructor_type_string
+  is_TA ? "teaching assistant" : "instructor"
 end
 
 def overall_from_course(c)
@@ -146,6 +150,32 @@ def instructor_group_flavor_text
   else
     return "ERROR! Flavor text not found"
   end
+end
+
+def color
+    if is_TA
+      return "box6"
+    else
+      return "box4"
+    end
+end
+
+
+def self.search(query)
+  puts "XXX"
+  puts query
+  if query.nil?
+    return Instructors.all
+  end
+  q = "%" + query.upcase + "%"
+  #this makes capital 
+  #TODO: deal with commas and spaces (use regex?), get strip to work. 
+  if query.include? " "
+    where("instructor_last like ? AND instructor_first like ? OR instructor_first like ? AND instructor_last like ?",q.split[1],q.split[0],q.split[1],q.split[0])
+  else
+    where("instructor_last = ? OR instructor_first = ? ",q,q) 
+  #search database to see if anything is like first or last
+  end 
 end
 
 end

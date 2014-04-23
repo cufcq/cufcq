@@ -3,13 +3,20 @@ class InstructorsController < ApplicationController
 
   # GET /instructors
   # GET /instructors.json
-  def index
+ def index
+    if params[:search]
+    @instructors = Instructor.search(params[:search])
+    else
+
     @instructors = Instructor.all
+    end
   end
 
   # GET /instructors/1
   # GET /instructors/1.json
   def show
+    #@instructor = instructors_path(params[:id])
+    
   end
 
   # GET /instructors/new

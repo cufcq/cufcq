@@ -55,16 +55,10 @@ Released   : 20131117
 					<span class="byline">Faculty-Course Questionaires made easy</span>
 				</div>
 
-				<%= form_tag("/search", method: "get") do %>
-				  <!--<%= label_tag(:q, "Search for:") %>-->
-				  <%= text_field_tag(:q) %>
-				  <!-- <br>
-				  <%= submit_tag("Search") %>
-				  <br>  -->
-				  <br>
-				  <a href="submit_tag" class="button">Search</a>
-				  <br> 
+				<%= form_tag(instructors_path, :method => "get", id: "search-form") do %>
 
+				  <%= text_field_tag :search, params[:search], placeholder: "Search Instructors" %>
+				  <%= submit_tag "Search" %>
 				<% end %>
 			
 				<%= check_box_tag(:search_class) %>

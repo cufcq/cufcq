@@ -17,7 +17,7 @@
 <div class="spoiler"><div>
 <div width=640px align=center>These instructors taught / TA'd this course in the past
 <% @course.instructors.each do |instructor| %>
-<div id="Data" class="box4"> <bold>Instructor</bold> <%= link_to instructor.full_name, instructor_path(instructor)%> </div>
+<div id="Data" class=<%= instructor.color%>> <bold><%= instructor.instructor_type_string.capitalize %></bold> <%= link_to instructor.full_name, instructor_path(instructor)%> </div>
 <% end %>
 </div>
 </div></div>
