@@ -19,3 +19,18 @@ Then(/^I will see raw FCQ data$/) do
   end
 end
 
+Then(/^I should see undergraduate FCQs$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should not see graduate FCQs$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^I filter to Undergraduate only$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^(?:|I )will see the graph show (.+)$/ do |graph_data|
+  assert page.has_xpath?('//*', :text => graph_data)
+end
