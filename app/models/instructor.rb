@@ -115,7 +115,7 @@ def average_instructor_overall
 end
 
 def courses_taught
-  return self.fcqs.where('courseOverallPctValid IS NOT NULL').count
+  return self.fcqs.where('percentage_passed IS NOT NULL').count
 end
 
 attr_reader :semesters, :overall_data, :availability_data, :respect_data, :effectiveness_data, :categories

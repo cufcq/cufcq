@@ -69,6 +69,6 @@ class FcqsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fcq_params
-      params.require(:fcq).permit(:yearterm, :subject, :crse, :sec, :instructor_last, :instructor_first, :forms_requested, :forms_returned, :courseOverallPctValid, :courseOverall, :courseOverall_SD, :instructorOverall, :instructorOverall_SD, :hoursPerWkInclClass, :priorInterest, :instrEffective, :availability, :challenge, :howMuchLearned, :instrRespect, :course_title, :courseOverall_old, :courseOverall_SD_old, :instrOverall_old, :instrOverall_SD_old, :r_Fair, :r_Access, :workload, :r_Divstu, :r_Diviss, :r_Presnt, :r_Explan, :r_Assign, :r_Motiv, :r_Learn, :r_Complx, :campus, :college, :aSdiv, :level, :fcqdept, :instructor_group, :i_Num)
+      params.require(:fcq).permit(:yearterm, :subject, :crse, :sec, :instructor_last, :instructor_first, :forms_requested, :forms_returned)
     end
 end

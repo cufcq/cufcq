@@ -3,8 +3,11 @@
 require 'csv'
 #require "#{Rails.root}/app/helpers/fcqs_helper.rb"
 desc "Imports a CSV file into an ActiveRecord table"
-task :import => :environment do    
-    CSV.foreach('sample.csv', :headers => true) do |row|
+task :import => :environment do
+  puts "start"
+  Dir.glob('csv_make/output/*.csv').each do |csv|
+    puts "loading csv file: " + csv   
+    CSV.foreach(csv, :headers => true) do |row|
       begin
           #puts row.to_hash
           #h = row.to_hash.select {|k,v| k == "instructor_first" || "k == instructor_last"}
@@ -22,6 +25,8 @@ task :import => :environment do
         next
       end
     end
+  end
+  puts "finish"
 end
 
 task :drop_tables => :environment do
@@ -143,14 +148,21 @@ task :ic_relations => :environment do
     end     
 end
 
-
+LONG_NAMES = {"CSCI" => "Computer Science", "MATH" => "Mathematics", "PHIL" => "Philosophy", "APPM" => "Applied Mathematics", "CHEN" => "Chemical Engineering"}
 task :set_department_name => :environment do
     puts "Setting Department Long Names"
     puts "For every Department code, Enter it's long name, eg"
   Department.find_each do |d|
     begin
       print d.name + ": "
+      if LONG_NAMES.include?(d.name)
+        Department.update(d.id, :long_name => LONG_NAMES[d.name])
+        print LONG_NAMES[d.name]
+        puts ""
+        next
+      end
       ln = STDIN.gets.chomp
+      puts ""
       #puts d.update_attribute(:long_name, ln)
       
       Department.update(d.id, :long_name => ln)

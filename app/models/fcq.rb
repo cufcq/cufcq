@@ -38,10 +38,10 @@ class Fcq < ActiveRecord::Base
     #passed = self.percentage_passed || "-100%"
     #return (passed.chop.to_f) / 100
     #return 0.99
-    return courseOverallPctValid
+    return percentage_passed
   end
 
-  def percentage_passed
+  def percentage_passed_string
   val = (float_passed * 100).round(0)
   val = [val, 100].min
   val = [val, 0].max
