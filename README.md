@@ -34,7 +34,7 @@ Example: Find out the overall average respect rating for a teacher based on all 
 
 We can use this controller to get specific data about each instructor from the DB.
 
-####fcqa_controller.rb
+####fcq_controller.rb
 
 This controller is used to access info about each individual fcq from the DB. 
 
