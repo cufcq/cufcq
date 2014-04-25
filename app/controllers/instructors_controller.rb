@@ -3,11 +3,15 @@ class InstructorsController < ApplicationController
 
   # GET /instructors
   # GET /instructors.json
- def index
+  def index
     if params[:search]
-    @instructors = Instructor.search(params[:search])
+      @instructors = Instructor.search(params[:search])
+      if @instructors.size == 1
+        respond_to do |format|
+          format.html { redirect_to @instructors.first, notice: 'Search query returned one result' }
+        end
+      end
     else
-
     @instructors = Instructor.all
     end
   end

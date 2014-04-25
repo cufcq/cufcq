@@ -60,11 +60,11 @@ Released   : 20131117
 				  <%= text_field_tag :search, params[:search], placeholder: "Search Instructors" %>
 				  <%= submit_tag "Search" %>
 				<% end %>
-			
-				<%= check_box_tag(:search_class) %>
-				<%= label_tag(:serach_class, "Search by class") %>
-				<%= check_box_tag(:search_instructor) %>
+				<%= radio_button_tag("search field",:search_instructor, true) %>
 				<%= label_tag(:search_instructor, "Search by Instructor") %>
+				<%= radio_button_tag("search field",:search_class) %>
+				<%= label_tag(:search_class, "Search by class") %>
+				
 
 				<p>This is a website designed to help you find everything about CU teachers and courses, and their past track records.
 				<br>
