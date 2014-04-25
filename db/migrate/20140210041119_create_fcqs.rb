@@ -1,13 +1,12 @@
 class CreateFcqs < ActiveRecord::Migration
   def change
 
-
-
     create_table :fcqs do |t|
       t.belongs_to :instructor
       t.belongs_to :course
       t.belongs_to :department
       t.integer :yearterm
+      #subject should equal fcqdept
       t.string :subject
       t.integer :crse
       t.integer :sec
@@ -15,7 +14,7 @@ class CreateFcqs < ActiveRecord::Migration
       t.string :instructor_first
       t.integer :forms_requested
       t.integer :forms_returned
-      t.string :percentage_passed
+      t.float :percentage_passed
       t.float :course_overall
       t.float :course_overall_SD
       t.float :instructor_overall
@@ -32,8 +31,7 @@ class CreateFcqs < ActiveRecord::Migration
       t.string :campus
       t.string :college
       t.string :instructor_group
-
-
+      
       t.timestamps
     end
     add_index :fcqs, [:instructor_first, :instructor_last]
