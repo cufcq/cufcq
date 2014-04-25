@@ -42,7 +42,7 @@
 
 <p>
   <bold>Percentage passed:</bold>
-  <%= @fcq.percentage_passed %>
+  <%= @fcq.courseOverallPctValid %>
 </p>
 
 <p>

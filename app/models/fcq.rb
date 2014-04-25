@@ -33,11 +33,21 @@ class Fcq < ActiveRecord::Base
   #validates :yearterm, uniqueness: true
   validates_uniqueness_of :sec, scope: [:crse, :subject, :yearterm, :instructor_last, :instructor_first]
 
+  #changed to accomodate fcq v0.2
   def float_passed
-    passed = self.percentage_passed || "-100%"
-    return (passed.chop.to_f) / 100
+    #passed = self.percentage_passed || "-100%"
+    #return (passed.chop.to_f) / 100
     #return 0.99
+    return courseOverallPctValid
   end
+
+  def percentage_passed
+  val = (float_passed * 100).round(0)
+  val = [val, 100].min
+  val = [val, 0].max
+  string = val.round
+  return "#{string}%"
+end 
 
   def uid
     return "#{yearterm}#{subject}#{crse}#{sec}"
@@ -157,5 +167,4 @@ class Fcq < ActiveRecord::Base
   def instructor_full_name
     "#{instructor_first} #{instructor_last}"
   end
-
 end

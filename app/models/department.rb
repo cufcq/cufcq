@@ -96,7 +96,7 @@ class Department < ActiveRecord::Base
 	end
 
 	def instructors_count
-		hash = self.fcqs.where('percentage_passed IS NOT NULL').group([:instructor_first,:instructor_last]).count
+		hash = self.fcqs.where('courseOverallPctValid IS NOT NULL').group([:instructor_first,:instructor_last]).count
 	end
 
 	def instructors_by_courses_taught
