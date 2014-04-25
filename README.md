@@ -1,6 +1,5 @@
-#CUFCQ Project
-######Goal: To provide an inutitive way for students and teachers to analyze FCQ data. 
-
+#BETA CUFCQ Project
+######Goal: THIS IS A BETA FORK OF CUFCQ! See https://github.com/untra/cufcq for actual project!
 #####Project by: Samuel Volin, Cristobal Salazar, Alex Tsankov
 
 ####FCQ: A survery maintained by CU and collected at the end of every course with the intent of rating instructor proficiency.
