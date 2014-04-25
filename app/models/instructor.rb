@@ -93,7 +93,7 @@ end
 
 def average_percentage_passed_float
   total = 0.0
-  self.fcqs.compact.each {|x| next if x.float_passed < 0.0; total += x.float_passed}
+  self.fcqs.compact.each {|x| puts x.float_passed; next if x.float_passed < 0.0; total += x.float_passed}
   count = courses_taught
   if count == 0
     return 1.0 

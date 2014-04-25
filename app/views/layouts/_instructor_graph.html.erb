@@ -25,6 +25,8 @@
           var n = this.x%10
           var y = Math.floor(this.x/10);
           var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error "
+          var parsed = s+y+" : "+this.y
+          return (this.y >= 1.0) ? parsed : parsed+"<br/>NOTE: during this semester, this instructor <br/>did not return any FCQs. As a result, this <br/>value is marked as 0.0. Student's cannot <br/>actually mark scores lower than 1.0. This <br/>value is meant to serve as an indicator <br/>of an error."
           return s+y+" : "+this.y
       }
     },
