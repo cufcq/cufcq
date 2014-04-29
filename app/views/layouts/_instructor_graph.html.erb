@@ -21,13 +21,21 @@
             }
         },
       tooltip: {
+        shared: true,
         formatter: function () {
           var n = this.x%10
           var y = Math.floor(this.x/10);
-          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error "
-          var parsed = s+y+" : "+this.y
-          return (this.y >= 1.0) ? parsed : parsed+"<br/>NOTE: during this semester, this instructor <br/>did not return any FCQs. As a result, this <br/>value is marked as 0.0. Student's cannot <br/>actually mark scores lower than 1.0. This <br/>value is meant to serve as an indicator <br/>of an error."
-          return s+y+" : "+this.y
+          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error ";
+          var date = s+y+" :<br/>";
+          //var n = this.x%10
+          //var y = Math.floor(this.x/10);
+          //var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error "
+          var od = this.points[0].visible ? '' : '<span style="color:#7cb5ec">Instr Overall: </span>' + this.points[0].point.y + '<br/>';
+          var av = this.points[1].visible ? '' : '<span style="color:#434348">Availability: </span>' + this.points[1].point.y + '<br/>';
+          var ef = this.points[2].visible ? '' : '<span style="color:#90ed7d">Effectiveness: </span>' + this.points[2].point.y + '<br/>';
+          var rs = this.points[3].visible ? '' : '<span style="color:#f7a35c">Instr Respect: </span>' + this.points[3].point.y + '<br/>';
+          var er = (this.y >= 1.0) ? '' : "<br/>NOTE: during this semester, this instructor <br/>did not return any FCQs. As a result, this <br/>value is marked as 0.0. Student's cannot <br/>actually mark scores lower than 1.0. This <br/>value is meant to serve as an indicator <br/>of an error.";
+          return date + od + av +ef + rs + er;
       }
     },
     exporting: {

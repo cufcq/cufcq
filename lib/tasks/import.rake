@@ -15,6 +15,25 @@ task :import => :environment do
           #inst.fcqs.create!(row.to_hash)
       f = Fcq.create!(row.to_hash)
       puts f.fcq_object
+      #given a new fcq object, create the instructor and course
+      i_params = {"instructor_first" => f.instructor_first, "instructor_last" => f.instructor_last}
+      c_params = {"course_title" => f.course_title, "crse" => f.crse, "subject" => f.subject}
+      d_params = {"name" => f.subject, "college" => f.college, "campus" => f.campus}
+      i = Instructor.where(i_params).first || Instructor.create!(i_params)
+      c = Course.where(c_params).first || Course.create!(c_params)
+      d = Department.where(d_params).first || Department.create!(d_params)
+      i.fcqs << f
+      c.fcqs << f
+      d.fcqs << f
+      c.instructors << i unless c.instructors.exists?(i)
+      puts "added " + i.full_name.to_s + " to " + c.course_title.to_s
+      i.courses << c unless i.courses.exists?(c)
+      puts "added " + c.course_title.to_s + " to " + i.full_name.to_s
+      d.instructors << i unless d.instructors.exists?(i)
+      puts "added " + i.full_name.to_s + " to " + d.name.to_s
+      d.courses << c unless d.courses.exists?(c)
+      puts "added " + c.course_title.to_s + " to " + d.name.to_s
+      
       rescue ActiveRecord::RecordInvalid => invalid
           puts invalid.message
           next
@@ -28,6 +47,31 @@ task :import => :environment do
   end
   puts "finish"
 end
+# task :import => :environment do
+#   puts "start"
+#   Dir.glob('csv_make/output/*.csv').each do |csv|
+#     puts "loading csv file: " + csv   
+#     CSV.foreach(csv, :headers => true) do |row|
+#       begin
+#           #puts row.to_hash
+#           #h = row.to_hash.select {|k,v| k == "instructor_first" || "k == instructor_last"}
+#           #inst = get_instructor(params)
+#           #inst.fcqs.create!(row.to_hash)
+#       f = Fcq.create!(row.to_hash)
+#       puts f.fcq_object
+#       rescue ActiveRecord::RecordInvalid => invalid
+#           puts invalid.message
+#           next
+#       rescue ActiveRecord::RecordNotUnique => unique
+#         next
+#       rescue ActiveRecord::UnknownAttributeError => unknown
+#         puts unknown.message
+#         next
+#       end
+#     end
+#   end
+#   puts "finish"
+# end
 
 task :drop_tables => :environment do
   drop_table :departments
