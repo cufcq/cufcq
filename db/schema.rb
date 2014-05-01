@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20140425040402) do
     t.string   "fcqdept"
     t.string   "instructor_group"
     t.integer  "i_Num"
+    t.string   "corrected_course_title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

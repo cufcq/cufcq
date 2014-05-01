@@ -13,7 +13,8 @@ task :import => :environment do
           #h = row.to_hash.select {|k,v| k == "instructor_first" || "k == instructor_last"}
           #inst = get_instructor(params)
           #inst.fcqs.create!(row.to_hash)
-      f = Fcq.create!(row.to_hash)
+      puts row.to_hash.to_s
+	f = Fcq.create!(row.to_hash)
       puts f.fcq_object
       #given a new fcq object, create the instructor and course
       i_params = {"instructor_first" => f.instructor_first, "instructor_last" => f.instructor_last}
