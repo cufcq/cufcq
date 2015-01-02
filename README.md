@@ -9,11 +9,17 @@
 - Make sure all of the gems are updated (bundle update)
 - Initialize the DB with total_reload.sh
 - Run with ```rails -s```
-- Go to ```/instructors``` to see if the site was populated properly. 
+- Go to /instructors to see if the site was populated properly. 
 
-###Imports: 
+####Imports: 
 
-All files that are *.csv in csv_make/output are imported using the imported using the import script. This script is found in lib/tasks/import.rake
+You can create csv files from the excel documents from the FCQ website using csv_make/csv_maker.sh, this requires ssconvert which is a gnumeric application. Put the final csv files into to the csv_make/output directory. 
+
+All files that end in .csv in csv_make/output are imported using the import script. This script is found in lib/tasks/import.rake. 
+
+For testing purposes, we only have FCQs of the Math department by default in the output folder. 
+
+We have 2 different import scripts that should be run when you want to make changes to the DB. Use total_reload.sh on the first run and fast_reload for smaller changes. 
 
 ####Courses: 
 Look at the past FCQ data for differnet courses. 
