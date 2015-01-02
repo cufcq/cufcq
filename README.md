@@ -6,9 +6,14 @@
 
 ###To Run: 
 
-- Make sure all of the gems are updated
+- Make sure all of the gems are updated (bundle update)
+- Initialize the DB with total_reload.sh
+- Run with ```rails -s```
+- Go to ```/instructors``` to see if the site was populated properly. 
 
-###Views: 
+###Imports: 
+
+All files that are *.csv in csv_make/output are imported using the imported using the import script. This script is found in lib/tasks/import.rake
 
 ####Courses: 
 Look at the past FCQ data for differnet courses. 

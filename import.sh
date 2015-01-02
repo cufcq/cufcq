@@ -1,4 +1,8 @@
 #!/bin/bash
+
+#This is for a fresh DB? Possible depcricated. 
+#See lib/tasks/import.rake for more info
+
 #bundle exec rake db:reset
 #bundle exec rake db:migrate
 bundle exec rake import

@@ -1,4 +1,8 @@
 #!/bin/bash
+
+#This does a total reload, it includes all of the populate tasks. 
+#See lib/tasks/import.rake for more info
+
 bundle exec rake db:reset
 bundle exec rake db:migrate
 bundle exec rake import
