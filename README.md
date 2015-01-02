@@ -4,7 +4,9 @@
 
 ####FCQ: A survery maintained by CU and collected at the end of every course with the intent of rating instructor proficiency.
 
+###To Run: 
 
+- Make sure all of the gems are updated
 
 ###Views: 
 
