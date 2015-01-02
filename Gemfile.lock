@@ -27,8 +27,6 @@ GEM
       tzinfo (~> 0.3.37)
     addressable (2.3.6)
     arel (4.0.2)
-    bootstrap-sass (2.3.2.0)
-      sass (~> 3.2)
     builder (3.1.4)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -171,7 +169,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (= 2.3.2.0)
   capybara
   coffee-rails (~> 4.0.0)
   cucumber-rails
