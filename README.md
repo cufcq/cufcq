@@ -4,7 +4,11 @@
 
 ####FCQ: A survery maintained by CU and collected at the end of every course with the intent of rating instructor proficiency.
 
-###To Run: 
+###Mockups: 
+
+We put mockups of what pages should look like in test/mockups
+
+###To Run:
 
 - Make sure all of the gems are updated (bundle update)
 - Initialize the DB with total_reload.sh
@@ -20,6 +24,8 @@ All files that end in .csv in csv_make/output are imported using the import scri
 For testing purposes, we only have FCQs of the Math department by default in the output folder. 
 
 We have 2 different import scripts that should be run when you want to make changes to the DB. Use total_reload.sh on the first run and fast_reload for smaller changes. 
+
+
 
 ####Courses: 
 Look at the past FCQ data for differnet courses. 
