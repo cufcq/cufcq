@@ -6,7 +6,9 @@ Cufcq::Application.routes.draw do
   resources :courses
   resources :departments
   resources :instructors
+  resources :instructors_test
   resources :fcqs
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -22,7 +22,7 @@ def name
 end
 
 def full_name
-	return name.split.map(&:capitalize).join(' ')
+	return name.split.map(&:titlelize).join(' ')
 end
 
 def instructor_object
@@ -102,6 +102,8 @@ def average_percentage_passed_float
   end
 end
 
+
+#These pass rates are weird, I suspect there is something up with the FCQ data and these aren't right
 def pass_rate_string
   val = (average_percentage_passed_float * 100).round(0)
   val = [val, 100].min

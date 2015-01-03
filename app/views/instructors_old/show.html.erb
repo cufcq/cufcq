@@ -1,0 +1,26 @@
+<% puts @instructor.class %>
+<%= render 'layouts/instructor_titlecard' %>
+<%= render 'layouts/instructor_scorecard' %>
+
+<%= render 'layouts/instructor_graph' %>
+<%= render 'layouts/fcqcard' %>
+<data>
+<instructorgroup>
+<a href="" accesskey="1" title=<%= @instructor.instructor_group_flavor_text %> ><%= @instructor.instructor_group %></a>
+
+</instructorgroup>
+<strong><u><%= @instructor.full_name %></u></strong> <br>
+<detail> <%= @instructor.college %> at <%= @instructor.campus %> - <%= @instructor.department %></detail> <br>
+
+
+Earliest FCQ: <%= @instructor.started_teaching %>
+Latest FCQ: <%= @instructor.latest_teaching %> <br>
+Group: <%= @instructor.instructor_group %> <br>
+
+Classes Taught: <%= @instructor.courses_taught %> <br>
+Students Taught: <%= @instructor.courses_taught %> <br>
+FCQS Requested: <%= @instructor.total_requested %> <br>
+FCQS Returned: <%= @instructor.total_returned %> <br>
+Requested Returned Ratio: <%= @instructor.requested_returned_ratio %> <br>
+</data>
+
