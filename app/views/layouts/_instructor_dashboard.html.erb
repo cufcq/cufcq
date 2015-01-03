@@ -46,7 +46,7 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a>Instructor: <%= @instructor.name %><span class="sr-only">(current)</span></a></li>
             <!-- TODO Do we have working departments? -->
-            <li><a href="/department">Instructor Department: <%= @instructor.department %></a></li>
+            <li><a href="/department">Department: <%= @instructor.department %></a></li>
           </ul>
 
 
@@ -77,131 +77,25 @@
 
           </div>
 
-          <h2 class="sub-header">TODO Courses Taught</h2>
+          <h2 class="sub-header">Courses Taught</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>Course</th>
-                  <th>Course Name</th>
-                  <th>Work Load</th>
-                  <th>As Given</th>
-                  <th>Students Passed</th>
+                  <th>Percent Passed</th>
+                  <th>Level</th>
                 </tr>
               </thead>
+
               <tbody>
+                <% @instructor.fcqs.each do |fcq| %>
                 <tr>
-                  <td>3001</td>
-                  <td>Underwater Basket Weaving</td>
-                  <td>7-9 Hours</td>
-                  <td>15%</td>
-                  <td>95%</td>
+                  <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
+                  <td><%= fcq.percentage_passed_string()%></td>
+                  <td><%= fcq.rank_string()%></td>
                 </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
+                <% end %>
               </tbody>
             </table>
           </div>
