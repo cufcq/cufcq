@@ -8,7 +8,7 @@ class InstructorsController < ApplicationController
       @instructors = Instructor.search(params[:search])
       if @instructors.size == 1
         respond_to do |format|
-          format.html { redirect_to @instructors.first, notice: 'Search query returned one result' }
+          format.html { redirect_to @instructors.first }
         end
       end
     else

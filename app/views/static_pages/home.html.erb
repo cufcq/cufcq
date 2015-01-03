@@ -1,49 +1,60 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-Name       : Plushiness 
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20131117
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<!--
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/starter-template/starter-template.css" rel="stylesheet">
 
-<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
-<link href="default.css" rel="stylesheet" type="text/css" media="all" />
-<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
--->
+    <style>
+      body { 
+          background-image: url(<%= asset_path 'boulder.jpg' %>)
+/*        background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: center; */
+      }
+    </style>
 
-<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+  </head>
 
-</head>
-<body>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">CU FCQ</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/about">About</a></li>
+            <li><a href="/instructors">Instructors</a></li>
+            <li><a href="/courses">Courses</a></li>
+            <li><a href="/courses">Departments</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
+    <div class="container">
 
+      <div class="starter-template">
+        <h1>Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <%= text_field_tag :search, params[:search], placeholder: "Search" %>
 
+      </div>
 
-				<%= form_tag(instructors_path, :method => "get", id: "search-form") do %>
+    </div><!-- /.container -->
 
-				  <%= text_field_tag :search, params[:search], placeholder: "Search Instructors" %>
-				  <%= submit_tag "Search" %>
-				<% end %>
-				<%= radio_button_tag("search field",:search_instructor, true) %>
-				<%= label_tag(:search_instructor, "Search by Instructor") %>
-				<%= radio_button_tag("search field",:search_class) %>
-				<%= label_tag(:search_class, "Search by class") %>
-				
-
-				<p>This is a website designed to help you find everything about CU teachers and courses, and their past track records.
-				<br>
-
-</body>
-</html>
+</body></html>
