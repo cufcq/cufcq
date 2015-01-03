@@ -34,7 +34,7 @@
             <li><a href="http://getbootstrap.com/examples/dashboard/#">Help</a></li>
           </ul>
           <form class="navbar-form navbar-right">
-            <input type="text" class="search-form" placeholder="Search...">
+          <%= text_field_tag :search, params[:search], placeholder: "Search" %>
           </form>
         </div>
       </div>

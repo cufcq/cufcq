@@ -7,9 +7,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-
-    <title>Dashboard Template for Bootstrap</title>
-
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -42,12 +39,12 @@
             <li><a href="http://getbootstrap.com/examples/dashboard/#">Help</a></li>
           </ul>
           <form class="navbar-form navbar-right">
-            <input type="text" class="search-form" placeholder="Search...">
-          </form>
+        <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+         </form>
         </div>
       </div>
     </nav>
-
+    <title><%= @course.course_title%></title>
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
