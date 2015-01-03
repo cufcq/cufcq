@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- saved from url=(0043)http://getbootstrap.com/examples/dashboard/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,14 +7,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-    <!-- Bootstrap core CSS -->
-    <!-- <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
 
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
   <body>
@@ -39,60 +46,51 @@
         </div>
       </div>
     </nav>
-    <title><%= @instructor.name %></title>
+
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a>Instructor: <%= @instructor.name %><span class="sr-only">(current)</span></a></li>
-            <!-- TODO Do we have working departments? -->
-            <li><a href="/department">Instructor Department: <%= @instructor.department %></a></li>
-          </ul>
-
-
-          <ul class="nav nav-sidebar">
-            <li><a>Earliest FCQ: <%= @instructor.started_teaching %></a></li>
-            <li><a>Latest FCQ: <%= @instructor.latest_teaching %></a></li>
-            <!-- TODO: These insturctor groups need to be translated -->
-            <li><a>Instructor Group: <%= @instructor.instructor_group %></a></li>
+            <li class="active"><a href="http://getbootstrap.com/examples/dashboard/#">{Course Name}<span class="sr-only">(current)</span></a></li>
+            <li><a href="http://getbootstrap.com/examples/dashboard/#">{Department}</a></li>
           </ul>
           <ul class="nav nav-sidebar">
+<!--             Are these all of the sections of this class ever offered -->
+            <li><a href="">{Sections Offered}</a></li>
+            <li><a href="">{Number of Course Takers}</a></li>
 
-            <li><a>Courses Taught: <%= @instructor.courses_taught %></a></li>
-            <li><a>Students Taught: <%= @instructor.total_requested %></a></li>
-            <li><a>Average Overall: <%= @instructor.average_instructor_overall %></a></li>
-            <li><a>Average Effectiveness: <%= @instructor.average_effectiveness %></a></li>
-            <li><a>Average Availability: <%= @instructor.average_availability %></a></li>
-            <!-- WEIRD RESULTS for average pass rate, see note in insturctor.rb -->
-            <li><a>Average Pass Rate: <%=@instructor.pass_rate_string %></a></li>
-
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">{Course Overall}</a></li>
+            <li><a href="">{Course Challenge}</a></li>
+            <li><a href="">{Total Hours}</a></li>
+            <li><a href="">{Prior Interest}</a></li>
+            <li><a href="">{Amount Learned}</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header"><%= @instructor.name %></h1>
+          <h1 class="page-header">{Course Name}</h1>
 
           <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">
-              
           <%= render 'layouts/instructor_graph' %>
-
           </div>
 
-          <h2 class="sub-header">TODO Courses Taught</h2>
+          <h2 class="sub-header">TODO Course Instructors</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Course</th>
-                  <th>Course Name</th>
-                  <th>Work Load</th>
-                  <th>As Given</th>
+                  <th>Instructor</th>
+                  <th>Effectiveness for Course</th>
+                  <th>Work Load for Course</th>
+                  <th>A's given</th>                  
                   <th>Students Passed</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>3001</td>
-                  <td>Underwater Basket Weaving</td>
+                  <td>JOHN DOE</td>
+                  <td>4.5</td>
                   <td>7-9 Hours</td>
                   <td>15%</td>
                   <td>95%</td>

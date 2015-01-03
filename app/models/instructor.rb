@@ -22,7 +22,7 @@ def name
 end
 
 def full_name
-	return name.split.map(&:titlelize).join(' ')
+	return name.split.map(&:capitalize).join(' ')
 end
 
 def instructor_object

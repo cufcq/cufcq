@@ -1,24 +1,2 @@
-<%= render 'layouts/course_titlecard' %>
-<%= render 'layouts/course_scorecard' %>
-<%= render 'layouts/course_graph' %>
+<%= render 'layouts/course_dashboard' %>
 
-<input class="spoilerbutton" type="button" value="Show fcqs" onclick="this.value=this.value=='Show fcqs'?'Hide fcqs':'Show fcqs';" width=100%>
-<div class="spoiler"><div>
-<div width=640px align=center>These FCQs are used to generate most other statistics on this page. Click any FCQ to be taken to that page.
-<% @course.fcqs.each do |fcq| %>
-<div id="Data" class=<%= fcq.color%>> <bold><%= fcq.rank_string%></bold> <%= link_to fcq.fcq_object, fcq_path(fcq)%> </div>
-<% end %>
-</div>
-</div>
-</div>
-
-<!-- Courses -->
-<input class="spoilerbutton" type="button" value="Show instructors" onclick="this.value=this.value=='Show instructors'?'Hide instructors':'Show instructors';" width=100%>
-<div class="spoiler"><div>
-<div width=640px align=center>These instructors taught / TA'd this course in the past
-<% @course.instructors.each do |instructor| %>
-<div id="Data" class=<%= instructor.color%>> <bold><%= instructor.instructor_type_string.capitalize %></bold> <%= link_to instructor.full_name, instructor_path(instructor)%> </div>
-<% end %>
-</div>
-</div></div>
-<p id="notice"><%= notice %></p>
