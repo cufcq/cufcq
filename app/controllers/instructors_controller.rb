@@ -5,14 +5,12 @@ class InstructorsController < ApplicationController
   # GET /instructors.json
   def index
     if params[:search]
-      @instructors = Instructor.search(params[:search])
-      if @instructors.size == 1
-        respond_to do |format|
-          format.html { redirect_to @instructors.first }
-        end
+      @search = Instructor.search do
+        fulltext params[:search]
       end
+    @instructors = @search.results
     else
-    @instructors = Instructor.all
+       @instructors = Instructor.all
     end
   end
 

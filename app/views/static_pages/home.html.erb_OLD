@@ -33,8 +33,8 @@ Released   : 20131117
 
 				<%= form_tag(instructors_path, :method => "get", id: "search-form") do %>
 
-				  <%= text_field_tag :search, params[:search], placeholder: "Search Instructors" %>
-				  <%= submit_tag "Search" %>
+				<%= text_field_tag :search, params[:search], placeholder: "Search Instructors" %>
+				<%= submit_tag "Search" %>
 				<% end %>
 				<%= radio_button_tag("search field",:search_instructor, true) %>
 				<%= label_tag(:search_instructor, "Search by Instructor") %>

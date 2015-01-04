@@ -13,6 +13,12 @@ gem 'launchy'
 gem 'rspec-rails'
 end
 
+#Sunspot Search 
+gem 'sunspot_rails'
+gem 'sunspot_solr' 
+
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

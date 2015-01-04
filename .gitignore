@@ -17,3 +17,5 @@
 
 #Ignore temp files
 *~
+
+solr/data

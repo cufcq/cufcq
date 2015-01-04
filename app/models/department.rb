@@ -84,11 +84,6 @@ class Department < ActiveRecord::Base
 		end
 	end
 
-
-
-
-
-
 	def get_instructor(a)
 		set = Instructor.where("instructor_first = ? AND instructor_last = ?", a[0], a[1])
 		puts set
