@@ -12,3 +12,5 @@ bundle exec rake import
 bundle exec rake recitation_correction
 #bundle exec rake ic_relations
 bundle exec rake set_department_name
+bundle exec rake sunspot:reindex
+

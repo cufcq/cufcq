@@ -70,10 +70,10 @@ class InstructorsController < ApplicationController
     end
   end
 
-attr_reader :chart
-def test_chart
-  @chart = Instructor.test_chart
-end
+  attr_reader :chart
+  def test_chart
+    @chart = Instructor.test_chart
+  end
 
 
   private
