@@ -40,7 +40,7 @@
             <li><a href="/about">About</a></li>
             <li><a href="/instructors">Instructors</a></li>
             <li><a href="/courses">Courses</a></li>
-            <li><a href="/courses">Departments</a></li>
+            <li><a href="/departments">Departments</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -49,9 +49,18 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <h1>CU FCQ</h1>
+        <p class="lead">This is a website designed to help you find everything about CU teachers and courses, and their past track records.</p>
+        
+
+        <%= form_tag(instructors_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+        <%= submit_tag "Search" %>
+        <% end %>
+        <%= radio_button_tag("search field",:search_instructor, true) %>
+        <%= label_tag(:search_instructor, "Search Instructor") %>
+        <%= radio_button_tag("search field",:search_class,false) %>
+        <%= label_tag(:search_class, "Search Class") %>
 
       </div>
 

@@ -162,10 +162,8 @@ def color
     end
 end
 
-
+#this is our search stuff
 def self.search(query)
-  puts "XXX"
-  puts query
   if query.nil?
     return Instructors.all
   end
