@@ -19,3 +19,5 @@
 *~
 
 solr/data
+
+*.xls

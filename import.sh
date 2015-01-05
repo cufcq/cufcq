@@ -12,3 +12,6 @@ bundle exec rake import
 bundle exec rake recitation_correction
 #bundle exec rake ic_relations
 bundle exec rake set_department_name
+
+RAILS_ENV=development bundle exec rake sunspot:solr:start
+RAILS_ENV=development bundle exec rake sunspot:solr:reindex 

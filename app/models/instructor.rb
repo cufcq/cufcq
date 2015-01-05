@@ -7,8 +7,6 @@ class Instructor < ActiveRecord::Base
   searchable do 
     text :instructor_first
     text :instructor_last, :default_boost => 2
-    text :courses
-    text :department
   end
 
   belongs_to :department
