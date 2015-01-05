@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://getbootstrap.com/examples/dashboard/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">FCQ Project</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Home</a></li>
+            <li><a href="/help">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+         </form>
+        </div>
+      </div>
+    </nav>
+    <title><%= @course.course_title%></title>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a>Course Name: <%= @course.course_title %><span class="sr-only">(current)</span></a></li>
+            <li><a href="/departments">Department: TODO</a></li>
+            <li><a>College: TODO</a></li>
+
+          </ul>
+          <ul class="nav nav-sidebar">
+<!--             Are these all of the sections of this class ever offered -->
+            <li><a>Sections Offered: <%= @course.total_sections_offered %></a></li>
+            <li><a>Course Takers: <%= @course.total_students_enrolled %> </a></li>
+
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a>Course Overall:<%= @course.average_course_overall %></a></li>
+            <li><a>Course Challenge: <%= @course.average_challenge %></a></li>
+            <li><a>Total Hours: <%= @course.total_hours_string %></a></li>
+            <li><a>Prior Interest: <%= @course.average_prior_interest %> </a></li>
+            <li><a>Amount Learned: <%= @course.average_amount_learned %></a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header"><%= @course.course_title %></h1>
+
+          <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">
+          <%= render 'layouts/course_graph' %>
+          </div>
+
+          <h2 class="sub-header">TODO Course Instructors</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Instructor</th>
+                  <th>Effectiveness for Course</th>
+                  <th>Work Load for Course</th>
+                  <th>A's given</th>                  
+                  <th>Students Passed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>JOHN DOE</td>
+                  <td>4.5</td>
+                  <td>7-9 Hours</td>
+                  <td>15%</td>
+                  <td>95%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  

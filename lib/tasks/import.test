@@ -1,0 +1,112 @@
+#lib/tasks/import.rake
+# to call, run 
+require 'csv'
+#require "#{Rails.root}/app/helpers/fcqs_helper.rb"
+desc "Imports a CSV file into an ActiveRecord table"
+task :import => :environment do
+  puts "start"
+  Dir.glob('csv_make/output/*.csv').each do |csv|
+    puts "loading csv file: " + csv   
+    CSV.foreach(csv, :headers => true) do |row|
+      begin
+          #puts row.to_hash
+          #h = row.to_hash.select {|k,v| k == "instructor_first" || "k == instructor_last"}
+          #inst = get_instructor(params)
+          #inst.fcqs.create!(row.to_hash)
+      f = Fcq.create!(row.to_hash)
+      puts f.fcq_object
+      #given a new fcq object, create the instructor and course
+      i_params = {"instructor_first" => x.instructor_first, "instructor_last" => x.instructor_last}
+      c_params = {"course_title" => x.course_title, "crse" => x.crse, "subject" => x.subject}
+      d_params = {"name" => x.subject, "college" => x.college, "campus" => x.campus}
+      i = Instructor.where(i_params).first || Instructor.create!(i_params)
+      c = Course.where(i_params).first || Course.create!(i_params)
+      d = Department.where(d_params).first || Department.create!(d_params)
+      i.fcqs << f
+      c.fcqs << f
+      d.fcqs << f
+      c.instructors << i unless c.instructors.exists?(i)
+      puts "added " + i.full_name.to_s + " to " + c.course_title.to_s
+      i.courses << c unless i.courses.exists?(c)
+      puts "added " + c.course_title.to_s + " to " + i.full_name.to_s
+      d.instructors << i unless d.instructors.exists?(i)
+      puts "added " + i.full_name.to_s + " to " + d.name.to_s
+      d.courses << c unless d.courses.exists?(c)
+      puts "added " + c.course_title.to_s + " to " + d.name.to_s
+      
+      rescue ActiveRecord::RecordInvalid =>
+          puts invalid.message
+          next
+      rescue ActiveRecord::RecordNotUnique => unique
+        next
+      rescue ActiveRecord::UnknownAttributeError => unknown
+        puts unknown.message
+        next
+      end
+    end
+  end
+  puts "finish"
+end
+
+task :drop_tables => :environment do
+  drop_table :departments
+  drop_table :instructors
+  drop_table :courses
+end
+
+
+LONG_NAMES = {"CSCI" => "Computer Science", "MATH" => "Mathematics", "PHIL" => "Philosophy", "APPM" => "Applied Mathematics", "CHEN" => "Chemical Engineering"}
+task :set_department_name => :environment do
+    puts "Setting Department Long Names"
+    puts "For every Department code, Enter it's long name, eg"
+  Department.find_each do |d|
+    begin
+      print d.name + ": "
+      if LONG_NAMES.include?(d.name)
+        Department.update(d.id, :long_name => LONG_NAMES[d.name])
+        print LONG_NAMES[d.name]
+        puts ""
+        next
+      end
+      ln = STDIN.gets.chomp
+      puts ""
+      #puts d.update_attribute(:long_name, ln)
+      
+      Department.update(d.id, :long_name => ln)
+      #puts d.long_name
+      rescue Exception => e
+        puts "rescued -" + e.message
+     end
+     puts "finished"
+    end
+  Department.find_each do |d|
+      puts d.long_name
+  end
+end
+
+
+
+
+
+task :recitation_correction => :environment do
+  Fcq.find_each do |x|
+    begin
+      if(!x.recitation?)
+        next
+      end
+      params = {"crse" => x.crse, "subject" => x.subject}
+      c = Course.where(params).first
+      if c.nil?
+        next
+      end
+      pre = x.course_title
+      Fcq.update(x.id, :corrected_course_title => c.course_title)
+      #Course.update(c.id, :corrected_course_title => x.corrected_course_title)
+      puts pre.to_s + " -> " + x.corrected_course_title.to_s
+    rescue Exception => e
+        puts "rescued -" + e.message + " - " + x.course_title
+    end     
+  end
+
+#eof
+end

@@ -1,0 +1,21 @@
+		<div id="data">
+			<ul>
+				<li><button id="availability" title="Students rate the instructor's availability for course-related assistance such as email, office hours individual appointments, phone contact, etc. This score is an average of all classes taught by this instructor. All ratings are on a scale of 1 to 6.">
+					<strong><%= @instructor.average_availability %> </strong>
+					<br>availability</li></button>
+				<li><button id="respect" title="Students rate this instructor's respect for and professional treatment of all students regardless of race, color, national origin, sex, age, disability, creed, religion, sexual orientation, or veteran status. This score is an average of all classes taught by this instructor. All ratings are on a scale of 1 to 6.">
+			<strong><%= @instructor.average_respect %> </strong>
+					<br>respect</li></button>
+				<li><button id="overall" title="Students rate the instructors overall performance. This score is an average of all classes taught by this instructor. All ratings are on a scale of 1 to 6.">
+					<overall><%= @instructor.average_instructor_overall %> </overall>
+					<br>overall</li></button>
+
+				<li><button title="Percentage of students that pass their classes when taken with this proffesor. Considers only students that are still enrolled in the course when FCQs are turned in. Passing is earning 70% or higher. This percentage is an average of all classes taught by this instructor.">
+									<strong> <%= @instructor.pass_rate_string %></strong>
+					<br>pass-rate</li></button>
+				<li><button id="effectiveness" title="Students rate the instructor's effectiveness in encouraging interest in the subject. This score is an average of all classes taught by this instructor. All ratings are on a scale of 1 to 6.">
+										<strong><%= @instructor.average_effectiveness %> </strong>
+					<br>effectiveness</li></button>
+			</ul>
+			
+		</div>

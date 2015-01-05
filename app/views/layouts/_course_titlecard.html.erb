@@ -1,0 +1,6 @@
+<div id="header-wrapper">
+	<div id="header" class="course">
+		<%= image_tag "course_64.png", alt: "flavor text", title: "flavor text"%> <%= @course.course_title %><br>
+		<table><tr><td>Sections Offered</td><td><big><%= @course.total_sections_offered %></big></td><td><div id="triangle-up"></div></td><td><bold><%= @course.total_students_enrolled %></bold></td><td>Students Enrolled</td></tr></table>
+	</div>
+</div>

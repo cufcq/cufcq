@@ -1,0 +1,20 @@
+		<div id="data">
+			<ul>
+				<li><button id="prior_interest" accesskey="1" title="Students rate their personal interest in the material before they enrolled. This score is an average of all fcqs turned in for this course. All ratings are on a scale of 1 to 6.">
+					<strong><%= @course.average_prior_interest %> </strong>
+					<br>Prior Interest</li></button>
+				<li><button id="challenge" accesskey="2" title="Students rate the intellectual challenge of the course. This score is an average of all fcqs turned in for this course. All ratings are on a scale of 1 to 6.">
+			<strong><%= @course.average_challenge %> </strong>
+					<br>Course Challenge</li></button>
+				<li><button id="overall" accesskey="3" title="Students rate the course overall. This score is an average of all fcqs turned in for this course. All ratings are on a scale of 1 to 6.">
+					<overall><%= @course.average_course_overall %> </overall>
+					<br>Course overall</li></button>
+
+				<li><button id="total_hours" accesskey="4" title="Students estimate the average number of hours per week they have spent on this course for all course-related work, including attending classes, labs, recitations, readings reviewing notes, writing papers, etc. This score is the statistical mode of all fcqs turned in for this course.">
+									<detail> <%= @course.total_hours_string %></detail>
+					<br>total hours</li></button>
+				<li><button id="amount_learned" accesskey="5" title="Students rate how much they have learned in this course. This score is an average of all fcqs turned in for this course. All ratings are on a scale of 1 to 6.">
+										<strong><%= @course.average_amount_learned %> </strong>
+					<br>amount learned</li></button>
+			</ul>
+		</div>
