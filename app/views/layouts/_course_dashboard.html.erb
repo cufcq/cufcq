@@ -75,26 +75,28 @@
           <%= render 'layouts/course_graph' %>
           </div>
 
-          <h2 class="sub-header">TODO Course Instructors</h2>
+          <h2 class="sub-header">Past FCQs</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>Instructor</th>
-                  <th>Effectiveness for Course</th>
-                  <th>Work Load for Course</th>
-                  <th>A's given</th>                  
-                  <th>Students Passed</th>
+                  <th>Course Link</th>
+                  <th>Work Load for Course TODO</th>
+                  <th>A's given TODO </th>                  
+                  <th>Students Passed TODO</th>
                 </tr>
               </thead>
               <tbody>
+                <% @course.fcqs.each do |fcq| %>
                 <tr>
-                  <td>JOHN DOE</td>
-                  <td>4.5</td>
-                  <td>7-9 Hours</td>
-                  <td>15%</td>
-                  <td>95%</td>
+                    <td><%= fcq.instructor.name%></td>
+                    <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
+                    <td>fcq.a_given</td>
+                    <td>fcq.average_course_overall</td>
+                    <td>fcq.pass_rate</td>
                 </tr>
+                <% end %>
               </tbody>
             </table>
           </div>
