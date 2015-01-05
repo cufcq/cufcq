@@ -18,6 +18,4 @@
 #Ignore temp files
 *~
 
-solr/data
-solr/
 *.xls
