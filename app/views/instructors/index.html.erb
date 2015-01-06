@@ -47,23 +47,6 @@
                 <!-- TODO: These insturctor groups need to be translated -->
               </ul>
 
-                      <script type="text/javascript">
-            $('select').select2();
-            $(document).ready(function() {
-            $(".js-example-basic-single").select2();
-          });
-        </script>
-
-
-
-       
-      <select class="js-example-basic-single">
-    
-      <% @instructors.each do |instructor| %>
-        <option><%= instructor.name%></option>
-        <%end %>
-      </select>
-
       </div>
 
     <title>Instructors</title>
@@ -77,20 +60,22 @@
 
               <thead>
                 <tr>
-                  <th>Instructor First</th>
-                  <th>Instructor Last</th>
+                  <th>Instructor</th>
                   <th>Instructor Type</th>
                   <th>Department</th>
+                  <th>Earliest FCQ</th>
+                  <th>Last FCQ</th>
                 </tr>
               </thead>
               
               <tbody>
               <% @instructors.each do |instructor| %>
                 <tr>
-                  <td><%= link_to instructor.instructor_first, instructor %></td>
-                  <td><%= link_to instructor.instructor_last, instructor %></td>
+                  <td><%= link_to instructor.name, instructor %></td>
                   <td><%= instructor.instructor_group %></td>
-                  <td>TODO</td>
+                  <td>instructor.department</td>
+                  <td><%= instructor.started_teaching %></td>
+                  <td><%= instructor.latest_teaching %></td>
                 </tr>
               </tbody>
               <% end %>

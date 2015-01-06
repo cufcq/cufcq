@@ -16,8 +16,6 @@ end
 gem 'sunspot_rails'
 gem 'sunspot_solr' 
 
-gem 'chosen-rails'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
