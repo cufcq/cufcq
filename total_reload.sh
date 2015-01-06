@@ -2,7 +2,7 @@
 
 #This does a total reload, it includes all of the populate tasks. 
 #See lib/tasks/import.rake for more info
-
+pkill -f solr
 RAILS_ENV=development bundle exec rake sunspot:solr:start
 
 bundle exec rake db:reset

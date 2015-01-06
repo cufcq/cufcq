@@ -3,6 +3,9 @@
 #This is a faster version of total_reload. It doesn't perfrom any population and should be used after making changes to the DB.
 #See lib/tasks/import.rake for more info
 
+pkill -f solr
+
+RAILS_ENV=development bundle exec rake sunspot:solr:start
 bundle exec rake db:reset
 bundle exec rake db:migrate
 bundle exec rake import

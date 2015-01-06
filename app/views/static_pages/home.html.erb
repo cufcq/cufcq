@@ -6,18 +6,20 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Bootstrap core CSS -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="http://getbootstrap.com/examples/starter-template/starter-template.css" rel="stylesheet">
 
     <style>
       body { 
+          padding-top: 50px;
           background-image: url(<%= asset_path 'mountains.jpg' %>);
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-position: bottom;
+      }
+
+
+      .starter-template {
+          padding: 40px 15px;
+          text-align: center;
       }
     </style>
 
@@ -52,17 +54,16 @@
         <h1>CU FCQ</h1>
         <p class="lead">This is a website designed to help you find everything about CU teachers and courses, and their past track records.</p>
         
+        <select id="index" class="button">
+          <option value="017643444788069204610:ea_c4kzu4-8">Instructors</option>
+          <option value="017643444788069204610:cqccxk_5fec">Whole web</option>
+          <option value="000894179260941151411:arj_bxxgpco">Experimental</option>
+        </select>
 
         <%= form_tag(instructors_path, :method => "get", id: "search-form") do %>
           <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "Search", :name => nil %>
         <% end %>
-
-        
-<!--         <%= radio_button_tag("search field",:search_instructor, true) %>
-        <%= label_tag(:search_instructor, "Search Instructor") %>
-        <%= radio_button_tag("search field",:search_class,false) %>
-        <%= label_tag(:search_class, "Search Class") %> -->
 
       </div>
 
