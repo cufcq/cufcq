@@ -72,8 +72,8 @@
                   <th>Instructors</th>
                   <th>Group</th>
                   <th>Last Class</th>
-                  <th>A's given TODO </th>                  
-                  <th>Students Passed TODO</th>
+                  <th>Average Overall</th>                  
+                  <th>Average Effectivenss</th>
                 </tr>
               </thead>
               <tbody>
@@ -82,6 +82,8 @@
                   <td><%= link_to instructor.name, instructor %></td>
                   <td><%= instructor.instructor_group %></td>
                   <td><%= instructor.latest_teaching %></td>
+                  <td><%= instructor.average_instructor_overall %> </td>
+                  <td><%= instructor.average_effectiveness %> </td>
                 </tr>
                 <% end %>
                 </tbody>
