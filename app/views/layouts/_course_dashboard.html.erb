@@ -1,23 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)http://getbootstrap.com/examples/dashboard/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
@@ -72,29 +59,31 @@
           <h1 class="page-header"><%= @course.course_title %></h1>
 
           <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">
-          <%= render 'layouts/course_graph' %>
+            <%= render 'layouts/course_graph' %>
           </div>
 
-          <h2 class="sub-header">TODO Course Instructors</h2>
+          <h2 class="sub-header">Past FCQs</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>Instructor</th>
-                  <th>Effectiveness for Course</th>
-                  <th>Work Load for Course</th>
-                  <th>A's given</th>                  
-                  <th>Students Passed</th>
+                  <th>Course Link</th>
+                  <th>Work Load for Course TODO</th>
+                  <th>A's given TODO </th>                  
+                  <th>Students Passed TODO</th>
                 </tr>
               </thead>
               <tbody>
+                <% @course.fcqs.each do |fcq| %>
                 <tr>
-                  <td>JOHN DOE</td>
-                  <td>4.5</td>
-                  <td>7-9 Hours</td>
-                  <td>15%</td>
-                  <td>95%</td>
+                    <td><%= fcq.instructor.name%></td>
+                    <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
+                    <td>fcq.a_given</td>
+                    <td>fcq.average_course_overall</td>
+                    <td>fcq.pass_rate</td>
                 </tr>
+                <% end %>
               </tbody>
             </table>
           </div>
