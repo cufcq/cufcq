@@ -8,16 +8,15 @@ group :development do
 gem 'sqlite3'
 gem 'debugger', group: [:development, :test]
 gem 'database_cleaner'
-gem 'capybara'
 gem 'launchy'
 gem 'rspec-rails'
 end
 
-#Sunspot Search 
+#Sunspot solr Search 
 gem 'sunspot_rails'
 gem 'sunspot_solr' 
 
-
+gem 'chosen-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -45,11 +44,6 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
-end
-
-group :test do
-  gem 'cucumber-rails'
-  gem 'cucumber-rails-training-wheels'
 end
 
 # Use ActiveModel has_secure_password

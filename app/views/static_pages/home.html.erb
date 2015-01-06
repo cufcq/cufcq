@@ -6,6 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/select2.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/select2.min.js"></script>
 
     <style>
       body { 
@@ -53,12 +55,15 @@
       <div class="starter-template">
         <h1>CU FCQ</h1>
         <p class="lead">This is a website designed to help you find everything about CU teachers and courses, and their past track records.</p>
+
         
         <select id="index" class="button">
           <option value="017643444788069204610:ea_c4kzu4-8">Instructors</option>
           <option value="017643444788069204610:cqccxk_5fec">Whole web</option>
           <option value="000894179260941151411:arj_bxxgpco">Experimental</option>
         </select>
+
+
 
         <%= form_tag(instructors_path, :method => "get", id: "search-form") do %>
           <%= text_field_tag :search, params[:search] %>

@@ -46,6 +46,24 @@
                 <li><a>Latest FCQ: </a></li>
                 <!-- TODO: These insturctor groups need to be translated -->
               </ul>
+
+                      <script type="text/javascript">
+            $('select').select2();
+            $(document).ready(function() {
+            $(".js-example-basic-single").select2();
+          });
+        </script>
+
+
+
+       
+      <select class="js-example-basic-single">
+    
+      <% @instructors.each do |instructor| %>
+        <option><%= instructor.name%></option>
+        <%end %>
+      </select>
+
       </div>
 
     <title>Instructors</title>
