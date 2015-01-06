@@ -223,7 +223,40 @@ task :set_department_name => :environment do
 end
 
 
-
+task :grades => :environment do
+  puts "start"
+  Dir.glob('csv_make/grades/gmaster.csv').each do |csv|
+    puts "loading csv file: " + csv   
+    CSV.foreach(csv, :headers => true) do |row|
+      begin
+          #puts row.to_hash
+          #h = row.to_hash.select {|k,v| k == "instructor_first" || "k == instructor_last"}
+          #inst = get_instructor(params)
+          #inst.fcqs.create!(row.to_hash)
+      r = row.to_hash
+      #puts r.to_s
+      #gets the fcq with the same courtitle, section, yearterm
+      f_params = {"yearterm" => r["YearTerm"], "subject" => r["Subject"], "crse" => r["course"], "sec" => r["section"]}
+      
+      #f = Fcq.create!(row.to_hash)
+      #puts f.fcq_object
+      f = Fcq.where(f_params).first || next
+      f.update_column(r)
+      f.save
+      puts f.course_title.to_s
+      rescue ActiveRecord::RecordInvalid => invalid
+          puts invalid.message
+          next
+      rescue ActiveRecord::RecordNotUnique => unique
+        next
+      rescue ActiveRecord::UnknownAttributeError => unknown
+        puts unknown.message
+        next
+      end
+    end
+  end
+  puts "finish"
+end
 
 
 task :recitation_correction => :environment do
