@@ -17,5 +17,5 @@
 
 #Ignore temp files
 *~
-
+solr/
 *.xls
