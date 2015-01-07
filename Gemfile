@@ -17,8 +17,6 @@ gem 'sunspot_rails'
 gem 'sunspot_solr' 
 
 
-gem "highcharts-rails", "~> 3.0.0"
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
