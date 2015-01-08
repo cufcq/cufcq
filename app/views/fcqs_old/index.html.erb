@@ -1,0 +1,77 @@
+<h1>Listing fcqs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Yearterm</th>
+      <th>Subject</th>
+      <th>Crse</th>
+      <th>Sec</th>
+      <th>Instructor last</th>
+      <th>Instructor first</th>
+      <th>Forms requested</th>
+      <th>Forms returned</th>
+      <th>Percentage passed</th>
+      <th>Course overall</th>
+      <th>Course overall sd</th>
+      <th>Instructor overall</th>
+      <th>Instructor overall sd</th>
+      <th>Total hours</th>
+      <th>Prior interest</th>
+      <th>Effectiveness</th>
+      <th>Availability</th>
+      <th>Challenge</th>
+      <th>Amount learned</th>
+      <th>Respect</th>
+      <th>Course title</th>
+      <th>Campus</th>
+      <th>College</th>
+      <th>Instructor group</th>
+      <th>is recitation?</th>
+      <th>Corrected_Course_Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fcqs.each do |fcq| %>
+      <tr>
+        <td><%= fcq.yearterm %></td>
+        <td><%= fcq.subject %></td>
+        <td><%= fcq.crse %></td>
+        <td><%= fcq.sec %></td>
+        <td><%= fcq.instructor_last %></td>
+        <td><%= fcq.instructor_first %></td>
+        <td><%= fcq.forms_requested %></td>
+        <td><%= fcq.forms_returned %></td>
+        <td><%= fcq.percentage_passed %></td>
+        <td><%= fcq.course_overall %></td>
+        <td><%= fcq.course_overall_SD %></td>
+        <td><%= fcq.instructor_overall %></td>
+        <td><%= fcq.instructor_overall_SD %></td>
+        <td><%= fcq.total_hours %></td>
+        <td><%= fcq.prior_interest %></td>
+        <td><%= fcq.effectiveness %></td>
+        <td><%= fcq.availability %></td>
+        <td><%= fcq.challenge %></td>
+        <td><%= fcq.amount_learned %></td>
+        <td><%= fcq.respect %></td>
+        <td><%= fcq.course_title %></td>
+        <td><%= fcq.campus %></td>
+        <td><%= fcq.college %></td>
+        <td><%= fcq.instructor_group %></td>
+        <td><%= fcq.recitation? %></td>
+        <td><%= fcq.corrected_course_title %></td>
+        <td><%= link_to 'Show', fcq %></td>
+        <td><%= link_to 'Edit', edit_fcq_path(fcq) %></td>
+        <td><%= link_to 'Destroy', fcq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fcq', new_fcq_path %>

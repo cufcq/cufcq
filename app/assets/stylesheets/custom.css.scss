@@ -37,14 +37,12 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: center;
 }
 
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
   font-weight: normal;
   color: $gray-light;
 }
@@ -158,3 +156,13 @@ footer ul li {
     }
   }
 }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #9BBBA3;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #9BBBA3;
+}
+
+

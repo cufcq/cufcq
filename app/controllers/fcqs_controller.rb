@@ -3,6 +3,9 @@ class FcqsController < ApplicationController
 
   # GET /fcqs
   # GET /fcqs.json
+
+
+  #TODO: Get rid of this in production? 
   def index
     @fcqs = Fcq.all
   end

@@ -3,6 +3,7 @@ class InstructorsController < ApplicationController
 
   # GET /instructors
   # GET /instructors.json
+  
   def index
     if params[:search]
       @search = Instructor.search do
@@ -16,9 +17,7 @@ class InstructorsController < ApplicationController
 
   # GET /instructors/1
   # GET /instructors/1.json
-  def show
-    #@instructor = instructors_path(params[:id])
-    
+  def show    
   end
 
   # GET /instructors/new
