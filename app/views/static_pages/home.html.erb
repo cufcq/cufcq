@@ -33,17 +33,16 @@
         <p class="lead">This is a website designed to help you find everything about CU teachers and courses, and their past track records.</p>
 
 
-        <select id="index" class="button">
+<!--         <select id="index" class="button">
           <option value="instructors" name="instructors">Instructors</option>
           <option value="courses">Courses</option>
           <option value="departments">Departments</option>
-        </select>
+        </select> -->
 
         
-
-        <%= form_tag(instructors_path, :method => "get", id: "search-form") do %>
+          <%= form_tag(params[:option], :method => "get", id: "search-form") do %>
+          <%= select_tag(:option,options_for_select([['instructors', '/instructors'], ['Courses', '/courses'],['Departments','/departments']])) %>
           <%= text_field_tag :search, params[:search] %>
-          <%= select_tag(:option,options_for_select([['Instructors', 1], ['Courses', 2],['Departments',3]])) %>
           <%= submit_tag "Search", :name => nil %>
         <% end %>
    

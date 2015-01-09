@@ -33,10 +33,10 @@
 
               <thead>
                 <tr>
-                  <th>Name</th>
+                  <th>Title</th>
+                  <th>Course Number</th>
                   <th>Department</th>
-                  <th>OTHER</th>
-                  <th>OTHER</th>
+                  <th>Instructor Count</th>
                 </tr>
               </thead>
               
@@ -44,9 +44,9 @@
               <% @courses.each do |course| %>
                 <tr>
                   <td><%= link_to course.course_title, course %></td>
+                  <td><%= course.crse %></td>
                   <td><%= course.subject %></td>
-                  <td>TODO</td>
-                  <td>TODO</td>
+                  <td><%= course.instructors.count()%>
                 </tr>
               </tbody>
               <% end %>
