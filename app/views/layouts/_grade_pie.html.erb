@@ -1,0 +1,53 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+<script type="text/javascript">
+  $(document).on('page:change', function() {
+        var chart = new Highcharts.Chart({
+      title: {text: null
+          },
+        chart: {
+            plotBackgroundColor: null,
+            // plotBorderWidth: 1,
+            plotShadow: false,
+            renderTo: 'container'
+        },
+        title: {
+            text: 'Grade Breakdown'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: ' ',
+            data: [
+                ['A Grade',  <%= @fcq.PCT_A %> ],
+                ['B Grade',  <%= @fcq.PCT_B %> ],
+                ['C Grade',  <%= @fcq.PCT_C %> ],
+                ['D Grade',  <%= @fcq.PCT_D %> ],
+                ['F Grade',  <%= @fcq.PCT_F %> ]
+                // ['A',  .2 ],
+                // ['B',  .2 ],
+                // ['C',  .2 ],
+                // ['D',  .2 ],
+                // ['F',  .2 ]
+            ]
+        }]
+    });
+});
+</script>
+<div id="container" style="height: 300px"></div>

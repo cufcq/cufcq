@@ -245,6 +245,7 @@ task :grades => :environment do
       #puts f.fcq_object
       f = Fcq.where(f_params).first || next
       puts f.course_title
+      puts r
       f.update_attributes(r)
       f.save
       puts f.course_title

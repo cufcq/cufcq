@@ -1,4 +1,4 @@
-VALID_TERMS = {1 => "Spring",4 => "Summer",7=>"Fall"}
+ VALID_TERMS = {1 => "Spring",4 => "Summer",7=>"Fall"}
 VALID_GROUPS = ["TA", "TTT", "OTH"]
 class FcqValidator < ActiveModel::Validator
   def validate(record)
@@ -168,4 +168,26 @@ end
   def instructor_full_name
     "#{instructor_first} #{instructor_last}"
   end
+
+  # def grade_query
+  #   overalls = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:course_overall)
+  #   challenge = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:challenge)
+  #   interest = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:prior_interest)
+  #   learned = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:amount_learned)
+  #   @semesters = []
+  #   @overall_data = []
+  #   @challenge_data = [] 
+  #   @interest_data = [] 
+  #   @learned_data = [] 
+  #   #records.each {|k,v| fixedrecords[Fcq.semterm_from_int(k)] = v.to_f.round(1)}
+  #   overalls.each {|k,v| @overall_data << [k,v.to_f.round(1)]}
+  #   challenge.each {|k,v| @challenge_data << [k,v.to_f.round(1)]}
+  #   interest.each {|k,v| @interest_data << [k,v.to_f.round(1)]}
+  #   learned.each {|k,v| @learned_data << [k,v.to_f.round(1)]}
+  #   #if any of the data is < 1.0, it marks it with an x marker
+  #   puts overall_data
+  #   #@chart_data = fixedrecords.values
+  #   puts @chart_data
+  # end
+
 end
