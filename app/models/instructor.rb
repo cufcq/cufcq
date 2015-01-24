@@ -3,6 +3,8 @@ IG_OTH = "other primary instructor, such as GPTI, adjunct, visiting, honorarium,
 IG_TA = "teaching assistant"
 
 class Instructor < ActiveRecord::Base
+# attr_accessor :instructor_first, :instructor_last
+self.per_page = 10
 
   searchable do 
     text :instructor_first

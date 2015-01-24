@@ -14,14 +14,14 @@ task :import => :environment do
           #inst = get_instructor(params)
           #inst.fcqs.create!(row.to_hash)
       puts row.to_hash.to_s
-	f = Fcq.create!(row.to_hash)
+      f = Fcq.create!(row.to_hash)
       puts f.fcq_object
       #given a new fcq object, create the instructor and course
       i_params = {"instructor_first" => f.instructor_first, "instructor_last" => f.instructor_last}
       c_params = {"course_title" => f.course_title, "crse" => f.crse, "subject" => f.subject}
       d_params = {"name" => f.subject, "college" => f.college, "campus" => f.campus}
-      i = Instructor.where(i_params).first || Instructor.create!(i_params)
       c = Course.where(c_params).first || Course.create!(c_params)
+      i = Instructor.where(i_params).first || Instructor.create!(i_params)
       d = Department.where(d_params).first || Department.create!(d_params)
       i.fcqs << f
       c.fcqs << f
@@ -227,6 +227,7 @@ task :grades => :environment do
   puts "start"
   Dir.glob('csv_make/grades/gmaster.csv').each do |csv|
     puts "loading csv file: " + csv   
+    #puts Fcq.column_names
     CSV.foreach(csv, :headers => true) do |row|
       begin
           #puts row.to_hash
@@ -234,16 +235,19 @@ task :grades => :environment do
           #inst = get_instructor(params)
           #inst.fcqs.create!(row.to_hash)
       r = row.to_hash
-      #puts r.to_s
+      # puts r.to_s
+      #  puts "\n"
       #gets the fcq with the same courtitle, section, yearterm
-      f_params = {"yearterm" => r["YearTerm"], "subject" => r["Subject"], "crse" => r["course"], "sec" => r["section"]}
-      
+      f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
+      #puts f_params
+      #puts "\n"
       #f = Fcq.create!(row.to_hash)
       #puts f.fcq_object
       f = Fcq.where(f_params).first || next
-      f.update_column(r)
+      puts f.course_title
+      f.update_attributes(r)
       f.save
-      puts f.course_title.to_s
+      puts f.course_title
       rescue ActiveRecord::RecordInvalid => invalid
           puts invalid.message
           next

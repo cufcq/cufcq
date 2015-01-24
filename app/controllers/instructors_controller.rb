@@ -4,6 +4,13 @@ class InstructorsController < ApplicationController
   # GET /instructors
   # GET /instructors.json
   
+  # def index
+  #   @search = Instructor.search do
+  #       fulltext params[:search]
+  #     end
+  #   @instructors = @search.results
+  # end
+
   def index
     if params[:search]
       @search = Instructor.search do
