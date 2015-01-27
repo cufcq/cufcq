@@ -58,9 +58,10 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header"><%= @course.course_title %></h1>
 
-          <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">
-            <%= render 'layouts/course_graph' %>
-          </div>
+          <%= render 'layouts/course_graph' %>
+
+          <h1 class="page-header">Grade Breakdown</h1>
+          <%= render 'layouts/course_stack' %>
 
           <h2 class="sub-header">Past FCQs</h2>
           <div class="table-responsive">
