@@ -1,0 +1,159 @@
+<% @course.grade_query  %>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+<script type="text/javascript">
+  $(document).on('page:change', function() {
+    var chart = new Highcharts.Chart({
+      title: 
+      {
+        text: null
+        },
+      chart: { 
+        type: 'area',
+        renderTo: 'stacked' 
+        },
+        legend: {
+            enabled: true
+        },
+        xAxis: {
+            tickPositions: [],
+            type: 'category',
+            categories: []
+        },
+        yAxis: {
+          max: 1,
+          min: 0,
+          title: {
+            text: null
+            }
+        },
+      tooltip: {
+        shared: true,
+        valueSuffix: ' students',
+        formatter: function () {
+          var n = this.x%10
+          var y = Math.floor(this.x/10);
+          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error "
+          var parsed = s+y+" : "+this.y
+          return (this.y >= 1.0) ? parsed : parsed
+          return s+y+" : "+this.y
+      }
+    },
+    exporting: {
+        buttons: {
+            contextButtons: {
+                enabled: false,
+                menuItems: null
+            }
+        },
+        enabled: true
+    },
+    plotOptions: {
+            area: {
+                stacking: 'normal',
+                lineColor: '#666666',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#666666'
+                }
+            }
+        },
+    series: [
+    {
+        data: <%= @course.pct_a_data %>,
+        name: "Percentage A Grade"
+    },
+    {
+        data: <%= @course.pct_b_data %>,
+        name: "Percentage B Grade"
+    },
+    {
+        data: <%= @course.pct_c_data %>,
+        name: "Percentage C Grade"
+    },
+    {
+        data: <%= @course.pct_d_data %>,
+        name: "Percentage D Grade"
+    },
+    {
+        data: <%= @course.pct_f_data %>,
+        name: "Percentage F Grade"
+    },
+    {
+        data: <%= @course.pct_i_data %>,
+        name: "Percentage Incomplete"
+    }
+    ]
+    });
+
+
+
+
+// the button action
+    //var chart = $(container).highcharts(),
+        $overall = $(overall);
+    $overall.click(function() {
+        var series = chart.series[0];
+        if (series.visible) {
+            series.hide();
+            // $overall.html('Show series');
+        } else {
+            series.show();
+            // $overall.html('Hide series');
+        }
+    });
+
+    // the button action
+    //var chart = $(container).highcharts(),
+        $challenge = $(challenge);
+    $challenge.click(function() {
+        var series = chart.series[1];
+        if (series.visible) {
+            series.hide();
+            // $challenge.html('Show series');
+        } else {
+            series.show();
+            // $challenge.html('Hide series');
+        }
+    });
+
+        // the button action
+    //var chart = $(container).highcharts(),
+        $prior_interest = $(prior_interest);
+    $prior_interest.click(function() {
+        var series = chart.series[2];
+        if (series.visible) {
+            series.hide();
+            // $prior_interest.html('Show series');
+        } else {
+            series.show();
+            // $prior_interest.html('Hide series');
+        }
+    });
+
+
+            // the button action
+    //var chart = $(container).highcharts(),
+        $amount_learned = $(amount_learned);
+    $amount_learned.click(function() {
+        var series = chart.series[3];
+        if (series.visible) {
+            series.hide();
+            // $amount_learned.html('Show series');
+        } else {
+            series.show();
+            // $amount_learned.html('Hide series');
+        }
+    });
+
+
+
+
+
+  });
+</script>
+<div id="stacked" style="height: 300px"></div>

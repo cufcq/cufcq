@@ -58,9 +58,10 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header"><%= @course.course_title %></h1>
 
-          <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">
-            <%= render 'layouts/course_graph' %>
-          </div>
+          <%= render 'layouts/course_graph' %>
+
+          <h1 class="page-header">Grade Breakdown</h1>
+          <%= render 'layouts/course_stack' %>
 
           <h2 class="sub-header">Past FCQs</h2>
           <div class="table-responsive">
@@ -79,9 +80,9 @@
                 <tr>
                     <td><%= fcq.instructor.name%></td>
                     <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
-                    <td>fcq.a_given</td>
-                    <td>fcq.average_course_overall</td>
-                    <td>fcq.pass_rate</td>
+                    <td><%= fcq.total_hours %></td>
+                    <td><%= fcq.course_overall%></td>
+                    <td><%= fcq.pass_rate %></td>
                 </tr>
                 <% end %>
               </tbody>

@@ -33,6 +33,11 @@ class Fcq < ActiveRecord::Base
   #validates :yearterm, uniqueness: true
   validates_uniqueness_of :sec, scope: [:crse, :subject, :yearterm, :instructor_last, :instructor_first]
 
+
+  def pass_rate
+    return percentage_passed_string
+  end
+
   #changed to accomodate fcq v0.2
   def float_passed
     #passed = self.percentage_passed || "-100%"
