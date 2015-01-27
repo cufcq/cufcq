@@ -40,11 +40,11 @@
         </select> -->
 
         
-       <%= form_tag(params[:option], :method => "get", id: "search-form") do %>
+          <%= form_tag('/', :method => "get", id: "search-form") do %>
           <%= select_tag(:option,options_for_select([['instructors', '/instructors'], ['Courses', '/courses'],['Departments','/departments']])) %>
           <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "Search", :name => nil %>
-        <% end %>
+          <% end %>
    
       <button class="button button-red" id="search-button">Search</button>
 
