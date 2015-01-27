@@ -1,0 +1,26 @@
+1. Show the original PCAP: 
+
+OLD PCAP: IP 192.150.187.43.80 > 10.0.2.15.49286
+tcpdump -qns 0 -X -r browse.pcap
+
+2. Show the new PCAP: 
+
+We can generate it with the following command: 
+bittwiste -I browse.pcap -O browse_mod.pcap -T ip -s 10.1.2.3 -d 10.1.2.2
+
+NEW PCAP: 10.1.2.3.49286 > 10.1.2.2.80
+tcpdump -qns 0 -X -r browse_mod.pcap
+
+3. We can get the pcap to work locally: 
+
+sudo tcpreplay -i eth2 -tK --loop 10000 browse_mod.pcap
+slurm -i eth2
+
+4. However, we can't get it to work over the network:
+
+sudo bittwist -i 3 -l 0  browse_mod.pcap
+
+
+
+
+
