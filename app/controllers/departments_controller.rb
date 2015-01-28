@@ -3,8 +3,21 @@ class DepartmentsController < ApplicationController
 
   # GET /departments
   # GET /departments.json
+  # def index
+  #   @departments = Department.all
+  # end
+
+
+
   def index
-    @departments = Department.all
+    if params[:search] != ''
+      @search = Department.search do
+        fulltext params[:search]
+      end
+      @departments = @search.results
+    else 
+      @departments = Department.all
+    end
   end
 
   # GET /departments/1

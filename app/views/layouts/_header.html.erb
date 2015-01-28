@@ -1,5 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+`
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -13,8 +15,8 @@
       </ul>
       <form class="navbar-form navbar-right">
           <%= form_tag(instructors_path, :method => "get", id: "form-inline") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Search Instructors" %>
-            <%= submit_tag "Search", name: nil, class: "btn btn-default" %> 
+          <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+          <%= submit_tag "Search", name: nil, class: "btn btn-default" %> 
 
         <% end %>
 

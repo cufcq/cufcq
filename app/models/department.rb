@@ -9,7 +9,11 @@ class Department < ActiveRecord::Base
 	validates :name, :college, :campus, presence: true
 	validates_uniqueness_of :name, scope: [:college, :campus]
 
+  	searchable do
+  		text :name
+  	end 
 
+  	
 	def get_campus
 		case campus
 		when "BD"

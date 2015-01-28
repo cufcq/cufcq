@@ -32,24 +32,13 @@
         <h1>CU FCQ</h1>
         <p class="lead">This is a website designed to help you find everything about CU teachers and courses, and their past track records.</p>
 
-
-<!--         <select id="index" class="button">
-          <option value="instructors" name="instructors">Instructors</option>
-          <option value="courses">Courses</option>
-          <option value="departments">Departments</option>
-        </select> -->
-
         
           <%= form_tag('/', :method => "get", id: "search-form") do %>
-          <%= select_tag(:option,options_for_select([['instructors', '/instructors'], ['Courses', '/courses'],['Departments','/departments']])) %>
+          <%= select_tag(:option,options_for_select([['Instructors', '/instructors'], ['Courses', '/courses'],['Departments','/departments']])) %>
           <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :name => nil %>
+          <%= submit_tag "Search", :name => nil, :class=>'button button-red' %>
           <% end %>
-   
-      <button class="button button-red" id="search-button">Search</button>
-
       </div>
-
-    </div><!-- /.container -->
+    </div>
 
 </body></html>
