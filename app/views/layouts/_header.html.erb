@@ -17,7 +17,7 @@
       <form class="navbar-form navbar-right">
           <%= form_tag(instructors_path, :method => "get", id: "form-inline") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-          <%= submit_tag "Search", name: nil, class: "btn btn-default" %> 
+          <%= submit_tag "Search", name: nil, :class=>'button button-red' %> 
 
         <% end %>
 
