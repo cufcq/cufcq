@@ -61,3 +61,26 @@ div {
     list-style: square;
   }
 }
+
+
+      form {
+                width:500px;
+                margin:50px auto;
+      }
+      .search {
+                      padding:8px 15px;
+                      background:rgba(50, 50, 50, 0.2);
+                      border:0px solid #dbdbdb;
+      }
+      .button {
+                      position:relative;
+                      padding:3px 14px;
+                      left:-8px;
+                      border:2px solid #9BBBA3;
+                      background-color:#207cca;
+                      color:#000000;
+      }
+      .button:hover  {
+                      background-color:#fafafa;
+                      color:#207cca;
+      }

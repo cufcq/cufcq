@@ -20,6 +20,30 @@
           padding: 40px 15px;
           text-align: center;
       }
+
+
+
+      form {
+                width:500px;
+                margin:50px auto;
+      }
+      .search {
+                      padding:8px 15px;
+                      background:rgba(50, 50, 50, 0.2);
+                      border:0px solid #dbdbdb;
+      }
+      .button {
+                      position:relative;
+                      padding:3px 14px;
+                      left:-8px;
+                      border:2px solid #9BBBA3;
+                      background-color:#207cca;
+                      color:#000000;
+      }
+      .button:hover  {
+                      background-color:#fafafa;
+                      color:#207cca;
+      }
     </style>
 
   </head>
@@ -35,8 +59,8 @@
         
           <%= form_tag('/', :method => "get", id: "search-form") do %>
           <%= select_tag(:option,options_for_select([['Instructors', '/instructors'], ['Courses', '/courses'],['Departments','/departments']])) %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :name => nil, :class=>'button button-red' %>
+          <%= text_field_tag :search, params[:search], :class => 'search' %>
+          <%= submit_tag "Search", :name => nil, :class=>'button' %>
           <% end %>
       </div>
     </div>

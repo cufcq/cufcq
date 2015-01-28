@@ -1,5 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
@@ -17,7 +18,7 @@
       <form class="navbar-form navbar-right">
           <%= form_tag(instructors_path, :method => "get", id: "form-inline") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-          <%= submit_tag "Search", name: nil, :class=>'button button-red' %> 
+          <%= submit_tag "Search", name: nil, :class=>'button' %> 
 
         <% end %>
 
