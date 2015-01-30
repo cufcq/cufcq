@@ -4,15 +4,23 @@ class InstructorsController < ApplicationController
   # GET /instructors
   # GET /instructors.json
 
+  # def index
+  #   if params[:search] != ''
+  #     @search = Instructor.search do
+  #       fulltext params[:search]
+  #     end
+  #     @instructors = @search.results
+  #   else 
+  #     @instructors = Instructor.all
+  #   end
+  # end
+
   def index
-    if params[:search] != ''
-      @search = Instructor.search do
-        fulltext params[:search]
-      end
-      @instructors = @search.results
-    else 
-      @instructors = Instructor.all
+    @search = Instructor.search do
+      fulltext params[:search]
+      paginate :page => 1, :per_page => 30000
     end
+    @instructors = Instructor.where(id: @search.results.map(&:id)).page(params[:page]).per_page(10).order('instructor_last ASC')
   end
 
   # GET /instructors/1

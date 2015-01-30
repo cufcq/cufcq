@@ -3,15 +3,23 @@ class CoursesController < ApplicationController
 
   # GET /courses
   # GET /courses.json
+  # def index
+  #   if params[:search]
+  #     @search = Course.search do
+  #       fulltext params[:search]
+  #     end
+  #   @courses = @search.results
+  #   else
+  #      @courses = Course.all
+  #   end
+  # end
+
   def index
-    if params[:search]
-      @search = Course.search do
-        fulltext params[:search]
-      end
-    @courses = @search.results
-    else
-       @courses = Course.all
+    @search = Course.search do
+      fulltext params[:search]
+      paginate :page => 1, :per_page => 30000
     end
+    @courses = Course.where(id: @search.results.map(&:id)).page(params[:page]).per_page(10).order('course_title ASC')
   end
 
   # GET /courses/1

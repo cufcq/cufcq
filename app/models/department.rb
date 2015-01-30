@@ -1,16 +1,17 @@
-CURRENT_YEAR = 20121
+CURRENT_YEAR = 20141
 ONE_YEAR_AGO = CURRENT_YEAR - 10
 TWO_YEARS_AGO = CURRENT_YEAR - 20
 class Department < ActiveRecord::Base
 	has_many :instructors, -> { distinct }, through: :fcqs
 	has_many :courses, -> { distinct }, through: :fcqs
 	has_many :fcqs, -> { distinct }
-
+	self.per_page = 10
 	validates :name, presence: true
 	validates_uniqueness_of :name, scope: [:college, :campus]
 
   	searchable do
   		text :name
+  		text :long_name
   	end 
 
   	

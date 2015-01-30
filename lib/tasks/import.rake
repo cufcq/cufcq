@@ -225,7 +225,7 @@ end
 
 task :grades => :environment do
   puts "start"
-  Dir.glob('csv_make/grades/gmaster.csv').each do |csv|
+  Dir.glob('csv_make/grades/grades.csv').each do |csv|
     puts "loading csv file: " + csv   
     #puts Fcq.column_names
     CSV.foreach(csv, :headers => true) do |row|
@@ -241,25 +241,53 @@ task :grades => :environment do
       f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
       d_params = {"name" => r["subject"], "long_name" => r["subject_label"]}
       d_short = {"name" => r["subject"]}
-      #puts f_params
+      puts f_params
       #puts "\n"
       #f = Fcq.create!(row.to_hash)
       #puts f.fcq_object
+      # puts r
+      puts "==="
       f = Fcq.where(f_params).first || next
-      puts f.course_title
-      puts r
       f.update_attributes(r.slice(*Fcq.column_names))
       # f.update_attributes(r)
       f.save
-      puts f.course_title
+      rescue ActiveRecord::RecordInvalid => invalid
+          puts invalid.message
+          next
+      rescue ActiveRecord::RecordNotUnique => unique
+        next
+      rescue ActiveRecord::UnknownAttributeError => unknown
+        puts unknown.message
+        next
+      end
+    end
+  end
+  puts "finish"
+end
+
+task :departments => :environment do
+  puts "start"
+  Dir.glob('csv_make/departments/departments.csv').each do |csv|
+    puts "loading csv file: " + csv   
+    #puts Fcq.column_names
+    CSV.foreach(csv, :headers => true) do |row|
+      begin
+          #puts row.to_hash
+          #h = row.to_hash.select {|k,v| k == "instructor_first" || "k == instructor_last"}
+          #inst = get_instructor(params)
+          #inst.fcqs.create!(row.to_hash)
+      r = row.to_hash
+      r["campus"] = "BD"
+      # puts r.to_s
+      #  puts "\n"
+      #gets the fcq with the same courtitle, section, yearterm
+      # f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
+      d_params = {"name" => r["name"]}
       puts "==="
-      puts d_params
-      d = Department.where(d_short).first || Department.create!
-      d.update_attributes(d_params)
+      d = Department.where(d_params).first || Department.create!(r)
+      d.update_attributes(r)
       d.save
-      puts d.long_name
-      d.fcqs << f
-      puts "===================="
+      puts r
       rescue ActiveRecord::RecordInvalid => invalid
           puts invalid.message
           next

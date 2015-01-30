@@ -10,15 +10,25 @@ class DepartmentsController < ApplicationController
 
 
   def index
-    if params[:search] != ''
-      @search = Department.search do
-        fulltext params[:search]
-      end
-      @departments = @search.results
-    else 
-      @departments = Department.all
+    @search = Department.search do
+      fulltext params[:search]
+      paginate :page => 1, :per_page => 1000
     end
+    @departments = Department.where(id: @search.results.map(&:id)).page(params[:page]).per_page(10).order('name ASC')
   end
+
+  # def index
+  #   if params[:search] != ''
+  #     puts "#{params[:search]}"
+  #     @search = Department.search do
+  #       fulltext params[:search]
+  #       paginate :page => 2, :per_page => 10
+  #     end
+  #     @departments = @search.results
+  #   else 
+  #     @departments = Department.paginate :page => params[:page], :per_page => 10, :order => 'name ASC'
+  #   end
+  # end
 
   # GET /departments/1
   # GET /departments/1.json

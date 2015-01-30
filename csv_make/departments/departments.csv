@@ -1,0 +1,143 @@
+college,name,long_name
+AS,AAST,Asian American Studies
+BU,ACCT,Accounting
+XX,AIRR,Air Force Aerospace Studies
+AS,AIST,American Indian Studies
+AS,AMST,American Studies
+AS,ANTH,Anthropology
+AS,APPM,Applied Math
+AS,ARAB,Arabic Languages
+AP,ARCH,Architecture
+EN,AREN,Architectural Engineering
+AS,ARSC,Arts & Sciences Courses
+AS,ARTF,Art Film Studies
+AS,ARTH,Art History
+AS,ARTS,Art Studio and Non-Studio
+EN,ASEN,Aerospace Engineering
+AS,ASIA,Asian Studies
+AS,ASTR,Astrophysical & Planetary Sci
+GR,ATLS,ATLAS
+AS,ATOC,Atmospheric & Oceanic Sciences
+BU,BADM,Business Administration
+AS,BAKR,Baker Residential Acad Prgm
+BU,BCOR,Business Core
+AS,BLST,Afroamerican Studies
+BU,BPOL,Business Environment & Policy
+BU,BSLW,Business Law
+BU,BUSM,Business Minor
+AS,CAMW,Center of the American West
+AS,CEES,Central & East European Stdy
+BU,CESR,Curr Emphasis in Soc Respnsbly
+AS,CHEM,Chemistry
+EN,CHEN,Chemical Engineering
+AS,CHIN,Chinese
+AS,CHST,Chicano/a Studies
+AS,CLAS,Classics
+--,CNCR,Concurrent Placeholder
+CE,CNCR,Concurrent Placeholder
+AS,COML,Comparative Literature
+AS,COMM,Communication
+AS,COMR,Communication Res Acad Prgm
+MB,CONV,Convocation Music
+EN,CSCI,Computer Science
+,CSVC,Career Services
+EN,CVEN,Civil Engineering
+AS,CWCV,Center for Western Civilizatio
+AS,DNCE,Dance
+AS,EALC,East Asian Langs & Civilzatns
+AS,EBIO,Ecology & Evolutionary Biology
+EN,ECEN,Electrical & Computer Engr
+AS,ECON,Economics
+EB,EDUC,Education
+EN,EHON,Engineering Honors
+EN,EMEN,Engineering Management
+MB,EMUS,Music Ensemble
+AS,ENGL,English
+AP,ENVD,Environmental Design
+AS,ENVS,Environmental Studies
+BU,ESBM,Entrepren & Small Bus Mgmt
+AS,ETHN,Ethnic Studies
+EN,EVEN,Environmental Engineering
+AS,FARR,Farrand Residential Acad Prgm
+AS,FILM,Film Studies
+BU,FNCE,Finance
+AS,FREN,French
+AS,FRSI,Farsi
+EN,GEEN,General Engineering
+AS,GEOG,Geography
+AS,GEOL,Geological Sciences
+AS,GRMN,German
+AS,GSAP,Global Studies Res Acad Prgm
+AS,GSLL,Germanic & Slavic Lang & Lit
+AS,HEBR,Hebrew
+AS,HIND,Hindi
+AS,HIST,History
+AS,HNDI,HNDI
+AS,HONR,Honors
+EN,HUEN,Humanities for Engineers
+AS,HUMN,Humanities
+AS,IAFS,International Affairs
+BU,INBU,International Business Cert
+AS,INDO,Indonesian
+AS,INVS,INVST Community Studies
+AS,IPHY,Integrative Physiology
+AS,ITAL,Italian
+JR,JOUR,Journalism
+AS,JPNS,Japanese
+AS,JWST,Jewish Studies
+AS,KREN,Korean
+AS,LAMS,Latin American Studies
+LW,LAWS,Law School
+,LDSP,Leadership Res Acad Prgrm
+BU,LEAD,Leadership Minor
+AS,LGBT,Lesbn/Gay/Bisexual Stdys
+AS,LIBB,Libby Residential Acad Prgm
+LB,LIBR,Libraries
+AS,LING,Linguistics
+AS,MATH,Mathematics
+BU,MBAC,MBA Core
+BU,MBAX,MBA Advanced Electives
+AS,MCDB,Molecular Cell & Dev Biology
+EN,MCEN,Mechanical Engineering
+AS,MEMS,Medieval & Early Modern Stdys
+BU,MGMT,Management
+XX,MILR,Military Science
+BU,MKTG,Marketing
+MB,MUEL,Music Electives
+MB,MUSC,Music
+GR,MUSM,Museum
+XX,NAVR,Naval Science
+,NRLN,Norlin Scholars
+AS,NRSC,Neuroscience
+BU,OPIM,Operations & Information MGMT
+BU,OPMG,Operations Management
+BU,ORMG,Organization Management
+AS,PACS,Peace & Conflict Studies
+EB,PHED,Physical Education
+AS,PHIL,Philosophy
+AS,PHYS,Physics
+MB,PMUS,Performance Music
+AS,PORT,Portuguese
+,PRLC,Presidents Leadership Class
+AS,PSCI,Political Science
+AS,PSYC,Psychology
+,RCPR,Reciprocal Exchange
+BU,REAL,Real Estate
+AS,RLST,Religious Studies
+GR,RSEI,Renewable/Sustain Enrgy Inst
+AS,RUSS,Russian
+AS,SCAN,Scandinavian
+AS,SEWL,Sewall Residential Acad Prgm
+AS,SLHS,Speech, Language & Hearing Sci
+AS,SOCY,Sociology
+AS,SPAN,Spanish
+AS,SSIR,Sustainablty&Soc Innovtn  RAP
+ZZ,STDY,Study Abroad
+AS,SWED,Swedish
+BU,SYST,Systems
+AS,THTR,Theatre
+EN,TLEN,Telecommunications
+MB,TMUS,Thesis Music
+BU,TOMG,Tourism Management
+AS,WMST,Womens Studies
+AS,WRTG,Writing and Rhetoric

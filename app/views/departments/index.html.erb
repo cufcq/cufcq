@@ -37,6 +37,7 @@
               <thead>
                 <tr>
                   <th>Name</th>
+                  <th></th>
                   <th>College</th>
                   <th>Campus</th>
                 </tr>
@@ -46,12 +47,15 @@
                 <% @departments.each do |department| %>
                 <tr>
                   <td><%= link_to department.name, department %></td>
+                  <td><%= department.long_name %></td>
                   <td><%= department.college %></td>
                   <td><%= department.campus %></td>
                 </tr>
               </tbody>
               <% end %>
+
             </table>
+            <%= will_paginate @departments %>
           </div>
         </div>
       </div>

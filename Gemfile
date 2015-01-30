@@ -10,6 +10,7 @@ gem 'debugger', group: [:development, :test]
 gem 'database_cleaner'
 gem 'launchy'
 gem 'rspec-rails'
+gem 'progress_bar'
 end
 
 #Sunspot solr Search 

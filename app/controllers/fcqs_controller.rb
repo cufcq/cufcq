@@ -7,7 +7,8 @@ class FcqsController < ApplicationController
 
   #TODO: Get rid of this in production? 
   def index
-    @fcqs = Fcq.all
+    paginate :page => 1, :per_page => 1000
+    @fcqs = Fcq.all.page(params[:page]).per_page(10)
   end
 
   # GET /fcqs/1
