@@ -1,4 +1,4 @@
- VALID_TERMS = {1 => "Spring",4 => "Summer",7=>"Fall"}
+VALID_TERMS = {1 => "Spring",4 => "Summer",7=>"Fall"}
 VALID_GROUPS = ["TA", "TTT", "OTH"]
 class FcqValidator < ActiveModel::Validator
   def validate(record)
@@ -154,16 +154,6 @@ end
   def fcq_header
     #return %Q{#{semterm} | #{subject} #{crse}-#{sec} | #{title} | #{instructor_first} #{instructor_last}}
     return "#{crse}-#{sec}"
-  end
-
-  def img_file
-    if ld?
-      return "fcq_64_ld.png"
-    elsif ud?
-      return "fcq_64_ud.png"
-    else
-      return "fcq_64_gd.png"
-    end
   end
 
   def requested_returned_string

@@ -1,4 +1,4 @@
-IG_TTT = "tenured or tenure-track instructor"
+IG_TTT = "Tenured or tenure-track instructor"
 IG_OTH = "other primary instructor, such as GPTI, adjunct, visiting, honorarium, etc."
 IG_TA = "teaching assistant"
 
@@ -110,14 +110,13 @@ self.per_page = 10
     end
   end
 
-
   #These pass rates are weird, I suspect there is something up with the FCQ data and these aren't right
   def pass_rate_string
     val = (average_percentage_passed_float * 100).round(0)
     val = [val, 100].min
     val = [val, 0].max
     string = val.round
-    return "#{string}%"
+    return "# THIS IS A BULLSHIT RESULT: {string}%"
   end 
 
   def average_instructor_overall
@@ -129,6 +128,40 @@ self.per_page = 10
   end
 
   attr_reader :semesters, :overall_data, :availability_data, :respect_data, :effectiveness_data, :categories
+
+
+  ########################################
+  # This is where we use the grade csv   #
+  ########################################
+
+  # these take the avg grades of all classes taught by a prof and avg them 
+  def average_grade_overall
+  end
+
+  #these take the avg amount of specififc grade for all classes taught by a prof and avg them 
+
+  def average_grade_as 
+  end
+
+  def average_grade_bs 
+  end
+
+  def average_grade_cs 
+  end
+
+  #Do we want to ds and fs seperately or use ds/fs aggregated (possible perf issues?)
+  def average_grade_ds 
+  end
+
+  def average_grade_fs 
+  end
+
+  #this is the average of all courses taught by the teacher of people withdrawn
+  def average_withdrawn
+  end 
+
+  ##################End grades.csv stuff#####################
+
 
   def overall_query
     overalls = self.fcqs.group("yearterm").average(:instructor_overall)
