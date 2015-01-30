@@ -35,24 +35,7 @@
     -moz-user-select:none;
 }
 
-.button:hover, .button.hover {
-    border: 1px solid #C6C6C6;
-    color: #222;
-    -webkit-transition: all 0.0s;
-    -moz-transition: all 0.0s;
-    -o-transition: all 0.0s;
-    transition: all 0.0s;
-    background-color: #f8f8f8;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#f8f8f8),to(#f1f1f1));
-    background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
-    background-image: -moz-linear-gradient(top,#f8f8f8,#f1f1f1);
-    background-image: -ms-linear-gradient(top,#f8f8f8,#f1f1f1);
-    background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
-    background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
-    -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
-    box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
-}
+
 .button:active, .button.active {
     background-color: #f6f6f6;
     background-image: -webkit-gradient(linear,left top,left bottom,from(#f6f6f6),to(#f1f1f1));

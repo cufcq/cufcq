@@ -6,7 +6,7 @@ class Department < ActiveRecord::Base
 	has_many :courses, -> { distinct }, through: :fcqs
 	has_many :fcqs, -> { distinct }
 
-	validates :name, :college, :campus, presence: true
+	validates :name, presence: true
 	validates_uniqueness_of :name, scope: [:college, :campus]
 
   	searchable do

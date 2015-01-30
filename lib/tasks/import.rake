@@ -5,7 +5,7 @@ require 'csv'
 desc "Imports a CSV file into an ActiveRecord table"
 task :import => :environment do
   puts "start"
-  Dir.glob('csv_make/output/*.csv').each do |csv|
+  Dir.glob('csv_make/output/big.csv').each do |csv|
     puts "loading csv file: " + csv   
     CSV.foreach(csv, :headers => true) do |row|
       begin
@@ -239,6 +239,8 @@ task :grades => :environment do
       #  puts "\n"
       #gets the fcq with the same courtitle, section, yearterm
       f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
+      d_params = {"name" => r["subject"], "long_name" => r["subject_label"]}
+      d_short = {"name" => r["subject"]}
       #puts f_params
       #puts "\n"
       #f = Fcq.create!(row.to_hash)
@@ -246,9 +248,18 @@ task :grades => :environment do
       f = Fcq.where(f_params).first || next
       puts f.course_title
       puts r
-      f.update_attributes(r)
+      f.update_attributes(r.slice(*Fcq.column_names))
+      # f.update_attributes(r)
       f.save
       puts f.course_title
+      puts "==="
+      puts d_params
+      d = Department.where(d_short).first || Department.create!
+      d.update_attributes(d_params)
+      d.save
+      puts d.long_name
+      d.fcqs << f
+      puts "===================="
       rescue ActiveRecord::RecordInvalid => invalid
           puts invalid.message
           next
