@@ -5,7 +5,7 @@ gem 'rails', '4.0.0'
 #gem 'bootstrap-sass', '2.3.2.0'
 # Use sqlite3 as the database for Active Record
 group :development do
-gem 'sqlite3'
+# gem 'sqlite3'
 gem 'debugger', group: [:development, :test]
 gem 'database_cleaner'
 gem 'launchy'
@@ -13,6 +13,9 @@ gem 'rspec-rails'
 gem 'progress_bar'
 end
 
+
+#taps
+gem 'taps'
 #Sunspot solr Search 
 gem 'sunspot_rails'
 gem 'sunspot_solr' 
@@ -43,6 +46,8 @@ gem 'will_paginate', '~> 3.0.6'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+gem 'pg'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

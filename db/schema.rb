@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140425040402) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "courses", force: true do |t|
     t.string   "course_title"
     t.string   "crse"
@@ -108,8 +111,8 @@ ActiveRecord::Schema.define(version: 20140425040402) do
     t.datetime "updated_at"
   end
 
-  add_index "fcqs", ["course_title"], name: "index_fcqs_on_course_title"
-  add_index "fcqs", ["instructor_first", "instructor_last"], name: "index_fcqs_on_instructor_first_and_instructor_last"
+  add_index "fcqs", ["course_title"], name: "index_fcqs_on_course_title", using: :btree
+  add_index "fcqs", ["instructor_first", "instructor_last"], name: "index_fcqs_on_instructor_first_and_instructor_last", using: :btree
 
   create_table "instructors", force: true do |t|
     t.string   "instructor_first"
