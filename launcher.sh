@@ -14,5 +14,5 @@ rm solr/pids/production/sunspot-solr-production.pid
 rake sunspot:solr:start RAILS_ENV=development
 rake sunspot:solr:reindex RAILS_ENV=development
 
-rails s
+#rails s
 echo "rails server closed!"

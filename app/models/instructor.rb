@@ -136,6 +136,14 @@ self.per_page = 10
 
   # these take the avg grades of all classes taught by a prof and avg them 
   def average_grade_overall
+     total = 0.0
+    self.fcqs.compact.each {|x| puts x.float_passed; next if x.float_passed < 0.0; total += x.float_passed}
+    count = courses_taught
+    if count == 0
+      return 1.0 
+    else
+      return (total.to_f / count.to_f)
+    end
   end
 
   #these take the avg amount of specififc grade for all classes taught by a prof and avg them 
