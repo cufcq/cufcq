@@ -1,7 +1,7 @@
 -
 &
 /
-Intl
+intl
 crit
 writng
 phil
