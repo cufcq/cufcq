@@ -156,6 +156,17 @@ end
     return "#{crse}-#{sec}"
   end
 
+  #THIS IS DEPRICATED, USED IN OLD FCQ program (DELETE ME)
+  def img_file
+    if ld?
+      return "fcq_64_ld.png"
+    elsif ud?
+      return "fcq_64_ud.png"
+    else
+      return "fcq_64_gd.png"
+    end
+  end
+
   def requested_returned_string
     "#{forms_returned} / #{forms_requested}"
   end
