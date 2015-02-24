@@ -8,7 +8,7 @@ class FcqValidator < ActiveModel::Validator
     if !VALID_TERMS.has_key?(key)
       record.errors[:base] << "term is not valid! must end in 1, 4, 7 to indicate Spring, Summer and Fall respectively"
     end
-    if !VALID_GROUPS.include?(record.instructor_group)
+    if !VALID_GROUPS.include?(record.instr_group)
       record.errors[:base] << "instructor group is not valid! must be either TTT, TA, or OTH"
     end
   end
@@ -20,13 +20,13 @@ class Fcq < ActiveRecord::Base
   belongs_to :course
   belongs_to :department
   #validates the minimum entries are present
-  validates :yearterm, :subject, :crse, :sec, :instructor_last, :instructor_first, :forms_requested, :forms_returned, :course_title, :campus, :college, :instructor_group, presence: true
+  validates :yearterm, :subject, :crse, :sec, :instructor_last, :instructor_first, :formsrequested, :formsreturned, :campus, :college, :instr_group, presence: true
   #validates entries match established patterns
   validates :yearterm, length: { is: 5}
   validates :subject, :crse, length: {is: 4}
   validates :sec, length: {maximum: 3}
   #validates instructor group is one of the specified types
-  #validates :instructor_group, inclusion: { in: %w(TA, TTT, OTH)}
+  #validates :instr_group, inclusion: { in: %w(TA, TTT, OTH)}
   #checks some more specific bits
   validates_with FcqValidator
   #validates uniqueness
@@ -78,7 +78,7 @@ end
   def recitation?
     if (course_title == "REC" || course_title == "RECITATION")
       return true
-    elsif instructor_group == "TA"
+    elsif instr_group == "TA"
       return true
     elsif (sec == 1 || sec == 10 || sec == 100)
       return false
@@ -165,10 +165,10 @@ end
   end
 
   # def grade_query
-  #   overalls = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:course_overall)
-  #   challenge = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:challenge)
-  #   interest = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:prior_interest)
-  #   learned = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:amount_learned)
+  #   overalls = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:course_overall)
+  #   challenge = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:challenge)
+  #   interest = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:prior_interest)
+  #   learned = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:amount_learned)
   #   @semesters = []
   #   @overall_data = []
   #   @challenge_data = [] 

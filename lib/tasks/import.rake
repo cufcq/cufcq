@@ -1,11 +1,32 @@
 #lib/tasks/import.rake
 # to call, run 
 require 'csv'
+
+
+# lib/tasks/kill_postgres_connections.rake
+task :kill_postgres_connections => :environment do
+  db_name = "#{File.basename(Rails.root)}_#{Rails.env}"
+  sh = <<EOF
+ps xa \
+  | grep postgres: \
+  | grep #{db_name} \
+  | grep -v grep \
+  | awk '{print $1}' \
+  | xargs kill
+EOF
+  puts `#{sh}`
+end
+
+
+
+
+
+
 #require "#{Rails.root}/app/helpers/fcqs_helper.rb"
 desc "Imports a CSV file into an ActiveRecord table"
 task :import => :environment do
   puts "start"
-  Dir.glob('csv_make/output/big.csv').each do |csv|
+  Dir.glob('csv_make/fcq/fcq.*.csv').each do |csv|
     puts "loading csv file: " + csv   
     CSV.foreach(csv, :headers => true) do |row|
       begin
@@ -13,9 +34,17 @@ task :import => :environment do
           #h = row.to_hash.select {|k,v| k == "instructor_first" || "k == instructor_last"}
           #inst = get_instructor(params)
           #inst.fcqs.create!(row.to_hash)
-      puts row.to_hash.to_s
-      f = Fcq.create!(row.to_hash)
-      puts f.fcq_object
+      h = row.to_hash
+      # puts h.to_s
+      puts h["instructor"].to_s
+      i_name = h["instructor"].split(',') || h["instructor"]
+      h["instructor_first"] = i_name[0].capitalize
+      h["instructor_last"] = i_name[1].capitalize
+      h["course_title"] = h["crstitle"] 
+      h.select! {|k, v| Fcq.column_names.include? k }
+
+      f = Fcq.create!(h)
+      # puts f.fcq_object
       #given a new fcq object, create the instructor and course
       i_params = {"instructor_first" => f.instructor_first, "instructor_last" => f.instructor_last}
       c_params = {"course_title" => f.course_title, "crse" => f.crse, "subject" => f.subject}
@@ -301,6 +330,45 @@ task :departments => :environment do
   end
   puts "finish"
 end
+
+
+task :course_titles => :environment do
+  puts "start"
+  Dir.glob('csv_make/courses/courses.csv').each do |csv|
+    puts "loading csv file: " + csv   
+    #puts Fcq.column_names
+    CSV.foreach(csv, :headers => true) do |row|
+      begin
+          #puts row.to_hash
+          #h = row.to_hash.select {|k,v| k == "instructor_first" || "k == instructor_last"}
+          #inst = get_instructor(params)
+          #inst.fcqs.create!(row.to_hash)
+      r = row.to_hash
+      # r["campus"] = "BD"
+      puts r.to_s
+      #  puts "\n"
+      #gets the fcq with the same courtitle, section, yearterm
+      # f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
+      c_params = {"subject" => r["Subject"], "crse" => r["CrsNum"]}
+      puts "==="
+      c = Course.where(c_params).first || next
+      c.update_attribute(:course_title, r["CRSTITLE"])
+      c.save
+      puts r["CRSTITLE"]
+      rescue ActiveRecord::RecordInvalid => invalid
+          puts invalid.message
+          next
+      rescue ActiveRecord::RecordNotUnique => unique
+        next
+      rescue ActiveRecord::UnknownAttributeError => unknown
+        puts unknown.message
+        next
+      end
+    end
+  end
+  puts "finish"
+end
+
 
 
 task :recitation_correction => :environment do
