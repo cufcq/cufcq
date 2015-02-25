@@ -17,6 +17,7 @@
 
 #Ignore temp files
 *~
-solr/*/
+solr/*
 *.xls
-solr/pids/*
+!solr.xml
+!solr/conf/*
