@@ -20,6 +20,5 @@
 
 #Ignore all of the solr stuff except the xml and the conf 
 solr/*
-
-!solr.xml
+!solr/solr.xml
 !solr/conf/*
