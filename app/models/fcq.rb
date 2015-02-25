@@ -43,7 +43,8 @@ class Fcq < ActiveRecord::Base
     #passed = self.percentage_passed || "-100%"
     #return (passed.chop.to_f) / 100
     #return 0.99
-    fp = (1-pct_c_minus_or_below) || 0.0
+    failed = pct_c_minus_or_below || 1.0
+    fp = (1.0 - failed)
     return fp
   end
 
