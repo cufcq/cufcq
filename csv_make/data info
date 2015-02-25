@@ -1,0 +1,15 @@
+FCQ INFO
+
+yearterm,subject,crse,sec,onlinefcq,bdcontinedcrse,instructor,formsrequested,formsreturned,courseoverallpctvalid,courseoverall,courseoverall_sd,instructoroverall,instructoroverall_sd,hoursperwkinclclass,priorinterest,instreffective,availability,challenge,howmuchlearned,instrrespect,crstitle,r_presnt,r_fair,workload,r_divstu,r_access,r_learn,campus,college,asdiv,level,fcqdept,instr_group,i_num
+
+
+
+GRADE INFO
+
+yearterm,crspbadept,crspbacoll,crspbadiv,subject,crse,course_title,level,crslvlnum,activity_type,instruction_mode,hours,n_eot,n_enroll,n_grade,pct_grade,avg_grd,pct_a,pct_b,pct_c,pct_d,pct_f,pct_c_minus_or_below,pct_df,pct_wdraw,pct_incomp,n_pass,n_nocred,n_incomp,workload_raw,workload_hrs_wk,avgcourse,avginstructor,n_ret,nintrfcq,rap,honors,insname1,insgrp1,insttl1,insname2,insgrp2,insttl2,insname3,insgrp3,insttl3,sec,ncomb,subject_label
+
+
+
+COURSE INFO
+
+course,term,fyc,pbacoll,pbadiv,pbadept,subject,crsnum,crsnumlvl,crs_lvl,grad_ug,actvtyp,primary_sub_section,exclude_class_size,avghrs,sections,enrl,sch,sections,enrl,sch,spnsr_id,sponsor,class_size_group,crstitle,n_instructors,instname1,igname1,jobtitle1,instname2,igname2,jobtitle2,instname3,igname3,jobtitle3,instname4,igname4,jobtitle4

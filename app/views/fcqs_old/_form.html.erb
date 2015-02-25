@@ -1,0 +1,113 @@
+<%= form_for(@fcq) do |f| %>
+  <% if @fcq.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fcq.errors.count, "error") %> prohibited this fcq from being saved:</h2>
+
+      <ul>
+      <% @fcq.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :yearterm %><br>
+    <%= f.number_field :yearterm %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br>
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :crse %><br>
+    <%= f.number_field :crse %>
+  </div>
+  <div class="field">
+    <%= f.label :sec %><br>
+    <%= f.number_field :sec %>
+  </div>
+  <div class="field">
+    <%= f.label :instructor_last %><br>
+    <%= f.text_field :instructor_last %>
+  </div>
+  <div class="field">
+    <%= f.label :instructor_first %><br>
+    <%= f.text_field :instructor_first %>
+  </div>
+  <div class="field">
+    <%= f.label :formsrequested %><br>
+    <%= f.number_field :formsrequested %>
+  </div>
+  <div class="field">
+    <%= f.label :formsreturned %><br>
+    <%= f.number_field :formsreturned %>
+  </div>
+  <div class="field">
+    <%= f.label :percentage_passed %><br>
+    <%= f.text_field :percentage_passed %>
+  </div>
+  <div class="field">
+    <%= f.label :courseoverall %><br>
+    <%= f.text_field :courseoverall %>
+  </div>
+  <div class="field">
+    <%= f.label :courseoverall_SD %><br>
+    <%= f.text_field :courseoverall_SD %>
+  </div>
+  <div class="field">
+    <%= f.label :instructoroverall %><br>
+    <%= f.text_field :instructoroverall %>
+  </div>
+  <div class="field">
+    <%= f.label :instructoroverall_SD %><br>
+    <%= f.text_field :instructoroverall_SD %>
+  </div>
+  <div class="field">
+    <%= f.label :hoursperwkinclclass %><br>
+    <%= f.text_field :hoursperwkinclclass %>
+  </div>
+  <div class="field">
+    <%= f.label :priorinterest %><br>
+    <%= f.text_field :priorinterest %>
+  </div>
+  <div class="field">
+    <%= f.label :instreffective %><br>
+    <%= f.text_field :instreffective %>
+  </div>
+  <div class="field">
+    <%= f.label :availability %><br>
+    <%= f.text_field :availability %>
+  </div>
+  <div class="field">
+    <%= f.label :challenge %><br>
+    <%= f.text_field :challenge %>
+  </div>
+  <div class="field">
+    <%= f.label :howmuchlearned %><br>
+    <%= f.text_field :howmuchlearned %>
+  </div>
+  <div class="field">
+    <%= f.label :instrrespect %><br>
+    <%= f.text_field :instrrespect %>
+  </div>
+  <div class="field">
+    <%= f.label :course_title %><br>
+    <%= f.text_field :course_title %>
+  </div>
+  <div class="field">
+    <%= f.label :campus %><br>
+    <%= f.text_field :campus %>
+  </div>
+  <div class="field">
+    <%= f.label :college %><br>
+    <%= f.text_field :college %>
+  </div>
+  <div class="field">
+    <%= f.label :instr_group %><br>
+    <%= f.text_field :instr_group %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

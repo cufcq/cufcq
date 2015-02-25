@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+
+  <body>
+  
+    <title><%= @department.name%></title>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a>Department Name: <%= @department.name %><span class="sr-only">(current)</span></a></li>
+            <li><a>College: <%= @department.college %></a></li>
+            <li><a>Campus: <%= @department.campus %></a></li>
+
+          </ul>
+<!--           Possibly lead to a new page where it's just the instructors in that department? -->          <ul class="nav nav-sidebar">
+            <li><a>Instructor Count: <%= @department.instructors.count %></a></li>
+            <li><a>Total Courses: <%= @department.courses.count %> </a></li>
+
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header"><%= @department.name %></h1>
+
+          <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">
+            <%= render 'layouts/department_graph' %>
+          </div>
+
+
+          <set1>
+          This graph presents the overall scores for instructors, teaching assistants and courses.<br>
+          <ul>
+          <li>Instructor Overall is the average instructor overall score of every FCQ turned in for this department <i> not taught</i> by a teaching assistant. </li> 
+          <li>Teaching Assistant Overall is the average instructor overall score of every FCQ turned in for this department <i> specifically taught</i> by a teaching assistant. </li>
+          <li>Course Overall is the average course overall score of every FCQ turned in for this department. </li>
+          </ul>
+          </set1>
+
+          <h2 class="sub-header">Past FCQs</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Instructors</th>
+                  <th>Group</th>
+                  <th>Last Class</th>
+                  <th>Average Overall</th>                  
+                  <th>Average Effectivenss</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @department.instructors.each do |instructor| %>
+                <tr>
+                  <td><%= link_to instructor.name, instructor %></td>
+                  <td><%= instructor.instr_group %></td>
+                  <td><%= instructor.latest_teaching %></td>
+                  <td><%= instructor.average_instructoroverall %> </td>
+                  <td><%= instructor.average_instreffective %> </td>
+                </tr>
+                <% end %>
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  

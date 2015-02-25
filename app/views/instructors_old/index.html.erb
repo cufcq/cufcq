@@ -1,0 +1,35 @@
+<h1>Listing instructors</h1>
+
+<%= form_tag(instructors_path, :method => "get", id: "search-form") do %>
+  
+  <%= text_field_tag :search, params[:search], placeholder: "Search Instructors" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Instructor first</th>
+      <th>Instructor last</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instructors.each do |instructor| %>
+      <tr>
+        <td><%= instructor.instructor_first %></td>
+        <td><%= instructor.instructor_last %></td>
+        <td><%= link_to 'Show', instructor %></td>
+        <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
+        <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Instructor', new_instructor_path %>

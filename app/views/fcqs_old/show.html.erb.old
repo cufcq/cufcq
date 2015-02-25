@@ -1,0 +1,124 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <bold>Yearterm:</bold>
+  <%= @fcq.yearterm %>
+</p>
+
+<p>
+  <bold>Subject:</bold>
+  <%= @fcq.subject %>
+</p>
+
+<p>
+  <bold>Crse:</bold>
+  <%= @fcq.crse %>
+</p>
+
+<p>
+  <bold>Sec:</bold>
+  <%= @fcq.sec %>
+</p>
+
+<p>
+  <bold>Instructor last:</bold>
+  <%= @fcq.instructor_last %>
+</p>
+
+<p>
+  <bold>Instructor first:</bold>
+  <%= @fcq.instructor_first %>
+</p>
+
+<p>
+  <bold>Forms requested:</bold>
+  <%= @fcq.formsrequested %>
+</p>
+
+<p>
+  <bold>Forms returned:</bold>
+  <%= @fcq.formsreturned %>
+</p>
+
+<p>
+  <bold>Percentage passed:</bold>
+  <%= @fcq.percentage_passed %>
+</p>
+
+<p>
+  <bold>Course overall:</bold>
+  <%= @fcq.courseoverall %>
+</p>
+
+<p>
+  <bold>Course overall sd:</bold>
+  <%= @fcq.courseoverall_SD %>
+</p>
+
+<p>
+  <bold>Instructor overall:</bold>
+  <%= @fcq.instructoroverall %>
+</p>
+
+<p>
+  <bold>Instructor overall sd:</bold>
+  <%= @fcq.instructoroverall_SD %>
+</p>
+
+<p>
+  <bold>Total hours:</bold>
+  <%= @fcq.hoursperwkinclclass %>
+</p>
+
+<p>
+  <bold>Prior interest:</bold>
+  <%= @fcq.priorinterest %>
+</p>
+
+<p>
+  <bold>Effectiveness:</bold>
+  <%= @fcq.instreffective %>
+</p>
+
+<p>
+  <bold>Availability:</bold>
+  <%= @fcq.availability %>
+</p>
+
+<p>
+  <bold>Challenge:</bold>
+  <%= @fcq.challenge %>
+</p>
+
+<p>
+  <bold>Amount learned:</bold>
+  <%= @fcq.howmuchlearned %>
+</p>
+
+<p>
+  <bold>Respect:</bold>
+  <%= @fcq.instrrespect %>
+</p>
+
+<p>
+  <bold>Course title:</bold>
+  <%= @fcq.course_title %>
+</p>
+
+<p>
+  <bold>Campus:</bold>
+  <%= @fcq.campus %>
+</p>
+
+<p>
+  <bold>College:</bold>
+  <%= @fcq.college %>
+</p>
+
+<p>
+  <bold>Instructor group:</bold>
+  <%= @fcq.instr_group %>
+</p>
+
+<%= link_to 'Edit', edit_fcq_path(@fcq) %> |
+<%= link_to 'Back', fcqs_path %>

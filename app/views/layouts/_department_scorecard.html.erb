@@ -1,0 +1,38 @@
+<div id="data">
+			<ul>
+				<li><a href="" accesskey="1" title="Students rate the instructor's availability for course-related assistance such as email, office hours individual appointments, phone contact, etc. All ratings are on a scale of 1 to 6.">
+					<strong><%= @fcq.availability %> </strong>
+					<br>instructor availability</li></a>
+				<li><a href="" accesskey="2" title="Students rate this instructor's instrrespect for and professional treatment of all students regardless of race, color, national origin, sex, age, disability, creed, religion, sexual orientation, or veteran status. All ratings are on a scale of 1 to 6.">
+			<strong><%= @fcq.instrrespect %> </strong>
+					<br>instructor instrrespect</li></a>
+				<li><a href="" accesskey="3" title="Students rate the instructors overall performance. All ratings are on a scale of 1 to 6.">
+					<overall><%= @fcq.instructoroverall %> </overall>
+					<br>instructor overall</li></a>
+
+				<li><a href="" accesskey="4" title="Percentage of students that pass their classes when taken with this proffesor. Considers only students that are still enrolled in the course when FCQs are turned in. Passing is earning 70% or higher.">
+									<strong> <%= @fcq.percentage_passed %></strong>
+					<br>percentage passed</li></a>
+				<li><a href="" accesskey="5" title="Students rate the instructor's instreffective in encouraging interest in the subject. All ratings are on a scale of 1 to 6.">
+										<strong><%= @fcq.instreffective %> </strong>
+					<br>instructor instreffective</li></a>
+			</ul>
+			<ul>
+				<li><a href="" accesskey="6" title="Students rate their personal interest in the material before they enrolled. All ratings are on a scale of 1 to 6.">
+					<strong><%= @fcq.priorinterest %> </strong>
+					<br>Prior Interest</li></a>
+				<li><a href="" accesskey="7" title="Students rate the intellectual challenge of the course. All ratings are on a scale of 1 to 6.">
+			<strong><%= @fcq.challenge %> </strong>
+					<br>Course Challenge</li></a>
+				<li><a href="" accesskey="8" title="Students rate the course overall. All ratings are on a scale of 1 to 6.">
+					<overall><%= @fcq.courseoverall %> </overall>
+					<br>Course overall</li></a>
+
+				<li><a href="" accesskey="9" title="Students estimate the average number of hours per week they have spent on this course for all course-related work, including attending classes, labs, recitations, readings reviewing notes, writing papers, etc.">
+									<detail> <%= @fcq.hoursperwkinclclass %></detail>
+					<br>total hours</li></a>
+				<li><a href="" accesskey="10" title="Students rate how much they have learned in this course. All ratings are on a scale of 1 to 6.">
+										<strong><%= @fcq.howmuchlearned %> </strong>
+					<br>amount learned</li></a>
+			</ul>
+		</div>
