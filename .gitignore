@@ -19,3 +19,4 @@
 *~
 solr/*/
 *.xls
+solr/pids/*
