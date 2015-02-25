@@ -78,4 +78,4 @@ print(infer_spaces(b.lower()).title())
 print(infer_spaces(s.lower()).title())
 
 
-split_csv('/Users/antsankov/Documents/Computer_Work/cufcq_dev/csv_make/output/PHIL_NEW.csv',22)
+split_csv('../output/PHIL_NEW.csv',22)
