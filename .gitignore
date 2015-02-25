@@ -17,6 +17,7 @@
 
 #Ignore temp files
 *~
+*.swp
 
 #Ignore all of the solr stuff except the xml and the conf 
 solr/*
