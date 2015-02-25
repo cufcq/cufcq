@@ -32,12 +32,12 @@
 
 <p>
   <bold>Forms requested:</bold>
-  <%= @fcq.forms_requested %>
+  <%= @fcq.formsrequested %>
 </p>
 
 <p>
   <bold>Forms returned:</bold>
-  <%= @fcq.forms_returned %>
+  <%= @fcq.formsreturned %>
 </p>
 
 <p>
@@ -47,37 +47,37 @@
 
 <p>
   <bold>Course overall:</bold>
-  <%= @fcq.course_overall %>
+  <%= @fcq.courseoverall %>
 </p>
 
 <p>
   <bold>Course overall sd:</bold>
-  <%= @fcq.course_overall_SD %>
+  <%= @fcq.courseoverall_SD %>
 </p>
 
 <p>
   <bold>Instructor overall:</bold>
-  <%= @fcq.instructor_overall %>
+  <%= @fcq.instructoroverall %>
 </p>
 
 <p>
   <bold>Instructor overall sd:</bold>
-  <%= @fcq.instructor_overall_SD %>
+  <%= @fcq.instructoroverall_SD %>
 </p>
 
 <p>
   <bold>Total hours:</bold>
-  <%= @fcq.total_hours %>
+  <%= @fcq.hoursperwkinclclass %>
 </p>
 
 <p>
   <bold>Prior interest:</bold>
-  <%= @fcq.prior_interest %>
+  <%= @fcq.priorinterest %>
 </p>
 
 <p>
   <bold>Effectiveness:</bold>
-  <%= @fcq.effectiveness %>
+  <%= @fcq.instreffective %>
 </p>
 
 <p>
@@ -92,12 +92,12 @@
 
 <p>
   <bold>Amount learned:</bold>
-  <%= @fcq.amount_learned %>
+  <%= @fcq.howmuchlearned %>
 </p>
 
 <p>
   <bold>Respect:</bold>
-  <%= @fcq.respect %>
+  <%= @fcq.instrrespect %>
 </p>
 
 <p>
@@ -117,7 +117,7 @@
 
 <p>
   <bold>Instructor group:</bold>
-  <%= @fcq.instructor_group %>
+  <%= @fcq.instr_group %>
 </p>
 
 <%= link_to 'Edit', edit_fcq_path(@fcq) %> |

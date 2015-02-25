@@ -24,14 +24,14 @@
             <li><a>Latest FCQ: <%= @instructor.latest_teaching %></a></li>
             <!-- TODO: These insturctor groups need to be translated -->
             <%= puts @instructor.department %>
-            <li><a>Instructor Group: <%= @instructor.instructor_group %></a></li>
+            <li><a>Instructor Group: <%= @instructor.instr_group %></a></li>
           </ul>
           <ul class="nav nav-sidebar">
 
             <li><a>Courses Taught: <%= @instructor.courses_taught %></a></li>
             <li><a>Students Taught: <%= @instructor.total_requested %></a></li>
-            <li><a>Average Overall: <%= @instructor.average_instructor_overall %></a></li>
-            <li><a>Average Effectiveness: <%= @instructor.average_effectiveness %></a></li>
+            <li><a>Average Overall: <%= @instructor.average_instructoroverall %></a></li>
+            <li><a>Average Effectiveness: <%= @instructor.average_instreffective %></a></li>
             <li><a>Average Availability: <%= @instructor.average_availability %></a></li>
             <!-- WEIRD RESULTS for average pass rate, see note in insturctor.rb -->
             <li><a>Average Pass Rate: <%=@instructor.pass_rate_string %></a></li>

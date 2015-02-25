@@ -16,9 +16,9 @@ self.per_page = 10
   has_many :courses, -> { distinct }, through: :fcqs
 
   validates_uniqueness_of :instructor_first, scope: [:instructor_last]
-  #respect
+  #instrrespect
   #availability
-  #effectiveness
+  #instreffective
   #overall
   #passrate
   #classes taught
@@ -47,12 +47,12 @@ self.per_page = 10
     "CU Boulder"
   end
 
-  def instructor_group
-    self.fcqs.pluck(:instructor_group).mode
+  def instr_group
+    self.fcqs.pluck(:instr_group).mode
   end
 
   def is_TA
-    return (instructor_group == "TA") ? true : false
+    return (instr_group == "TA") ? true : false
   end
 
   def instructor_type_string
@@ -63,7 +63,7 @@ self.per_page = 10
     subject = c.subject
     crse = c.crse
     set = self.fcqs.where("subject = ? AND crse = ?", subject, crse)
-    return set.average(:instructor_overall).round(1)
+    return set.average(:instructoroverall).round(1)
   end
 
   def started_teaching
@@ -74,24 +74,24 @@ self.per_page = 10
     Fcq.semterm_from_int(self.fcqs.maximum(:yearterm))
   end
 
-  def average_respect
-    self.fcqs.average(:respect).round(1)
+  def average_instrrespect
+    self.fcqs.average(:instrrespect).round(1)
   end
 
   def average_availability
     self.fcqs.average(:availability).round(1)
   end
 
-  def average_effectiveness
-    self.fcqs.average(:effectiveness).round(1)
+  def average_instreffective
+    self.fcqs.average(:instreffective).round(1)
   end
 
   def total_requested
-    self.fcqs.sum(:forms_requested) 
+    self.fcqs.sum(:formsrequested) 
   end
 
   def total_returned
-    self.fcqs.sum(:forms_returned)
+    self.fcqs.sum(:formsreturned)
   end
 
 
@@ -119,15 +119,15 @@ self.per_page = 10
     return "# THIS IS A BULLSHIT RESULT: {string}%"
   end 
 
-  def average_instructor_overall
-    return self.fcqs.average(:instructor_overall).round(1)
+  def average_instructoroverall
+    return self.fcqs.average(:instructoroverall).round(1)
   end
 
   def courses_taught
-    return self.fcqs.where('percentage_passed IS NOT NULL').count
+    return self.fcqs.where('pct_c_minus_or_below IS NOT NULL').count
   end
 
-  attr_reader :semesters, :overall_data, :availability_data, :respect_data, :effectiveness_data, :categories
+  attr_reader :semesters, :overall_data, :availability_data, :instrrespect_data, :instreffective_data, :categories
 
 
   ########################################
@@ -172,26 +172,26 @@ self.per_page = 10
 
 
   def overall_query
-    overalls = self.fcqs.group("yearterm").average(:instructor_overall)
+    overalls = self.fcqs.group("yearterm").average(:instructoroverall)
     avails = self.fcqs.group("yearterm").average(:availability)
-    effects = self.fcqs.group("yearterm").average(:effectiveness)
-    respects = self.fcqs.group("yearterm").average(:respect)
+    effects = self.fcqs.group("yearterm").average(:instreffective)
+    instrrespects = self.fcqs.group("yearterm").average(:instrrespect)
     @semesters = []
     @overall_data = []
     @availability_data = [] 
-    @respect_data = [] 
-    @effectiveness_data = [] 
+    @instrrespect_data = [] 
+    @instreffective_data = [] 
     #records.each {|k,v| fixedrecords[Fcq.semterm_from_int(k)] = v.to_f.round(1)}
     overalls.each {|k,v| @overall_data << [k,v.to_f.round(1)]}
     avails.each {|k,v| @availability_data << [k,v.to_f.round(1)]}
-    effects.each {|k,v| @effectiveness_data << [k,v.to_f.round(1)]}
-    respects.each {|k,v| @respect_data << [k,v.to_f.round(1)]}
+    effects.each {|k,v| @instreffective_data << [k,v.to_f.round(1)]}
+    instrrespects.each {|k,v| @instrrespect_data << [k,v.to_f.round(1)]}
     #@chart_data = fixedrecords.values
     puts @chart_data
   end
 
-  def instructor_group_flavor_text
-    case self.instructor_group
+  def instr_group_flavor_text
+    case self.instr_group
     when "TTT" 
       return IG_TTT
     when "OTH"

@@ -64,11 +64,11 @@
         name: "Availability"
     },
     {
-        data: <%= @instructor.effectiveness_data %>,
+        data: <%= @instructor.instreffective_data %>,
         name: "Effectiveness"
     },
     {
-        data: <%= @instructor.respect_data %>,
+        data: <%= @instructor.instrrespect_data %>,
         name: "Respect"
     }
     ]
@@ -104,30 +104,30 @@
 
         // the button action
     //var chart = $(container).highcharts(),
-        $effectiveness = $(effectiveness);
-    $effectiveness.click(function() {
+        $instreffective = $(instreffective);
+    $instreffective.click(function() {
         var series = chart.series[2];
         if (series.visible) {
             series.hide();
-            // $effectiveness.html('Show series');
+            // $instreffective.html('Show series');
         } else {
             series.show();
-            // $effectiveness.html('Hide series');
+            // $instreffective.html('Hide series');
         }
     });
 
 
             // the button action
     //var chart = $(container).highcharts(),
-        $respect = $(respect);
-    $respect.click(function() {
+        $instrrespect = $(instrrespect);
+    $instrrespect.click(function() {
         var series = chart.series[3];
         if (series.visible) {
             series.hide();
-            // $respect.html('Show series');
+            // $instrrespect.html('Show series');
         } else {
             series.show();
-            // $respect.html('Hide series');
+            // $instrrespect.html('Hide series');
         }
     });
 

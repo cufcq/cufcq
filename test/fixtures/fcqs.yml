@@ -12,8 +12,8 @@ one:
   percentage_passed: MyString
   course_overall: 1.5
   course_overall_SD: 1.5
-  instructor_overall: 1.5
-  instructor_overall_SD: 1.5
+  instructoroverall: 1.5
+  instructoroverall_SD: 1.5
   total_hours: MyString
   prior_interest: 1.5
   effectiveness: 1.5
@@ -38,8 +38,8 @@ two:
   percentage_passed: MyString
   course_overall: 1.5
   course_overall_SD: 1.5
-  instructor_overall: 1.5
-  instructor_overall_SD: 1.5
+  instructoroverall: 1.5
+  instructoroverall_SD: 1.5
   total_hours: MyString
   prior_interest: 1.5
   effectiveness: 1.5

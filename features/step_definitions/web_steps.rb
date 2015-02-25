@@ -15,7 +15,7 @@ end
 
 Then(/^I will see raw FCQ data$/) do
   Course.find_each do |x|
-    assert page.has_xpath?('//*', :text => x.instructor_overall_SD)
+    assert page.has_xpath?('//*', :text => x.instructoroverall_SD)
   end
 end
 

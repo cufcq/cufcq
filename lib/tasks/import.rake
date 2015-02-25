@@ -37,9 +37,12 @@ task :import => :environment do
       h = row.to_hash
       # puts h.to_s
       puts h["instructor"].to_s
-      i_name = h["instructor"].split(',') || h["instructor"]
-      h["instructor_first"] = i_name[0].capitalize
-      h["instructor_last"] = i_name[1].capitalize
+      name = h["instructor"] || ","
+      i_name = name.split(',') || ["",""]
+      h["instructor_first"] = i_name[0] || ""
+      h["instructor_last"] = i_name[1] || ""
+      h["instructor_first"].capitalize!
+      h["instructor_last"].capitalize!
       h["course_title"] = h["crstitle"] 
       h.select! {|k, v| Fcq.column_names.include? k }
 

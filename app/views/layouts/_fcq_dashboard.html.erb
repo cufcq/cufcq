@@ -23,52 +23,52 @@
             <li><a href="" accesskey="1" title="Students rate the instructor's availability for course-related assistance such as email, office hours individual appointments, phone contact, etc. All ratings are on a scale of 1 to 6.">
           <strong><%= @fcq.availability.round(1) %> </strong>
           <br>instructor availability</li></a>
-        <li><a href="" accesskey="2" title="Students rate this instructor's respect for and professional treatment of all students regardless of race, color, national origin, sex, age, disability, creed, religion, sexual orientation, or veteran status. All ratings are on a scale of 1 to 6.">
-      <strong><%= @fcq.respect.round(1) %> </strong>
-          <br>instructor respect</li></a>
+        <li><a href="" accesskey="2" title="Students rate this instructor's instrrespect for and professional treatment of all students regardless of race, color, national origin, sex, age, disability, creed, religion, sexual orientation, or veteran status. All ratings are on a scale of 1 to 6.">
+      <strong><%= @fcq.instrrespect.round(1) %> </strong>
+          <br>instructor instrrespect</li></a>
         <li><a href="" accesskey="3" title="Students rate the instructors overall performance. All ratings are on a scale of 1 to 6.">
-          <overall><%= @fcq.instructor_overall.round(1) %> </overall>
+          <overall><%= @fcq.instructoroverall.round(1) %> </overall>
           <br>instructor overall</li></a>
 
         <li><a href="" accesskey="4" title="Percentage of students that pass their classes when taken with this proffesor. Considers only students that are still enrolled in the course when FCQs are turned in. Passing is earning 70% or higher.">
                   <strong> <%= @fcq.percentage_passed_string %></strong>
           <br>percentage passed</li></a>
-        <li><a href="" accesskey="5" title="Students rate the instructor's effectiveness in encouraging interest in the subject. All ratings are on a scale of 1 to 6.">
-                    <strong><%= @fcq.effectiveness.round(1) %> </strong>
-          <br>instructor effectiveness</li></a>
+        <li><a href="" accesskey="5" title="Students rate the instructor's instreffective in encouraging interest in the subject. All ratings are on a scale of 1 to 6.">
+                    <strong><%= @fcq.instreffective.round(1) %> </strong>
+          <br>instructor instreffective</li></a>
           </ul>
                 <ul>
         <li><a href="" accesskey="6" title="Students rate their personal interest in the material before they enrolled. All ratings are on a scale of 1 to 6.">
-          <strong><%= @fcq.prior_interest.round(1) %> </strong>
+          <strong><%= @fcq.priorinterest.round(1) %> </strong>
           <br>Prior Interest</li></a>
         <li><a href="" accesskey="7" title="Students rate the intellectual challenge of the course. All ratings are on a scale of 1 to 6.">
       <strong><%= @fcq.challenge.round(1) %> </strong>
           <br>Course Challenge</li></a>
         <li><a href="" accesskey="8" title="Students rate the course overall. All ratings are on a scale of 1 to 6.">
-          <overall><%= @fcq.course_overall.round(1) %> </overall>
+          <overall><%= @fcq.courseoverall.round(1) %> </overall>
           <br>Course overall</li></a>
 
         <li><a href="" accesskey="9" title="Students estimate the average number of hours per week they have spent on this course for all course-related work, including attending classes, labs, recitations, readings reviewing notes, writing papers, etc.">
-                  <detail> <%= @fcq.total_hours %></detail>
+                  <detail> <%= @fcq.hoursperwkinclclass %></detail>
           <br>total hours</li></a>
         <li><a href="" accesskey="10" title="Students rate how much they have learned in this course. All ratings are on a scale of 1 to 6.">
-                    <strong><%= @fcq.amount_learned.round(1) %> </strong>
+                    <strong><%= @fcq.howmuchlearned.round(1) %> </strong>
           <br>amount learned</li></a>
       </ul>
       <ul>
         <li><a href="" accesskey="11" title="Standard Deviation of students ratings for the instructor.">
-          <strong><%= @fcq.instructor_overall_SD.round(1) %> </strong>
+          <strong><%= @fcq.instructoroverall_SD.round(1) %> </strong>
           <br>Instructor Overall STDV</li></a>
         <li><a href="" accesskey="12" title="Standard Deviation of students ratings for the course.">
-      <strong><%= @fcq.course_overall_SD.round(1) %> </strong>
+      <strong><%= @fcq.courseoverall_SD.round(1) %> </strong>
           <br>Course Overall STDV</li></a>
         <li><a href=""><%= image_tag "fcq_64_w.png", alt: @fcq.rank_string, title: @fcq.rank_string%>
           <br><%= @fcq.rank_string%></li></a>
       <li><a href="" accesskey="13" title="FCQs returned.">
-          <strong><%= @fcq.forms_requested %></strong>
+          <strong><%= @fcq.formsrequested %></strong>
           <br>FCQ Forms Requested</li></a>
         <li><a href="" accesskey="14" title="FCQs requested">
-      <strong><%= @fcq.forms_returned %> </strong>
+      <strong><%= @fcq.formsreturned %> </strong>
           <br>FCQ Forms Returned</li></a>
       <li><a href="" accesskey="14" title="Percent A">
       <strong><%= @fcq.pct_a %> </strong>

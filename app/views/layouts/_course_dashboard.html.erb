@@ -26,11 +26,11 @@
 
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a>Course Overall:<%= @course.average_course_overall %></a></li>
+            <li><a>Course Overall:<%= @course.average_courseoverall %></a></li>
             <li><a>Course Challenge: <%= @course.average_challenge %></a></li>
-            <li><a>Total Hours: <%= @course.total_hours_string %></a></li>
-            <li><a>Prior Interest: <%= @course.average_prior_interest %> </a></li>
-            <li><a>Amount Learned: <%= @course.average_amount_learned %></a></li>
+            <li><a>Total Hours: <%= @course.hoursperwkinclclass_string %></a></li>
+            <li><a>Prior Interest: <%= @course.average_priorinterest %> </a></li>
+            <li><a>Amount Learned: <%= @course.average_howmuchlearned %></a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -58,8 +58,8 @@
                 <tr>
                     <td><%= fcq.instructor.name%></td>
                     <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
-                    <td><%= fcq.total_hours %></td>
-                    <td><%= fcq.course_overall%></td>
+                    <td><%= fcq.hoursperwkinclclass %></td>
+                    <td><%= fcq.courseoverall%></td>
                     <td><%= fcq.pass_rate %></td>
                 </tr>
                 <% end %>

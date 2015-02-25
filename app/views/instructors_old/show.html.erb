@@ -6,7 +6,7 @@
 <%= render 'layouts/fcqcard' %>
 <data>
 <instructorgroup>
-<a href="" accesskey="1" title=<%= @instructor.instructor_group_flavor_text %> ><%= @instructor.instructor_group %></a>
+<a href="" accesskey="1" title=<%= @instructor.instr_group_flavor_text %> ><%= @instructor.instr_group %></a>
 
 </instructorgroup>
 <strong><u><%= @instructor.full_name %></u></strong> <br>
@@ -15,7 +15,7 @@
 
 Earliest FCQ: <%= @instructor.started_teaching %>
 Latest FCQ: <%= @instructor.latest_teaching %> <br>
-Group: <%= @instructor.instructor_group %> <br>
+Group: <%= @instructor.instr_group %> <br>
 
 Classes Taught: <%= @instructor.courses_taught %> <br>
 Students Taught: <%= @instructor.courses_taught %> <br>

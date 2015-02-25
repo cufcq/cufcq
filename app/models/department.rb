@@ -34,12 +34,12 @@ class Department < ActiveRecord::Base
 	attr_reader :ld_data, :ud_data, :gd_data, :io_data, :co_data, :to_data
 
 	def overall_query
-		lds = self.fcqs.where(crse: 1000..2999).group("yearterm").sum(:forms_requested)
-		uds = self.fcqs.where(crse: 3000..4000).group("yearterm").sum(:forms_requested)
-		gds = self.fcqs.where(crse: 5000..9999).group("yearterm").sum(:forms_requested)
-		iod = self.fcqs.where.not(instructor_group: 'TA').group("yearterm").average(:instructor_overall)
-		tod = self.fcqs.where(instructor_group: 'TA').group("yearterm").average(:instructor_overall)
-		cod = self.fcqs.group("yearterm").average(:course_overall)
+		lds = self.fcqs.where(crse: 1000..2999).group("yearterm").sum(:formsrequested)
+		uds = self.fcqs.where(crse: 3000..4000).group("yearterm").sum(:formsrequested)
+		gds = self.fcqs.where(crse: 5000..9999).group("yearterm").sum(:formsrequested)
+		iod = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:instructoroverall)
+		tod = self.fcqs.where(instr_group: 'TA').group("yearterm").average(:instructoroverall)
+		cod = self.fcqs.group("yearterm").average(:courseoverall)
 		#method defined in config/initializers/hash.rb
 		uds.initialize_keys(lds,0)
 		gds.initialize_keys(uds,0)
@@ -57,16 +57,16 @@ class Department < ActiveRecord::Base
 		cod.each {|k,v| @co_data << [k,v.to_f.round(1)]}
 	end
 
-	def average_course_overall
-		return self.fcqs.average(:course_overall).round(1)
+	def average_courseoverall
+		return self.fcqs.average(:courseoverall).round(1)
 	end
 
-	def average_instructor_overall
-		return self.fcqs.average(:course_overall).round(1)
+	def average_instructoroverall
+		return self.fcqs.average(:courseoverall).round(1)
 	end
 
 	def average_student_enrollment
-		return self.fcqs.group(:semterm).average(:course_overall).round(1)
+		return self.fcqs.group(:semterm).average(:courseoverall).round(1)
 	end
 
 	def elligible_for_ranking(i)
@@ -104,9 +104,9 @@ class Department < ActiveRecord::Base
 		set = self.instructors.group([:instructor_first,:instructor_last])
 		#no TAs allowed
 		set = set.delete_if{|x| !elligible_for_ranking(x)}
-		set = set.delete_if{|x| x.instructor_group == "TA"}
+		set = set.delete_if{|x| x.instr_group == "TA"}
 		#sort by average overall
-		set.sort_by{|x| x.average_instructor_overall}
+		set.sort_by{|x| x.average_instructoroverall}
 	end
 
 	def set_rank
@@ -153,6 +153,6 @@ class Department < ActiveRecord::Base
 	end
 
 	def instructor_order
-		self.instructors.group([:instructor_first,:instructor_last]).order(average_instructor_overall)
+		self.instructors.group([:instructor_first,:instructor_last]).order(average_instructoroverall)
 	end
 end

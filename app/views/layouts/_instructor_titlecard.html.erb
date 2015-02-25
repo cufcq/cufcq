@@ -1,6 +1,6 @@
 <div id="header-wrapper">
 	<div id="header" class=<%= @instructor.instructor_type_string %>>
-		<%= image_tag "instructor_64.png", alt: @instructor.instructor_group_flavor_text, title: @instructor.instructor_group_flavor_text%> <%= @instructor.full_name %><br>
+		<%= image_tag "instructor_64.png", alt: @instructor.instr_group_flavor_text, title: @instructor.instr_group_flavor_text%> <%= @instructor.full_name %><br>
 		<table>
 		<tr><td>Courses Taught</td><td>
 		<big><%= @instructor.courses_taught %></big>

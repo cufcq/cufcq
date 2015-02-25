@@ -20,7 +20,7 @@ rm -r *.csv.?
 tail -n +2 "$output" > work.csv
 
 #our new header field we use for our DB, put on top of work.csv and move that to our final temp.csv
-echo 'yearterm,subject,crse,sec,onlineFCQ,bd_continuing_education,instructor_last,instructor_first,forms_requested,forms_returned,percentage_passed,course_overall,course_overall_SD,instructor_overall,instructor_overall_SD,total_hours,prior_interest,effectiveness,availability,challenge,amount_learned,respect,course_title,courseOverall_old,courseOverall_SD_old,instrOverall_old,instrOverall_SD_old,r_Fair,r_Access,workload,r_Divstu,r_Diviss,r_Presnt,r_Explan,r_Assign,r_Motiv,r_Learn,r_Complx,campus,college,aSdiv,level,fcqdept,instructor_group,i_Num' | cat - work.csv > temp.csv 
+echo 'yearterm,subject,crse,sec,onlineFCQ,bd_continuing_education,instructor_last,instructor_first,forms_requested,forms_returned,percentage_passed,course_overall,course_overall_SD,instructoroverall,instructoroverall_SD,total_hours,prior_interest,effectiveness,availability,challenge,amount_learned,respect,course_title,courseOverall_old,courseOverall_SD_old,instrOverall_old,instrOverall_SD_old,r_Fair,r_Access,workload,r_Divstu,r_Diviss,r_Presnt,r_Explan,r_Assign,r_Motiv,r_Learn,r_Complx,campus,college,aSdiv,level,fcqdept,instructor_group,i_Num' | cat - work.csv > temp.csv 
 
 #modify the header line in temp.csv and move it to the final output file to be used by rake
 awk -F, '/,/{gsub(/ /, "", $0); print}' temp.csv > $output

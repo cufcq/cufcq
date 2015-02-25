@@ -6,7 +6,7 @@ class FcqValidator < ActiveModel::Validator
     puts key
     key %= 10
     if !VALID_TERMS.has_key?(key)
-      record.errors[:base] << "term is not valid! must end in 1, 4, 7 to indicate Spring, Summer and Fall respectively"
+      record.errors[:base] << "term is not valid! must end in 1, 4, 7 to indicate Spring, Summer and Fall instrrespectively"
     end
     if !VALID_GROUPS.include?(record.instr_group)
       record.errors[:base] << "instructor group is not valid! must be either TTT, TA, or OTH"
@@ -43,7 +43,7 @@ class Fcq < ActiveRecord::Base
     #passed = self.percentage_passed || "-100%"
     #return (passed.chop.to_f) / 100
     #return 0.99
-    fp = percentage_passed || 0.0
+    fp = (1-pct_c_minus_or_below) || 0.0
     return fp
   end
 
@@ -133,7 +133,7 @@ end
   end
 
   def bad?
-    return (forms_returned < 1)
+    return (formsreturned < 1)
   end
 
   def color
@@ -168,7 +168,7 @@ end
   end
 
   def requested_returned_string
-    "#{forms_returned} / #{forms_requested}"
+    "#{formsreturned} / #{formsrequested}"
   end
 
   def instructor_full_name
@@ -176,10 +176,10 @@ end
   end
 
   # def grade_query
-  #   overalls = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:course_overall)
+  #   overalls = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:courseoverall)
   #   challenge = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:challenge)
-  #   interest = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:prior_interest)
-  #   learned = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:amount_learned)
+  #   interest = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:priorinterest)
+  #   learned = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:howmuchlearned)
   #   @semesters = []
   #   @overall_data = []
   #   @challenge_data = [] 
