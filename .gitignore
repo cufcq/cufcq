@@ -12,12 +12,14 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
+/log/*
 /tmp
 
 #Ignore temp files
 *~
+
+#Ignore all of the solr stuff except the xml and the conf 
 solr/*
-*.xls
+
 !solr.xml
 !solr/conf/*
