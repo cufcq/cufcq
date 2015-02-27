@@ -172,10 +172,10 @@ self.per_page = 10
 
 
   def overall_query
-    overalls = self.fcqs.group("yearterm").average(:instructoroverall)
-    avails = self.fcqs.group("yearterm").average(:availability)
-    effects = self.fcqs.group("yearterm").average(:instreffective)
-    instrrespects = self.fcqs.group("yearterm").average(:instrrespect)
+    overalls = self.fcqs.order("yearterm").group("yearterm").average(:instructoroverall)
+    avails = self.fcqs.order("yearterm").group("yearterm").average(:availability)
+    effects = self.fcqs.order("yearterm").group("yearterm").average(:instreffective)
+    instrrespects = self.fcqs.order("yearterm").group("yearterm").average(:instrrespect)
     @semesters = []
     @overall_data = []
     @availability_data = [] 

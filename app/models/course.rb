@@ -89,12 +89,12 @@ class Course < ActiveRecord::Base
 
 
   def grade_query
-    pct_a = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:pct_a)
-    pct_b = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:pct_b)
-    pct_c = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:pct_c)
-    pct_d = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:pct_d)
-    pct_f = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:pct_f)
-    pct_i = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:pct_incomp)
+    pct_a = self.fcqs.where.not(instr_group: 'TA').order("yearterm").group("yearterm").average(:pct_a)
+    pct_b = self.fcqs.where.not(instr_group: 'TA').order("yearterm").group("yearterm").average(:pct_b)
+    pct_c = self.fcqs.where.not(instr_group: 'TA').order("yearterm").group("yearterm").average(:pct_c)
+    pct_d = self.fcqs.where.not(instr_group: 'TA').order("yearterm").group("yearterm").average(:pct_d)
+    pct_f = self.fcqs.where.not(instr_group: 'TA').order("yearterm").group("yearterm").average(:pct_f)
+    pct_i = self.fcqs.where.not(instr_group: 'TA').order("yearterm").group("yearterm").average(:pct_incomp)
     @semesters = []
     @pct_a_data = []
     @pct_b_data = []

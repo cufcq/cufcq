@@ -34,12 +34,12 @@ class Department < ActiveRecord::Base
 	attr_reader :ld_data, :ud_data, :gd_data, :io_data, :co_data, :to_data
 
 	def overall_query
-		lds = self.fcqs.where(crse: 1000..2999).group("yearterm").sum(:formsrequested)
-		uds = self.fcqs.where(crse: 3000..4000).group("yearterm").sum(:formsrequested)
-		gds = self.fcqs.where(crse: 5000..9999).group("yearterm").sum(:formsrequested)
-		iod = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:instructoroverall)
-		tod = self.fcqs.where(instr_group: 'TA').group("yearterm").average(:instructoroverall)
-		cod = self.fcqs.group("yearterm").average(:courseoverall)
+		lds = self.fcqs.where(crse: 1000..2999).order("yearterm").group("yearterm").sum(:formsrequested)
+		uds = self.fcqs.where(crse: 3000..4000).order("yearterm").group("yearterm").sum(:formsrequested)
+		gds = self.fcqs.where(crse: 5000..9999).order("yearterm").group("yearterm").sum(:formsrequested)
+		iod = self.fcqs.where.not(instr_group: 'TA').order("yearterm").group("yearterm").average(:instructoroverall)
+		tod = self.fcqs.where(instr_group: 'TA').order("yearterm").group("yearterm").average(:instructoroverall)
+		cod = self.fcqs.order("yearterm").group("yearterm").average(:courseoverall)
 		#method defined in config/initializers/hash.rb
 		uds.initialize_keys(lds,0)
 		gds.initialize_keys(uds,0)

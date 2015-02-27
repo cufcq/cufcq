@@ -38,6 +38,7 @@
                   <th>Instructor</th>
                   <th>Instructor Type</th>
                   <th>Department</th>
+                  <th>Courses Taught</th>
                   <th>Earliest FCQ</th>
                   <th>Last FCQ</th>
                 </tr>
@@ -48,7 +49,8 @@
                 <tr>
                   <td><%= link_to instructor.name, instructor %></td>
                   <td><%= instructor.instr_group %></td>
-                  <td><%=  instructor.department  %></td>
+                  <td><%= instructor.department  %></td>
+                  <td><%= instructor.courses_taught  %></td>
                   <td><%= instructor.started_teaching %></td>
                   <td><%= instructor.latest_teaching %></td>
                 </tr>
