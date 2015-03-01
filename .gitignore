@@ -19,6 +19,10 @@
 *~
 *.swp
 
+#Ignore xcel files
+*.xlsm
+*.xls
+
 #Ignore all of the solr stuff except the xml and the conf 
 solr/data
 solr/default
