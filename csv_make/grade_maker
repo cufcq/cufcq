@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #First, conver to multiple csvs 
-ssconvert -S gradesall.xlsm grades.csv
+ssconvert -S grades/gradesall.xlsm grades/grades.csv
 
 #Import csvs: .2 is the total grades, .4 is the grades for the upper and lower division classes, .7 is the different dep. codes
 rm *.csv.{0,1,3,5,6}
