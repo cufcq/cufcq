@@ -26,7 +26,7 @@ self.per_page = 10
   #records since
 
   def name
-    return "#{self.instructor_first} #{self.instructor_last}"
+    return "#{self.instructor_first.titleize}, #{self.instructor_last.titleize}"
   end
 
   def full_name
@@ -124,7 +124,12 @@ self.per_page = 10
   end
 
   def courses_taught
-    return self.fcqs.where('pct_c_minus_or_below IS NOT NULL').count
+    count = self.fcqs.where('pct_c_minus_or_below IS NOT NULL').count
+    if (count == 0)
+      return ">= 1" 
+    else 
+      return count
+    end
   end
 
   attr_reader :semesters, :overall_data, :availability_data, :instrrespect_data, :instreffective_data, :categories

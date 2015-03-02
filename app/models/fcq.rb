@@ -49,12 +49,19 @@ class Fcq < ActiveRecord::Base
   end
 
   def percentage_passed_string
-  val = (float_passed * 100).round(0)
-  val = [val, 100].min
-  val = [val, 0].max
-  string = val.round
-  return "#{string}%"
-end 
+	val = (float_passed * 100).round(0)
+	val = [val, 100].min
+	val = [val, 0].max
+	if (val == 0)
+		return '--'
+	else
+		string = val.round
+		return "#{string}%"
+	end
+  end 
+
+
+  
 
   def uid
     return "#{yearterm}#{subject}#{crse}#{sec}"

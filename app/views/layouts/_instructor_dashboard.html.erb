@@ -56,7 +56,9 @@
                 <tr>
                   <th>Course</th>
                   <th>Percent Passed</th>
-                  <th>Level</th>
+                  <th>Percent As</th>
+		  <th>Percent Bs </th>
+		  <th>Level</th>
                 </tr>
               </thead>
 
@@ -64,8 +66,10 @@
                 <% @instructor.fcqs.each do |fcq| %>
                 <tr>
                   <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
+ 		  <td><%= fcq.rank_string()%></td>                 
+                  <td><%= fcq.percentage_passed_string()%></td> 
                   <td><%= fcq.percentage_passed_string()%></td>
-                  <td><%= fcq.rank_string()%></td>
+                  <td><%= fcq.percentage_passed_string()%></td> 
                 </tr>
                 <% end %>
               </tbody>
