@@ -28,6 +28,16 @@ class Department < ActiveRecord::Base
 		case college
 		when "EN"
 			"College of Engineering"
+		when "AS"
+			"College of Arts and Sciences"
+		when "BU"
+			"Leeds School of Business"
+		when "MB"
+			"College of Music"
+		when "JR"
+			"College of Journalism"
+		else
+			"Error! #{college}"
 		end
 	end
 

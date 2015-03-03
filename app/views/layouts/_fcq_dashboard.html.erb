@@ -9,104 +9,220 @@
 
   <body>
     <title><%= @fcq.capitalized_title %></title>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a>FCQ: <%= @fcq.capitalized_title %><span class="sr-only">(current)</span></a></li>
-            <!-- TODO Do we have working departments? -->
-            <li><a href="/department">Department: <%= @fcq.department %></a></li>
-          </ul>
-
-
-          <ul class="nav nav-sidebar">
-            <li><a href="" accesskey="1" title="Students rate the instructor's availability for course-related assistance such as email, office hours individual appointments, phone contact, etc. All ratings are on a scale of 1 to 6.">
-          <strong><%= @fcq.availability.round(1) %> </strong>
-          <br>instructor availability</li></a>
-        <li><a href="" accesskey="2" title="Students rate this instructor's instrrespect for and professional treatment of all students regardless of race, color, national origin, sex, age, disability, creed, religion, sexual orientation, or veteran status. All ratings are on a scale of 1 to 6.">
-      <strong><%= @fcq.instrrespect.round(1) %> </strong>
-          <br>instructor instrrespect</li></a>
-        <li><a href="" accesskey="3" title="Students rate the instructors overall performance. All ratings are on a scale of 1 to 6.">
-          <overall><%= @fcq.instructoroverall.round(1) %> </overall>
-          <br>instructor overall</li></a>
-
-        <li><a href="" accesskey="4" title="Percentage of students that pass their classes when taken with this proffesor. Considers only students that are still enrolled in the course when FCQs are turned in. Passing is earning 70% or higher.">
-                  <strong> <%= @fcq.percentage_passed_string %></strong>
-          <br>percentage passed</li></a>
-        <li><a href="" accesskey="5" title="Students rate the instructor's instreffective in encouraging interest in the subject. All ratings are on a scale of 1 to 6.">
-                    <strong><%= @fcq.instreffective.round(1) %> </strong>
-          <br>instructor instreffective</li></a>
-          </ul>
-                <ul>
-        <li><a href="" accesskey="6" title="Students rate their personal interest in the material before they enrolled. All ratings are on a scale of 1 to 6.">
-          <strong><%= @fcq.priorinterest.round(1) %> </strong>
-          <br>Prior Interest</li></a>
-        <li><a href="" accesskey="7" title="Students rate the intellectual challenge of the course. All ratings are on a scale of 1 to 6.">
-      <strong><%= @fcq.challenge.round(1) %> </strong>
-          <br>Course Challenge</li></a>
-        <li><a href="" accesskey="8" title="Students rate the course overall. All ratings are on a scale of 1 to 6.">
-          <overall><%= @fcq.courseoverall.round(1) %> </overall>
-          <br>Course overall</li></a>
-
-        <li><a href="" accesskey="9" title="Students estimate the average number of hours per week they have spent on this course for all course-related work, including attending classes, labs, recitations, readings reviewing notes, writing papers, etc.">
-                  <detail> <%= @fcq.hoursperwkinclclass %></detail>
-          <br>total hours</li></a>
-        <li><a href="" accesskey="10" title="Students rate how much they have learned in this course. All ratings are on a scale of 1 to 6.">
-                    <strong><%= @fcq.howmuchlearned.round(1) %> </strong>
-          <br>amount learned</li></a>
-      </ul>
-      <ul>
-        <li><a href="" accesskey="11" title="Standard Deviation of students ratings for the instructor.">
-          <strong><%= @fcq.instructoroverall_sd.round(1) %> </strong>
-          <br>Instructor Overall STDV</li></a>
-        <li><a href="" accesskey="12" title="Standard Deviation of students ratings for the course.">
-      <strong><%= @fcq.courseoverall_sd.round(1) %> </strong>
-          <br>Course Overall STDV</li></a>
-        <li><a href=""><%= image_tag "fcq_64_w.png", alt: @fcq.rank_string, title: @fcq.rank_string%>
-          <br><%= @fcq.rank_string%></li></a>
-      <li><a href="" accesskey="13" title="FCQs returned.">
-          <strong><%= @fcq.formsrequested %></strong>
-          <br>FCQ Forms Requested</li></a>
-        <li><a href="" accesskey="14" title="FCQs requested">
-      <strong><%= @fcq.formsreturned %> </strong>
-          <br>FCQ Forms Returned</li></a>
-      <li><a href="" accesskey="14" title="Percent A">
-      <strong><%= @fcq.pct_a %> </strong>
-          <br>Percentage A</li></a>
-          <li><a href="" accesskey="14" title="Percent B">
-      <strong><%= @fcq.pct_b %> </strong>
-          <br>Percentage B</li></a>
-          <li><a href="" accesskey="14" title="Percent C">
-      <strong><%= @fcq.pct_c %> </strong>
-          <br>Percentage C</li></a>
-          <li><a href="" accesskey="14" title="Percent D">
-      <strong><%= @fcq.pct_d %> </strong>
-          <br>Percentage D</li></a>
-          <li><a href="" accesskey="14" title="Percent F">
-      <strong><%= @fcq.pct_f %> </strong>
-          <br>Percentage F</li></a>
-      </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header"><%= @fcq.course_title %></h1>
-
-          <div id="container" style="min-width: 350px; height: 350px; margin: 0 auto">
-
+    
+          <div class="page-header">
+            <h1>
+              <%= @fcq.yearterm_identifier %>
+              <br><small>Course: <%= link_to @fcq.capitalized_title, @fcq.course %></small>
+              <br><small>Instructor: <%= link_to @fcq.instructor.name, @fcq.instructor %></small>
+              <br><small>Department: <%= link_to @fcq.department.long_name, @fcq.department %></small>
+            </h1>
           </div>
 
-          <h2 class="sub-header">Courses Taught</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
+
+          <table class="table table-striped">
+            <caption class="text-left"><b>FCQ General</b>
+            This table contains identifiable information about the fcq. This includes the yearterm, instructor, course, department, course level, and other identifiable information about the class or instructor</caption>
               <thead>
                 <tr>
-                  <th>Course</th>
-                  <th>Percent Passed</th>
-                  <th>Level</th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
+              <tbody>
+                <tr>
+                  <td>Year Term</td>
+                  <td><%= @fcq.semterm %></td>
+                </tr>
+                <tr>
+                  <td>Course</td>
+                  <td><%= link_to @fcq.capitalized_title, @fcq.course %></td>
+                </tr>
+                <tr>
+                  <td>Instructor</td>
+                  <td><%= link_to @fcq.instructor.name, @fcq.instructor %></td>
+                </tr>
+                <tr>
+                  <td>Department</td>
+                  <td><%= link_to @fcq.department.long_name, @fcq.department %></td>
+                </tr>
+                <tr>
+                  <td>Activity Type</td>
+                  <td><%= @fcq.activity_type %></td>
+                </tr>
+                <tr>
+                  <td>Credit Hours</td>
+                  <td><%= @fcq.hours %></td>
+                </tr>
+
+                </tbody>
             </table>
-          </div>
+
+            <table class="table table-striped">
+            <caption class="text-left"><b>FCQ Meta</b>
+            This table contains meta information about the fcq process. This includes the number of requested / returned forms, and how the forms were returned</caption>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fcqs collected online</td>
+                  <td><%= @fcq.collected_online %></td>
+                </tr>
+                <!-- Commented out temporarilly -->
+                <tr>
+                  <td>Forms returned / requested</td>
+                  <td><%= @fcq.requested_returned_string %></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-striped">
+            <caption class="text-left"><b>FCQ Course Data</b>
+            This table contains the averaged results of the fcq survey questions pertaining to the course.</caption>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Course Title</td>
+                  <td><%= @fcq.capitalized_title %></td>
+                </tr>
+                <tr>
+                  <td>Course Code</td>
+                  <td><%= @fcq.subject %> <%= @fcq.crse %></td>
+                </tr>
+                <tr>
+                  <td>Section</td>
+                  <td><%= @fcq.section_string %></td>
+                </tr>
+                <tr>
+                  <td>Course Level</td>
+                  <td><%= @fcq.rank_string %></td>
+                </tr>
+                <tr>
+                  <td><abbr title="Students rate the course overall. All ratings are on a scale of 1 to 6." class="initialism"> Course Overall </abbr></td>
+                  <td><%= @fcq.courseoverall.round(1) %></td>
+                </tr>
+                <tr>
+                  <td><abbr title="Students rate their personal interest in the material before they enrolled. All ratings are on a scale of 1 to 6." > Prior Interest </abbr></td>
+                  <td><%= @fcq.priorinterest.round(1) %></td>
+                </tr>
+                <tr>
+                  <td><abbr title="Students rate the intellectual challenge of the course. All ratings are on a scale of 1 to 6." > Course Challenge </abbr></td>
+                  <td><%= @fcq.challenge.round(1) %></td>
+                </tr>
+                <tr>
+                  <td><abbr title="Students rate how much they have learned in this course. All ratings are on a scale of 1 to 6." > Amount Learned </abbr></td>
+                  <td><%= @fcq.howmuchlearned.round(1) %></td>
+                </tr>
+                <tr>
+                  <td><abbr title="Students estimate the average number of hours per week they have spent on this course for all course-related work, including attending classes, labs, recitations, readings reviewing notes, writing papers, etc." > Average Workload </abbr></td>
+                  <td><%= @fcq.hoursperwkinclclass %> hours per week</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+
+
+                        <table class="table table-striped">
+            <caption class="text-left"><b>FCQ Instructor Data</b>
+             This table contains the averaged results of the fcq survey questions pertaining to the instructor.</caption>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Instructor</td>
+                  <td><%= @fcq.instructor.name %></td>
+                </tr>
+                <tr>
+                  <td>Instructor Group</td>
+                  <td><abbr title="<%= @fcq.instructor.instr_group_flavor_text %>"> <%= @fcq.instr_group %> </abbr></td>
+                </tr>
+                  <td><abbr title="Students rate the instructors overall performance. All ratings are on a scale of 1 to 6."> Instructor Overall </abbr></td>
+                  <td><%= @fcq.instructoroverall.round(1) %></td>
+                </tr>
+                <tr>
+                  <td><abbr title="Students rate the instructor's effectiveness in encouraging interest in the subject. All ratings are on a scale of 1 to 6."> Instructor Effectiveness</abbr></td>
+                  <td><%= @fcq.instreffective.round(1) %></td>
+                </tr>
+                <tr>
+                  <td><abbr title="Students rate the instructor's availability for course-related assistance such as email, office hours individual appointments, phone contact, etc. All ratings are on a scale of 1 to 6."> Instructor Availability </abbr></td>
+                  <td><%= @fcq.availability.round(1) %></td>
+                </tr>
+                <tr>
+                  <td><abbr title="Students rate this instructor's instrrespect for and professional treatment of all students regardless of race, color, national origin, sex, age, disability, creed, religion, sexual orientation, or veteran status. All ratings are on a scale of 1 to 6."> Instructor Respect </abbr></td>
+                  <td><%= @fcq.instrrespect.round(1) %></td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <table class="table table-striped">
+            <caption class="text-left"><b>Course Enrollment</b>
+            This table contains information regarding the composition of students in the class, including the number of graded, pass/fail, withdrawn or incompletes.</caption>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Students Enrolled</td>
+                  <td><%= @fcq.n_enroll %></td>
+                </tr>
+                <tr>
+                  <td>Students Withdrawn</td>
+                  <td><%= @fcq.n_withdrawn %></td>
+                </tr>
+                <tr>
+                  <td>Students Incomplete</td>
+                  <td><%= @fcq.n_withdrawn %></td>
+                </tr>
+                <tr>
+                  <td>No Credit Students</td>
+                  <td><%= @fcq.n_nocred %></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-striped">
+            <caption class="text-left"><b>Grade Data</b>
+            This table contains information regarding grades given for the class. It contains information regarding the number of students who passed the class, </caption>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><abbr title="Average GPA grade given for the class, with F average being 0.0, D average being 1.0, C average being 2.0, B Average being 3.0, A average being 4.0">Average GPA Grade</abbr></td>
+                  <td><%= @fcq.avg_grd.round(2) %></td>
+                </tr>
+                <tr>
+                  <td><abbr title="What percentage of the class received a C grade or higher">Percentage Passed</abbr></td>
+                  <td><%= @fcq.percentage_passed_string %></td>
+                </tr>
+
+                </tbody>
+            </table>
+          <%= render 'layouts/grade_pie' %>
+
+
+
         </div>
-      </div>
-    </div>
+
   

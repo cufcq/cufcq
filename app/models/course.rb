@@ -64,11 +64,11 @@ class Course < ActiveRecord::Base
   attr_reader :semesters, :overall_data, :challenge_data, :interest_data, :learned_data, :grade_data, :categories, :pct_a_data, :pct_b_data, :pct_c_data, :pct_d_data, :pct_f_data, :pct_i_data
 
   def overall_query
-    overalls = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:courseoverall)
-    challenge = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:challenge)
-    interest = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:priorinterest)
-    learned = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:howmuchlearned)
-    grade = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:avg_grd)
+    overalls = self.fcqs.order("yearterm").group("yearterm").average(:courseoverall)
+    challenge = self.fcqs.order("yearterm").group("yearterm").average(:challenge)
+    interest = self.fcqs.order("yearterm").group("yearterm").average(:priorinterest)
+    learned = self.fcqs.order("yearterm").group("yearterm").average(:howmuchlearned)
+    grade = self.fcqs.order("yearterm").group("yearterm").average(:avg_grd)
     @semesters = []
     @overall_data = []
     @challenge_data = [] 

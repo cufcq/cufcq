@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140425040402) do
     t.integer  "crse"
     t.integer  "sec"
     t.string   "onlinefcq"
-    t.string   "bd_continuing_education"
+    t.string   "bdcontinedcrse"
     t.string   "instructor_last"
     t.string   "instructor_first"
     t.integer  "formsrequested"

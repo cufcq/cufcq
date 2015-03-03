@@ -61,10 +61,30 @@ class Fcq < ActiveRecord::Base
   end 
 
 
-  
+  def yearterm_identifier
+    # <%= @fcq.subject %> <%= @fcq.crse %>-<%= @fcq.sec%>, <%= @fcq.semterm %>
+    "#{subject} #{crse}-#{section_string}, #{semterm}"
+  end
+
+  def section_string
+    return sec.to_s.rjust(3, '0')
+  end
+
+  def collected_online
+    if onlinefcq == "OL"
+      return true
+    end
+    return false
+  end
 
   def uid
     return "#{yearterm}#{subject}#{crse}#{sec}"
+  end
+
+  def n_withdrawn
+    e = n_enroll || 0
+    t = n_eot || 0
+    return [(e - t), 0].max
   end
 
   def title
@@ -162,17 +182,6 @@ class Fcq < ActiveRecord::Base
   def fcq_header
     #return %Q{#{semterm} | #{subject} #{crse}-#{sec} | #{title} | #{instructor_first} #{instructor_last}}
     return "#{crse}-#{sec}"
-  end
-
-  #THIS IS DEPRICATED, USED IN OLD FCQ program (DELETE ME)
-  def img_file
-    if ld?
-      return "fcq_64_ld.png"
-    elsif ud?
-      return "fcq_64_ud.png"
-    else
-      return "fcq_64_gd.png"
-    end
   end
 
   def requested_returned_string

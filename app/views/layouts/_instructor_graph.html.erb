@@ -1,9 +1,8 @@
 <% @instructor.overall_query  %>
 
-<script src="http://code.highcharts.com/highcharts.js"></script>
-
 <script type="text/javascript">
-  $(document).on('page:change', function() {
+var ready;
+ready = function() {
     var chart = new Highcharts.Chart({
       title: {text: null
           },
@@ -28,7 +27,7 @@
         formatter: function () {
         //this.x is the yearterm (eg: 20127 is Fall 2012)
         //gets the semester indicator digit
-          var n = this.x%10
+          var n = this.x%10;
         //gets the year
           var y = Math.floor(this.x/10);
         //from the semester indicator n, gets the semester as a string
@@ -42,7 +41,7 @@
           var ef = this.points[2].visible ? '' : '<span style="color:#90ed7d">Effectiveness: </span>' + this.points[2].point.y + '<br/>';
           var rs = this.points[3].visible ? '' : '<span style="color:#f7a35c">Instr Respect: </span>' + this.points[3].point.y + '<br/>';
           var er = (this.y >= 1.0) ? '' : "<br/>NOTE: during this semester, this instructor <br/>did not return any FCQs. As a result, this <br/>value is marked as 0.0. Student's cannot <br/>actually mark scores lower than 1.0. This <br/>value is meant to serve as an indicator <br/>of an error.";
-          return date + od + av +ef + rs + er
+          return date + od + av +ef + rs + er;
       }
     },
     exporting: {
@@ -131,11 +130,10 @@
         }
     });
 
+};
 
-
-
-
-  });
+$(document).ready(ready);
+$(document).on('page:load', ready);
 </script>
 <div id="container" style="height: 300px"></div>
 <!-- <button id="button">Toggle visibility</button> -->

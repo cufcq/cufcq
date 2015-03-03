@@ -15,8 +15,8 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a>Department Name: <%= @department.name %><span class="sr-only">(current)</span></a></li>
-            <li><a>College: <%= @department.college %></a></li>
-            <li><a>Campus: <%= @department.campus %></a></li>
+            <li><a>College: <%= @department.get_college %></a></li>
+            <li><a>Campus: <%= @department.get_campus %></a></li>
 
           </ul>
 <!--           Possibly lead to a new page where it's just the instructors in that department? -->          <ul class="nav nav-sidebar">
@@ -60,8 +60,8 @@
                   <td><%= link_to instructor.name, instructor %></td>
                   <td><%= instructor.instr_group %></td>
                   <td><%= instructor.latest_teaching %></td>
-                  <td><%= instructor.average_instructoroverall %> </td>
-                  <td><%= instructor.average_instreffective %> </td>
+                  <td><%= instructor.average_instructoroverall || "n/a" %> </td>
+                  <td><%= instructor.average_instreffective || "n/a" %> </td>
                 </tr>
                 <% end %>
                 </tbody>

@@ -1,6 +1,6 @@
 IG_TTT = "Tenured or tenure-track instructor"
-IG_OTH = "other primary instructor, such as GPTI, adjunct, visiting, honorarium, etc."
-IG_TA = "teaching assistant"
+IG_OTH = "Other primary instructor, such as adjunct, visiting, honorarium, etc."
+IG_TA = "Teaching_Assistant"
 
 class Instructor < ActiveRecord::Base
 # attr_accessor :instructor_first, :instructor_last
@@ -75,15 +75,18 @@ self.per_page = 10
   end
 
   def average_instrrespect
-    self.fcqs.average(:instrrespect).round(1)
+    x = self.fcqs.average(:instrrespect) || 0.0
+    return x.round(1)
   end
 
   def average_availability
-    self.fcqs.average(:availability).round(1)
+    x = self.fcqs.average(:availability) || 0.0
+    return x.round(1)
   end
 
   def average_instreffective
-    self.fcqs.average(:instreffective).round(1)
+    x = self.fcqs.average(:instreffective) || 0.0
+    return x.round(1)
   end
 
   def total_requested
@@ -112,24 +115,23 @@ self.per_page = 10
 
   
   def pass_rate_string
-    val = (average_percentage_passed_float * 100).round(0)
+    pp = average_percentage_passed_float || 0.0
+    val = (pp * 100).round(1)
     val = [val, 100].min
     val = [val, 0].max
     string = val.round
-    return "# THIS IS A BULLSHIT RESULT: {string}%"
+    # return "# THIS IS A BULLSHIT RESULT: {string}%"
+    return string
   end 
 
   def average_instructoroverall
-    return self.fcqs.average(:instructoroverall).round(1)
+    overall = self.fcqs.average(:instructoroverall) || 0.0
+    return overall.round(1)
   end
 
   def courses_taught
     count = self.fcqs.where('pct_c_minus_or_below IS NOT NULL').count
-    if (count == 0)
-      return ">= 1" 
-    else 
-      return count
-    end
+    return [count,1].max
   end
 
   attr_reader :semesters, :overall_data, :availability_data, :instrrespect_data, :instreffective_data, :categories
@@ -196,7 +198,7 @@ self.per_page = 10
   end
 
   def instr_group_flavor_text
-    case self.instr_group
+    case instr_group
     when "TTT" 
       return IG_TTT
     when "OTH"

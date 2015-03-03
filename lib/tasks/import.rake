@@ -51,7 +51,7 @@ task :import => :environment do
       #given a new fcq object, create the instructor and course
       i_params = {"instructor_first" => f.instructor_first, "instructor_last" => f.instructor_last}
       c_params = {"course_title" => f.course_title, "crse" => f.crse, "subject" => f.subject}
-      d_params = {"name" => f.subject, "college" => f.college, "campus" => f.campus}
+      d_params = {"name" => f.subject}
       c = Course.where(c_params).first || Course.create!(c_params)
       i = Instructor.where(i_params).first || Instructor.create!(i_params)
       d = Department.where(d_params).first || Department.create!(d_params)
