@@ -13,40 +13,34 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a>Instructor: <%= @instructor.name %><span class="sr-only">(current)</span></a></li>
-            <!-- TODO Do we have working departments? -->
-            <li><a href="/department">Department: <%= @instructor.department %></a></li>
-          </ul>
+            <li class="active"><a>Instructor: <%= @instructor.name %><span class="sr-only">(current)</span></a></li> 
+            <li><a>Department: <%= @instructor.department %></a></li>
+            <li><a title="TTT = Tenured or tenure-track instructor.
+OTH = Other primary instructor, such as adjunct, visiting, or honorarium.
+TA = Teaching_Assistant.">
+		Instructor Group: <%= @instructor.instr_group %></a></li>
+	  </ul>
 
 
           <ul class="nav nav-sidebar">
             <li><a>Earliest FCQ: <%= @instructor.started_teaching %></a></li>
-            <li><a>Latest FCQ: <%= @instructor.latest_teaching %></a></li>
-            <!-- TODO: These insturctor groups need to be translated -->
-            <%= puts @instructor.department %>
-            <li><a>Instructor Group: <%= @instructor.instr_group %></a></li>
+            <li><a>Latest FCQ: <%= @instructor.latest_teaching %></a></li>  
           </ul>
-          <ul class="nav nav-sidebar">
-
-            <li>
-<a href="" accesskey="1" title="Students rate the instructor's availability for course-related assistance such as email, office hours individual appointments, phone contact, etc. All ratings are on a scale of 1 to 6.">
-		<a>Courses Taught: <%= @instructor.courses_taught %></a></li>
+          
+	  <ul class="nav nav-sidebar"> 
+	    <li><a>Courses Taught: <%= @instructor.courses_taught %></a></li>
             <li><a>Students Taught: <%= @instructor.total_requested %></a></li>
-            <li><a>Average Overall: <%= @instructor.average_instructoroverall %></a></li>
-            <li><a>Average Effectiveness: <%= @instructor.average_instreffective %></a></li>
-            <li><a>Average Availability: <%= @instructor.average_availability %></a></li>
-            <!-- WEIRD RESULTS for average pass rate, see note in insturctor.rb -->
-            <li><a>Average Pass Rate: <%=@instructor.pass_rate_string %></a></li>
-
+            <li><a title="This is the average overall score for this instructor based on every course they have ever taught on a scale of 1 to 6.">Overall: <%= @instructor.average_instructoroverall %></a></li>
+            <li><a title="This is the average effectivness score for this instructor based on every course they have ever taught on a scale of 1 to 6.">Effectiveness: <%= @instructor.average_instreffective %></a></li>
+            <li><a title="This is the average availability score for this instructor based on every course they have ever taught on a scale of 1 to 6.">Availability: <%= @instructor.average_availability %></a></li> 
+            <li><a title="This is the average pass rate for this instructor based on every course they have ever taught.">Pass Rate: <%=@instructor.pass_rate_string %></a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header"><%= @instructor.name %></h1>
 
           <div id="container" style="min-width: 350px; height: 350px; margin: 0 auto">
-              
           <%= render 'layouts/instructor_graph' %>
-
           </div>
 
           <h2 class="sub-header">Courses Taught</h2>
@@ -70,7 +64,7 @@
  		  <td><%= fcq.rank_string()%></td>                 
                   <td><%= fcq.pct_a_string%></td> 
                   <td><%= fcq.pct_b_string%></td>
-		              <td><%= fcq.avg_grd_string%></td>
+		  <td><%= fcq.avg_grd_string%></td>
                   <td><%= fcq.percentage_passed_string%></td> 
                 </tr>
                 <% end %>

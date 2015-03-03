@@ -102,28 +102,6 @@ self.per_page = 10
      (total_returned.to_f / total_requested.to_f).round(1)
   end
 
-  def average_percentage_passed_float
-    total = 0.0
-    self.fcqs.compact.each {|x| puts x.float_passed; next if x.float_passed < 0.0; total += x.float_passed}
-    count = courses_taught
-    if count == 0
-      return 1.0 
-    else
-      return (total.to_f / count.to_f)
-    end
-  end
-
-  
-  def pass_rate_string
-    pp = average_percentage_passed_float || 0.0
-    val = (pp * 100).round(1)
-    val = [val, 100].min
-    val = [val, 0].max
-    string = val.round
-    # return "# THIS IS A BULLSHIT RESULT: {string}%"
-    return string
-  end 
-
   def average_instructoroverall
     overall = self.fcqs.average(:instructoroverall) || 0.0
     return overall.round(1)
@@ -140,6 +118,26 @@ self.per_page = 10
   ########################################
   # This is where we use the grade csv   #
   ########################################
+
+  def average_percentage_passed_float
+    total = 0.0
+    self.fcqs.compact.each {|x| puts x.float_passed; next if x.float_passed < 0.0; total += x.float_passed}
+    count = courses_taught
+    if count == 0
+      return 1.0 
+    else
+      return (total.to_f / count.to_f)
+    end
+  end
+  
+  def pass_rate_string
+    pp = average_percentage_passed_float || 0.0
+    val = (pp * 100).round(1)
+    val = [val, 100].min
+    val = [val, 0].max
+    string = val.round 
+    return "#{string}%"
+  end 
 
   # these take the avg grades of all classes taught by a prof and avg them 
   def average_grade_overall
