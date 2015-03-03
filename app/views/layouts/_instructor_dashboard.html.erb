@@ -68,10 +68,10 @@
                 <tr>
                   <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
  		  <td><%= fcq.rank_string()%></td>                 
-                  <td><%= fcq.pct_a%></td> 
-                  <td><%= fcq.pct_b%></td>
-		  <td><%= fcq.avg_grd %></td>
-                  <td><%= fcq.percentage_passed_string()%></td> 
+                  <td><%= fcq.pct_a_string%></td> 
+                  <td><%= fcq.pct_b_string%></td>
+		              <td><%= fcq.avg_grd_string%></td>
+                  <td><%= fcq.percentage_passed_string%></td> 
                 </tr>
                 <% end %>
               </tbody>

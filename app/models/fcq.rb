@@ -33,12 +33,14 @@ class Fcq < ActiveRecord::Base
   #validates :yearterm, uniqueness: true
   validates_uniqueness_of :sec, scope: [:crse, :subject, :yearterm, :instructor_last, :instructor_first]
 
+  ##################################
+  ### GRADE INFORMATION FOR FCQS ###
+  ##################################
 
   def pass_rate
     return percentage_passed_string
   end
 
-  #changed to accomodate fcq v0.2
   def float_passed
     #passed = self.percentage_passed || "-100%"
     #return (passed.chop.to_f) / 100
@@ -49,17 +51,75 @@ class Fcq < ActiveRecord::Base
   end
 
   def percentage_passed_string
-	val = (float_passed * 100).round(0)
-	val = [val, 100].min
-	val = [val, 0].max
-	if (val == 0)
-		return '--'
-	else
-		string = val.round
-		return "#{string}%"
-	end
+  	val = (float_passed * 100).round(0)
+  	val = [val, 100].min
+  	val = [val, 0].max
+  	if (val == 0)
+  		return '--'
+  	else
+  		string = val.round
+  		return "#{string}%"
+  	end
   end 
 
+  def pct_a_string
+    if pct_a != nil
+      val = (pct_a * 100).round(0)
+      val = [val, 100].min
+      val = [val, 0].max
+      if (val == 0)
+        return '--'
+      else
+        string = val.round
+        return "#{string}%"
+      end
+    else 
+      return "--"
+    end 
+  end 
+
+  def pct_b_string
+    if pct_a != nil
+      val = (pct_b * 100).round(0)
+      val = [val, 100].min
+      val = [val, 0].max
+      if (val == 0)
+        return '--'
+      else
+        string = val.round
+        return "#{string}%"
+      end
+    else 
+      return "--"
+    end 
+  end 
+
+  def pct_c_string
+    if pct_c != nil
+      val = (pct_c * 100).round(0)
+      val = [val, 100].min
+      val = [val, 0].max
+      if (val == 0)
+        return '--'
+      else
+        string = val.round
+        return "#{string}%"
+      end
+    else 
+      return "--"
+    end 
+  end 
+
+  def avg_grd_string
+    if avg_grd != nil
+      val = avg_grd.round(2)
+      return "#{val}"
+    else
+      return "--"
+    end
+  end
+
+  ##############################
 
   def yearterm_identifier
     # <%= @fcq.subject %> <%= @fcq.crse %>-<%= @fcq.sec%>, <%= @fcq.semterm %>
