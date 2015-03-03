@@ -281,7 +281,7 @@ task :grades => :environment do
       puts "==="
       Fcq.where(f_params).each do |f|
         # puts f.yearterm
-        puts f.instructor.name
+        # puts f.instructor.name
         # puts Fcq.column_names
         f.update_attributes(r.slice(*Fcq.column_names))
         # f.update_attributes(r)
