@@ -14,9 +14,7 @@
             <div class="col-sm-3 col-md-2 sidebar">
 
               <ul class="nav nav-sidebar">
-                <li><a>Highest Overall: TODO </a></li>  
-                <li><a>Highest Effectiveness: TODO </a></li>                      
-                <li><a>Instructors: <%= @instructors.count()%></a></li>            
+                <li><a>Instructors on Page: <%= @instructors.count()%></a></li>            
                 <li><a>Earliest FCQ: TODO </a></li>
                 <li><a>Latest FCQ: TODO </a></li>
                 <!-- TODO: These insturctor groups need to be translated -->
@@ -49,7 +47,7 @@
                 <tr>
                   <td><%= link_to instructor.name, instructor %></td>
                   <td><%= instructor.instr_group %></td>
-                  <td><%= instructor.department  %></td>
+                  <td><%= link_to instructor.department, instructor %></td>
                   <td><%= instructor.courses_taught  %></td>
                   <td><%= instructor.started_teaching %></td>
                   <td><%= instructor.latest_teaching %></td>
