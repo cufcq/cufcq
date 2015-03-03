@@ -6,5 +6,5 @@ rake sunspot:solr:reindex RAILS_ENV=development
 
 echo "Solr successful! Starting Rails" 
 
-rails server -b 0.0.0.0 -p 80
+rails server -b 0.0.0.0 -p 3000
 echo "rails server closed!"

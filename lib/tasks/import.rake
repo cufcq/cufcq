@@ -279,10 +279,15 @@ task :grades => :environment do
       #puts f.fcq_object
       # puts r
       puts "==="
-      f = Fcq.where(f_params).first || next
-      f.update_attributes(r.slice(*Fcq.column_names))
-      # f.update_attributes(r)
-      f.save
+      Fcq.where(f_params).each do |f|
+        # puts f.yearterm
+        puts f.instructor.name
+        # puts Fcq.column_names
+        f.update_attributes(r.slice(*Fcq.column_names))
+        # f.update_attributes(r)
+        puts "saved fcq"
+        f.save
+      end
       rescue ActiveRecord::RecordInvalid => invalid
           puts invalid.message
           next

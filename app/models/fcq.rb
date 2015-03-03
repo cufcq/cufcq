@@ -3,7 +3,7 @@ VALID_GROUPS = ["TA", "TTT", "OTH"]
 class FcqValidator < ActiveModel::Validator
   def validate(record)
     key = record.yearterm || 0
-    puts key
+    # puts key
     key %= 10
     if !VALID_TERMS.has_key?(key)
       record.errors[:base] << "term is not valid! must end in 1, 4, 7 to indicate Spring, Summer and Fall instrrespectively"
@@ -109,6 +109,38 @@ class Fcq < ActiveRecord::Base
       return "--"
     end 
   end 
+
+  def pct_d_string
+    if pct_d != nil
+      val = (pct_d * 100).round(0)
+      val = [val, 100].min
+      val = [val, 0].max
+      if (val == 0)
+        return '--'
+      else
+        string = val.round
+        return "#{string}%"
+      end
+    else 
+      return "--"
+    end 
+  end
+
+  def pct_f_string
+    if pct_f != nil
+      val = (pct_f * 100).round(0)
+      val = [val, 100].min
+      val = [val, 0].max
+      if (val == 0)
+        return '--'
+      else
+        string = val.round
+        return "#{string}%"
+      end
+    else 
+      return "--"
+    end 
+  end
 
   def avg_grd_string
     if avg_grd != nil
