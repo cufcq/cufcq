@@ -3,7 +3,7 @@ class Course < ActiveRecord::Base
   belongs_to :department
   has_many :fcqs
   has_many :instructors, -> { distinct }, through: :fcqs
-
+  # has_many :instructors
 
   searchable do
     text :crse
@@ -102,12 +102,12 @@ class Course < ActiveRecord::Base
     @pct_d_data = []
     @pct_f_data = []
     @pct_i_data = []
-    pct_a.each {|k,v| @pct_a_data << [k,v.to_f.round(1)]}
-    pct_b.each {|k,v| @pct_b_data << [k,v.to_f.round(1)]}
-    pct_c.each {|k,v| @pct_c_data << [k,v.to_f.round(1)]}
-    pct_d.each {|k,v| @pct_d_data << [k,v.to_f.round(1)]}
-    pct_f.each {|k,v| @pct_f_data << [k,v.to_f.round(1)]}
-    pct_i.each {|k,v| @pct_i_data << [k,v.to_f.round(1)]}
+    pct_a.each {|k,v| @pct_a_data << [k,v.to_f.round(2)]}
+    pct_b.each {|k,v| @pct_b_data << [k,v.to_f.round(2)]}
+    pct_c.each {|k,v| @pct_c_data << [k,v.to_f.round(2)]}
+    pct_d.each {|k,v| @pct_d_data << [k,v.to_f.round(2)]}
+    pct_f.each {|k,v| @pct_f_data << [k,v.to_f.round(2)]}
+    pct_i.each {|k,v| @pct_i_data << [k,v.to_f.round(2)]}
   end
 
 

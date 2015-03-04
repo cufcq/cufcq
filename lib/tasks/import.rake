@@ -145,6 +145,24 @@ task :instructor_populate => :environment do
     end      
 end
 
+
+# task :instructor_rake => :environment do
+#   Fcq.find_each(:batch_size => 200) do |f|
+#     begin
+#       f.instructor
+#       params = {"instructor_first" => x.instructor_first, "instructor_last" => x.instructor_last}
+#       i = Instructor.create!(params)
+#       puts i
+#       rescue Exception => e
+#         puts "rescued -" + e.message
+#     end
+#       i = i.nil? ? Instructor.where(params).first : i
+#       i.fcqs << x  unless (i.fcqs.exists?(x))
+#       puts i.id + x.id
+#     end      
+# end
+
+
 task :course_populate => :environment do
   Fcq.find_each(:batch_size => 200) do |x|
     begin
@@ -183,15 +201,13 @@ task :course_populate => :environment do
 end
 
 task :ic_relations => :environment do
-  Instructor.find_each do |i|
+  Fcq.find_each do |f|
     begin
-      puts i.instructor_last
-      i.fcqs.to_a.each do |f|
-        title = f.recitation? ? f.corrected_course_title : f.course_title 
-        params = {"course_title" => title, "crse" => f.crse, "subject" => f.subject}
-        puts params
+        instr_params = {"instructor_last" => f.instructor_last , "instructor_first" => f.instructor}
+        crse_params = {"crse" => f.crse, "subject" => f.subject}
         dep_params = {"name" => f.subject, "college" => f.college, "campus" => f.campus}
         c = Course.where(params).first
+        d = Department.where(dep_params).first
         d = Department.where(dep_params).first
         if c.nil? 
           next
@@ -210,8 +226,7 @@ task :ic_relations => :environment do
         d.courses << c unless d.courses.exists?(c)
         puts "added " + c.course_title.to_s + " to " + d.name.to_s
 
-        puts c.course_title.to_s + " <-> " + i.full_name.to_s
-      end
+        puts "#{c.course_title}  <->  #{i.name.to_s}"
       #puts c.instructors
 
       rescue ActiveRecord::RecordInvalid => e
@@ -225,34 +240,34 @@ task :ic_relations => :environment do
     end     
 end
 
-LONG_NAMES = {"CSCI" => "Computer Science", "MATH" => "Mathematics", "PHIL" => "Philosophy", "APPM" => "Applied Mathematics", "CHEN" => "Chemical Engineering"}
-task :set_department_name => :environment do
-    puts "Setting Department Long Names"
-    puts "For every Department code, Enter it's long name, eg"
-  Department.find_each do |d|
-    begin
-      print d.name + ": "
-      if LONG_NAMES.include?(d.name)
-        Department.update(d.id, :long_name => LONG_NAMES[d.name])
-        print LONG_NAMES[d.name]
-        puts ""
-        next
-      end
-      ln = STDIN.gets.chomp
-      puts ""
-      #puts d.update_attribute(:long_name, ln)
+# LONG_NAMES = {"CSCI" => "Computer Science", "MATH" => "Mathematics", "PHIL" => "Philosophy", "APPM" => "Applied Mathematics", "CHEN" => "Chemical Engineering"}
+# task :set_department_name => :environment do
+#     puts "Setting Department Long Names"
+#     puts "For every Department code, Enter it's long name, eg"
+#   Department.find_each do |d|
+#     begin
+#       print d.name + ": "
+#       if LONG_NAMES.include?(d.name)
+#         Department.update(d.id, :long_name => LONG_NAMES[d.name])
+#         print LONG_NAMES[d.name]
+#         puts ""
+#         next
+#       end
+#       ln = STDIN.gets.chomp
+#       puts ""
+#       #puts d.update_attribute(:long_name, ln)
       
-      Department.update(d.id, :long_name => ln)
-      #puts d.long_name
-      rescue Exception => e
-        puts "rescued -" + e.message
-     end
-     puts "finished"
-    end
-  Department.find_each do |d|
-      puts d.long_name
-  end
-end
+#       Department.update(d.id, :long_name => ln)
+#       #puts d.long_name
+#       rescue Exception => e
+#         puts "rescued -" + e.message
+#      end
+#      puts "finished"
+#     end
+#   Department.find_each do |d|
+#       puts d.long_name
+#   end
+# end
 
 
 task :grades => :environment do

@@ -20,6 +20,7 @@
           </ul>
           <ul class="nav nav-sidebar">
             <li><a>Sections Offered: <%= @course.total_sections_offered %></a></li>
+            <li><a>Instructors Teaching: <%= @course.instructors.count %> </a></li>
             <li><a>Course Takers: <%= @course.total_students_enrolled %> </a></li>
 
           </ul>

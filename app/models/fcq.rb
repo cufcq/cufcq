@@ -169,7 +169,6 @@ class Fcq < ActiveRecord::Base
     end
   end
 
-
   def yearterm_identifier
     "#{subject} #{crse}-#{section_string}, #{semterm}"
   end

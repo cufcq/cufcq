@@ -13,6 +13,7 @@ self.per_page = 10
 
   belongs_to :department
   has_many :fcqs
+  # has_many :courses
   has_many :courses, -> { distinct }, through: :fcqs
 
   validates_uniqueness_of :instructor_first, scope: [:instructor_last]

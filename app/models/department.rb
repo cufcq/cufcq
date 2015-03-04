@@ -2,8 +2,8 @@ CURRENT_YEAR = 20141
 ONE_YEAR_AGO = CURRENT_YEAR - 10
 TWO_YEARS_AGO = CURRENT_YEAR - 20
 class Department < ActiveRecord::Base
-	has_many :instructors, -> { distinct }, through: :fcqs
-	has_many :courses, -> { distinct }, through: :fcqs
+	has_many :instructors, -> { distinct }
+	has_many :courses, -> { distinct }
 	has_many :fcqs, -> { distinct }
 	self.per_page = 10
 	validates :name, presence: true
@@ -44,6 +44,9 @@ class Department < ActiveRecord::Base
 	attr_reader :ld_data, :ud_data, :gd_data, :io_data, :co_data, :to_data
 
 	def overall_query
+		if :ld_data != nil
+			return
+		end
 		lds = self.fcqs.where(crse: 1000..2999).order("yearterm").group("yearterm").sum(:formsrequested)
 		uds = self.fcqs.where(crse: 3000..4000).order("yearterm").group("yearterm").sum(:formsrequested)
 		gds = self.fcqs.where(crse: 5000..9999).order("yearterm").group("yearterm").sum(:formsrequested)
@@ -53,6 +56,7 @@ class Department < ActiveRecord::Base
 		#method defined in config/initializers/hash.rb
 		uds.initialize_keys(lds,0)
 		gds.initialize_keys(uds,0)
+		yearterms = gds.keys
 		@ld_data = []
 		@ud_data = []
 		@gd_data = []

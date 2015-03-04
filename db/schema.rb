@@ -17,12 +17,17 @@ ActiveRecord::Schema.define(version: 20140425040402) do
   enable_extension "plpgsql"
 
   create_table "courses", force: true do |t|
+    t.integer  "department_id"
     t.string   "course_title"
     t.integer  "crse"
     t.string   "subject"
     t.string   "corrected_course_title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "earliest_fcq",           default: 20061
+    t.integer  "latest_fcq",             default: 20061
+    t.integer  "instructors_teaching",   default: 0
+    t.integer  "students_taught",        default: 0
   end
 
   create_table "departments", force: true do |t|
@@ -32,6 +37,16 @@ ActiveRecord::Schema.define(version: 20140425040402) do
     t.string   "long_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "ld_enrollment",         default: [], array: true
+    t.integer  "ud_enrollment",         default: [], array: true
+    t.integer  "gd_enrollment",         default: [], array: true
+    t.integer  "ta_instructoroverall",  default: [], array: true
+    t.integer  "ttt_instructoroverall", default: [], array: true
+    t.integer  "oth_instructoroverall", default: [], array: true
+    t.integer  "courseoverall",         default: [], array: true
+    t.integer  "recitationoverall",     default: [], array: true
+    t.integer  "yearterms",             default: [], array: true
+    t.integer  "students_taught",       default: 0
   end
 
   create_table "fcqs", force: true do |t|
@@ -113,14 +128,15 @@ ActiveRecord::Schema.define(version: 20140425040402) do
   add_index "fcqs", ["instructor_first", "instructor_last"], name: "index_fcqs_on_instructor_first_and_instructor_last", using: :btree
 
   create_table "instructors", force: true do |t|
+    t.integer  "department_id"
     t.string   "instructor_first"
     t.string   "instructor_last"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "earliest_fcq"
-    t.integer  "latest_fcq"
-    t.integer  "courses_taught"
-    t.integer  "students_taught"
+    t.integer  "earliest_fcq",     default: 20061
+    t.integer  "latest_fcq",       default: 20061
+    t.integer  "courses_taught",   default: 0
+    t.integer  "students_taught",  default: 0
   end
 
 end
