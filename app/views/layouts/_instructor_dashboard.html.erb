@@ -61,7 +61,7 @@ TA = Teaching_Assistant.">
               <tbody>
                 <% @instructor.fcqs.each do |fcq| %>
                 <tr>
-                  <td><%= link_to fcq.department, fcq.department%></td>
+                  <td><%= link_to fcq.department_name_string, fcq.department %></td>
                   <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
  		              <td><%= fcq.rank_string()%></td>                 
                   <td><%= fcq.pct_a_string%></td> 
