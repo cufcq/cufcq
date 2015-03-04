@@ -48,23 +48,25 @@ TA = Teaching_Assistant.">
             <table class="table table-striped">
               <thead>
                 <tr>
+                  <th>Department</th>
                   <th>Course</th>  
- 		  <th>Level</th>
+ 		              <th>Level</th>
                   <th>Percent As</th>
-		  <th>Percent Bs </th>
-		  <th>Average GPA</th>
-		  <th>Percent Passed</th> 
+            		  <th>Percent Bs </th>
+            		  <th>Average GPA</th>
+            		  <th>Percent Passed</th> 
                 </tr>
               </thead>
 
               <tbody>
                 <% @instructor.fcqs.each do |fcq| %>
                 <tr>
+                  <td><%= link_to fcq.department, fcq.department%></td>
                   <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
- 		  <td><%= fcq.rank_string()%></td>                 
+ 		              <td><%= fcq.rank_string()%></td>                 
                   <td><%= fcq.pct_a_string%></td> 
                   <td><%= fcq.pct_b_string%></td>
-		  <td><%= fcq.avg_grd_string%></td>
+		              <td><%= fcq.avg_grd_string%></td>
                   <td><%= fcq.percentage_passed_string%></td> 
                 </tr>
                 <% end %>
