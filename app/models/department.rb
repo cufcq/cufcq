@@ -44,7 +44,8 @@ class Department < ActiveRecord::Base
 	attr_reader :ld_data, :ud_data, :gd_data, :io_data, :co_data, :to_data
 
 	def overall_query
-		if :ld_data != nil
+		puts @ld_data
+		if @ld_data != nil
 			return
 		end
 		lds = self.fcqs.where(crse: 1000..2999).order("yearterm").group("yearterm").sum(:formsrequested)
@@ -56,7 +57,7 @@ class Department < ActiveRecord::Base
 		#method defined in config/initializers/hash.rb
 		uds.initialize_keys(lds,0)
 		gds.initialize_keys(uds,0)
-		yearterms = gds.keys
+		# yearterms = gds.keys
 		@ld_data = []
 		@ud_data = []
 		@gd_data = []

@@ -11,6 +11,7 @@
       {
         text: null
         },
+        colors: ['#2c7bb6', '#abd9e9', '#ffffbf', '#fdae61', '#d7191c', '#666666'],
       chart: { 
         type: 'area',
         renderTo: 'stacked' 
@@ -34,12 +35,25 @@
         shared: true,
         valueSuffix: ' students',
         formatter: function () {
-          var n = this.x%10
+          var n = this.x%10;
           var y = Math.floor(this.x/10);
-          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error "
-          var parsed = s+y+" : "+this.y
-          return (this.y >= 1.0) ? parsed : parsed
-          return s+y+" : "+this.y
+          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error ";
+          var parsed = s+y+" : "+ this.y;
+          // return (this.y >= 1.0) ? parsed : parsed;
+          var date = "<b>"+s+y+" :</b><br/>";
+
+          var av = this.points[0].point.y
+
+        
+          var aa = this.points[0].visible ? '' : '<span style="color:#2c7bb6">A Grades: </span>' + Math.floor((this.points[0].point.y * 100)) + '%<br/>';
+          var bb = this.points[1].visible ? '' : '<span style="color:#abd9e9">B Grades: </span>' + Math.floor((this.points[1].point.y * 100)) + '%<br/>';
+          var cc = this.points[2].visible ? '' : '<span style="color:#ffffbf">C Grades: </span>' + Math.floor((this.points[2].point.y * 100)) + '%<br/>';
+          var dd = this.points[3].visible ? '' : '<span style="color:#fdae61">D Grades: </span>' + Math.floor((this.points[3].point.y * 100)) + '%<br/>';
+          var ff = this.points[4].visible ? '' : '<span style="color:#d7191c">F Grades: </span>' + Math.floor((this.points[4].point.y * 100)) + '%<br/>';
+          var ii = this.points[5].visible ? '' : '<span style="color:#666666">Incompletes: </span>' + Math.floor((this.points[5].point.y * 100)) + '%';
+
+          return date + aa + bb +cc + dd + ff + ii;
+
       }
     },
     exporting: {

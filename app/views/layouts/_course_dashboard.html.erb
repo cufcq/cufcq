@@ -15,7 +15,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a>Course Name: <%= @course.course_title %><span class="sr-only">(current)</span></a></li>
-            <li><a href="/departments">Department: <%= @course.department %></a></li>
+            <li><a href="/departments">Department: <%= @course.department.name %></a></li>
 
           </ul>
           <ul class="nav nav-sidebar">

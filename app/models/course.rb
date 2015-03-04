@@ -15,35 +15,42 @@ class Course < ActiveRecord::Base
   validates_uniqueness_of :crse, scope: [:subject, :course_title]
 
   def average_priorinterest
-  	self.fcqs.where.not(instr_group: 'TA').average(:priorinterest).round(1)
+  	# self.fcqs.where.not(instr_group: 'TA').average(:priorinterest).round(1)
+    self.fcqs.average(:priorinterest).round(1)
   end
 
   def average_challenge
-  	self.fcqs.where.not(instr_group: 'TA').average(:challenge).round(1)
+  	# self.fcqs.where.not(instr_group: 'TA').average(:challenge).round(1)
+    self.fcqs.average(:challenge).round(1)
   end
 
   def average_courseoverall
-  	return self.fcqs.where.not(instr_group: 'TA').average(:courseoverall).round(1)
+  	# return self.fcqs.where.not(instr_group: 'TA').average(:courseoverall).round(1)
+    return self.fcqs.average(:courseoverall).round(1)
   end
 
   def hoursperwkinclclass_string
-  	return self.fcqs.where.not(instr_group: 'TA').pluck(:hoursperwkinclclass).mode
+  	# return self.fcqs.where.not(instr_group: 'TA').pluck(:hoursperwkinclclass).mode
+    return self.fcqs.pluck(:hoursperwkinclclass).mode
   end
 
   def average_howmuchlearned
-  	return self.fcqs.where.not(instr_group: 'TA').average(:howmuchlearned).round(1)
+  	# return self.fcqs.where.not(instr_group: 'TA').average(:howmuchlearned).round(1)
+    return self.fcqs.average(:howmuchlearned).round(1)
   end
 
   def total_sections_offered
-  	return self.fcqs.where.not(instr_group: 'TA').count
+  	# return self.fcqs.where.not(instr_group: 'TA').count
+    return self.fcqs.count
   end
 
   def total_students_enrolled
-  	return self.fcqs.where.not(instr_group: 'TA').sum(:formsrequested) 
+  	# return self.fcqs.where.not(instr_group: 'TA').sum(:formsrequested) 
+    return self.fcqs.sum(:formsrequested) 
   end
 
   def average_class_size
-    return self.fcqs.where.not(instr_group: 'TA').average(:formsrequested)
+    return self.fcqs.average(:formsrequested)
   end
 
   def instructors_sorted_by_instructoroverall
