@@ -45,7 +45,7 @@
                 <tr>
                   <td><%= link_to course.course_title, course %></td>
                   <td><%= course.crse %></td>
-                  <td><%= course.subject %></td>
+                  <td><%= link_to course.subject, course.department %></td>
                   <td><%= course.instructors.count()%>
                 </tr>
               </tbody>

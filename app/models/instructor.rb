@@ -37,14 +37,17 @@ self.per_page = 10
     return %Q{#{college}}
   end
 
-  def college
-    #currently defaults to string literal. This should be changed!
-    "Engineering"
-  end
-
   def campus
       #currently defaults to string literal. This should be changed!
     "CU Boulder"
+  end
+
+  def department_string
+    if department == nil
+      return "--"
+    else 
+      return department.name
+    end
   end
 
   def instr_group

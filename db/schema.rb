@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20140425040402) do
     t.integer  "earliest_fcq"
     t.integer  "latest_fcq"
     t.integer  "courses_taught"
+    t.integer  "students_taught"
   end
 
 end
