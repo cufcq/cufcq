@@ -34,17 +34,12 @@ class Fcq < ActiveRecord::Base
   validates_uniqueness_of :sec, scope: [:crse, :subject, :yearterm, :instructor_last, :instructor_first]
 
   ##################################
-  ### GRADE INFORMATION FOR FCQS ###
-  ##################################
 
   def pass_rate
     return percentage_passed_string
   end
 
   def float_passed
-    #passed = self.percentage_passed || "-100%"
-    #return (passed.chop.to_f) / 100
-    #return 0.99
     failed = pct_c_minus_or_below || 1.0
     fp = (1.0 - failed)
     return fp
@@ -151,10 +146,31 @@ class Fcq < ActiveRecord::Base
     end
   end
 
-  ##############################
+
+  ###################################
+
+  def course_overall_string 
+    if courseoverall != nil
+      val = courseoverall.round(1)
+      return "#{val}"
+    else 
+      return "--"
+    end
+  end
+
+  ##################################
+ 
+  def department_name_string
+    if department != nil 
+      val = department.name
+      return "#{val}"
+    else 
+      return "--"
+    end
+  end
+
 
   def yearterm_identifier
-    # <%= @fcq.subject %> <%= @fcq.crse %>-<%= @fcq.sec%>, <%= @fcq.semterm %>
     "#{subject} #{crse}-#{section_string}, #{semterm}"
   end
 
@@ -267,12 +283,10 @@ class Fcq < ActiveRecord::Base
   end
 
   def fcq_object
-    #return %Q{#{semterm} | #{subject} #{crse}-#{sec} | #{title} | #{instructor_first} #{instructor_last}}
     return %Q{#{semterm} #{subject} #{crse}-#{sec} #{title}}
   end
 
   def fcq_header
-    #return %Q{#{semterm} | #{subject} #{crse}-#{sec} | #{title} | #{instructor_first} #{instructor_last}}
     return "#{crse}-#{sec}"
   end
 
@@ -283,26 +297,5 @@ class Fcq < ActiveRecord::Base
   def instructor_full_name
     "#{instructor_first} #{instructor_last}"
   end
-
-  # def grade_query
-  #   overalls = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:courseoverall)
-  #   challenge = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:challenge)
-  #   interest = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:priorinterest)
-  #   learned = self.fcqs.where.not(instr_group: 'TA').group("yearterm").average(:howmuchlearned)
-  #   @semesters = []
-  #   @overall_data = []
-  #   @challenge_data = [] 
-  #   @interest_data = [] 
-  #   @learned_data = [] 
-  #   #records.each {|k,v| fixedrecords[Fcq.semterm_from_int(k)] = v.to_f.round(1)}
-  #   overalls.each {|k,v| @overall_data << [k,v.to_f.round(1)]}
-  #   challenge.each {|k,v| @challenge_data << [k,v.to_f.round(1)]}
-  #   interest.each {|k,v| @interest_data << [k,v.to_f.round(1)]}
-  #   learned.each {|k,v| @learned_data << [k,v.to_f.round(1)]}
-  #   #if any of the data is < 1.0, it marks it with an x marker
-  #   puts overall_data
-  #   #@chart_data = fixedrecords.values
-  #   puts @chart_data
-  # end
 
 end
