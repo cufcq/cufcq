@@ -117,6 +117,9 @@ ActiveRecord::Schema.define(version: 20140425040402) do
     t.string   "instructor_last"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "earliest_fcq"
+    t.integer  "latest_fcq"
+    t.integer  "courses_taught"
   end
 
 end

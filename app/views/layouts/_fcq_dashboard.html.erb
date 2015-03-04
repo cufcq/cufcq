@@ -107,7 +107,7 @@
                   <td><%= @fcq.rank_string %></td>
                 </tr>
                 <tr>
-                  <td><abbr title="Students rate the course overall. All ratings are on a scale of 1 to 6." class="initialism"> Course Overall </abbr></td>
+                  <td><abbr title="Students rate the course overall. All ratings are on a scale of 1 to 6." > Course Overall </abbr></td>
                   <td><%= @fcq.courseoverall.round(1) %></td>
                 </tr>
                 <tr>
@@ -132,7 +132,7 @@
 
 
 
-                        <table class="table table-striped">
+            <table class="table table-striped">
             <caption class="text-left"><b>FCQ Instructor Data</b>
              This table contains the averaged results of the fcq survey questions pertaining to the instructor.</caption>
               <thead>
@@ -215,6 +215,26 @@
                 <tr>
                   <td><abbr title="What percentage of the class received a C grade or higher">Percentage Passed</abbr></td>
                   <td><%= @fcq.percentage_passed_string %></td>
+                </tr>
+                <tr>
+                  <td>Percentage As</td>
+                  <td><%= @fcq.pct_a_string %></td>
+                </tr>
+                <tr>
+                  <td>Percentage Bs</td>
+                  <td><%= @fcq.pct_b_string %></td>
+                </tr>
+                <tr>
+                  <td>Percentage Cs</td>
+                  <td><%= @fcq.pct_c_string %></td>
+                </tr>
+                <tr>
+                  <td>Percentage Ds</td>
+                  <td><%= @fcq.pct_d_string %></td>
+                </tr>
+                <tr>
+                  <td>Percentage Fs</td>
+                  <td><%= @fcq.pct_f_string %></td>
                 </tr>
 
                 </tbody>

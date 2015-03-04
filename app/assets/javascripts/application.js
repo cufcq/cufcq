@@ -13,3 +13,6 @@
 //= require turbolinks                                                       
 //= require_tree .
 //= require showhide
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap.min

@@ -256,6 +256,10 @@ class Fcq < ActiveRecord::Base
     return (formsreturned < 1)
   end
 
+  def missing_grade_data
+    return (avg_grd == nil)
+  end
+
   def color
     if ld?
       return "box1"
