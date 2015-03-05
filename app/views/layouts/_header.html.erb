@@ -18,12 +18,12 @@
           <li><%= link_to "Departments",'/departments' %></li>
           <li><%= link_to "Help", '/help'%></li>
       </ul>
-      <form class="navbar-form navbar-right">
+      <!-- <form class="navbar-form navbar-right">
           <%= form_tag(instructors_path, :method => "get", id: "form-inline") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search" %>
           <%= submit_tag "Search", name: nil, :class=>'button' %> 
 
-        <% end %>
+        <% end %> -->
 
     </div><!-- /.navbar-collapse -->
 </header>
