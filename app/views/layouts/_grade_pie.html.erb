@@ -1,7 +1,8 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 
 <script type="text/javascript">
-  $(document).on('page:change', function() {
+    var ready;
+    ready = function() {
         var chart = new Highcharts.Chart({
       title: {text: null
           },
@@ -55,6 +56,10 @@
             ]
         }]
     });
-});
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+$(document).on('page:change', ready);
 </script>
 <div id="container" style="height: 300px"></div>

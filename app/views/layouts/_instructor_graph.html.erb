@@ -1,12 +1,11 @@
 <% @instructor.overall_query  %>
-<script src="http://code.highcharts.com/highcharts.js"></script>
 <script type="text/javascript">
 var ready;
 ready = function() {
     var chart = new Highcharts.Chart({
       title: {text: null
           },
-      chart: { renderTo: 'container' },
+      chart: { renderTo: 'instr' },
         legend: {
             enabled: true
         },
@@ -134,6 +133,7 @@ ready = function() {
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
+//$(document).on('page:change', ready);
 </script>
-<div id="container" style="height: 300px"></div>
+<div id="instr" style="height: 300px"></div>
 <!-- <button id="button">Toggle visibility</button> -->

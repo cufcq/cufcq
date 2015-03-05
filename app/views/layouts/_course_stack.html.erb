@@ -5,7 +5,8 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 
 <script type="text/javascript">
-  $(document).on('page:change', function() {
+  var enrollment;
+    ready = function() {
     var chart = new Highcharts.Chart({
       title: 
       {
@@ -168,6 +169,10 @@
 
 
 
-  });
+  };
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+$(document).on('page:change', ready);
 </script>
 <div id="stacked" style="height: 300px"></div>

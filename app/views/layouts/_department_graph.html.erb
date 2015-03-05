@@ -3,7 +3,8 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 
 <script type="text/javascript">
-  $(document).on('page:load', function() {
+    var enrollment;
+    ready = function() {
     var chart = new Highcharts.Chart({
       title: {text: null
           },
@@ -218,7 +219,11 @@
 
 
 
-  });
+  };
+$(document).ready(ready);
+$(document).on('page:load', ready);
+$(document).on('page:change', ready);
+</script>
 </script>
 
 
