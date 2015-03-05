@@ -17,13 +17,15 @@
           <li><%= link_to "Courses",'/courses' %></li>
           <li><%= link_to "Departments",'/departments' %></li>
           <li><%= link_to "Help", '/help'%></li>
-      </ul>
-      <!-- <form class="navbar-form navbar-right">
-          <%= form_tag(instructors_path, :method => "get", id: "form-inline") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-          <%= submit_tag "Search", name: nil, :class=>'button' %> 
+	   
 
-        <% end %> -->
-
+	<!-- This is a working search box need to edit the css so it looks nice
+	  <%= form_tag('/', :method => "get", id: "search-form") do %>
+          <%= select_tag(:option,options_for_select([['Instructors', '/instructors'], ['Courses', '/courses'],['Departments','/departments']])) %>
+          <%= text_field_tag :search, params[:search], :class => 'search' %>
+          <%= submit_tag "Search", :name => nil, :class=>'button' %>
+          <% end %>  
+	--> 
+       </ul>
     </div><!-- /.navbar-collapse -->
 </header>
