@@ -1,5 +1,0 @@
-role_dependencies:
-  web: [haproxy]
-  app: [passenger]
-  web_tools: [apache, graphite_server, graphite_web]
-
