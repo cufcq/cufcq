@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425040402) do
+ActiveRecord::Schema.define(version: 20150306003316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "courses", force: true do |t|
     t.integer  "department_id"
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140425040402) do
     t.integer  "recitationoverall",     default: [], array: true
     t.integer  "yearterms",             default: [], array: true
     t.integer  "students_taught",       default: 0
+    t.hstore   "data"
   end
 
   create_table "fcqs", force: true do |t|

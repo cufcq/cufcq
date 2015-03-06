@@ -2,6 +2,7 @@ CURRENT_YEAR = 20141
 ONE_YEAR_AGO = CURRENT_YEAR - 10
 TWO_YEARS_AGO = CURRENT_YEAR - 20
 class Department < ActiveRecord::Base
+	# serialize :data, ActiveRecord::Coders::Hstore
 	has_many :instructors, -> { distinct }
 	has_many :courses, -> { distinct }
 	has_many :fcqs, -> { distinct }
@@ -44,10 +45,15 @@ class Department < ActiveRecord::Base
 	attr_reader :ld_data, :ud_data, :gd_data, :io_data, :co_data, :to_data
 
 	def overall_query
-		puts @ld_data
-		if @ld_data != nil
-			return
-		end
+		@ld_data = self.data["ld_data"]
+		@ud_data = self.data["ud_data"]
+		@gd_data = self.data["gd_data"]
+		@io_data = self.data["io_data"]
+		@to_data = self.data["to_data"]
+		@co_data = self.data["co_data"]
+	end
+
+	def build_hstore
 		lds = self.fcqs.where(crse: 1000..2999).order("yearterm").group("yearterm").sum(:formsrequested)
 		uds = self.fcqs.where(crse: 3000..4000).order("yearterm").group("yearterm").sum(:formsrequested)
 		gds = self.fcqs.where(crse: 5000..9999).order("yearterm").group("yearterm").sum(:formsrequested)
@@ -70,7 +76,23 @@ class Department < ActiveRecord::Base
 		iod.each {|k,v| @io_data << [k,v.to_f.round(1)]}
 		tod.each {|k,v| @to_data << [k,v.to_f.round(1)]}
 		cod.each {|k,v| @co_data << [k,v.to_f.round(1)]}
+		self.data = {}
+		self.data['ld_data'] = @ld_data
+		self.data['ud_data'] = @ud_data
+		self.data['gd_data'] = @gd_data
+		self.data['io_data'] = @io_data
+		self.data['to_data'] = @to_data
+		self.data['co_data'] = @co_data
+		self.save
 	end
+
+
+
+
+
+
+
+
 
 	def average_courseoverall
 		return self.fcqs.average(:courseoverall).round(1)
