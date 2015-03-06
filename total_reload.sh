@@ -23,6 +23,9 @@ bundle exec rake course_titles
 bundle exec rake ic_relations
 bundle exec rake grades
 # build the hstore for departments
+
+bundle exec rake instructor_build_hstore
+bundle exec rake course_build_hstore
 bundle exec rake department_build_hstore
 #reindex solr 
 RAILS_ENV=development bundle exec rake sunspot:solr:reindex

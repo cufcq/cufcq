@@ -132,12 +132,33 @@ end
 
 # builds the hstore information for the departments. This is the data that is cached for the department.
 # This prevents a department page from having to reload large quanitites of information every time it wants to render a graph
-
 task :department_build_hstore => :environment do
   Department.find_each(:batch_size => 200) do |x|
     begin
       x.build_hstore
       puts "build #{x.name} hstore"
+    rescue Exception => e
+        puts "rescued -" + e.message
+    end
+  end
+end
+
+task :instructor_build_hstore => :environment do
+  Instructor.find_each(:batch_size => 200) do |x|
+    begin
+      x.build_hstore
+      puts "build #{x.name} hstore"
+    rescue Exception => e
+        puts "rescued -" + e.message
+    end
+  end
+end
+
+task :course_build_hstore => :environment do
+  Course.find_each(:batch_size => 200) do |x|
+    begin
+      x.build_hstore
+      puts "build #{x.course_title} hstore"
     rescue Exception => e
         puts "rescued -" + e.message
     end

@@ -52,7 +52,7 @@ self.per_page = 10
   end
 
   def instr_group
-    self.fcqs.pluck(:instr_group).mode
+    return self.data['instructor_group'] || "TTT"
   end
 
   def is_TA
@@ -71,25 +71,25 @@ self.per_page = 10
   end
 
   def started_teaching
-    Fcq.semterm_from_int(self.fcqs.minimum(:yearterm))
+    return self.data['earliest_class'].to_i
   end
 
   def latest_teaching
-    Fcq.semterm_from_int(self.fcqs.maximum(:yearterm))
+    return self.data['latest_class'].to_i
   end
 
   def average_instrrespect
-    x = self.fcqs.average(:instrrespect) || 0.0
+    x = self.data['average_instructor_respect'].to_f || 0.0
     return x.round(1)
   end
 
   def average_availability
-    x = self.fcqs.average(:availability) || 0.0
+    x = self.data['average_instructor_availability'].to_f || 0.0
     return x.round(1)
   end
 
   def average_instreffective
-    x = self.fcqs.average(:instreffective) || 0.0
+    x = self.data['average_instructor_effectiveness'].to_f || 0.0
     return x.round(1)
   end
 
@@ -107,16 +107,16 @@ self.per_page = 10
   end
 
   def average_instructoroverall
-    overall = self.fcqs.average(:instructoroverall) || 0.0
+    overall = self.data['average_instructor_overall'].to_f || 0.0
     return overall.round(1)
   end
 
   def courses_taught
-    count = self.fcqs.where('pct_c_minus_or_below IS NOT NULL').count
+    count = (self.data['courses_taught']).to_i
     return [count,1].max
   end
 
-  attr_reader :semesters, :overall_data, :availability_data, :instrrespect_data, :instreffective_data, :categories
+  attr_reader :semesters, :overall_data, :availability_data, :instrrespect_data, :instreffective_data
 
 
   ########################################
@@ -124,8 +124,12 @@ self.per_page = 10
   ########################################
 
   def average_percentage_passed_float
+    return self.data["average_percent_passed"].to_f
+  end
+
+  def compute_average_percentage_passed
     total = 0.0
-    self.fcqs.compact.each {|x| puts x.float_passed; next if x.float_passed < 0.0; total += x.float_passed}
+    self.fcqs.compact.each {|x| next if x.float_passed < 0.0; total += x.float_passed}
     count = courses_taught
     if count == 0
       return 1.0 
@@ -145,8 +149,13 @@ self.per_page = 10
 
   # these take the avg grades of all classes taught by a prof and avg them 
   def average_grade_overall
-     total = 0.0
-    self.fcqs.compact.each {|x| puts x.float_passed; next if x.float_passed < 0.0; total += x.float_passed}
+    return self.data["average_grade"]
+  end
+
+    # these take the avg grades of all classes taught by a prof and avg them 
+  def compute_average_grade
+    total = 0.0
+    self.fcqs.compact.each {|x| next if x.avg_grd == nil; total += x.avg_grd}
     count = courses_taught
     if count == 0
       return 1.0 
@@ -155,32 +164,33 @@ self.per_page = 10
     end
   end
 
-  #these take the avg amount of specififc grade for all classes taught by a prof and avg them 
-
-  def average_grade_as 
-  end
-
-  def average_grade_bs 
-  end
-
-  def average_grade_cs 
-  end
-
-  #Do we want to ds and fs seperately or use ds/fs aggregated (possible perf issues?)
-  def average_grade_ds 
-  end
-
-  def average_grade_fs 
-  end
-
-  #this is the average of all courses taught by the teacher of people withdrawn
-  def average_withdrawn
-  end 
-
   ##################End grades.csv stuff#####################
 
 
   def overall_query
+    # overalls = self.fcqs.order("yearterm").group("yearterm").average(:instructoroverall)
+    # avails = self.fcqs.order("yearterm").group("yearterm").average(:availability)
+    # effects = self.fcqs.order("yearterm").group("yearterm").average(:instreffective)
+    # instrrespects = self.fcqs.order("yearterm").group("yearterm").average(:instrrespect)
+    # @semesters = []
+    # @overall_data = []
+    # @availability_data = [] 
+    # @instrrespect_data = [] 
+    # @instreffective_data = [] 
+    # #records.each {|k,v| fixedrecords[Fcq.semterm_from_int(k)] = v.to_f.round(1)}
+    # overalls.each {|k,v| @overall_data << [k,v.to_f.round(1)]}
+    # avails.each {|k,v| @availability_data << [k,v.to_f.round(1)]}
+    # effects.each {|k,v| @instreffective_data << [k,v.to_f.round(1)]}
+    # instrrespects.each {|k,v| @instrrespect_data << [k,v.to_f.round(1)]}
+    # #@chart_data = fixedrecords.values
+    # # puts @chart_data
+    @overall_data = self.data['overall_data']
+    @availability_data = self.data['availability_data']
+    @instreffective_data = self.data['instreffective_data']
+    @instrrespect_data = self.data['instrrespect_data']
+  end
+
+  def build_hstore
     overalls = self.fcqs.order("yearterm").group("yearterm").average(:instructoroverall)
     avails = self.fcqs.order("yearterm").group("yearterm").average(:availability)
     effects = self.fcqs.order("yearterm").group("yearterm").average(:instreffective)
@@ -195,9 +205,24 @@ self.per_page = 10
     avails.each {|k,v| @availability_data << [k,v.to_f.round(1)]}
     effects.each {|k,v| @instreffective_data << [k,v.to_f.round(1)]}
     instrrespects.each {|k,v| @instrrespect_data << [k,v.to_f.round(1)]}
-    #@chart_data = fixedrecords.values
-    puts @chart_data
+    self.data = {}
+    self.data['overall_data'] = @overall_data
+    self.data['availability_data'] = @availability_data
+    self.data['instreffective_data'] = @instreffective_data
+    self.data['instrrespect_data'] = @instrrespect_data
+    self.data['courses_taught'] = self.fcqs.where('pct_c_minus_or_below IS NOT NULL').count
+    self.data['average_grade'] = compute_average_grade
+    self.data['average_percent_passed'] =compute_average_percentage_passed
+    self.data['average_instructor_overall'] = self.fcqs.average(:instructoroverall)
+    self.data['average_instructor_effectiveness'] = self.fcqs.average(:instreffective)
+    self.data['average_instructor_respect'] = self.fcqs.average(:instrrespect)
+    self.data['average_instructor_availability'] = self.fcqs.average(:availability)
+    self.data['latest_class'] = self.fcqs.maximum(:yearterm)
+    self.data['earliest_class'] = self.fcqs.minimum(:yearterm)
+    self.data['instructor_group'] = self.fcqs.pluck(:instr_group).mode
+    self.save
   end
+
 
   def instr_group_flavor_text
     case instr_group

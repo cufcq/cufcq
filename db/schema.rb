@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306003316) do
+ActiveRecord::Schema.define(version: 20150306045953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(version: 20150306003316) do
     t.string   "corrected_course_title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "earliest_fcq",           default: 20061
-    t.integer  "latest_fcq",             default: 20061
-    t.integer  "instructors_teaching",   default: 0
-    t.integer  "students_taught",        default: 0
+    # t.integer  "earliest_fcq",           default: 20061
+    # t.integer  "latest_fcq",             default: 20061
+    # t.integer  "instructors_teaching",   default: 0
+    # t.integer  "students_taught",        default: 0
+    t.hstore   "data"
   end
 
   create_table "departments", force: true do |t|
@@ -38,16 +39,16 @@ ActiveRecord::Schema.define(version: 20150306003316) do
     t.string   "long_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "ld_enrollment",         default: [], array: true
-    t.integer  "ud_enrollment",         default: [], array: true
-    t.integer  "gd_enrollment",         default: [], array: true
-    t.integer  "ta_instructoroverall",  default: [], array: true
-    t.integer  "ttt_instructoroverall", default: [], array: true
-    t.integer  "oth_instructoroverall", default: [], array: true
-    t.integer  "courseoverall",         default: [], array: true
-    t.integer  "recitationoverall",     default: [], array: true
-    t.integer  "yearterms",             default: [], array: true
-    t.integer  "students_taught",       default: 0
+    # t.integer  "ld_enrollment",         default: [], array: true
+    # t.integer  "ud_enrollment",         default: [], array: true
+    # t.integer  "gd_enrollment",         default: [], array: true
+    # t.integer  "ta_instructoroverall",  default: [], array: true
+    # t.integer  "ttt_instructoroverall", default: [], array: true
+    # t.integer  "oth_instructoroverall", default: [], array: true
+    # t.integer  "courseoverall",         default: [], array: true
+    # t.integer  "recitationoverall",     default: [], array: true
+    # t.integer  "yearterms",             default: [], array: true
+    # t.integer  "students_taught",       default: 0
     t.hstore   "data"
   end
 
@@ -135,10 +136,11 @@ ActiveRecord::Schema.define(version: 20150306003316) do
     t.string   "instructor_last"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "earliest_fcq",     default: 20061
-    t.integer  "latest_fcq",       default: 20061
-    t.integer  "courses_taught",   default: 0
-    t.integer  "students_taught",  default: 0
+    # t.integer  "earliest_fcq",     default: 20061
+    # t.integer  "latest_fcq",       default: 20061
+    # t.integer  "courses_taught",   default: 0
+    # t.integer  "students_taught",  default: 0
+    t.hstore   "data"
   end
 
 end
