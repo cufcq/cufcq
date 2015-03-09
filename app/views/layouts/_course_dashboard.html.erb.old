@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+
+  <body>
+  
+    <title><%= @course.capitalized_title%></title>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a>Course Name: <%= @course.capitalized_title %><span class="sr-only">(current)</span></a></li>
+            <li><a href="/departments">Department: <%= @course.department.name %></a></li>
+
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a>Sections Offered: <%= @course.total_sections_offered %></a></li>
+            <li><a>Instructors Teaching: <%= @course.instructors.count %> </a></li>
+            <li><a>Course Takers: <%= @course.total_students_enrolled %> </a></li>
+
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a>Course Overall:<%= @course.average_courseoverall %></a></li>
+            <li><a>Course Challenge: <%= @course.average_challenge %></a></li>
+            <li><a>Total Hours: <%= @course.hoursperwkinclclass_string %></a></li>
+            <li><a>Prior Interest: <%= @course.average_priorinterest %> </a></li>
+            <li><a>Amount Learned: <%= @course.average_howmuchlearned %></a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header"><%= @course.capitalized_title %></h1>
+          
+          <%= render 'layouts/course_graph' %>
+
+          <h1 class="page-header">Grade Breakdown</h1>
+          <%= render 'layouts/course_stack' %>
+
+          <h2 class="sub-header">Past FCQs</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Instructor</th>
+                  <th>Course Link</th>
+                  <th>Average Work Load </th>
+                  <th>Course Overall</th>
+                  <th>Average GPA</th>
+                  <th>Pass Rate</th> 
+                </tr>
+              </thead>
+              <tbody>
+                <% @course.fcqs.each do |fcq| %>
+                <tr>
+                    <td><%= fcq.instructor.name%></td>
+                    <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
+                    <td><%= fcq.hoursperwkinclclass %></td>
+                    <td><%= fcq.course_overall_string%></td>
+                    <td><%= fcq.avg_grd_string%></td>
+                    <td><%= fcq.percentage_passed_string %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  

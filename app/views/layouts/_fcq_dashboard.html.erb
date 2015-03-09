@@ -11,14 +11,29 @@
     <title><%= @fcq.capitalized_title %></title>
     
           <div class="page-header">
+          <%= render 'layouts/grade_pie' %>
             <h1>
               <%= @fcq.yearterm_identifier %>
               <br><small>Course: <%= link_to @fcq.capitalized_title, @fcq.course %></small>
               <br><small>Instructor: <%= link_to @fcq.instructor.name, @fcq.instructor %></small>
               <br><small>Department: <%= link_to @fcq.department.long_name, @fcq.department %></small>
             </h1>
-          </div>
+            <!-- Show an alert if fcq data is missing -->
+          <% if @fcq.bad? %>
+            <div class="alert alert-danger" role="alert"><b>Note: </b> This instructor did not turn in any FCQs for this class. As a result no FCQ data can be provided.</div>
+            <% end %>
+          <!-- Show a warning if grade data is missing -->
+          <% if @fcq.missing_grade_data? %>
+            <% if @fcq.summer_fcq? %>
+              <div class="alert alert-warning" role="alert"><b>Note: </b> <a href="http://www.colorado.edu/pba/">The Office of Planning and Budget</a> has decided not to give CUFCQ access to Summer Grade data. They have been gracious enough to provide all other data used in CUFCQ. If you enjoy the site and would like to know more, please send them an email at <b><a href="mailto:IR@Colorado.edu">IR@colorado.edu</a></b></div>
+            <% elsif @fcq.recitation? %>
+              <div class="alert alert-info" role="alert"><b>Recitation: </b> This FCQ is for a recitation or lab associated to <%= link_to @fcq.capitalized_title, @fcq.course %>. Grade data is not recorded here. </b> </div>
+            <% else %>
+              <div class="alert alert-danger" role="alert"><b>Note: </b> CUFCQ does not have grade data for this course on record. </b> </div>
+            <% end %>
+          <% end %>
 
+          </div>
 
           <table class="table table-striped">
             <caption class="text-left"><b>FCQ General</b>
@@ -48,11 +63,11 @@
                 </tr>
                 <tr>
                   <td>Activity Type</td>
-                  <td><%= @fcq.activity_type %></td>
+                  <td><%= @fcq.activity_type_string %></td>
                 </tr>
                 <tr>
                   <td>Credit Hours</td>
-                  <td><%= @fcq.hours %></td>
+                  <td><%= @fcq.hours_string %></td>
                 </tr>
 
                 </tbody>
@@ -108,23 +123,23 @@
                 </tr>
                 <tr>
                   <td><abbr title="Students rate the course overall. All ratings are on a scale of 1 to 6." > Course Overall </abbr></td>
-                  <td><%= @fcq.courseoverall.round(1) %></td>
+                  <td><% if @fcq.bad? %> -- <% else %> <%= @fcq.courseoverall.round(1) %> <%end%></td>
                 </tr>
                 <tr>
                   <td><abbr title="Students rate their personal interest in the material before they enrolled. All ratings are on a scale of 1 to 6." > Prior Interest </abbr></td>
-                  <td><%= @fcq.priorinterest.round(1) %></td>
+                  <td><% if @fcq.bad? %> -- <% else %> <%= @fcq.priorinterest.round(1) %><%end%></td>
                 </tr>
                 <tr>
                   <td><abbr title="Students rate the intellectual challenge of the course. All ratings are on a scale of 1 to 6." > Course Challenge </abbr></td>
-                  <td><%= @fcq.challenge.round(1) %></td>
+                  <td><% if @fcq.bad? %> -- <% else %> <%= @fcq.challenge.round(1) %><%end%></td>
                 </tr>
                 <tr>
                   <td><abbr title="Students rate how much they have learned in this course. All ratings are on a scale of 1 to 6." > Amount Learned </abbr></td>
-                  <td><%= @fcq.howmuchlearned.round(1) %></td>
+                  <td><% if @fcq.bad? %> -- <% else %> <%= @fcq.howmuchlearned.round(1) %><%end%></td>
                 </tr>
                 <tr>
                   <td><abbr title="Students estimate the average number of hours per week they have spent on this course for all course-related work, including attending classes, labs, recitations, readings reviewing notes, writing papers, etc." > Average Workload </abbr></td>
-                  <td><%= @fcq.hoursperwkinclclass %> hours per week</td>
+                  <td><% if @fcq.bad? %> -- <% else %> <%= @fcq.hoursperwkinclclass %> hours per week <%end%></td>
                 </tr>
 
                 </tbody>
@@ -151,19 +166,19 @@
                   <td><abbr title="<%= @fcq.instructor.instr_group_flavor_text %>"> <%= @fcq.instr_group %> </abbr></td>
                 </tr>
                   <td><abbr title="Students rate the instructors overall performance. All ratings are on a scale of 1 to 6."> Instructor Overall </abbr></td>
-                  <td><%= @fcq.instructoroverall.round(1) %></td>
+                  <td><% if @fcq.bad? %> -- <% else %><%= @fcq.instructoroverall.round(1) %><%end%></td>
                 </tr>
                 <tr>
                   <td><abbr title="Students rate the instructor's effectiveness in encouraging interest in the subject. All ratings are on a scale of 1 to 6."> Instructor Effectiveness</abbr></td>
-                  <td><%= @fcq.instreffective.round(1) %></td>
+                  <td><% if @fcq.bad? %> -- <% else %><%= @fcq.instreffective.round(1) %><%end%></td>
                 </tr>
                 <tr>
                   <td><abbr title="Students rate the instructor's availability for course-related assistance such as email, office hours individual appointments, phone contact, etc. All ratings are on a scale of 1 to 6."> Instructor Availability </abbr></td>
-                  <td><%= @fcq.availability.round(1) %></td>
+                  <td><% if @fcq.bad? %> -- <% else %><%= @fcq.availability.round(1) %><%end%></td>
                 </tr>
                 <tr>
                   <td><abbr title="Students rate this instructor's instrrespect for and professional treatment of all students regardless of race, color, national origin, sex, age, disability, creed, religion, sexual orientation, or veteran status. All ratings are on a scale of 1 to 6."> Instructor Respect </abbr></td>
-                  <td><%= @fcq.instrrespect.round(1) %></td>
+                  <td><% if @fcq.bad? %> -- <% else %><%= @fcq.instrrespect.round(1) %><%end%></td>
                 </tr>
 
                 </tbody>
@@ -239,7 +254,7 @@
 
                 </tbody>
             </table>
-          <%= render 'layouts/grade_pie' %>
+          
 
 
 

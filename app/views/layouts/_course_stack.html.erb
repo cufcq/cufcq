@@ -15,6 +15,7 @@
         colors: ['#2c7bb6', '#abd9e9', '#ffffbf', '#fdae61', '#d7191c', '#666666'],
       chart: { 
         type: 'area',
+        alignTicks: false,
         renderTo: 'stacked' 
         },
         legend: {
@@ -25,27 +26,53 @@
             type: 'category',
             categories: []
         },
-        yAxis: {
-          max: 1,
+        yAxis: [{
+          max: 1.0,
+          ceiling: 1.0,
           min: 0,
+          floor: 0.0,
           title: {
             text: null
+            },
+            labels: {
+                formatter: function () {
+                  selector = Math.floor((this.value*100));
+                  return ""+selector + "%";
+                }
             }
         },
+        { // Secondary yAxis
+          max: 4.0,
+          cieling: 4.0,
+          min: 0.0,
+          floor: 0.0,
+          style: {
+                    color: '#333333'
+                },
+          labels: {
+                formatter: function () {
+                  arr = ['F','D','C','B','A'];
+                  selector = (this.value);
+                    return arr[selector] + " avg";
+                }
+            },
+          title: {
+            text: null
+            },
+            opposite: true
+        }],
       tooltip: {
         shared: true,
         valueSuffix: ' students',
         formatter: function () {
           var n = this.x%10;
           var y = Math.floor(this.x/10);
-          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error ";
+          var s = (n == 1) ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error ";
           var parsed = s+y+" : "+ this.y;
           // return (this.y >= 1.0) ? parsed : parsed;
           var date = "<b>"+s+y+" :</b><br/>";
 
-          var av = this.points[0].point.y
-
-        
+          var av = this.points[6].visible ? '' : '<span style="color:#333333">Grade Avg: </span>' + (this.points[6].point.y ) + ' GPA<br/>';
           var aa = this.points[0].visible ? '' : '<span style="color:#2c7bb6">A Grades: </span>' + Math.floor((this.points[0].point.y * 100)) + '%<br/>';
           var bb = this.points[1].visible ? '' : '<span style="color:#abd9e9">B Grades: </span>' + Math.floor((this.points[1].point.y * 100)) + '%<br/>';
           var cc = this.points[2].visible ? '' : '<span style="color:#ffffbf">C Grades: </span>' + Math.floor((this.points[2].point.y * 100)) + '%<br/>';
@@ -53,7 +80,10 @@
           var ff = this.points[4].visible ? '' : '<span style="color:#d7191c">F Grades: </span>' + Math.floor((this.points[4].point.y * 100)) + '%<br/>';
           var ii = this.points[5].visible ? '' : '<span style="color:#666666">Incompletes: </span>' + Math.floor((this.points[5].point.y * 100)) + '%';
 
-          return date + aa + bb +cc + dd + ff + ii;
+          var sum = aa + bb +cc +dd + ff + ii;
+          var er = "<br/><b>NOTE:</b> The <i>Office of Planning and Budget</i><br/>did not want to give CUFCQ access to summer grade  <br/>data. They have been gracious enough to provide <br/>all other data used in CUFCQ. If you enjoy the <br/>site and would like to know more, please send them <br/>an email at <b>IR@Colorado.edu</b> ";
+
+          return ((sum >= 90) || (n != 4) ) ? date + av + aa + bb +cc + dd + ff + ii : date + er;
 
       }
     },
@@ -102,8 +132,19 @@
         data: <%= @course.pct_i_data %>,
         name: "Percentage Incomplete"
     }
-    ]
-    });
+    ,{
+            name: 'Grade Average',
+            type: 'line',
+            yAxis: 1,
+            data: <%= @course.grade_data %>,
+            marker: {
+                enabled: false
+            },
+            dashStyle: 'shortdot',
+            color: '#666666'
+
+    }
+  ]});
 
 
 

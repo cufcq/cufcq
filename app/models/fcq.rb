@@ -215,10 +215,30 @@ class Fcq < ActiveRecord::Base
       return true
     elsif instr_group == "TA"
       return true
-    elsif (sec == 1 || sec == 10 || sec == 100)
-      return false
+    elsif (activity_type != nil)
+      if (activity_type[0..2] = "REC")
+        return true
+      else
+        return false
+      end
     else 
       return true
+    end
+  end
+
+  def activity_type_string
+    if(activity_type != nil)
+      return self.activity_type
+    else
+      return "--"
+    end
+  end
+
+  def hours_string
+    if(hours != nil)
+      return self.hours
+    else
+      return "--"
     end
   end
 
@@ -267,11 +287,15 @@ class Fcq < ActiveRecord::Base
     return (VALID_TERMS[s % 10] + " " + (s/10).to_s)
   end
 
+  def summer_fcq?
+    return ((yearterm % 10) == 4)
+  end
+
   def bad?
     return (formsreturned < 1)
   end
 
-  def missing_grade_data
+  def missing_grade_data?
     return (avg_grd == nil)
   end
 

@@ -83,6 +83,19 @@ class Department < ActiveRecord::Base
 		self.data['io_data'] = @io_data
 		self.data['to_data'] = @to_data
 		self.data['co_data'] = @co_data
+		build_averages
+		self.save
+	end
+
+	def build_averages
+		self.data["average_TTT_instructoroverall"] = self.fcqs.where(:instr_group == "TTT").average(:instructoroverall)
+		self.data["average_OTH_instructoroverall"] = self.fcqs.where(:instr_group == "OTH").average(:instructoroverall)
+		self.data["average_TA_instructoroverall"] = self.fcqs.where(:instr_group == "TA").average(:instructoroverall)
+		self.data["average_instructoroverall"] = self.fcqs.average(:instructoroverall)
+		self.data["average_courseoverall"] = self.fcqs.average(:courseoverall)
+		self.data["average_instreffective"] = self.fcqs.average(:instrrespect)
+		self.data["average_availability"] = self.fcqs.average(:instrrespect)
+		self.data["average_instrrespect"] = self.fcqs.average(:instrrespect)
 		self.save
 	end
 

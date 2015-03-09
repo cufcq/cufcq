@@ -116,7 +116,7 @@ self.per_page = 10
     return [count,1].max
   end
 
-  attr_reader :semesters, :overall_data, :availability_data, :instrrespect_data, :instreffective_data
+  attr_reader :semesters, :overall_data, :availability_data, :instrrespect_data, :instreffective_data, :overall_average, :availability_average, :instrrespect_average, :instreffective_average
 
 
   ########################################
@@ -168,26 +168,14 @@ self.per_page = 10
 
 
   def overall_query
-    # overalls = self.fcqs.order("yearterm").group("yearterm").average(:instructoroverall)
-    # avails = self.fcqs.order("yearterm").group("yearterm").average(:availability)
-    # effects = self.fcqs.order("yearterm").group("yearterm").average(:instreffective)
-    # instrrespects = self.fcqs.order("yearterm").group("yearterm").average(:instrrespect)
-    # @semesters = []
-    # @overall_data = []
-    # @availability_data = [] 
-    # @instrrespect_data = [] 
-    # @instreffective_data = [] 
-    # #records.each {|k,v| fixedrecords[Fcq.semterm_from_int(k)] = v.to_f.round(1)}
-    # overalls.each {|k,v| @overall_data << [k,v.to_f.round(1)]}
-    # avails.each {|k,v| @availability_data << [k,v.to_f.round(1)]}
-    # effects.each {|k,v| @instreffective_data << [k,v.to_f.round(1)]}
-    # instrrespects.each {|k,v| @instrrespect_data << [k,v.to_f.round(1)]}
-    # #@chart_data = fixedrecords.values
-    # # puts @chart_data
     @overall_data = self.data['overall_data']
     @availability_data = self.data['availability_data']
     @instreffective_data = self.data['instreffective_data']
     @instrrespect_data = self.data['instrrespect_data']
+    @overall_average = self.department.data['average_instructoroverall']
+    @availability_average = self.department.data['average_availability']
+    @instrrespect_average = self.department.data['average_instrrespect']
+    @instreffective_average = self.department.data['average_instreffective']
   end
 
   def build_hstore

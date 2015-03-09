@@ -397,6 +397,7 @@ task :course_titles => :environment do
   Dir.glob('csv_make/courses/courses.csv').each do |csv|
     puts "loading csv file: " + csv   
     #puts Fcq.column_names
+    termlookup = {1 => "Spring",4 => "Summer",7=>"Fall"}.invert
     CSV.foreach(csv, :headers => true) do |row|
       begin
           #puts row.to_hash
@@ -405,16 +406,37 @@ task :course_titles => :environment do
           #inst.fcqs.create!(row.to_hash)
       r = row.to_hash
       # r["campus"] = "BD"
-      puts r.to_s
+      # puts r.to_s
       #  puts "\n"
       #gets the fcq with the same courtitle, section, yearterm
       # f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
-      c_params = {"subject" => r["Subject"], "crse" => r["CrsNum"]}
+      c_params = {"subject" => r["subject"], "crse" => r["crsnum"]}
       puts "==="
-      c = Course.where(c_params).first || next
-      c.update_attribute(:course_title, r["CRSTITLE"])
-      c.save
-      puts r["CRSTITLE"]
+      # puts "c params " + c_params.to_s
+      c = Course.where(c_params).first
+      if(c != nil)
+        c.update_attribute(:course_title, r["crstitle"])
+        c.save
+        puts r["crstitle"]
+      end
+      # gets the first word
+      term = termlookup[r["term"].split(' ')[0]]
+      year = r["fyc"].to_i
+      yearterm = (year*10+term).to_s
+      # gets the last 3 characters of the course string, identifying the section
+      sec = r["course"][-3..-1]
+      f_params = {"yearterm" => yearterm, "subject" => r["subject"], "crse" => r["crsnum"], "sec"=>sec}
+      # puts "f params " + f_params.to_s
+      f = Fcq.where(f_params).first
+
+      if (f != nil)
+        f.update_attribute(:hours, r["avghrs"])
+        f.update_attribute(:activity_type, r["actvtyp"])
+        f.save
+        print "#{r['term']} #{r["course"]}"
+      elsif
+        print "skipping Fcq"
+      end
       rescue ActiveRecord::RecordInvalid => invalid
           puts invalid.message
           next

@@ -14,6 +14,14 @@ class Course < ActiveRecord::Base
   validates :course_title, :crse, :subject, presence: true
   validates_uniqueness_of :crse, scope: [:subject, :course_title]
 
+  def capitalized_title
+    return course_title.split.map(&:capitalize).join(' ')
+  end
+
+  def course_identifier
+    "#{subject} #{crse} - #{capitalized_title}"
+  end
+
   def average_priorinterest
   	# self.fcqs.where.not(instr_group: 'TA').average(:priorinterest).round(1)
     # self.fcqs.average(:priorinterest).round(1)
@@ -71,7 +79,29 @@ class Course < ActiveRecord::Base
     return set.average(:courseoverall).round(1)
   end
 
-  attr_reader :semesters, :overall_data, :challenge_data, :interest_data, :learned_data, :grade_data, :categories, :pct_a_data, :pct_b_data, :pct_c_data, :pct_d_data, :pct_f_data, :pct_i_data
+  def ld?
+    return (crse < 3000)
+  end
+
+  def ud?
+    return !(self.ld?) && (crse < 5000)
+  end
+
+  def grad?
+    return (crse >= 5000)
+  end
+
+  def rank_string
+    if ld?
+      return "Lower Division"
+    elsif ud?
+      return "Upper Division"
+    else
+      return "Graduate Level"
+    end
+  end
+
+  attr_reader :semesters, :grade_data, :overall_data, :challenge_data, :interest_data, :learned_data, :grade_data, :categories, :pct_a_data, :pct_b_data, :pct_c_data, :pct_d_data, :pct_f_data, :pct_i_data
 
   def overall_query
     @overall_data = self.data['overall_data']
@@ -89,6 +119,7 @@ class Course < ActiveRecord::Base
     @pct_d_data = self.data['pct_d_data']
     @pct_f_data = self.data['pct_f_data']
     @pct_i_data = self.data['pct_i_data']
+    @grade_data = self.data['grade_data']
   end
 
   def build_hstore
@@ -98,6 +129,7 @@ class Course < ActiveRecord::Base
     pct_d = self.fcqs.order("yearterm").group("yearterm").average(:pct_d)
     pct_f = self.fcqs.order("yearterm").group("yearterm").average(:pct_f)
     pct_i = self.fcqs.order("yearterm").group("yearterm").average(:pct_incomp)
+    grade = self.fcqs.order("yearterm").group("yearterm").average(:avg_grd)
     # @semesters = []
     @pct_a_data = []
     @pct_b_data = []
@@ -105,17 +137,18 @@ class Course < ActiveRecord::Base
     @pct_d_data = []
     @pct_f_data = []
     @pct_i_data = []
+    @grade_data = []
     pct_a.each {|k,v| @pct_a_data << [k,v.to_f.round(2)]}
     pct_b.each {|k,v| @pct_b_data << [k,v.to_f.round(2)]}
     pct_c.each {|k,v| @pct_c_data << [k,v.to_f.round(2)]}
     pct_d.each {|k,v| @pct_d_data << [k,v.to_f.round(2)]}
     pct_f.each {|k,v| @pct_f_data << [k,v.to_f.round(2)]}
     pct_i.each {|k,v| @pct_i_data << [k,v.to_f.round(2)]}
+    grade.each {|k,v| @grade_data << [k,v.to_f.round(2)]}
     overalls = self.fcqs.order("yearterm").group("yearterm").average(:courseoverall)
     challenge = self.fcqs.order("yearterm").group("yearterm").average(:challenge)
     interest = self.fcqs.order("yearterm").group("yearterm").average(:priorinterest)
     learned = self.fcqs.order("yearterm").group("yearterm").average(:howmuchlearned)
-    grade = self.fcqs.order("yearterm").group("yearterm").average(:avg_grd)
     # @semesters = []
     @overall_data = []
     @challenge_data = [] 
