@@ -32,31 +32,11 @@ task :course_missing_hstore => :environment do
   Course.find_each(:batch_size => 200) do |x|
     begin
         puts "==="
-        if x.data != nil
-            next
-        else
-            puts "bad! #{x.id}"
-            
-            sleep(5.seconds)
-        end
-        x.update_attribute(:data, {})
-        x.save()
-        x.build_hstore
-    rescue Exception => e
-        puts "rescued -" + e.message
-    end
-    end
-end
-
-task :course_missing_hstore => :environment do
-  Course.find_each(:batch_size => 200) do |x|
-    begin
-        puts "==="
         if x.data == {}
             puts "bad! #{x.id}"
-            x.build_hstore
         elsif x.data != nil
             next
+        # x.data is nil
         else 
             puts "bad! #{x.id}"
             sleep(5.seconds)
@@ -64,6 +44,7 @@ task :course_missing_hstore => :environment do
         # x.update_attribute(:data, {})
         # x.save()
         x.build_hstore
+        puts "fix'd  #{x.id}"
     rescue Exception => e
         puts "rescued -" + e.message
     end
