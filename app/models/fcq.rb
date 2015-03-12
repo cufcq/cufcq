@@ -16,9 +16,9 @@ end
 
 class Fcq < ActiveRecord::Base
   #Belongs to
-  belongs_to :instructor
-  belongs_to :course
-  belongs_to :department
+  belongs_to :instructor, counter_cache: true
+  belongs_to :course, counter_cache: true
+  belongs_to :department, counter_cache: true
   #validates the minimum entries are present
   validates :yearterm, :subject, :crse, :sec, :instructor_last, :instructor_first, :formsrequested, :formsreturned, :campus, :college, :instr_group, presence: true
   #validates entries match established patterns
@@ -32,7 +32,7 @@ class Fcq < ActiveRecord::Base
   #validates uniqueness
   #validates :yearterm, uniqueness: true
   validates_uniqueness_of :sec, scope: [:crse, :subject, :yearterm, :instructor_last, :instructor_first]
-
+  # before_save :update_counters
   ##################################
 
   def pass_rate
@@ -292,8 +292,16 @@ class Fcq < ActiveRecord::Base
   end
 
   def bad?
+    if missing_fcq_data?
+      return true
+    end
     return (formsreturned < 1)
   end
+
+  def missing_fcq_data?
+    return (courseoverall == nil)
+  end
+
 
   def missing_grade_data?
     return (avg_grd == nil)

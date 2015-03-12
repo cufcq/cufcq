@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /courses
   # GET /courses.json
@@ -19,7 +20,9 @@ class CoursesController < ApplicationController
       fulltext params[:search]
       paginate :page => 1, :per_page => 30000
     end
-    @courses = Course.where(id: @search.results.map(&:id)).page(params[:page]).per_page(10).order('course_title ASC')
+    puts "direction by #{sort_direction}"
+    puts "params are #{params[:sort]}"
+    @courses = Course.where(id: @search.results.map(&:id)).page(params[:page]).per_page(10).order(sort_column + " " + sort_direction)
   end
 
   # GET /courses/1
@@ -85,5 +88,25 @@ class CoursesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
       params.require(:course).permit(:course_title, :crse, :subject)
+    end
+
+    def sort_column
+      # puts params[:sort]
+      # puts Course.first.data.include?("data -> #{params[:sort]}")
+      if Course.column_names.include?(params[:sort]) 
+        return params[:sort]
+      elsif Course.first.data.include?(params[:sort])
+        return "data -> '#{params[:sort]}'"
+      end
+      return "course_title"
+    end
+    
+    def sort_direction
+      # puts "includes direction = " + (%w[asc desc].include?(params[:direction])).to_s
+      if %w[asc desc].include?(params[:direction])
+        return params[:direction]
+      else
+        return"asc"
+      end
     end
 end

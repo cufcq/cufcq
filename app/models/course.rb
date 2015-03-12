@@ -1,8 +1,8 @@
 CURRENT_YEARTERM = 20147
 class Course < ActiveRecord::Base
-  belongs_to :department
+  belongs_to :department, counter_cache: true
   has_many :fcqs
-  has_many :instructors, -> { distinct }, through: :fcqs
+  has_many :instructors, -> { distinct }, through: :fcqs, counter_cache: true
   # has_many :instructors
 
   searchable do
@@ -12,7 +12,13 @@ class Course < ActiveRecord::Base
   end
 
   validates :course_title, :crse, :subject, presence: true
-  validates_uniqueness_of :crse, scope: [:subject, :course_title]
+  validates_uniqueness_of :crse, scope: [:subject]
+
+  # after_save :cache_instructor_count
+
+  def cache_instructor_count
+    self.update_attribute(:instructors_count, self.instructors.count)
+  end
 
   def capitalized_title
     return course_title.split.map(&:capitalize).join(' ')
@@ -25,29 +31,37 @@ class Course < ActiveRecord::Base
   def average_priorinterest
   	# self.fcqs.where.not(instr_group: 'TA').average(:priorinterest).round(1)
     # self.fcqs.average(:priorinterest).round(1)
-    return self.data['average_prior_interest'].to_f
+    
+    r = self.data['average_prior_interest'] || 0.0
+    return r.to_f
   end
 
   def average_challenge
   	# self.fcqs.where.not(instr_group: 'TA').average(:challenge).round(1)
     # self.fcqs.average(:challenge).round(1)
-    return self.data['average_challenge'].to_f
+    
+    r = self.data['average_challenge'] || 0.0
+    return r.to_f
   end
 
   def average_courseoverall
   	# return self.fcqs.where.not(instr_group: 'TA').average(:courseoverall).round(1)
     # return self.fcqs.average(:courseoverall).round(1)
-    return self.data['average_course_overall'].to_f
+    
+    r = self.data['average_course_overall'] || 0.0
+    return r.to_f
   end
 
   def hoursperwkinclclass_string
   	# return self.fcqs.where.not(instr_group: 'TA').pluck(:hoursperwkinclclass).mode
-    return self.data['hoursperwkinclclass']
+    return self.data['hoursperwkinclclass'] || "--"
   end
 
   def average_howmuchlearned
   	# return self.fcqs.where.not(instr_group: 'TA').average(:howmuchlearned).round(1)
-    return self.data['how_much_learned'].to_f
+    
+    r = self.data['how_much_learned'] || 0.0
+    return r.to_f
   end
 
   def total_sections_offered
@@ -174,16 +188,17 @@ class Course < ActiveRecord::Base
     self.data['interest_data'] = @interest_data
     self.data['learned_data'] = @learned_data
     self.data['grade_data'] = @grade_data
-
-    self.data['average_prior_interest'] = self.fcqs.average(:priorinterest).round(1)
-
-    self.data['average_challenge'] = self.fcqs.average(:challenge).round(1)
-
-    self.data['average_course_overall'] = self.fcqs.average(:courseoverall).round(1)
-
-    self.data['hoursperwkinclclass'] = self.fcqs.pluck(:hoursperwkinclclass).mode
-
-    self.data['how_much_learned'] = self.fcqs.average(:howmuchlearned).round(1)
+    r = self.fcqs.average(:priorinterest) || 0.0
+    self.data['average_prior_interest'] = r.round(1)
+    r = self.fcqs.average(:challenge) || 0.0
+    self.data['average_challenge'] = r.round(1)
+    r = self.fcqs.average(:courseoverall) || 0.0
+    self.data['average_course_overall'] = r.round(1)
+    r = self.fcqs.pluck(:hoursperwkinclclass) || [0.0]
+    self.data['hoursperwkinclclass'] = r.mode
+    r = self.fcqs.average(:howmuchlearned) || 0.0
+    self.data['average_how_much_learned'] = r.round(1)
+    cache_instructor_count
     self.save
   end
 

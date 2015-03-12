@@ -11,10 +11,10 @@ self.per_page = 10
     text :instructor_last, :default_boost => 2
   end
 
-  belongs_to :department
+  belongs_to :department, counter_cache: true
   has_many :fcqs
   # has_many :courses
-  has_many :courses, -> { distinct }, through: :fcqs
+  has_many :courses, -> { distinct }, through: :fcqs, counter_cache: true
 
   validates_uniqueness_of :instructor_first, scope: [:instructor_last]
   #instrrespect
@@ -25,6 +25,10 @@ self.per_page = 10
   #classes taught
   #students taught
   #records since
+
+  def cache_course_count
+    self.update_attribute(:courses_count, self.courses.count)
+  end
 
   def name
     return "#{self.instructor_first.titleize}, #{self.instructor_last.titleize}"
@@ -198,7 +202,7 @@ self.per_page = 10
     self.data['availability_data'] = @availability_data
     self.data['instreffective_data'] = @instreffective_data
     self.data['instrrespect_data'] = @instrrespect_data
-    self.data['courses_taught'] = self.fcqs.where('pct_c_minus_or_below IS NOT NULL').count
+    self.data['courses_taught'] = self.fcqs.count
     self.data['average_grade'] = compute_average_grade
     self.data['average_percent_passed'] =compute_average_percentage_passed
     self.data['average_instructor_overall'] = self.fcqs.average(:instructoroverall)
@@ -208,6 +212,7 @@ self.per_page = 10
     self.data['latest_class'] = self.fcqs.maximum(:yearterm)
     self.data['earliest_class'] = self.fcqs.minimum(:yearterm)
     self.data['instructor_group'] = self.fcqs.pluck(:instr_group).mode
+    cache_course_count
     self.save
   end
 

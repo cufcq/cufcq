@@ -20,7 +20,11 @@
             </h1>
             <!-- Show an alert if fcq data is missing -->
           <% if @fcq.bad? %>
-            <div class="alert alert-danger" role="alert"><b>Note: </b> This instructor did not turn in any FCQs for this class. As a result no FCQ data can be provided.</div>
+            <% if @fcq.missing_fcq_data? %>
+              <div class="alert alert-danger" role="alert"><b>Note: </b> Corruption in records: Fcq data can not be provided. Sorry :(</div>
+            <% else %>
+              <div class="alert alert-danger" role="alert"><b>Note: </b> This instructor did not turn in any FCQs for this class. As a result no FCQ data can be provided.</div>
+              <% end %>
             <% end %>
           <!-- Show a warning if grade data is missing -->
           <% if @fcq.missing_grade_data? %>

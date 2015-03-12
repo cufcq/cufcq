@@ -36,6 +36,7 @@ task :import => :environment do
           #inst.fcqs.create!(row.to_hash)
       h = row.to_hash
       # puts h.to_s
+      # does a number of operations to split an instructor name into a first and last name
       puts h["instructor"].to_s
       name = h["instructor"] || ","
       i_name = name.split(',') || ["",""]
@@ -51,6 +52,7 @@ task :import => :environment do
       #given a new fcq object, create the instructor and course
       i_params = {"instructor_first" => f.instructor_first, "instructor_last" => f.instructor_last}
       c_params = {"course_title" => f.course_title, "crse" => f.crse, "subject" => f.subject}
+      # fix for the phil1400 bug
       c_abridged_params = {"crse" => f.crse, "subject" => f.subject}
       d_params = {"name" => f.subject}
       c = Course.where(c_abridged_params).first || Course.create!(c_params)
@@ -420,6 +422,7 @@ task :course_titles => :environment do
         c.save
         puts r["crstitle"]
       end
+
       # gets the first word
       term = termlookup[r["term"].split(' ')[0]]
       year = r["fyc"].to_i
@@ -427,16 +430,13 @@ task :course_titles => :environment do
       # gets the last 3 characters of the course string, identifying the section
       sec = r["course"][-3..-1]
       f_params = {"yearterm" => yearterm, "subject" => r["subject"], "crse" => r["crsnum"], "sec"=>sec}
-      # puts "f params " + f_params.to_s
-      f = Fcq.where(f_params).first
-
-      if (f != nil)
+      puts "f params " + f_params.to_s
+      for f in Fcq.where(f_params)
+        f.update_attribute(:course_title, r["crstitle"])
         f.update_attribute(:hours, r["avghrs"])
         f.update_attribute(:activity_type, r["actvtyp"])
         f.save
         print "#{r['term']} #{r["course"]}"
-      elsif
-        print "skipping Fcq"
       end
       rescue ActiveRecord::RecordInvalid => invalid
           puts invalid.message

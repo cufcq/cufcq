@@ -33,10 +33,12 @@
 
               <thead>
                 <tr>
-                  <th>Title</th>
-                  <th>Course Number</th>
-                  <th>Department</th>
-                  <th>Instructor Count</th>
+                  <th><%= sortable "Title", "course_title" %></th>
+                  <th><%= sortable "Course Number", "crse"%></th>
+                  <th><%= sortable "Department", "subject"%></th>
+                  <th><%= sortable "Instructor Count", "instructors_count"%></th>
+                  <th><%= sortable "Course Overall", "average_course_overall"%></th>
+                  <th><%= sortable "Fcq Count", "fcqs_count"%></th>
                 </tr>
               </thead>
               
@@ -46,7 +48,9 @@
                   <td><%= link_to course.course_title, course %></td>
                   <td><%= course.crse %></td>
                   <td><%= link_to course.department.name, course.department %></td>
-                  <td><%= course.instructors.count()%>
+                  <td><%= course.instructors_count %>
+                  <td><%= course.average_courseoverall%>
+                  <td><%= course.fcqs_count%>
                 </tr>
               </tbody>
               <% end %>

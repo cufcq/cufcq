@@ -1,4 +1,4 @@
-CURRENT_YEAR = 20141
+CURRENT_YEAR = 20151
 ONE_YEAR_AGO = CURRENT_YEAR - 10
 TWO_YEARS_AGO = CURRENT_YEAR - 20
 class Department < ActiveRecord::Base
@@ -9,13 +9,18 @@ class Department < ActiveRecord::Base
 	self.per_page = 10
 	validates :name, presence: true
 	validates_uniqueness_of :name, scope: [:college, :campus]
-
   	searchable do
   		text :name
   		text :long_name
   	end 
 
-  	
+  	def cache_update_counts
+    	self.update_attribute(:instructors_count, self.instructors.count)
+    	self.update_attribute(:courses_count, self.courses.count)
+    	self.update_attribute(:fcqs_count, self.fcqs.count)
+  	end
+
+
 	def get_campus
 		case campus
 		when "BD"
@@ -84,6 +89,7 @@ class Department < ActiveRecord::Base
 		self.data['to_data'] = @to_data
 		self.data['co_data'] = @co_data
 		build_averages
+		cache_update_counts
 		self.save
 	end
 

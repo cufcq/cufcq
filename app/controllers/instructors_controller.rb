@@ -1,6 +1,6 @@
 class InstructorsController < ApplicationController
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
   # GET /instructors
   # GET /instructors.json
 
@@ -18,9 +18,10 @@ class InstructorsController < ApplicationController
   def index
     @search = Instructor.search do
       fulltext params[:search]
-      paginate :page => params[:page] || 1 
+      paginate :page => 1, :per_page => 30000
     end
-    @instructors = @search.results
+    @instructors = Instructor.where(id: @search.results.map(&:id)).page(params[:page]).per_page(10).order(sort_column + " " + sort_direction)
+    # @instructors = @search.results
     # @instructors = Instructor.where(id: @search.results.map(&:id)).page(params[:page]).per_page(10).order('instructor_last ASC')
     # @instructors = Instructor.where(:id => @search.result_ids).page(params[:page]).per_page(10).order('instructor_last ASC')
   end
@@ -94,5 +95,25 @@ class InstructorsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def instructor_params
       params.require(:instructor).permit(:instructor_first, :instructor_last)
+    end
+
+    def sort_column
+      # puts params[:sort]
+      # puts Course.first.data.include?("data -> #{params[:sort]}")
+      if Instructor.column_names.include?(params[:sort]) 
+        return params[:sort]
+      elsif Instructor.first.data.include?(params[:sort])
+        return "data -> '#{params[:sort]}'"
+      end
+      return "instructor_last"
+    end
+    
+    def sort_direction
+      # puts "includes direction = " + (%w[asc desc].include?(params[:direction])).to_s
+      if %w[asc desc].include?(params[:direction])
+        return params[:direction]
+      else
+        return"asc"
+      end
     end
 end
