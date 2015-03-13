@@ -1,65 +1,35 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-  </head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+</head>
 
-  <body>
+<body>
 
-     <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-3 col-md-2 sidebar">
 
-              <ul class="nav nav-sidebar">
-                <li><a>Instructors on Page: <%= @instructors.count()%></a></li>            
-                <li><a>Earliest FCQ: TODO </a></li>
-                <li><a>Latest FCQ: TODO </a></li>
-                <!-- TODO: These insturctor groups need to be translated -->
-              </ul>
 
-      </div>
-
-    <title>Instructors</title>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-          <h2 class="sub-header">Instructors</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-
-              <thead>
-                <tr>
-                  <th><%= sortable "Instructor", "instructor_last" %></th>
-                  <th><%= sortable "Instructor Type", "instructor_group" %></th>
-                  <th>Department</th>
-                  <th>Courses Taught</th>
-                  <th><%= sortable "Earliest Fcq", "earliest_class" %></th>
-                  <th><%= sortable "Latest Fcq", "latest_class" %></th>
-                  <th><%= sortable "Instructor Overall", "average_instructor_overall" %></th>
-                </tr>
-              </thead>
-              
-              <tbody>
-              <% @instructors.each do |instructor| %>
-                <tr>
-                  <td><%= link_to instructor.name, instructor %></td>
-                  <td><%= instructor.instr_group %></td>
-                  <td><%= link_to instructor.department.name, instructor.department %></td>
-                  <td><%= instructor.courses_taught  %></td>
-                  <td><%= Fcq.semterm_from_int(instructor.started_teaching) %></td>
-                  <td><%= Fcq.semterm_from_int(instructor.latest_teaching) %></td>
-                  <td><%= instructor.average_instructoroverall %></td>
-                </tr>
-              </tbody>
-              <% end %>
-
-            </table>
-            <%= will_paginate @instructors %>
-          </div>
-        </div>
-      </div>
+  <div class="col-lg-6">
+    <div>    
+      <%= form_tag instructors_path, :method => 'get' do %>  
+      <%= hidden_field_tag :direction, params[:direction] %>  
+      <%= hidden_field_tag :sort, params[:sort] %>  
+      <p> <div class="input-group"> 
+        <%= text_field_tag :search, params[:search], :class => "form-control" %> 
+        <span class="input-group-btn"> 
+          <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+        </span>  
+      </div> </p>  
+      <% end %>
     </div>
+  </div><!-- /.col-lg-6 -->
+  <h1>Instructors
+  </br>
+  <small><%= @instructors.count()%> results
+  </h1>
+  <!-- <h2 class="sub-header">Instructors</h2> -->
+  <div class="table-responsive">
+    <div id="instructor_index_table"><%= render 'layouts/instructor_index_table'%></div> 
+  </div>

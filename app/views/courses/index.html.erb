@@ -9,57 +9,26 @@
 
   <body>
 
-
-     <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-3 col-md-2 sidebar">
-
-              <ul class="nav nav-sidebar">
-                <li><a>Courses: <%= @courses.count() %> </a></li>
-                <li><a>Highest Overall Class: TODO </a></li>
-                <li><a>Latest FCQ: TODO </a></li>
-                <li><a>Earliest FCQ: TODO </a></li>
-                <!-- TODO: These insturctor groups need to be translated -->
-              </ul>
-      </div>
-
-    <title>Courses</title>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h2 class="sub-header">Courses</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-
-              <thead>
-                <tr>
-                  <th><%= sortable "Title", "course_title" %></th>
-                  <th><%= sortable "Course Number", "crse"%></th>
-                  <th><%= sortable "Department", "subject"%></th>
-                  <th><%= sortable "Instructor Count", "instructors_count"%></th>
-                  <th><%= sortable "Course Overall", "average_course_overall"%></th>
-                  <th><%= sortable "Fcq Count", "fcqs_count"%></th>
-                </tr>
-              </thead>
-              
-              <tbody>
-              <% @courses.each do |course| %>
-                <tr>
-                  <td><%= link_to course.course_title, course %></td>
-                  <td><%= course.crse %></td>
-                  <td><%= link_to course.department.name, course.department %></td>
-                  <td><%= course.instructors_count %>
-                  <td><%= course.average_courseoverall%>
-                  <td><%= course.fcqs_count%>
-                </tr>
-              </tbody>
-              <% end %>
-            </table>
-            <%= will_paginate @courses %>
-          </div>
-        </div>
-      </div>
+  <div class="col-lg-6">
+    <div>    
+      <%= form_tag courses_path, :method => 'get' do %>  
+      <%= hidden_field_tag :direction, params[:direction] %>  
+      <%= hidden_field_tag :sort, params[:sort] %>  
+      <p> <div class="input-group"> 
+        <%= text_field_tag :search, params[:search], :class => "form-control" %> 
+        <span class="input-group-btn"> 
+          <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+        </span>  
+      </div> </p>  
+      <% end %>
     </div>
-
-
+  </div><!-- /.col-lg-6 -->
+  <h1>Courses
+  </br>
+  <small><%= @courses.count()%> results
+  </h1>
+  <!-- <h2 class="sub-header">courses</h2> -->
+  <div class="table-responsive">
+    <div id="course_index_table"><%= render 'layouts/course_index_table'%></div> 
+  </div>
 

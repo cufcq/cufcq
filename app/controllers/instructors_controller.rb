@@ -20,10 +20,7 @@ class InstructorsController < ApplicationController
       fulltext params[:search]
       paginate :page => 1, :per_page => 30000
     end
-    @instructors = Instructor.where(id: @search.results.map(&:id)).page(params[:page]).per_page(10).order(sort_column + " " + sort_direction)
-    # @instructors = @search.results
-    # @instructors = Instructor.where(id: @search.results.map(&:id)).page(params[:page]).per_page(10).order('instructor_last ASC')
-    # @instructors = Instructor.where(:id => @search.result_ids).page(params[:page]).per_page(10).order('instructor_last ASC')
+    @instructors = Instructor.where(id: @search.results.map(&:id)).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
   end
 
   # GET /instructors/1

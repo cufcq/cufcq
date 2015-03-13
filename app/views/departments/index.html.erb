@@ -6,57 +6,28 @@
     <meta name="description" content="">
     <meta name="author" content="">
   </head>
-
   <body>
 
-     <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-3 col-md-2 sidebar">
-    
-              <ul class="nav nav-sidebar">
-                <li><a>Departments: <%= @departments.count()%></a></li>          
-                <li><a>Biggest Department: TODO </a></li>  
-                <li><a>Greatest Course Average: TODO </a></li>                      
-                <li><a>Greatest Instructor Overall Average: TODO </a></li>
-                <li><a>Earliest FCQ: TODO </a></li>
-                <li><a>Latest FCQ: TODO </a></li>
-
-                <!-- TODO: These insturctor groups need to be translated -->
-              </ul>
-      </div>
-
-    <title>Departments</title>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-          <h2 class="sub-header">Departments</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-
-              <thead>
-                <tr>
-                  <th><%= sortable "Department", "name"%></th>
-                  <th></th>
-                  <th><%= sortable "College", "College"%></th>
-                  <th><%= sortable "Campus", "Campus"%></th>
-                </tr>
-              </thead>
-              
-              <tbody>
-                <% @departments.each do |department| %>
-                <tr>
-                  <td><%= link_to department.name, department %></td>
-                  <td><%= department.long_name %></td>
-                  <td><%= department.college %></td>
-                  <td><%= department.campus %></td>
-                </tr>
-              </tbody>
-              <% end %>
-
-            </table>
-            <%= will_paginate @departments %>
-          </div>
-        </div>
-      </div>
+  <div class="col-lg-6">
+    <div>    
+      <%= form_tag departments_path, :method => 'get' do %>  
+      <%= hidden_field_tag :direction, params[:direction] %>  
+      <%= hidden_field_tag :sort, params[:sort] %>  
+      <p> <div class="input-group"> 
+        <%= text_field_tag :search, params[:search], :class => "form-control" %> 
+        <span class="input-group-btn"> 
+          <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+        </span>  
+      </div> </p>  
+      <% end %>
     </div>
+  </div><!-- /.col-lg-6 -->
+  <h1>Departments
+  </br>
+  <small><%= @departments.count()%> results
+  </h1>
+  <div class="table-responsive">
+    <div id="department_index_table">
+      <%= render 'layouts/department_index_table'%>
+    </div> 
+  </div>

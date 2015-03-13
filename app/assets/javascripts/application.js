@@ -16,3 +16,19 @@
 //= require jquery_ujs
 //= require bootstrap.min
 
+// 
+$(function () {  
+  $('#instructors th a').live('click', function () {  
+    $.getScript(this.href);  
+    return false;  
+  });  
+});
+
+$(function () {  
+  $('#instructors th a, #instructors .pagination a').live('click',  
+    function () {  
+      $.getScript(this.href);  
+      return false;  
+    }  
+  );  
+}); 
