@@ -451,28 +451,3 @@ task :course_titles => :environment do
   end
   puts "finish"
 end
-
-
-
-task :recitation_correction => :environment do
-  Fcq.find_each do |x|
-    begin
-      if(!x.recitation?)
-        next
-      end
-      params = {"crse" => x.crse, "subject" => x.subject}
-      c = Course.where(params).first
-      if c.nil?
-        next
-      end
-      pre = x.course_title
-      Fcq.update(x.id, :corrected_course_title => c.course_title)
-      #Course.update(c.id, :corrected_course_title => x.corrected_course_title)
-      puts pre.to_s + " -> " + x.corrected_course_title.to_s
-    rescue Exception => e
-        puts "rescued -" + e.message + " - " + x.course_title
-    end     
-  end
-
-#eof
-end

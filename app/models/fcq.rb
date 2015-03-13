@@ -216,7 +216,7 @@ class Fcq < ActiveRecord::Base
     elsif instr_group == "TA"
       return true
     elsif (activity_type != nil)
-      if (activity_type[0..2] = "REC")
+      if (activity_type[0..2] == "REC")
         return true
       else
         return false
@@ -228,7 +228,7 @@ class Fcq < ActiveRecord::Base
 
   def activity_type_string
     if(activity_type != nil)
-      return self.activity_type
+      return activity_type
     else
       return "--"
     end
