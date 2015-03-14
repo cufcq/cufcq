@@ -8,7 +8,10 @@ ready = function() {
     var chart = new Highcharts.Chart({
       title: {text: null
           },
-      chart: { renderTo: 'course_graph' },
+      chart: { 
+        alignTicks: true,
+        renderTo: 'course_graph' 
+      },
         legend: {
             enabled: true
         },
@@ -18,10 +21,20 @@ ready = function() {
             categories: []
         },
         yAxis: {
-          max: 6,
-          min: 1,
+          tickInterval: 1.0,
+          max: 6.0,
+          cieling: 6.0,
+          min: 1.0,
+          floor: 1.0,
           title: {
             text: null
+            },
+            labels: {
+                formatter: function () {
+                  arr = ['0.0','1.0','2.0','3.0','4.0','5.0', '6.0'];
+                  selector = (this.value);
+                    return arr[selector] + " avg";
+                }
             }
         },
         colors: ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9', 
@@ -138,3 +151,4 @@ $(document).ready(ready);
 $(document).on('page:load', ready);
 </script>
 <div id="course_graph" style="height: 300px"></div>
+<!-- <div id="course_graph" style="height: 200px; float: right; top: -20px; z-index:-1" ></div> -->

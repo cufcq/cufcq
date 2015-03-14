@@ -188,15 +188,54 @@ form {
 }
 
 
-.pretty th .current {  
+.th .current {  
   padding-right: 12px;  
   background-repeat: no-repeat;  
   background-position: right center;  
 }  
-.pretty th .asc {   
+.th .asc {   
   background-image: url(/images/up_arrow.gif);   
 }  
   
-.pretty th .desc {   
+.th .desc {   
   background-image: url(/images/down_arrow.gif);   
 } 
+
+.square {
+    float:left;
+    position: relative;
+    width: 20%;
+    padding-bottom : 20%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+    background-color:#1E1E1E;
+    overflow:hidden;
+}
+
+.content {
+    color: white;
+    position:absolute;
+    height:90%; /* = 100% - 2*5% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 5%;
+    vertical-align:middle;
+    text-align: center;
+    display: table-cell;
+    list-style-position:inside;
+    
+}
+
+.challenge {
+  color: #7cb5ec; 
+}
+
+.courseoverall {
+  color: #434348;
+}
+
+.priorinterest {
+  color: #90ed7d;
+}
+
+.amountlearned {
+  color: #f7a35c;
+}

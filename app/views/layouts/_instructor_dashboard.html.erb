@@ -13,32 +13,15 @@
     <title><%= @instructor.name %></title>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a>Instructor: <%= @instructor.name %><span class="sr-only">(current)</span></a></li> 
-            <li><a>Department: <%= @instructor.department.name %></a></li>
-            <li><a title="TTT = Tenured or tenure-track instructor.
-OTH = Other primary instructor, such as adjunct, visiting, or honorarium.
-TA = Teaching_Assistant.">
-		Instructor Group: <%= @instructor.instr_group %></a></li>
-	  </ul>
+        <div class="page-header">
 
-
-          <ul class="nav nav-sidebar">
-            <li><a>Earliest FCQ: <%= @instructor.started_teaching %></a></li>
-            <li><a>Latest FCQ: <%= @instructor.latest_teaching %></a></li>  
-          </ul>
-          
-	  <ul class="nav nav-sidebar"> 
-	    <li><a>Courses Taught: <%= @instructor.courses_taught %></a></li>
-            <li><a>Students Taught: <%= @instructor.total_requested %></a></li>
-            <li><a title="This is the average overall score for this instructor based on every course they have ever taught on a scale of 1 to 6.">Overall: <%= @instructor.average_instructoroverall %></a></li>
-            <li><a title="This is the average effectivness score for this instructor based on every course they have ever taught on a scale of 1 to 6.">Effectiveness: <%= @instructor.average_instreffective %></a></li>
-            <li><a title="This is the average availability score for this instructor based on every course they have ever taught on a scale of 1 to 6.">Availability: <%= @instructor.average_availability %></a></li> 
-            <li><a title="This is the average pass rate for this instructor based on every course they have ever taught.">Pass Rate: <%=@instructor.pass_rate_string %></a></li>
-          </ul>
+          <h1><%= @instructor.name %>
+          <br><small>Department: <%= link_to @instructor.department.long_name, @instructor.department %></small>
+          <br><small><abbr title="Number of FCQs associated with this course since Fall 2008. Includes recitations." >Sections Offered</abbr>: <b><%= @instructor.fcqs.count %></b></small>
+          <br><small><abbr title="Number of instructors associated with this class since Fall 2008. Includes Teaching Assistants." >Courses Taught</abbr>: <b><%= @instructor.courses.count %></b></small>
+          <br><small><abbr title="Number of students taught by this instructor since Fall 2008." >Students Taught</abbr>:  <b>TODO</b></small>
+          </h1>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header"><%= @instructor.name %></h1>
 
           <div id="container" style="min-width: 350px; height: 350px; margin: 0 auto">
@@ -50,11 +33,9 @@ TA = Teaching_Assistant.">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Department</th>
                   <th>Course</th>  
  		              <th>Level</th>
-                  <th>Percent As</th>
-            		  <th>Percent Bs </th>
+            		  <th>Instructor Overall</th>
             		  <th>Average GPA</th>
             		  <th>Percent Passed</th> 
                 </tr>
@@ -63,19 +44,16 @@ TA = Teaching_Assistant.">
               <tbody>
                 <% @instructor.fcqs.each do |fcq| %>
                 <tr>
-                  <td><%= link_to fcq.department_name_string, fcq.department %></td>
                   <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
  		              <td><%= fcq.rank_string()%></td>                 
-                  <td><%= fcq.pct_a_string%></td> 
-                  <td><%= fcq.pct_b_string%></td>
-		              <td><%= fcq.avg_grd_string%></td>
-                  <td><%= fcq.percentage_passed_string%></td> 
+                  <td><%= fcq.instructor_overall_string%></td>
+		              <td><%= fcq.avg_grd_string %></td>
+                  <td><%= fcq.percentage_passed_string %></td> 
                 </tr>
                 <% end %>
               </tbody>
             </table>
           </div>
         </div>
-      </div>
     </div>
   

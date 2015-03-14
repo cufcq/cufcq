@@ -152,7 +152,16 @@ class Fcq < ActiveRecord::Base
   def course_overall_string 
     if courseoverall != nil
       val = courseoverall.round(1)
-      return "#{val}"
+      return "#{val} / 6.0"
+    else 
+      return "--"
+    end
+  end
+
+  def instructor_overall_string 
+    if instructoroverall != nil
+      val = instructoroverall.round(1)
+      return "#{val} / 6.0"
     else 
       return "--"
     end
@@ -163,7 +172,52 @@ class Fcq < ActiveRecord::Base
   def department_name_string
     if department != nil 
       val = department.name
-      return "#{val}"
+      return "#{val} / 6.0"
+    else 
+      return "--"
+    end
+  end
+
+  def challenge_string
+    if challenge != nil 
+      val = challenge.round(1)
+      return "#{val} / 6.0"
+    else 
+      return "--"
+    end
+  end
+
+  def prior_interest_string
+    if priorinterest != nil 
+      val = priorinterest.round(1)
+      return "#{val} / 6.0"
+    else 
+      return "--"
+    end
+  end
+
+  def howmuchlearned_string
+    if howmuchlearned != nil 
+      val = howmuchlearned.round(1)
+      return "#{val} / 6.0"
+    else 
+      return "--"
+    end
+  end
+
+  def howmuchlearned_string
+    if howmuchlearned != nil 
+      val = howmuchlearned.round(1)
+      return "#{val} / 6.0"
+    else 
+      return "--"
+    end
+  end
+
+  def avg_grd_string
+    if avg_grd != nil 
+      val = avg_grd.round(2)
+      return "#{val} / 4.0"
     else 
       return "--"
     end
@@ -195,7 +249,7 @@ class Fcq < ActiveRecord::Base
   end
 
   def title
-    if recitation?
+    if corrected_course_title != nil
       return corrected_course_title
     else
       return capitalized_title

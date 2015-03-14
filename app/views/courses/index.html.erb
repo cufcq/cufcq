@@ -23,12 +23,13 @@
       <% end %>
     </div>
   </div><!-- /.col-lg-6 -->
+  
   <h1>Courses
   </br>
   <small><%= @courses.count()%> results
   </h1>
   <!-- <h2 class="sub-header">courses</h2> -->
   <div class="table-responsive">
-    <div id="course_index_table"><%= render 'layouts/course_index_table'%></div> 
+    <div id="course_index_table"><%= render 'courses/course_index_table'%></div> 
   </div>
 

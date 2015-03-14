@@ -8,9 +8,8 @@
   </head>
 
   <body>
-
+  
     <title><%= @course.capitalized_title%></title>
-
     <div class="container-fluid">
       <div class="row">
         <div class="page-header">
@@ -80,12 +79,12 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Instructor</th>
-                  <th>Course Link</th>
-                  <th>Average Work Load </th>
-                  <th>Course Overall</th>
-                  <th>Average GPA</th>
-                  <th>Pass Rate</th> 
+                  <th><%= sortable "Instructor", "instructor_last" %></th>
+                  <th>Fcq Link</th>
+                  <th>Mode Work Load </th>
+                  <th><%= sortable "Course Overall", "courseoverall" %></th>
+                  <th><%= sortable "Average GPA", "avg_grd" %></th>
+                  <th><%= sortable "Pass Rate", "pct_c_minus_or_below" %></th> 
                   <th>activity type</th> 
                 </tr>
               </thead>
@@ -94,7 +93,7 @@
                 <tr>
                     <td><%= fcq.instructor.name%></td>
                     <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
-                    <td><%= fcq.hoursperwkinclclass %> hours / week</td>
+                    <td><%= fcq.hoursperwkinclclass %>  hours / week</td>
                     <td><%= fcq.course_overall_string%></td>
                     <td><%= fcq.avg_grd_string%></td>
                     <td><%= fcq.percentage_passed_string %></td>
