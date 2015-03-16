@@ -92,7 +92,7 @@
               <tbody>
                 <% @course.fcqs.each do |fcq| %>
                 <tr>
-                    <td><%= fcq.instructor.name%></td>
+                    <td><%= link_to fcq.instructor.name, instructor_path(fcq.instructor)%></td>
                     <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
                     <td><%= fcq.hoursperwkinclclass %> hours / week</td>
                     <td><%= fcq.course_overall_string%></td>
