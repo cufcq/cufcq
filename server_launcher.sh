@@ -1,7 +1,10 @@
 #!/bin/bash
 
-echo "Starting/Reindexing Solr"
-echo "Solr successful! Starting Rails" 
+echo "starting passenger"
 
-rails server -b 0.0.0.0 -p 80
+passenger start -a 0.0.0.0 -p 80
+#TODO in future, setup production
+#passenger start -a 0.0.0.0 -p 80 -d -e production
+
+
 echo "rails server closed!"
