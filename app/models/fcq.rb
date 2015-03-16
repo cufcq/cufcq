@@ -267,7 +267,7 @@ class Fcq < ActiveRecord::Base
   def recitation?
     if (course_title == "REC" || course_title == "RECITATION")
       return true
-    elsif instr_group == "TA"
+    elsif (activity_type[0..2] == "LEC" && instr_group == "TA")
       return true
     elsif (activity_type != nil)
       if (activity_type[0..2] == "REC")

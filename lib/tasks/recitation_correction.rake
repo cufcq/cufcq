@@ -17,6 +17,7 @@ task :recitation_correction => :environment do
     end
 end
 
+# gets the set of all known activity types
 task :activity_type_query => :environment do
     At = []
   Fcq.find_each(:batch_size => 200) do |x|

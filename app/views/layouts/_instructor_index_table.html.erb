@@ -19,7 +19,7 @@
       <td><%= instructor.courses_taught  %></td>
       <td><%= Fcq.semterm_from_int(instructor.started_teaching) %></td>
       <td><%= Fcq.semterm_from_int(instructor.latest_teaching) %></td>
-      <td><%= instructor.average_instructoroverall %></td>
+      <td><%= instructor.average_instructoroverall %> / 6.0</td>
     </tr>
   </tbody>
   <% end %>
