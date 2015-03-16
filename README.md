@@ -1,18 +1,13 @@
-#BETA CUFCQ Project
-######Goal: THIS IS A BETA FORK OF CUFCQ! See https://github.com/untra/cufcq for actual project!
-#####Project by: Samuel Volin, Cristobal Salazar, Alex Tsankov
+#Offficial CUFCQ Project
+#####Project by: Samuel Volin, Alex Tsankov
 
 ####FCQ: A survery maintained by CU and collected at the end of every course with the intent of rating instructor proficiency.
-
-###Mockups: 
-
-We put mockups of what pages should look like in test/mockups
 
 ###To Run:
 
 - Make sure all of the gems are updated (bundle update)
 - Initialize the DB with total_reload.sh
-- Run with ```rails -s```
+- Run launcher.sh
 - Go to /instructors to see if the site was populated properly. 
 
 ####Imports: 
@@ -24,7 +19,6 @@ All files that end in .csv in csv_make/output are imported using the import scri
 For testing purposes, we only have FCQs of the Math department by default in the output folder. 
 
 We have 2 different import scripts that should be run when you want to make changes to the DB. Use total_reload.sh on the first run and fast_reload for smaller changes. 
-
 
 
 ####Courses: 
