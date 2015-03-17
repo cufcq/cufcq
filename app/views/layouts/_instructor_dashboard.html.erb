@@ -19,7 +19,6 @@
           <br><small>Department: <%= link_to @instructor.department.long_name, @instructor.department %></small>
           <br><small><abbr title="Number of FCQs associated with this course since Fall 2008. Includes recitations." >Sections Offered</abbr>: <b><%= @instructor.fcqs.count %></b></small>
           <br><small><abbr title="Number of instructors associated with this class since Fall 2008. Includes Teaching Assistants." >Courses Taught</abbr>: <b><%= @instructor.courses.count %></b></small>
-          <br><small><abbr title="Number of students taught by this instructor since Fall 2008." >Students Taught</abbr>:  <b>TODO</b></small>
           </h1>
         </div>
           <h1 class="page-header"><%= @instructor.name %></h1>
