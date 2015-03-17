@@ -54,9 +54,8 @@
 
       <div class="starter-template">
         <h1>CU FCQ</h1>
-        <p class="lead">This is a website designed to help you find everything about CU teachers and courses, and their past track records.</p>
+        <p class="lead">This is a website designed to help you understand FCQs and past grade data for instructors, courses, and departments. Select a search option, type in a paramter and explore!</p>
 
-        
           <%= form_tag('/', :method => "get", id: "search-form") do %>
           <%= select_tag(:option,options_for_select([['Instructors', '/instructors'], ['Courses', '/courses'],['Departments','/departments']])) %>
           <%= text_field_tag :search, params[:search], :class => 'search' %>

@@ -1,4 +1,4 @@
-#Offficial CUFCQ Project
+#Official CUFCQ Project
 #####Project by: Samuel Volin, Alex Tsankov
 
 ####FCQ: A survery maintained by CU and collected at the end of every course with the intent of rating instructor proficiency.
@@ -7,7 +7,7 @@
 
 - Make sure all of the gems are updated (bundle update)
 - Initialize the DB with total_reload.sh
-- Run launcher.sh
+- Run the correct launcher (local_launcher.sh if you just want to run it on a local machine)
 - Go to /instructors to see if the site was populated properly. 
 
 ####Imports: 
