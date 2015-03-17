@@ -8,11 +8,12 @@ Cufcq::Application.routes.draw do
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',    to: 'static_pages#about',    via: 'get'
 
-  resources :courses
-  resources :departments
-  resources :instructors
-  resources :instructors_test
-  resources :fcqs
+
+  resources :courses, :except => [:new, :edit, :delete]
+  resources :departments, :except => [:new, :edit, :delete]
+  resources :instructors, :except => [:new, :edit, :delete]
+  # resources :instructors_test
+  resources :fcqs, :except => [:new, :edit, :delete]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

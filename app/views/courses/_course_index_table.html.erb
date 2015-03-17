@@ -16,9 +16,9 @@
       <td><%= link_to course.course_title, course %></td>
       <td><%= course.crse %></td>
       <td><%= link_to course.department.name, course.department %></td>
-      <td><%= course.instructors_count %>
-      <td><%= course.average_courseoverall%>
-      <td><%= course.fcqs_count%>
+      <td><%= course.instructors_count %></td>
+      <td><%= course.average_courseoverall%> / 6.0</td>
+      <td><%= course.fcqs_count%></td>
     </tr>
   </tbody>
   <% end %>
