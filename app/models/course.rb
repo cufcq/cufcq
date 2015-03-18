@@ -60,7 +60,7 @@ class Course < ActiveRecord::Base
   def average_howmuchlearned
   	# return self.fcqs.where.not(instr_group: 'TA').average(:howmuchlearned).round(1)
     
-    r = self.data['how_much_learned'] || 0.0
+    r = self.data['average_how_much_learned'] || 0.0
     return r.to_f
   end
 

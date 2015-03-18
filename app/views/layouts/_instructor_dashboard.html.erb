@@ -26,6 +26,49 @@
           <div id="container" style="min-width: 350px; height: 350px; margin: 0 auto">
           <%= render 'layouts/instructor_graph' %>
           </div>
+          <table class="table table-striped">
+            <caption class="text-left"><b>Course Data</b>
+            This table contains the averaged results of the fcq survey questions pertaining to the course.</caption>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Instructor</td>
+                  <td><%= @instructor.name %></td>
+                </tr>
+                <tr>
+                  <td>Department</td>
+                  <td><%= @instructor.department_string %></td>
+                </tr>
+                <tr>
+                  <td>Intructor Type</td>
+                  <td><abbr title="<%= @instructor.instr_group_flavor_text %>"> <%= @instructor.instr_group %> </abbr></td>
+                </tr>
+                <tr>
+                  <td><abbr title="Students rate the instructors overall performance. All ratings are on a scale of 1 to 6. Average of all instructor associated FCQs." > Instructor Overall </abbr></td>
+                  <td><%= @instructor.average_instructoroverall %> / 6.0</td>
+                </tr>
+                <tr>
+                  <td><abbr title="Students rate the instructor's effectiveness in encouraging interest in the subject. All ratings are on a scale of 1 to 6. Average of all instructor associated FCQs." > Instructor Effectivenesss </abbr></td>
+                  <td><%= @instructor.average_instreffective %> / 6.0</td>
+                </tr>
+                <tr>
+                  <td><abbr title="Students rate the instructor's availability for course-related assistance such as email, office hours individual appointments, phone contact, etc. All ratings are on a scale of 1 to 6. Average of all instructor associated FCQs." > Instructor Availability </abbr></td>
+                  <td><%= @instructor.average_availability %> / 6.0</td>
+                </tr>
+                <tr>
+                  <td><abbr title="Students rate this instructor's instrrespect for and professional treatment of all students regardless of race, color, national origin, sex, age, disability, creed, religion, sexual orientation, or veteran status. All ratings are on a scale of 1 to 6. Average of all instructor associated FCQs." > Instructor Respect </abbr></td>
+                  <td><%= @instructor.average_instrrespect %> / 6.0</td>
+                </tr>
+
+                
+
+                </tbody>
+            </table>
 
           <h2 class="sub-header">Courses Taught</h2>
           <div class="table-responsive">

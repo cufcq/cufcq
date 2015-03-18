@@ -4,7 +4,7 @@ Cufcq::Application.routes.draw do
 
   #Users don't need to access all of the fcqs. This adds to much stress on the server. 
   match '/fcqs', to: 'static_pages#help',    via: 'get'
-
+  match '/feedback', to: 'static_pages#feedback',    via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',    to: 'static_pages#about',    via: 'get'
 

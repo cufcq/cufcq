@@ -13,7 +13,7 @@
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
+      <%= render 'layouts/footer' unless @skip_footer = true%>
 <!--       This is where the debug part is
       <%= debug(params) if Rails.env.development? %> -->
     </div>
