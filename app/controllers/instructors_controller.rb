@@ -16,11 +16,13 @@ class InstructorsController < ApplicationController
   # end
 
   def index
+    page = params[:page] || 1
     @search = Instructor.search do
       fulltext params[:search]
-      paginate :page => 1, :per_page => 30000
+      # order_by(sort_column , sort_direction)
+      paginate :page => page, :per_page => 10
     end
-    @instructors = Instructor.where(id: @search.results.map(&:id)).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
+    @instructors = @search.results
   end
 
   # GET /instructors/1

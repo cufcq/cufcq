@@ -7,8 +7,11 @@ class Instructor < ActiveRecord::Base
 self.per_page = 10
 
   searchable do 
+    string :instructor_first
+    string :instructor_last
     text :instructor_first
     text :instructor_last, :default_boost => 2
+    
   end
 
   belongs_to :department, counter_cache: true

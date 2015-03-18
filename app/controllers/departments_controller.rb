@@ -9,12 +9,21 @@ class DepartmentsController < ApplicationController
 
 
 
+  # def index
+  #   @search = Department.search do
+  #     fulltext params[:search]
+  #     paginate :page => 1, :per_page => 1000
+  #   end
+  #   @departments = Department.where(id: @search.results.map(&:id)).page(params[:page]).per_page(10).order(sort_column + " " + sort_direction)
+  # end
   def index
+    page = params[:page] || 1
     @search = Department.search do
       fulltext params[:search]
-      paginate :page => 1, :per_page => 1000
+      # order_by(sort_column , sort_direction)
+      paginate :page => page, :per_page => 10
     end
-    @departments = Department.where(id: @search.results.map(&:id)).page(params[:page]).per_page(10).order(sort_column + " " + sort_direction)
+    @departments = @search.results
   end
 
   # def index

@@ -24,10 +24,10 @@
   </div><!-- /.col-lg-6 -->
   <h1>Departments
   </br>
-  <small><%= @departments.count()%> results
+  <small><%= @departments.total_count()%> results
   </h1>
   <div class="table-responsive">
     <div id="department_index_table">
-      <%= render 'layouts/department_index_table'%>
+      <%= render 'departments/department_index_table'%>
     </div> 
   </div>

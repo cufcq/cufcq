@@ -27,9 +27,9 @@
   </div><!-- /.col-lg-6 -->
   <h1>Instructors
   </br>
-  <small><%= @instructors.count()%> results
+  <small><%= @instructors.total_count()%> results
   </h1>
   <!-- <h2 class="sub-header">Instructors</h2> -->
   <div class="table-responsive">
-    <div id="instructor_index_table"><%= render 'layouts/instructor_index_table'%></div> 
+    <div id="instructor_index_table"><%= render 'instructors/instructor_index_table'%></div> 
   </div>

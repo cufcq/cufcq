@@ -1,0 +1,27 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Instructor</th>
+      <th>Group</th>
+      <th>Department</th>
+      <th>Courses Taught</th>
+      <th>Earliest Fcq</th>
+      <th>Latest Fcq</th>
+    <th>Instructor Overall</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @instructors.each do |instructor| %>
+    <tr>
+      <td><%= link_to instructor.name, instructor %></td>
+      <td><%= instructor.instr_group %></td>
+      <td><%= link_to instructor.department.name, instructor.department %></td>
+      <td><%= instructor.courses_taught  %></td>
+      <td><%= Fcq.semterm_from_int(instructor.started_teaching) %></td>
+      <td><%= Fcq.semterm_from_int(instructor.latest_teaching) %></td>
+      <td><%= instructor.average_instructoroverall %> / 6.0</td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<%= will_paginate @instructors %>

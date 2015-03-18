@@ -1,12 +1,12 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Course Number</th>
-      <th>Department</th>
-      <th>Instructor Count</th>
-      <th>Course Overall</th>
-      <th>Fcq Count</th>
+      <th><%= sortable "Title", "course_title" %></th>
+      <th><%= sortable "Course Number", "crse"%></th>
+      <th><%= sortable "Department", "subject"%></th>
+      <th><%= sortable "Instructor Count", "instructors_count"%></th>
+      <th><%= sortable "Course Overall", "average_course_overall"%></th>
+      <th><%= sortable "Fcq Count", "fcqs_count"%></th>
     </tr>
   </thead>
   
