@@ -15,10 +15,20 @@ ready = function() {
             categories: []
         },
         yAxis: {
-          max: 6,
-          min: 1,
+          tickInterval: 1.0,
+          max: 6.0,
+          cieling: 6.0,
+          min: 1.0,
+          floor: 1.0,
           title: {
             text: null
+            },
+            labels: {
+                formatter: function () {
+                  arr = ['0.0','1.0','2.0','3.0','4.0','5.0', '6.0'];
+                  selector = (this.value);
+                    return arr[selector] + " avg";
+                }
             }
         },
       tooltip: {
@@ -31,7 +41,7 @@ ready = function() {
           var y = Math.floor(this.x/10);
         //from the semester indicator n, gets the semester as a string
           var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error ";
-          var date = s+y+" :<br/>";
+          var date = "<b>"+s+y+"</b> :<br/>";
           //var n = this.x%10
           //var y = Math.floor(this.x/10);
           //var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error "

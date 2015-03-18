@@ -67,7 +67,7 @@ self.per_page = 10
   end
 
   def instructor_type_string
-    is_TA ? "teaching assistant" : "instructor"
+    is_TA ? "Teaching Assistant" : "Instructor"
   end
 
   def overall_from_course(c)
