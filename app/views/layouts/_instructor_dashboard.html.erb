@@ -21,14 +21,14 @@
           <br><small><abbr title="Number of instructors associated with this class since Fall 2008. Includes Teaching Assistants." >Courses Taught</abbr>: <b><%= @instructor.courses.count %></b></small>
           </h1>
         </div>
-          <h1 class="page-header"><%= @instructor.name %></h1>
+          <h1 class="page-header">Instructor Data</h1>
 
           <div id="container" style="min-width: 350px; height: 350px; margin: 0 auto">
           <%= render 'layouts/instructor_graph' %>
           </div>
           <table class="table table-striped">
-            <caption class="text-left"><b>Course Data</b>
-            This table contains the averaged results of the fcq survey questions pertaining to the course.</caption>
+            <caption class="text-left"><b>Instructor Data</b>
+            This table contains the averaged results of the fcq survey questions pertaining to this instructor.</caption>
               <thead>
                 <tr>
                   <th></th>
@@ -39,10 +39,6 @@
                 <tr>
                   <td>Instructor</td>
                   <td><%= @instructor.name %></td>
-                </tr>
-                <tr>
-                  <td>Department</td>
-                  <td><%= @instructor.department_string %></td>
                 </tr>
                 <tr>
                   <td>Intructor Type</td>
