@@ -1,69 +1,71 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-  </head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+</head>
 
-  <body>
-    
-    <title><%= @department.name%></title>
-    <div class="container-fluid">
-      <div class="row">
+<body>
 
-        <div class="alert alert-warning" role="alert">
-          <a href="#" class="alert-link"><b>NOTE: </b> Department Pages are currently under construction. Errors abound!</a>
+  <title><%= @department.name%></title>
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="alert alert-warning" role="alert">
+        <a href="#" class="alert-link"><b>NOTE: </b> Department Pages are currently under construction. Errors abound!</a>
       </div>
-<%= render 'layouts/department_enrollment' %>
-          <h1 class="page-header">
-          
-          <%= @department.name %> - <%= @department.long_name %><br>
-          
-          <small><%= @department.get_college %></small><br>
-          <small><%= @department.get_campus %></small><br>
-          <br><small><abbr title="Number of FCQs associated with this department since Fall 2008. Includes recitations." >Total Fcqs</abbr>: <b><%= @department.fcqs.count %></b></small>
-          <br><small><abbr title="Number of instructors associated with this department since Fall 2008. Includes Teaching Assistants." >Total Instructors</abbr>: <b><%= @department.instructors.count %></b></small>
-          <br><small><abbr title="Number of courses associated with this department since Fall 2008. Includes Teaching Assistants." >Total Courses</abbr>: <b><%= @department.courses.count %></b></small>
-          </h1>
+      <%= render 'layouts/department_enrollment' %>
+      <h1 class="page-header">
 
+        <%= @department.name %> - <%= @department.long_name %><br>
 
-          <set1>
-          This graph presents the overall scores for instructors, teaching assistants and courses.<br>
-          <ul>
+        <small><%= @department.get_college %></small><br>
+        <small><%= @department.get_campus %></small><br>
+        <br><small><abbr title="Number of FCQs associated with this department since Fall 2008. Includes recitations." >Total Fcqs</abbr>: <b><%= @department.fcqs.count %></b></small>
+        <br><small><abbr title="Number of instructors associated with this department since Fall 2008. Includes Teaching Assistants." >Total Instructors</abbr>: <b><%= @department.instructors.count %></b></small>
+        <br><small><abbr title="Number of courses associated with this department since Fall 2008. Includes Recitations." >Total Courses</abbr>: <b><%= @department.courses.count %></b></small>
+      </h1>
+      <h1 class="page-header">Department Data</h1>
+      <set1>
+        This graph presents the overall scores for instructors, teaching assistants and courses.<br>
+        <ul>
           <li>Instructor Overall is the average instructor overall score of every FCQ turned in for this department <i> not taught</i> by a teaching assistant. </li> 
           <li>Teaching Assistant Overall is the average instructor overall score of every FCQ turned in for this department <i> specifically taught</i> by a teaching assistant. </li>
           <li>Course Overall is the average course overall score of every FCQ turned in for this department. </li>
-          </ul>
-          </set1>
+        </ul>
+      </set1>
+      <%= render 'layouts/department_graph' %>
 
-          <h2 class="sub-header">Past FCQs</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Instructors</th>
-                  <th>Group</th>
-                  <th>Last Class</th>
-                  <th>Average Overall</th>                  
-                  <th>Average Effectivenss</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @department.instructors.each do |instructor| %>
-                <tr>
-                  <td><%= link_to instructor.name, instructor %></td>
-                  <td><%= instructor.instr_group %></td>
-                  <td><%= instructor.latest_teaching %></td>
-                  <td><%= instructor.average_instructoroverall || "n/a" %> </td>
-                  <td><%= instructor.average_instreffective || "n/a" %> </td>
-                </tr>
-                <% end %>
-                </tbody>
-            </table>
-          </div>
+      
+
+      <h2 class="sub-header">Department Instructors</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Instructors</th>
+              <th>Group</th>
+              <th>Last Class</th>
+              <th>Average Overall</th>                  
+              <th>Average Effectivenss</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @department.instructors.each do |instructor| %>
+            <tr>
+              <td><%= link_to instructor.name, instructor %></td>
+              <td><%= instructor.instr_group %></td>
+              <td><%= instructor.latest_teaching %></td>
+              <td><%= instructor.average_instructoroverall || "n/a" %> </td>
+              <td><%= instructor.average_instreffective || "n/a" %> </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
 
   
