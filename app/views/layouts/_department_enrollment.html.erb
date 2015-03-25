@@ -32,12 +32,19 @@
         formatter: function () {
           var n = this.x%10;
           var y = Math.floor(this.x/10);
-          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error ";
-          var gd = this.points[0].visible ? '' : '<span style="color:#007f46">Lower Division: </span>' + (this.points[0].point.y ) + ' students<br/>';
-          var ld = this.points[1].visible ? '' : '<span style="color:#004d7c">Upper Division: </span>' + (this.points[1].point.y ) + ' students<br/>';
-          var ud = this.points[2].visible ? '' : '<span style="color:#990033">Graduate Level: </span>' + (this.points[2].point.y ) + ' students<br/>';
-          var total = this.points[0].point.y + this.points[1].point.y +this.points[2].point.y;
-          return s+y+"<br/>Total: "+ total +' students<br/>' + gd + ld + ud;
+          var s = n == 1 ? "<b>Spring " : n==4 ? "<b>Summer " : n==7 ? "<b>Fall " : "<b>Error ";
+          s += y + '</b> :';
+          var total = 0;
+          // var total = this.points[0].point.y + this.points[1].point.y +this.points[2].point.y;
+          $.each(this.points, function () {
+            total += this.y;
+          });
+          s += "<br/>Total: "+ total +' students';
+          $.each(this.points, function () {
+                    s += '<br/><span style="color:' + this.series.color + '">' + this.series.name + '</span>: ' +
+                        this.y + ' students';
+                });
+          return s;
         }
       },
       exporting: {
@@ -65,14 +72,17 @@
       series: [
       {
         data: <%= @department.data["gd_data"] %>,
+        color: '#990033',
         name: "Graduate Level"
       },
       {
         data: <%= @department.data["ld_data"] %>,
+        color: '#007f46',
         name: "Lower Division"
       },
       {
         data: <%= @department.data["ud_data"] %>,
+        color: '#004d7c',
         name: "Upper Division"
       }
       ]
