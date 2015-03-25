@@ -1,5 +1,5 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript">
   var ready;
   ready = function() {
@@ -7,9 +7,9 @@
       title: {text: null
       },
       chart: { 
-        plotBackgroundColor: null,
         type: 'area',
-        renderTo: 'enrollment' 
+        alignTicks: false,
+        renderTo: 'enrollment'
       },
       colors: ['#990033', '#007f46', '#004d7c'],
       legend: {
@@ -27,16 +27,17 @@
         }
       },
       tooltip: {
+
         shared: true,
         formatter: function () {
           var n = this.x%10;
           var y = Math.floor(this.x/10);
           var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error ";
-          var gd = this.points[0].point.y;
-          var ld = this.points[1].point.y;
-          var ud = this.points[2].point.y;
-          var total = ld + ud + gd;
-          return s+y+"<br/>Total: "+ total +' students<br/><span style="color:#007f46">Lower Division: </span>' + ld + ' students<br/><span style="color:#004d7c">Upper Division: </span>' + ud + ' students<br/><span style="color:#990033">Graduate Level: </span>' + gd + ' students<br/>';
+          var gd = this.points[0].visible ? '' : '<span style="color:#007f46">Lower Division: </span>' + (this.points[0].point.y ) + ' students<br/>';
+          var ld = this.points[1].visible ? '' : '<span style="color:#004d7c">Upper Division: </span>' + (this.points[1].point.y ) + ' students<br/>';
+          var ud = this.points[2].visible ? '' : '<span style="color:#990033">Graduate Level: </span>' + (this.points[2].point.y ) + ' students<br/>';
+          var total = this.points[0].point.y + this.points[1].point.y +this.points[2].point.y;
+          return s+y+"<br/>Total: "+ total +' students<br/>' + gd + ld + ud;
         }
       },
       exporting: {

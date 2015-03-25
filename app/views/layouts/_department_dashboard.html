@@ -16,9 +16,9 @@
         <div class="alert alert-warning" role="alert">
           <a href="#" class="alert-link"><b>NOTE: </b> Department Pages are currently under construction. Errors abound!</a>
       </div>
-
+<%= render 'layouts/department_enrollment' %>
           <h1 class="page-header">
-          <%= render 'layouts/department_enrollment' %>
+          
           <%= @department.name %> - <%= @department.long_name %><br>
           
           <small><%= @department.get_college %></small><br>
