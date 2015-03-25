@@ -4,58 +4,55 @@
     var ready;
     ready = function() {
         var chart = new Highcharts.Chart({
-      title: {text: null
+          title: {text: null
           },
-        chart: {
+          chart: {
             plotBackgroundColor: null,
             // plotBorderWidth: 1,
             plotShadow: false,
             renderTo: 'container'
         },
-        title: {
-            text: null
-        },
         colors: ['#2c7bb6', '#abd9e9', '#ffffbf', '#fdae61', '#d7191c'],
 
    // '#492970', '#f28f43', '#77a1e5', '#c42525', '#a6c96a'
-        tooltip: {
-            pointFormat: '{series.name}<b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
-                },
-                states: {
-                    hover: {
-                       enabled: false
-                    }
-                }
+   tooltip: {
+    pointFormat: '{series.name}<b>{point.percentage:.1f}%</b>'
+},
+plotOptions: {
+    pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+            style: {
+                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
             }
         },
-        series: [{
-            type: 'pie',
-            name: ' ',
-            data: [
-                ['A Grade',  <%= @fcq.pct_a %> ],
-                ['B Grade',  <%= @fcq.pct_b %> ],
-                ['C Grade',  <%= @fcq.pct_c %> ],
-                ['D Grade',  <%= @fcq.pct_d %> ],
-                ['F Grade',  <%= @fcq.pct_f %> ]
+        states: {
+            hover: {
+             enabled: false
+         }
+     }
+ }
+},
+series: [{
+    type: 'pie',
+    name: ' ',
+    data: [
+    ['A Grade',  <%= @fcq.pct_a %> ],
+    ['B Grade',  <%= @fcq.pct_b %> ],
+    ['C Grade',  <%= @fcq.pct_c %> ],
+    ['D Grade',  <%= @fcq.pct_d %> ],
+    ['F Grade',  <%= @fcq.pct_f %> ]
                 // ['A',  .2 ],
                 // ['B',  .2 ],
                 // ['C',  .2 ],
                 // ['D',  .2 ],
                 // ['F',  .2 ]
-            ]
-        }]
-    });
+                ]
+            }]
+        });
 };
 
 $(document).ready(ready);

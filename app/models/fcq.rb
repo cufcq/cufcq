@@ -257,7 +257,8 @@ class Fcq < ActiveRecord::Base
   end
 
   def capitalized_title
-    return course_title.split.map(&:capitalize).join(' ')
+    ctitle =  course_title || course.course_title ||""
+    return ctitle.split.map(&:capitalize).join(' ')
   end
 
   def correct_title(title)

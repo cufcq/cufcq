@@ -5,7 +5,6 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 
 <script type="text/javascript">
-  var enrollment;
     ready = function() {
     var chart = new Highcharts.Chart({
       title: 
@@ -131,8 +130,8 @@
     {
         data: <%= @course.pct_i_data %>,
         name: "Percentage Incomplete"
-    }
-    ,{
+    },
+    {
             name: 'Grade Average',
             type: 'line',
             yAxis: 1,
@@ -142,70 +141,9 @@
             },
             dashStyle: 'shortdot',
             color: '#666666'
-
     }
-  ]});
-
-
-
-
-// // the button action
-//     //var chart = $(container).highcharts(),
-//         $overall = $(overall);
-//     $overall.click(function() {
-//         var series = chart.series[0];
-//         if (series.visible) {
-//             series.hide();
-//             // $overall.html('Show series');
-//         } else {
-//             series.show();
-//             // $overall.html('Hide series');
-//         }
-//     });
-
-//     // the button action
-//     //var chart = $(container).highcharts(),
-//         $challenge = $(challenge);
-//     $challenge.click(function() {
-//         var series = chart.series[1];
-//         if (series.visible) {
-//             series.hide();
-//             // $challenge.html('Show series');
-//         } else {
-//             series.show();
-//             // $challenge.html('Hide series');
-//         }
-//     });
-
-//         // the button action
-//     //var chart = $(container).highcharts(),
-//         $priorinterest = $(priorinterest);
-//     $priorinterest.click(function() {
-//         var series = chart.series[2];
-//         if (series.visible) {
-//             series.hide();
-//             // $priorinterest.html('Show series');
-//         } else {
-//             series.show();
-//             // $priorinterest.html('Hide series');
-//         }
-//     });
-
-
-//             // the button action
-//     //var chart = $(container).highcharts(),
-//         $howmuchlearned = $(howmuchlearned);
-//     $howmuchlearned.click(function() {
-//         var series = chart.series[3];
-//         if (series.visible) {
-//             series.hide();
-//             // $howmuchlearned.html('Show series');
-//         } else {
-//             series.show();
-//             // $howmuchlearned.html('Hide series');
-//         }
-//     });
-
+  ]
+});
 
 
 

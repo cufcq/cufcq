@@ -12,28 +12,21 @@
     <title><%= @department.name%></title>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a>Department Name: <%= @department.name %><span class="sr-only">(current)</span></a></li>
-            <li><a>College: <%= @department.get_college %></a></li>
-            <li><a>Campus: <%= @department.get_campus %></a></li>
 
-          </ul>
-<!--           Possibly lead to a new page where it's just the instructors in that department? -->          <ul class="nav nav-sidebar">
-            <li><a>Instructor Count: <%= @department.instructors.count %></a></li>
-            <li><a>Total Courses: <%= @department.courses.count %> </a></li>
-
-          </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="alert alert-warning" role="alert">
           <a href="#" class="alert-link"><b>NOTE: </b> Department Pages are currently under construction. Errors abound!</a>
       </div>
-          <h1 class="page-header"><%= @department.name %></h1>
 
-          <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">
-            <%= render 'layouts/department_graph' %>
-          </div>
+          <h1 class="page-header">
+          <%= render 'layouts/department_enrollment' %>
+          <%= @department.name %> - <%= @department.long_name %><br>
+          
+          <small><%= @department.get_college %></small><br>
+          <small><%= @department.get_campus %></small><br>
+          <br><small><abbr title="Number of FCQs associated with this department since Fall 2008. Includes recitations." >Total Fcqs</abbr>: <b><%= @department.fcqs.count %></b></small>
+          <br><small><abbr title="Number of instructors associated with this department since Fall 2008. Includes Teaching Assistants." >Total Instructors</abbr>: <b><%= @department.instructors.count %></b></small>
+          <br><small><abbr title="Number of courses associated with this department since Fall 2008. Includes Teaching Assistants." >Total Courses</abbr>: <b><%= @department.courses.count %></b></small>
+          </h1>
 
 
           <set1>
@@ -70,7 +63,6 @@
                 </tbody>
             </table>
           </div>
-        </div>
       </div>
     </div>
 

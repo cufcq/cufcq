@@ -1,0 +1,87 @@
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+<script type="text/javascript">
+  var ready;
+  ready = function() {
+    var chart = new Highcharts.Chart({
+      title: {text: null
+      },
+      chart: { 
+        plotBackgroundColor: null,
+        type: 'area',
+        renderTo: 'enrollment' 
+      },
+      colors: ['#990033', '#007f46', '#004d7c'],
+      legend: {
+        enabled: true
+      },
+      xAxis: {
+        tickPositions: [],
+        type: 'category',
+        categories: []
+      },
+      yAxis: {
+        min: 0,
+        title: {
+          text: "enrollment"
+        }
+      },
+      tooltip: {
+        shared: true,
+        formatter: function () {
+          var n = this.x%10;
+          var y = Math.floor(this.x/10);
+          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error ";
+          var gd = this.points[0].point.y;
+          var ld = this.points[1].point.y;
+          var ud = this.points[2].point.y;
+          var total = ld + ud + gd;
+          return s+y+"<br/>Total: "+ total +' students<br/><span style="color:#007f46">Lower Division: </span>' + ld + ' students<br/><span style="color:#004d7c">Upper Division: </span>' + ud + ' students<br/><span style="color:#990033">Graduate Level: </span>' + gd + ' students<br/>';
+        }
+      },
+      exporting: {
+        buttons: {
+          contextButtons: {
+            enabled: false,
+            menuItems: null
+          }
+        },
+        enabled: true
+      },
+
+      plotOptions: {
+        area: {
+          stacking: 'normal',
+          lineColor: '#666666',
+          lineWidth: 1,
+          marker: {
+            lineWidth: 1,
+            lineColor: '#666666'
+          }
+        }
+      },
+
+      series: [
+      {
+        data: <%= @department.data["gd_data"] %>,
+        name: "Graduate Level"
+      },
+      {
+        data: <%= @department.data["ld_data"] %>,
+        name: "Lower Division"
+      },
+      {
+        data: <%= @department.data["ud_data"] %>,
+        name: "Upper Division"
+      }
+      ]
+    });
+};
+$(document).ready(ready);
+$(document).on('page:load', ready);
+$(document).on('page:change', ready);
+</script>
+
+
+
+<div id="enrollment" style="height: 300px; float: right; top: -20px; z-index:-1" ></div>

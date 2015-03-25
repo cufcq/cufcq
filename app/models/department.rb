@@ -20,7 +20,6 @@ class Department < ActiveRecord::Base
     	self.update_attribute(:fcqs_count, self.fcqs.count)
   	end
 
-
 	def get_campus
 		case campus
 		when "BD"
@@ -42,8 +41,14 @@ class Department < ActiveRecord::Base
 			"College of Music"
 		when "JR"
 			"College of Journalism"
+		when "XX"
+			"Army ROTC"
+		when "LW"
+			"School of Law"
+		when "EB"
+			"School of Education"
 		else
-			"Error! #{college}"
+			"--"
 		end
 	end
 

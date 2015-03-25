@@ -3,83 +3,7 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 
 <script type="text/javascript">
-    var enrollment;
     ready = function() {
-    var chart = new Highcharts.Chart({
-      title: {text: null
-          },
-      chart: { 
-        type: 'area',
-        renderTo: 'enrollment' },
-        legend: {
-            enabled: true
-        },
-        xAxis: {
-            tickPositions: [],
-            type: 'category',
-            categories: []
-        },
-        yAxis: {
-          min: 0,
-          title: {
-            text: "enrollment"
-            }
-        },
-      tooltip: {
-        shared: true,
-        formatter: function () {
-          var n = this.x%10
-          var y = Math.floor(this.x/10);
-          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error "
-          var gd = this.points[0].point.y
-          var ld = this.points[1].point.y
-          var ud = this.points[2].point.y
-          var total = ld + ud + gd
-          return s+y+"<br/>Total: "+ total +' students<br/><span style="color:#007f46">Lower Division: </span>' + ld + ' students<br/><span style="color:#004d7c">Upper Division: </span>' + ud + ' students<br/><span style="color:#990033">Graduate Level: </span>' + gd + ' students<br/>'
-      }
-    },
-    exporting: {
-        buttons: {
-            contextButtons: {
-                enabled: false,
-                menuItems: null
-            }
-        },
-        enabled: true
-    },
-
-    plotOptions: {
-                area: {
-                    stacking: 'normal',
-                    lineColor: '#666666',
-                    lineWidth: 1,
-                    marker: {
-                        lineWidth: 1,
-                        lineColor: '#666666'
-                    }
-                }
-            },
-
-    series: [
-    {
-        data: <%= @department.gd_data %>,
-        color: '#990033',
-        name: "Graduate Division"
-    },
-    {
-        data: <%= @department.ld_data %>,
-        color: '#007f46',
-        name: "Lower Division"
-    },
-    {
-        data: <%= @department.ud_data %>,
-        color: '#004d7c',
-        name: "Upper Divison"
-    }
-
-    ]
-    });
-
     
     //overalls
     var chart = new Highcharts.Chart({
@@ -105,13 +29,13 @@
         },
       tooltip: {
         formatter: function () {
-          var n = this.x%10
+          var n = this.x%10;
           var y = Math.floor(this.x/10);
-          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error "
+          var s = n == 1 ? "Spring " : n==4 ? "Summer " : n==7 ? "Fall " : "Error ";
           // var io = this.points[0].point.y
           // var to = this.points[1].point.y
           // var co = this.points[2].point.y
-          return s+y+" : "+this.y
+          return s+y+" : "+this.y;
           //return s+y+'<br/><span style="color:#FFC000">Lower Division: </span>' + io + ' students<br/><span style="color:#FFC000">Upper Division: </span>' + to + ' students<br/><span style="color:#FF8000">Graduate Level: </span>' + co + ' students<br/>'
       }
     },
@@ -157,81 +81,11 @@
 
     ]
     });
-
- // // the button action
- //    //var chart = $(container).highcharts(),
- //        $overall = $(overall);
- //    $overall.click(function() {
- //        var series = chart.series[0];
- //        if (series.visible) {
- //            series.hide();
- //            // $overall.html('Show series');
- //        } else {
- //            series.show();
- //            // $overall.html('Hide series');
- //        }
- //    });
-
- //    // the button action
- //    //var chart = $(container).highcharts(),
- //        $availability = $(availability);
- //    $availability.click(function() {
- //        var series = chart.series[1];
- //        if (series.visible) {
- //            series.hide();
- //            // $availability.html('Show series');
- //        } else {
- //            series.show();
- //            // $availability.html('Hide series');
- //        }
- //    });
-
- //        // the button action
- //    //var chart = $(container).highcharts(),
- //        $instreffective = $(instreffective);
- //    $instreffective.click(function() {
- //        var series = chart.series[2];
- //        if (series.visible) {
- //            series.hide();
- //            // $instreffective.html('Show series');
- //        } else {
- //            series.show();
- //            // $instreffective.html('Hide series');
- //        }
- //    });
-
-
- //            // the button action
- //    //var chart = $(container).highcharts(),
- //        $instrrespect = $(instrrespect);
- //    $instrrespect.click(function() {
- //        var series = chart.series[3];
- //        if (series.visible) {
- //            series.hide();
- //            // $instrrespect.html('Show series');
- //        } else {
- //            series.show();
- //            // $instrrespect.html('Hide series');
- //        }
- //    });
-
-
-
-
-
-  };
 $(document).ready(ready);
 $(document).on('page:load', ready);
 $(document).on('page:change', ready);
 </script>
 </script>
-
-
-<div id="enrollment" style="height: 300px"></div>
-
-
-
-
 
 
 <div id="overalls" style="height: 300px"></div>
