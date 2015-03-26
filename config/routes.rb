@@ -10,6 +10,7 @@ Cufcq::Application.routes.draw do
 
   match '/fcqs', to: 'static_pages#help',    via: 'get'
   match '/feedback', to: 'static_pages#feedback',    via: 'get'
+  match '/disclaimer', to: 'static_pages#disclaimer',    via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',    to: 'static_pages#about',    via: 'get'
 
