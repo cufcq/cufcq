@@ -61,8 +61,13 @@ end
 
 # Use Capistrano for deployment
 gem 'capistrano', group: :development
-
 # gem 'activerecord-postgres-hstore'
+
+group :development do
+    gem 'capistrano-rails'
+    gem 'capistrano-rbenv', '~> 2.0', require: false
+end
+
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
