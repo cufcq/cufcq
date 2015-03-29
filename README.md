@@ -1,4 +1,4 @@
-#Official CUFCQ Project
+#Official CU FCQ Project
 #####Project by: Samuel Volin, Alex Tsankov
 
 ####FCQ: A survery maintained by CU and collected at the end of every course with the intent of rating instructor proficiency.
