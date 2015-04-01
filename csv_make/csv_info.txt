@@ -1,3 +1,5 @@
+#This is the info on our headings for the created csv files
+
 FCQ INFO
 
 yearterm,subject,crse,sec,onlinefcq,bdcontinedcrse,instructor,formsrequested,formsreturned,courseoverallpctvalid,courseoverall,courseoverall_sd,instructoroverall,instructoroverall_sd,hoursperwkinclclass,priorinterest,instreffective,availability,challenge,howmuchlearned,instrrespect,crstitle,r_presnt,r_fair,workload,r_divstu,r_access,r_learn,campus,college,asdiv,level,fcqdept,instr_group,i_num

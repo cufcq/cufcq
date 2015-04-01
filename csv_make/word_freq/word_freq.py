@@ -1,3 +1,8 @@
+######################################################
+#This is used for splitting up the titles to classes.#
+######################################################
+#Example: ANCIENTPHILOSOPHYHONORS --> Ancient Philosophy Honors#
+
 from math import log
 import csv
 from os import remove, close 

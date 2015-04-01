@@ -1,19 +1,23 @@
 import mechanize
 import requests
 
-
 #this is the boiler plate for the browser
 br = mechanize.Browser()
 br.set_handle_robots(False)   # ignore robots
 br.set_handle_refresh(False)  # can sometimes hang without this
 br.addheaders = [('User-agent', 'Firefox')]
 
+#this sets the department we want, in this case we use entire campus
 fcqdpt = 'BD : Entire Campus ## BD'
-# 1 is Spring, 4 is Summer, 7 is Fall  
+# 1 is Spring, 4 is Summer, 7 is Fall
+#fterm is the first term, in this case spring
+#lterm is the last term, spring as well.
 ftrm = '1'
 ltrm = '1'
+
 fileFrmt = 'XLS'
-# First year: fyr=[2014, 2013, 2012, 2011, 2010, 2009, 2008, *2007]
+
+#years that we are interested in, from first years to last years 
 fyrs = ['2013', '2012', '2011', '2010', '2009', '2008', '2007']
 lyrs = ['2014', '2013', '2012', '2011', '2010', '2009', '2008']
 # The instructor group grp1=[*ALL, TTT, OTH, T_O, TA]

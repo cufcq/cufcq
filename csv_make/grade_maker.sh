@@ -1,5 +1,8 @@
 #! /bin/bash
 
+#This turns gradesall.xlsm into useful csvs 
+
+
 #First, conver to multiple csvs 
 ssconvert -S grades/gradesall.xlsm grades/grades.csv
 

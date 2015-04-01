@@ -1,5 +1,8 @@
 #! /bin/bash
 
+#Run this on courses.xlsx to turn it into a proper csv. This creates multiple csvs, so we remove some of them.
+
+
 #First, conver to multiple csvs 
 ssconvert -S courses/courseinfo.xlsx courses/courses.csv
 
