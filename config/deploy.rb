@@ -37,16 +37,6 @@ task :prepare_bundle_config do
   end
 end
 
-
-namespace :deploy do 
-desc 'Start Dev'
-  task :start_dev do 
-    on roles(:app), in: :sequence, wait: 5 do
-      execute ""
-    end
-  end
-end
-
 before 'bundler:install', 'prepare_bundle_config'
 #bundle config build.pg --with-pg-config=/usr/lib/postgresql/9.3/bin/pg_config
 
