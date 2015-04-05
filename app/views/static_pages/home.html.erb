@@ -36,6 +36,8 @@
 
 
 
+
+
     </style>
 
   </head>
@@ -48,31 +50,22 @@
       <%= image_tag "logo-full.png", height: '214', width: '184'%>
         <h1>Welcome to CU<r>FCQ</r>!</h1>
         <p class="lead">This is a website designed to help you understand FCQs and past grade data for instructors, courses, and departments. Select a search option, type in a parameter and explore!</p>
-
           <%= form_tag('/', :method => "get", id: "search-form") do %>
-
-
-    <%= label_tag :option, "Instructors", :class => "radio-inline"%>
-    <%= radio_button_tag :option, "/instructors", :checked => true %>
-    <%= label_tag :option, "Courses", :class => "radio-inline"  %>
-    <%= radio_button_tag :option, "/courses" %>
-    <%= label_tag :option, "Departments", :class => "radio-inline"  %>
-    <%= radio_button_tag :option, "/departments" %>
-
-
-
-
-
-
-
           <p> <div class="input-group">
           <a href ="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top" ></a>
           <%= text_field_tag :search, params[:search], :class => "form-control" %>
           <span class="input-group-btn" > 
-          <%= submit_tag "Search", :name => nil, :class=> "btn btn-default" %>
+          <%= submit_tag "Search", :name => nil, :class=> "btn btn-danger" %>
           </span>  
       </div> </p>
+                    <%= label_tag :option, "INSTRUCTORS", :class => "radio-inline"%>
+              <%= radio_button_tag :option, "/instructors", :checked => true %>
+              <%= label_tag :option, "COURSES", :class => "radio-inline"  %>
+              <%= radio_button_tag :option, "/courses" %>
+              <%= label_tag :option, "DEPARTMENTS", :class => "radio-inline"  %>
+              <%= radio_button_tag :option, "/departments" %>
           <% end %>
+
       </div>
 
     </div>
