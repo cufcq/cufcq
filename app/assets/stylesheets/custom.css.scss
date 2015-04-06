@@ -26,11 +26,30 @@ textarea {
   }
 }
 
+/* fonts */ 
 
+@font-face {
+  font-family: 'Canter';
+  src:font-url('fonts/canter_bold.otf') format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mission Gothic';
+  src:font-url('fonts/mission_gothic_regular.otf') format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 /* typography */
 
+label {
+  font-family: "Mission Gothic";
+}
+
+
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+  line-height: 1; 
 }
 
 h1 {
@@ -50,6 +69,7 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+  font-family: "Mission Gothic";
 }
 
 

@@ -7,53 +7,37 @@
     <meta name="author" content="">
 
     <style>
-
       body { 
           min-height: 100%
           padding-top: 50px;
           background: linear-gradient(#88b3a2 0% , #c6ddc2 100%);
           background-repeat: no-repeat;
           background-color: #c6ddc2; /* ending colour of gradient */
-/*          background-image: url();
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          background-position: center bottom;*/
       }
-
       r {
         color: #e7695f;
       }
-
-
       .starter-template {
           padding: 40px 15px;
           text-align: center;
       }
-
       btn {
         background-color: #e7695f;
       }
-
-
-
-
-
     </style>
-
   </head>
 
   <body>
-
     <div class="container">
 
       <div class="starter-template">
       <%= image_tag "logo-full.png", height: '214', width: '184'%>
-        <h1>Welcome to CU<r>FCQ</r>!</h1>
-        <p class="lead">This is a website designed to help you understand FCQs and past grade data for instructors, courses, and departments. Select a search option, type in a parameter and explore!</p>
+        <h1 style="font-family : Canter;">Welcome to CU<r>FCQ</r>!</h1>
+        <p  style="font-family : Mission Gothic;" class="lead">This is a website designed to help you understand FCQs and past grade data for <a href="/instructors">instructors</a>, <a href="/courses">courses</a>, and <a href="/departments">departments</a>. Select a search option, type in a parameter, and explore!</p>
           <%= form_tag('/', :method => "get", id: "search-form") do %>
           <p> <div class="input-group">
           <a href ="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top" ></a>
-          <%= text_field_tag :search, params[:search], :class => "form-control" %>
+          <%= text_field_tag :search, params[:search], :class => "form-control",:placeholder => 'Ralphie Buffalo' %>
           <span class="input-group-btn" > 
           <%= submit_tag "Search", :name => nil, :class=> "btn btn-danger" %>
           </span>  

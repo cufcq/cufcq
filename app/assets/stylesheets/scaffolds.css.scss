@@ -6,16 +6,23 @@ body {
   line-height: 18px;
 }
 
-
-h1, h2, h3, h4 { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }
+h1, h2, h3, h4 { font-family: 'Helvetica', 'Arial', 'Sans-Serif';} 
 h1 { font-size: 3em;  }
 h2 { font-size: 2.7em; }
 h3 { font-size: 2.3em; }
 h4 { font-size: 1.9em; }
 
 
+static_h1, static_h2, static_h3, static_h4 { font-family: 'Canter'; }
+static_h1 { font-size: 5em;  }
+static_h2 { font-size: 2.7em; }
+static_h3 { font-size: 2.4em; }
+static_h4 { font-size: 1.9em; }
 
-p, ol, ul {font-size: 1em; line-height: 1.4em; color: #333; }
+
+
+p1 { font-size: 1.3; line-height: 1.4em; font-family: 'Mission Gothic';}
+p, ol, ul {font-size: 1.2em; line-height: 1.4em; color: #333;font-family: 'Mission Gothic'; }
 
 pre {
   background-color: #eee;
