@@ -2,6 +2,7 @@ task :instructor_slugs => :environment do
   Instructor.find_each(:batch_size => 200) do |x|
     begin
         if x.slug != nil
+            puts "-"
             next
         end
         x.update_attribute(:slug, x.generate_slug)

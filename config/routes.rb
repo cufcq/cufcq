@@ -21,6 +21,7 @@ Cufcq::Application.routes.draw do
   resources :courses, :except => [:new, :edit, :delete]
   resources :departments, :except => [:new, :edit, :delete]
   resources :instructors, :except => [:new, :edit, :delete]
+    get 'instructors/:id/scorecard', to: 'instructors#scorecard'
   # resources :instructors_test
   resources :fcqs, :except => [:new, :edit, :delete]
 
@@ -80,7 +81,7 @@ Cufcq::Application.routes.draw do
   #     resources :products
   #   end
 
-  # match '/404', to: 'errors#file_not_found', via: :all
+  match '/404', to: 'errors#file_not_found', via: :all
   match '/422', to: 'errors#unprocessable', via: :all
   match '/500', to: 'errors#internal_server_error', via: :all
 end

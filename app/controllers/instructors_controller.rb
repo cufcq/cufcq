@@ -26,9 +26,11 @@ class InstructorsController < ApplicationController
     @instructors = @search.results
   end
 
-  # GET /instructors/1
-  # GET /instructors/1.json
   def show 
+  end
+
+  def scorecard
+    return
   end
 
   # GET /instructors/new
@@ -89,7 +91,8 @@ class InstructorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_instructor
-      @instructor ||= Instructor.find_by_slug(params[:id])
+      searcher = params[:id].downcase
+      @instructor ||= Instructor.find_by_slug(searcher)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
