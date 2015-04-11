@@ -11,7 +11,7 @@ task :instructor_slugs => :environment do
             puts "skipping chase charles"
             next
         end
-        
+        puts x.id
         x.update_column(:slug, x.generate_slug)
         puts "attribute updated"
         x.save()
