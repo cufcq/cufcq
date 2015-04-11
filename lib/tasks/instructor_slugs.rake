@@ -6,7 +6,7 @@ task :instructor_slugs => :environment do
             puts "skipped"
             next
         end
-        x.update_attribute(:slug, x.generate_slug)
+        x.update_column(:slug, x.generate_slug)
         puts "attribute updated"
         x.save()
         puts "slugd #{x.name}"
