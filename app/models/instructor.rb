@@ -36,8 +36,10 @@ self.per_page = 10
   end
 
   def generate_slug
+    puts "generating slug!"
     # puts "#{self.instructor_last.titleize}, #{self.instructor_first.titleize}".parameterize
     self.slug ||= "#{self.instructor_last.titleize}-#{self.instructor_first.titleize}".parameterize
+    puts "slug generated"
     return self.slug
   end
 
