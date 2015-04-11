@@ -1,5 +1,5 @@
 task :instructor_slugs => :environment do
-  Instructor.find_each(:batch_size => 200) do |x|
+  Instructor.find_each do |x|
     begin
         if x.slug != nil
             puts "-"
@@ -9,7 +9,9 @@ task :instructor_slugs => :environment do
         x.save()
         puts "slugd #{x.name}"
     rescue Exception => e
-        puts "rescued -" + e.message
+
+        puts "rescued - " + e.message
+        puts x.name
     end
     end
 end
