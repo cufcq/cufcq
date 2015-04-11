@@ -7,6 +7,7 @@ task :instructor_slugs => :environment do
             next
         end
         x.update_attribute(:slug, x.generate_slug)
+        puts "attribute updated"
         x.save()
         puts "slugd #{x.name}"
     rescue Exception => e
