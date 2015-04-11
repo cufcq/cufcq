@@ -1,8 +1,9 @@
 task :instructor_slugs => :environment do
   Instructor.find_each do |x|
     begin
+        puts x.name
         if x.slug != nil
-            puts "-"
+            puts "skipped"
             next
         end
         x.update_attribute(:slug, x.generate_slug)
@@ -11,7 +12,7 @@ task :instructor_slugs => :environment do
     rescue Exception => e
 
         puts "rescued - " + e.message
-        puts x.name
+        
     end
     end
 end
