@@ -28,6 +28,41 @@ class Course < ActiveRecord::Base
     "#{subject} #{crse} - #{capitalized_title}"
   end
 
+  def self.averages(rank = nil, dept = nil)
+    prior = 0.0
+    challenge = 0.0
+    howmuchlearned = 0.0
+    overall = 0.0
+    count = 0
+    Course.all.each do |crse|
+      if rank != nil
+        if crse.abbv_rank_string != rank
+          next
+        end
+      end
+      if dept != nil
+        if crse.department.name != dept
+          next
+        end
+      end
+      count += 1
+      prior += crse.average_priorinterest
+      challenge += crse.average_challenge
+      howmuchlearned += crse.average_howmuchlearned
+      overall += crse.average_courseoverall
+    end
+    # count = Instructor.count || 1
+    prior = (prior / count ).round(1)
+    challenge = (challenge / count ).round(1)
+    howmuchlearned = (howmuchlearned / count ).round(1)
+    overall = (overall / count ).round(1)
+    print "Average   prior int: #{prior}\n"
+    print "Average   challenge: #{challenge}\n"
+    print "Average muchlearned: #{howmuchlearned}\n"
+    print "Average     Overall: #{overall}\n"
+  end
+
+
   def average_priorinterest
   	# self.fcqs.where.not(instr_group: 'TA').average(:priorinterest).round(1)
     # self.fcqs.average(:priorinterest).round(1)
@@ -114,6 +149,18 @@ class Course < ActiveRecord::Base
       return "Graduate Level"
     end
   end
+
+  def abbv_rank_string
+    if ld?
+      return "ld"
+    elsif ud?
+      return "ud"
+    else
+      return "gd"
+    end
+  end
+
+
 
   attr_reader :semesters, :grade_data, :overall_data, :challenge_data, :interest_data, :learned_data, :grade_data, :categories, :pct_a_data, :pct_b_data, :pct_c_data, :pct_d_data, :pct_f_data, :pct_i_data
 

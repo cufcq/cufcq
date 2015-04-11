@@ -24,7 +24,9 @@
           <h1 class="page-header">Instructor Data</h1>
 
           <div id="container" style="min-width: 350px; height: 350px; margin: 0 auto">
-          <%= render 'layouts/instructor_graph' %>
+          <b>Instructor Visualization</b>
+            This graph shows the averaged results of fcq survey questions for every semester this instructor taught at CU. Hover over the graph for more details.
+          <%= render 'instructors/instructor_graph' %>
           </div>
           <table class="table table-striped">
             <caption class="text-left"><b>Instructor Data</b>
@@ -66,12 +68,12 @@
                 </tbody>
             </table>
 
-          <h2 class="sub-header">Courses Taught</h2>
+          <h2 class="sub-header">Instructor FCQs</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Course</th>  
+                  <th>Fcq</th>  
  		              <th>Level</th>
             		  <th>Instructor Overall</th>
             		  <th>Average GPA</th>

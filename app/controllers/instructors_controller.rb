@@ -1,6 +1,7 @@
 class InstructorsController < ApplicationController
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
+  before_filter :find_instructor, only: [:show, :edit, :update, :destroy]
   # GET /instructors
   # GET /instructors.json
 
@@ -27,7 +28,8 @@ class InstructorsController < ApplicationController
 
   # GET /instructors/1
   # GET /instructors/1.json
-  def show    
+  def show 
+  puts "testing$$$"   
   end
 
   # GET /instructors/new
@@ -88,7 +90,7 @@ class InstructorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_instructor
-      @instructor = Instructor.find(params[:id])
+      @instructor ||= Instructor.find_by_slug(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -115,4 +117,10 @@ class InstructorsController < ApplicationController
         return"asc"
       end
     end
+
+    def find_instructor
+      # if instructor could not be found by slug, searches by id
+      @instructor ||= Instructor.find(params[:id])
+    end
+    # helper_method :instructor
 end

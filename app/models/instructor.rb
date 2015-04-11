@@ -11,7 +11,6 @@ self.per_page = 10
     string :instructor_last
     text :instructor_first
     text :instructor_last, :default_boost => 2
-    
   end
 
   belongs_to :department, counter_cache: true
@@ -20,6 +19,9 @@ self.per_page = 10
   has_many :courses, -> { distinct }, through: :fcqs, counter_cache: true
 
   validates_uniqueness_of :instructor_first, scope: [:instructor_last]
+  # added code creates an alternate custom route for accessing our instructors by name
+  validates :slug, uniqueness: true, presence: true
+  before_validation :generate_slug
   #instrrespect
   #availability
   #instreffective
@@ -28,6 +30,18 @@ self.per_page = 10
   #classes taught
   #students taught
   #records since
+
+  def to_param
+    slug
+  end
+
+  def generate_slug
+    # puts "#{self.instructor_last.titleize}, #{self.instructor_first.titleize}".parameterize
+    self.slug ||= "#{self.instructor_last.titleize}-#{self.instructor_first.titleize}".parameterize
+    return self.slug
+  end
+
+
 
   def cache_course_count
     self.update_attribute(:courses_count, self.courses.count)
@@ -89,6 +103,42 @@ self.per_page = 10
     x = self.data['average_instructor_respect'].to_f || 0.0
     return x.round(1)
   end
+
+  def self.averages(instr_group = nil, dept = nil)
+    availability = 0.0
+    respect = 0.0
+    effectiveness = 0.0
+    overall = 0.0
+    count = 0
+    Instructor.all.each do |instr|
+      if instr_group != nil
+        if instr.instr_group != instr_group
+          next
+        end
+      end
+      if dept != nil
+        if instr.department.name != dept
+          next
+        end
+      end
+      count += 1
+      respect += instr.average_instrrespect
+      availability += instr.average_availability
+      effectiveness += instr.average_instreffective
+      overall += instr.average_instructoroverall
+    end
+    # count = Instructor.count || 1
+    respect = (respect / count ).round(1)
+    availability = (availability / count ).round(1)
+    effectiveness = (effectiveness / count ).round(1)
+    overall = (overall / count ).round(1)
+    print "Average Respect: #{respect}\n"
+    print "Average Availab: #{availability}\n"
+    print "Average Effectv: #{effectiveness}\n"
+    print "Average Overall: #{overall}\n"
+  end
+
+
 
   def average_availability
     x = self.data['average_instructor_availability'].to_f || 0.0
