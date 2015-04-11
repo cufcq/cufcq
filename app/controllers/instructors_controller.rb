@@ -1,7 +1,7 @@
 class InstructorsController < ApplicationController
-  before_action :set_instructor, only: [:show, :edit, :update, :destroy]
+  before_action :set_instructor, only: [:show, :edit, :update, :destroy, :scorecard]
   helper_method :sort_column, :sort_direction
-  before_filter :find_instructor, only: [:show, :edit, :update, :destroy]
+  before_filter :find_instructor, only: [:show, :edit, :update, :destroy, :scorecard]
   # GET /instructors
   # GET /instructors.json
 
@@ -30,7 +30,7 @@ class InstructorsController < ApplicationController
   end
 
   def scorecard
-    return
+    render :json => @instructor.json_scorecard
   end
 
   # GET /instructors/new

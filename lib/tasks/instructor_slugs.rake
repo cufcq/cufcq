@@ -6,14 +6,9 @@ task :instructor_slugs => :environment do
             puts "skipped"
             next
         end
-
-        if x.id == 4604
-            puts "skipping chase charles"
-            next
-        end
-        puts x.id
+        # puts x.id
         x.update_column(:slug, x.generate_slug)
-        puts "attribute updated"
+        # puts "attribute updated"
         x.save()
         puts "slugd #{x.name}"
     rescue Exception => e
