@@ -1,4 +1,3 @@
-CURRENT_YEARTERM = 20147
 class Course < ActiveRecord::Base
   belongs_to :department, counter_cache: true
   has_many :fcqs
@@ -13,8 +12,36 @@ class Course < ActiveRecord::Base
 
   validates :course_title, :crse, :subject, presence: true
   validates_uniqueness_of :crse, scope: [:subject]
+  validates :slug, uniqueness: true, presence: true
+  before_validation :generate_slug
 
   # after_save :cache_instructor_count
+
+  def name
+    return "#{self.subject}-#{self.crse}"
+  end
+
+  def to_param
+    slug
+  end
+
+  def generate_slug
+    # puts "generating slug!"
+    # puts "#{self.instructor_last.titleize}, #{self.instructor_first.titleize}".parameterize
+    self.slug ||= "#{self.name}".parameterize
+    # puts "slug generated"
+    return self.slug
+  end
+
+  def scorecard
+    scorecard = {
+      :average_overall => self.average_courseoverall, 
+      :average_howmuchlearned => self.average_howmuchlearned, 
+      :average_challenge => self.average_challenge,
+      :average_priorinterest => self.average_priorinterest
+    }
+    return scorecard
+  end
 
   def cache_instructor_count
     self.update_attribute(:instructors_count, self.instructors.count)

@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :scorecard]
   helper_method :sort_column, :sort_direction
-
+  before_filter :find_course, only: [:show, :edit, :update, :destroy, :scorecard]
   # GET /courses
   # GET /courses.json
   # def index
@@ -38,6 +38,10 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+  end
+
+  def scorecard
+    render :json => @course.scorecard.to_json
   end
 
   # GET /courses/new
@@ -92,7 +96,8 @@ class CoursesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.find(params[:id])
+      searcher = params[:id].downcase
+      @course ||= Course.find_by_slug(searcher)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -118,5 +123,10 @@ class CoursesController < ApplicationController
       else
         return"asc"
       end
+    end
+
+    def find_course
+      # if instructor could not be found by slug, searches by id
+      @course ||= Instructor.find(params[:id])
     end
 end

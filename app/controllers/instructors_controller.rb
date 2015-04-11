@@ -30,7 +30,7 @@ class InstructorsController < ApplicationController
   end
 
   def scorecard
-    render :json => @instructor.json_scorecard
+    render :json => @instructor.scorecard.to_json
   end
 
   # GET /instructors/new

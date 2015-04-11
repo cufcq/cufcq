@@ -43,14 +43,14 @@ self.per_page = 10
     return self.slug
   end
 
-  def json_scorecard
+  def scorecard
     scorecard = {
       :average_overall => self.average_instructoroverall, 
       :average_respect => self.average_instrrespect, 
       :average_availability => self.average_availability,
       :average_effectiveness => self.average_instreffective
     }
-    return scorecard.to_json
+    return scorecard
   end
 
   def cache_course_count
@@ -146,6 +146,18 @@ self.per_page = 10
     print "Average Availab: #{availability}\n"
     print "Average Effectv: #{effectiveness}\n"
     print "Average Overall: #{overall}\n"
+  end
+
+  def self.json_instructors
+    hash = {}
+    Instructor.all.each do |instr|
+      slug = instr.slug
+      if slug == nil
+        next
+      end
+      hash[slug] = instr.scorecard
+    end
+    return hash.to_json
   end
 
 
