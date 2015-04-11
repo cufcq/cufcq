@@ -46,7 +46,7 @@ self.per_page = 10
   def json_scorecard
     scorecard = {
       :average_overall => self.average_instructoroverall, 
-      :average_respect => self.average_respect, 
+      :average_respect => self.average_instrrespect, 
       :average_availability => self.average_availability,
       :average_effectiveness => self.average_instreffective
     }
