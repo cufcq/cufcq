@@ -29,7 +29,6 @@ class InstructorsController < ApplicationController
   # GET /instructors/1
   # GET /instructors/1.json
   def show 
-  puts "testing$$$"   
   end
 
   # GET /instructors/new
