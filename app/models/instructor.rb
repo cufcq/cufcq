@@ -44,7 +44,12 @@ self.per_page = 10
   end
 
   def json_scorecard
-    scorecard = {:overall => self.average_instructoroverall}
+    scorecard = {
+      :average_overall => self.average_instructoroverall, 
+      :average_respect => self.average_respect, 
+      :average_availability => self.average_availability,
+      :average_effectiveness => self.average_instreffective
+    }
     return scorecard.to_json
   end
 
