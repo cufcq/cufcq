@@ -42,12 +42,9 @@ self.per_page = 10
   end
 
   def json_scorecard
-          respect += instr.average_instrrespect
-      availability += instr.average_availability
-      effectiveness += instr.average_instreffective
-      overall += instr.average_instructoroverall
     scorecard = {:overall => self.average_instructoroverall}
-    return to_json
+    return scorecard.to_json
+  end
 
   def cache_course_count
     self.update_attribute(:courses_count, self.courses.count)
