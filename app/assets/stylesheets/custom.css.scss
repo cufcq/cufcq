@@ -66,10 +66,19 @@ h2 {
   color: $gray-light;
 }
 
-p {
+
+
+p_special{
   font-size: 1.1em;
   line-height: 1.7em;
   font-family: "Mission Gothic";
+}
+
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+  font-family:'Helvetica', 'Arial', 'Sans-Serif'; 
 }
 
 
