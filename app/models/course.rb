@@ -18,7 +18,7 @@ class Course < ActiveRecord::Base
   # after_save :cache_instructor_count
 
   def name
-    return "#{self.subject}-#{self.crse}"
+    return "#{self.subject.downcase}-#{self.crse}"
   end
 
   def to_param
@@ -26,10 +26,10 @@ class Course < ActiveRecord::Base
   end
 
   def generate_slug
-    # puts "generating slug!"
+    puts "generating slug!"
     # puts "#{self.instructor_last.titleize}, #{self.instructor_first.titleize}".parameterize
     self.slug ||= "#{self.name}".parameterize
-    # puts "slug generated"
+    puts "slug generated"
     return self.slug
   end
 
