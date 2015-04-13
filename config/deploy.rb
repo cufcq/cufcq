@@ -15,7 +15,7 @@ namespace :deploy do
 desc 'Total Reload'
   task :total_reload do
     on roles(:app), in: :sequence, wait: 5 do
-      execute "cd #{deploy_to}/current && ./total_reload.sh"  ## -> line you should add
+      execute "cd #{deploy_to}/current && nohup ./total_reload.sh  > /dev/null 2>&1  &"  ## -> line you should add
     end
   end
 end
