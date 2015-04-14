@@ -25,7 +25,7 @@ namespace :deploy do
 desc 'Start dev server'
   task :dev_start do
     on roles(:app), in: :sequence, wait: 5 do
-      execute "cd #{deploy_to}/current && nohup ./dev_launcher.sh &"  ## -> line you should add
+      execute "cd #{deploy_to}/current && ./dev_launcher.sh "  ## -> line you should add
     end
   end
 end

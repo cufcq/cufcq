@@ -1,9 +1,14 @@
 #!/bin/bash
 
+
+
 #Use this for running cufcq on the dev server 
 
 echo "I SHOULD BE RUNNING ON THE DEV SERVER"
 echo "Starting/Reindexing Solr"
+
+pkill -f server 
+
 rake sunspot:solr:start RAILS_ENV=development
 rake sunspot:solr:reindex RAILS_ENV=development
 
