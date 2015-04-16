@@ -41,3 +41,4 @@ before 'bundler:install', 'prepare_bundle_config'
 #bundle config build.pg --with-pg-config=/usr/lib/postgresql/9.3/bin/pg_config
 
 #TEST
+# TEst class 
