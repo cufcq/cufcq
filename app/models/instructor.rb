@@ -45,6 +45,7 @@ self.per_page = 10
 
   def scorecard
     scorecard = {
+      :id => self.id, 
       :average_overall => self.average_instructoroverall, 
       :average_respect => self.average_instrrespect, 
       :average_availability => self.average_availability,
@@ -157,7 +158,7 @@ self.per_page = 10
       end
       hash[slug] = instr.scorecard
     end
-    return hash.to_json
+    return hash
   end
 
 

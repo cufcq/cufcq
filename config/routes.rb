@@ -16,6 +16,7 @@ Cufcq::Application.routes.draw do
   match '/disclaimer', to: 'static_pages#disclaimer',    via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',    to: 'static_pages#about',    via: 'get'
+  match '/ratemybuffs',    to: 'static_pages#ratemybuffs',    via: 'get'
 
 
   resources :courses, :except => [:new, :edit, :delete]

@@ -35,6 +35,7 @@ class Course < ActiveRecord::Base
 
   def scorecard
     scorecard = {
+      :id => self.id, 
       :average_overall => self.average_courseoverall, 
       :average_howmuchlearned => self.average_howmuchlearned, 
       :average_challenge => self.average_challenge,
@@ -88,6 +89,19 @@ class Course < ActiveRecord::Base
     print "Average muchlearned: #{howmuchlearned}\n"
     print "Average     Overall: #{overall}\n"
   end
+
+  def self.json_courses
+    hash = {}
+    Course.all.each do |crse|
+      slug = crse.slug
+      if slug == nil
+        next
+      end
+      hash[slug] = crse.scorecard
+    end
+    return hash.to_json
+  end
+
 
 
   def average_priorinterest
