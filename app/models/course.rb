@@ -104,28 +104,28 @@ class Course < ActiveRecord::Base
 
 
 
-  def average_priorinterest
+  def average_priorinterest(rounding = 1)
   	# self.fcqs.where.not(instr_group: 'TA').average(:priorinterest).round(1)
     # self.fcqs.average(:priorinterest).round(1)
     
-    r = self.data['average_prior_interest'] || 0.0
-    return r.to_f
+    r = self.data['average_prior_interest'].to_f || 0.0
+    return r.round(rounding)
   end
 
-  def average_challenge
+  def average_challenge(rounding = 1)
   	# self.fcqs.where.not(instr_group: 'TA').average(:challenge).round(1)
     # self.fcqs.average(:challenge).round(1)
     
-    r = self.data['average_challenge'] || 0.0
-    return r.to_f
+    r = self.data['average_challenge'].to_f || 0.0
+    return r.round(rounding)
   end
 
-  def average_courseoverall
+  def average_courseoverall(rounding = 1)
   	# return self.fcqs.where.not(instr_group: 'TA').average(:courseoverall).round(1)
     # return self.fcqs.average(:courseoverall).round(1)
     
-    r = self.data['average_course_overall'] || 0.0
-    return r.to_f
+    r = self.data['average_course_overall'].to_f || 0.0
+    return r.round(rounding)
   end
 
   def hoursperwkinclclass_string
@@ -133,11 +133,11 @@ class Course < ActiveRecord::Base
     return self.data['hoursperwkinclclass'] || "--"
   end
 
-  def average_howmuchlearned
+  def average_howmuchlearned(rounding = 1)
   	# return self.fcqs.where.not(instr_group: 'TA').average(:howmuchlearned).round(1)
     
-    r = self.data['average_how_much_learned'] || 0.0
-    return r.to_f
+    r = self.data['average_how_much_learned'].to_f || 0.0
+    return r.round(rounding)
   end
 
   def total_sections_offered

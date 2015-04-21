@@ -45,14 +45,38 @@ self.per_page = 10
 
   def scorecard
     scorecard = {
-      :id => self.id, 
-      :average_overall => self.average_instructoroverall, 
-      :average_respect => self.average_instrrespect, 
-      :average_availability => self.average_availability,
-      :average_effectiveness => self.average_instreffective
+      :id => self.id,
+      :name => self.name,
+      :first_semester => self.started_teaching,
+      :latest_semester => self.latest_teaching,
+      :requested_returned_ratio => self.requested_returned_ratio,
+      :instructor_group => self.instr_group,
+      :average_overall => self.average_instructoroverall(3), 
+      :average_respect => self.average_instrrespect(3), 
+      :average_availability => self.average_availability(3),
+      :average_effectiveness => self.average_instreffective(3)
     }
     return scorecard
   end
+
+  def self.scorecards(instr_group = nil, dept = nil)
+    arr = []
+    Instructor.all.each do |instr|
+      if instr_group != nil
+        if instr.instr_group != instr_group
+          next
+        end
+      end
+      if dept != nil
+        if instr.department.name != dept
+          next
+        end
+      end
+      arr << instr.scorecard
+    end
+    return arr
+  end
+
 
   def cache_course_count
     self.update_attribute(:courses_count, self.courses.count)
@@ -110,9 +134,9 @@ self.per_page = 10
     return self.data['latest_class'].to_i
   end
 
-  def average_instrrespect
+  def average_instrrespect(rounding = 1)
     x = self.data['average_instructor_respect'].to_f || 0.0
-    return x.round(1)
+    return x.round(rounding)
   end
 
   def self.averages(instr_group = nil, dept = nil)
@@ -163,14 +187,14 @@ self.per_page = 10
 
 
 
-  def average_availability
+  def average_availability(rounding  = 1 )
     x = self.data['average_instructor_availability'].to_f || 0.0
-    return x.round(1)
+    return x.round(rounding)
   end
 
-  def average_instreffective
+  def average_instreffective(rounding = 1)
     x = self.data['average_instructor_effectiveness'].to_f || 0.0
-    return x.round(1)
+    return x.round(rounding)
   end
 
   def total_requested
@@ -183,12 +207,12 @@ self.per_page = 10
 
 
   def requested_returned_ratio
-     (total_returned.to_f / total_requested.to_f).round(1)
+     (total_returned.to_f / total_requested.to_f).round(2)
   end
 
-  def average_instructoroverall
+  def average_instructoroverall(rounding = 1)
     overall = self.data['average_instructor_overall'].to_f || 0.0
-    return overall.round(1)
+    return overall.round(rounding)
   end
 
   def courses_taught

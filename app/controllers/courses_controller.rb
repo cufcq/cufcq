@@ -126,7 +126,7 @@ class CoursesController < ApplicationController
     end
 
     def find_course
-      # if instructor could not be found by slug, searches by id
-      @course ||= Instructor.find(params[:id])
+      # if course could not be found by slug, searches by id
+      @course ||= Course.find(params[:id])
     end
 end
