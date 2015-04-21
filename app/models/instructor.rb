@@ -49,7 +49,7 @@ self.per_page = 10
       :name => self.name,
       :first_semester => self.started_teaching,
       :latest_semester => self.latest_teaching,
-      :requested_returned_ratio => self.requested_returned_ratio,
+      :requested_returned_ratio => self.requested_returned_ratio(3),
       :instructor_group => self.instr_group,
       :average_overall => self.average_instructoroverall(3), 
       :average_respect => self.average_instrrespect(3), 
@@ -173,19 +173,17 @@ self.per_page = 10
     print "Average Overall: #{overall}\n"
   end
 
-  def self.json_instructors
-    hash = {}
-    Instructor.all.each do |instr|
-      slug = instr.slug
-      if slug == nil
-        next
-      end
-      hash[slug] = instr.scorecard
-    end
-    return hash
-  end
-
-
+  # def self.json_instructors
+  #   hash = {}
+  #   Instructor.all.each do |instr|
+  #     slug = instr.slug
+  #     if slug == nil
+  #       next
+  #     end
+  #     hash[slug] = instr.scorecard
+  #   end
+  #   return hash
+  # end
 
   def average_availability(rounding  = 1 )
     x = self.data['average_instructor_availability'].to_f || 0.0
@@ -198,16 +196,16 @@ self.per_page = 10
   end
 
   def total_requested
-    self.fcqs.sum(:formsrequested) 
+    return self.fcqs.sum(:formsrequested) || 0
   end
 
   def total_returned
-    self.fcqs.sum(:formsreturned)
+    return self.fcqs.sum(:formsreturned) || 1
   end
 
 
-  def requested_returned_ratio
-     (total_returned.to_f / total_requested.to_f).round(2)
+  def requested_returned_ratio(rounding = 2)
+     (total_returned.to_f / total_requested.to_f).round(rounding)
   end
 
   def average_instructoroverall(rounding = 1)

@@ -108,7 +108,8 @@ class Course < ActiveRecord::Base
   	# self.fcqs.where.not(instr_group: 'TA').average(:priorinterest).round(1)
     # self.fcqs.average(:priorinterest).round(1)
     
-    r = self.data['average_prior_interest'].to_f || 0.0
+    r = self.data['average_prior_interest'].texit
+    o_f || 0.0
     return r.round(rounding)
   end
 
