@@ -36,10 +36,10 @@ self.per_page = 10
   end
 
   def generate_slug
-    puts "generating slug!"
+    # puts "generating slug!"
     # puts "#{self.instructor_last.titleize}, #{self.instructor_first.titleize}".parameterize
     self.slug ||= "#{self.instructor_last.titleize}-#{self.instructor_first.titleize}".parameterize
-    puts "slug generated"
+    # puts "slug generated"
     return self.slug
   end
 
@@ -49,12 +49,16 @@ self.per_page = 10
       :name => self.name,
       :first_semester => self.started_teaching,
       :latest_semester => self.latest_teaching,
+      :department => self.department_string,
+      :courses_taught => self.courses_count,
+      :total_fcqs => self.fcqs_count,
       :requested_returned_ratio => self.requested_returned_ratio(3),
       :instructor_group => self.instr_group,
       :average_overall => self.average_instructoroverall(3), 
       :average_respect => self.average_instrrespect(3), 
       :average_availability => self.average_availability(3),
-      :average_effectiveness => self.average_instreffective(3)
+      :average_effectiveness => self.average_instreffective(3),
+      :slug => self.slug
     }
     return scorecard
   end

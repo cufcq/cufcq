@@ -14,6 +14,15 @@ class Department < ActiveRecord::Base
   		text :long_name
   	end 
 
+  	def instructor_scorecards
+    	arr = []
+    	instructors.each do |instr|
+      		arr << instr.scorecard
+    	end
+    	return arr
+  	end
+
+
   	def cache_update_counts
     	self.update_attribute(:instructors_count, self.instructors.count)
     	self.update_attribute(:courses_count, self.courses.count)
