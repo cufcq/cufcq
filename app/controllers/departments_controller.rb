@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-  before_action :set_department, only: [:show, :edit, :update, :destroy]
+  before_action :set_department, only: [:show, :edit, :update, :destroy, :instructors, :courses]
   helper_method :sort_column, :sort_direction
   # GET /departments
   # GET /departments.json
@@ -24,6 +24,14 @@ class DepartmentsController < ApplicationController
       paginate :page => page, :per_page => 10
     end
     @departments = @search.results
+  end
+
+  def instructors
+    # render :json => @instructor.scorecard.to_json
+  end
+
+  def courses
+    # render :json => @instructor.scorecard.to_json
   end
 
   # def index
