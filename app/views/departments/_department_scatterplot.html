@@ -1,0 +1,300 @@
+<script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
+
+<style>
+body {
+  font: 11px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #000;
+}
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}
+</style>
+<br>
+<div class="row">
+  <div class="col-xs-6 col-sm-4"><b>Y Axis:</b><select id = "y-axis" class="form-control input-md">
+<option value="average_respect">Average Respect</option>
+<option value="average_availability">Average Availability</option>
+<option value="average_overall">Average Overall</option>
+<option value="average_effectiveness">Average Effectiveness</option>
+<option value="requested_returned_ratio">Requested Returned Ratio</option>
+<option value="courses_taught">Courses Taught</option>
+<option value="total_fcqs">Total Fcqs</option>
+  <!-- and so on... -->   
+  </select> </div>
+  <div class="col-xs-6 col-sm-4"><b>X Axis:</b>  <select id = "x-axis" class="form-control input-md">
+<option value="average_respect">Average Respect</option>
+<option value="average_availability">Average Availability</option>
+<option value="average_overall">Average Overall</option>
+<option value="average_effectiveness">Average Effectiveness</option>
+<option value="requested_returned_ratio">Requested Returned Ratio</option>
+<option value="courses_taught">Courses Taught</option>
+<option value="total_fcqs">Total Fcqs</option>
+  <!-- and so on... -->   
+  </select></div>
+  <!-- Optional: clear the XS cols if their content doesn't match in height -->
+  <div class="clearfix visible-xs-block"></div>
+  <div class="col-xs-6 col-sm-4"></div>
+</div>
+
+
+
+    <br>
+    <div id="scatterplot"></div>
+<!-- <script src="d3.v3.js"></script> -->
+
+<script>
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+/* 
+ * value accessor - returns the value to encode for a given data object.
+ * scale - maps value to a visual display encoding, such as a pixel position.
+ * map function - maps from data value to display value
+ * axis - sets up axis
+ */ 
+
+// setup x 
+var xSelection = "average_respect";
+var ySelection = "average_respect";
+
+var xValue = function(d) { return d[xSelection];}, // data -> value
+    xScale = d3.scale.linear().range([0, width-64]), // value -> display
+      xMap = function(d) { return xScale(xValue(d));}, // data -> display
+    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+
+// setup y
+var yValue = function(d) { return d[ySelection];}, // data -> value
+    yScale = d3.scale.linear().range([height, 0]), // value -> display
+      yMap = function(d) { return yScale(yValue(d));}, // data -> display
+    yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+// setup fill color
+var cValue = function(d) { return d.instructor_group;},
+    color = d3.scale.category10();
+
+// add the graph canvas to the body of the webpage
+var svg = d3.select("div#scatterplot").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// add the tooltip area to the webpage
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+// load data
+var id = "<%= @department.id %>";
+console.log(window.location.pathname + "/instructors.json");
+console.log("dept: "+id);
+
+var init = function(){
+
+  xScale.domain([0,6]);
+  yScale.domain([0,6]);
+  // yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+
+  // x-axis
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .append("text")
+      .attr("class", "label x")
+      .attr("x", width)
+      .attr("y", -6)
+      .style("text-anchor", "end")
+      .text("average_respect");
+
+
+
+  // y-axis
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("class", "label y")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("average_respect");
+
+
+  svg.append("g")
+      .attr("class", "loading")
+      .append("text")
+      .attr("class", "label x")
+      .attr("x", width / 2)
+      .attr("y", height / 2)
+      // .style("font-family", "sans-serif")
+      .style("font-size", "20px")
+      .text("loading");
+  //loading text
+data = d3.json( window.location.pathname + "/instructors.json", function( error, data ) {
+    console.log( data );
+
+    // remove the loading screen text
+    svg.selectAll("g.loading").remove();
+
+console.log(data);
+  // change string (from CSV) into number format
+//   data.forEach(function(d) {
+//     d.average_overall = +d.average_overall;
+//     d.average_respect = +d.average_respect;
+// //    console.log(d);
+//   });
+
+  // don't want dots overlapping axis, so add in buffer to data domain
+  // xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
+
+
+  // draw dots
+  svg.selectAll(".dot")
+      .data(data)
+    .enter()
+    .append("a")
+        .attr("xlink:href", function(d) {return "http://cufcq.com/instructors/" + d.slug;})
+        .append("circle")
+      .attr("class", "dot")
+      .attr("r", 3.5)
+      .attr("cx", xMap)
+      .attr("cy", yMap)
+      // .attr("opacity", 0.25)
+      .style("fill", function(d) { return color(cValue(d));}) 
+      .on("mouseover", function(d) {
+          tooltip.transition()
+               .duration(200)
+               .style("opacity", 0.9);
+          tooltip.html(d.name + "<br/> (" + xValue(d) + ", " + yValue(d) + ")")
+               .style("left", (d3.event.pageX + 5) + "px")
+               .style("top", (d3.event.pageY - 28) + "px");
+      })
+      .on("mouseout", function(d) {
+          tooltip.transition()
+               .duration(500)
+               .style("opacity", 0);
+      });
+      
+
+  //when the axes change
+  d3.select('#y-axis')
+  .on('change', function() {
+    // get the selected value
+    var selected = d3.select(this).property('value');
+    console.log(selected);
+    // change axis if necesarry
+    if(selected == "requested_returned_ratio"){
+      yScale.domain([0,1]);
+      svg.selectAll("g.y.axis").call(yAxis);
+    }
+    else if(selected == "courses_taught" || selected == "total_fcqs")
+    {
+      // console.log();
+      var max = d3.max(d3.values(data), function(d){
+        return d[selected];
+      });
+      // console.log(max);
+      yScale.domain([0, max]);
+      svg.selectAll("g.y.axis").call(yAxis);
+    }
+    else{
+      console.log("else!");
+      yScale.domain([0,6]);
+      svg.selectAll("g.y.axis").call(yAxis);
+    }
+
+    //update the yMap
+    ySelection = selected;
+    // update the axis label
+    var ylabel = svg.selectAll("text.label.y").text(selected);
+    // update the ySelection variable
+    var transition = svg.transition().duration(550),
+      delay = function(d, i) { return i * 5; };
+
+    transition.selectAll(".dot")
+        .delay(delay)
+        .attr("cy", yMap );
+
+  });
+
+  d3.select('#x-axis')
+  .on('change', function() {
+    // get the selected value
+    var selected = d3.select(this).property('value');
+    console.log(selected);
+    // change axis if necesarry
+    if(selected == "requested_returned_ratio"){
+      xScale.domain([0,1]);
+      svg.selectAll("g.x.axis").call(xAxis);
+    }
+    else if(selected == "courses_taught" || selected == "total_fcqs")
+    {
+      // console.log();
+      var max = d3.max(d3.values(data), function(d){
+        return d[selected];
+      });
+      // console.log(max);
+      xScale.domain([0, max]);
+      svg.selectAll("g.x.axis").call(xAxis);
+    }
+    else{
+      xScale.domain([0,6]);
+      svg.selectAll("g.x.axis").call(xAxis);
+    }
+    //update the yMap
+    xSelection = selected;
+    // update the axis label
+    var xlabel = svg.selectAll("text.label.x").text(selected);
+    // update the ySelection variable
+    var transition = svg.transition().duration(550),
+      delay = function(d, i) { return i * 5; };
+
+    transition.selectAll(".dot")
+        .delay(delay)
+        .attr("cx", xMap );
+
+  });
+
+  // draw legend
+  var legend = svg.selectAll(".legend")
+      .data(color.domain())
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  // draw legend colored rectangles
+  legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+
+  // draw legend text
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d;});
+
+  });
+};
+init();
+</script>

@@ -38,7 +38,11 @@
       </set1>
       <%= render 'layouts/department_graph' %>
 
-      
+      <h2 class="sub-header">Instructor ScatterPlot</h2>
+      <set1>
+        This utility can be used to visualize the instructors of the <%= @department.long_name %> department. You can change the graphed axes with the dropdowns below.<br>
+      </set1>
+      <%= render 'departments/department_scatterplot' %>
 
       <h2 class="sub-header">Department Instructors</h2>
       <div class="table-responsive">
@@ -65,6 +69,9 @@
           </tbody>
         </table>
       </div>
+
+      
+
     </div>
   </div>
 
