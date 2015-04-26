@@ -23,6 +23,7 @@ Cufcq::Application.routes.draw do
     get 'courses/:id/scorecard', to: 'courses#scorecard'
   resources :departments, :except => [:new, :edit, :delete]
     get 'departments/:id/instructors', to: 'departments#instructors'
+    get 'departments/:id/courses', to: 'departments#courses'
   resources :instructors, :except => [:new, :edit, :delete]
     get 'instructors/:id/scorecard', to: 'instructors#scorecard'
   # resources :instructors_test

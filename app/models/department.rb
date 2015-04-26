@@ -9,15 +9,47 @@ class Department < ActiveRecord::Base
 	self.per_page = 10
 	validates :name, presence: true
 	validates_uniqueness_of :name, scope: [:college, :campus]
+	validates :slug, uniqueness: true, presence: true
+  	# before_validation :generate_slug
   	searchable do
   		text :name
   		text :long_name
   	end 
 
+  def to_param
+    slug
+  end
+
+  def generate_slug
+    puts "generating department slug!"
+    # puts "#{self.instructor_last.titleize}, #{self.instructor_first.titleize}".parameterize
+    self.slug ||= "#{self.name}".parameterize
+    puts "slug generated"
+    return self.slug
+  end
+
+
   	def instructor_scorecards
+  		    puts "$$$$$$$$$$$$$$$$"
+  		return self.data["instructors_json"] || build_instructor_scorecards.to_json
+  	end
+
+  	def build_instructor_scorecards
     	arr = []
     	instructors.each do |instr|
       		arr << instr.scorecard
+    	end
+    	return arr
+  	end
+
+  	def course_scorecards
+  		return self.data["courses_json"] || build_course_scorecards.to_json
+  	end
+
+  	def build_course_scorecards
+    	arr = []
+    	courses.each do |course|
+      		arr << course.scorecard
     	end
     	return arr
   	end
@@ -103,6 +135,7 @@ class Department < ActiveRecord::Base
 		self.data['to_data'] = @to_data
 		self.data['co_data'] = @co_data
 		build_averages
+		build_scorecards
 		cache_update_counts
 		self.save
 	end
@@ -116,6 +149,14 @@ class Department < ActiveRecord::Base
 		self.data["average_instreffective"] = self.fcqs.average(:instrrespect)
 		self.data["average_availability"] = self.fcqs.average(:instrrespect)
 		self.data["average_instrrespect"] = self.fcqs.average(:instrrespect)
+		self.save
+	end
+
+	def build_scorecards
+		# flag data as volatile
+		self.data_will_change!
+		self.data["instructors_json"] = build_instructor_scorecards.to_json
+		self.data["courses_json"] = build_course_scorecards.to_json
 		self.save
 	end
 
@@ -166,7 +207,7 @@ class Department < ActiveRecord::Base
 	end
 
 	def instructors_count
-		hash = self.fcqs.where('percentage_passed IS NOT NULL').group([:instructor_first,:instructor_last]).count
+		hash = self.fcqs.group([:instructor_first,:instructor_last]).count
 	end
 
 	def instructors_by_courses_taught

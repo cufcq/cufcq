@@ -1,6 +1,7 @@
 class DepartmentsController < ApplicationController
-  before_action :set_department, only: [:show, :edit, :update, :destroy, :instructors]
+  before_action :set_department, only: [:show, :edit, :update, :destroy, :instructors, :courses]
   helper_method :sort_column, :sort_direction
+  before_filter :find_department, only: [:show, :edit, :update, :destroy, :instructors, :courses]
   # GET /departments
   # GET /departments.json
   # def index
@@ -27,7 +28,11 @@ class DepartmentsController < ApplicationController
   end
 
   def instructors
-    render :json => @department.instructor_scorecards.to_json
+    render :json => @department.instructor_scorecards
+  end
+
+  def courses
+    render :json => @department.course_scorecards
   end
 
   # def courses
@@ -104,7 +109,9 @@ class DepartmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_department
-      @department = Department.find(params[:id])
+      puts "set_department"
+      searcher = params[:id].downcase
+      @department ||= Department.find_by_slug(searcher)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -118,5 +125,11 @@ class DepartmentsController < ApplicationController
     
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
+    def find_department
+      # if instructor could not be found by slug, searches by id
+      puts "find_department"
+      @department ||= Department.find(params[:id])
     end
 end

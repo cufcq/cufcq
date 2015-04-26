@@ -35,6 +35,7 @@ bundle exec rake course_missing_hstore
 #make the slugs for nice urls
 bundle exec rake course_slugs
 bundle exec rake instructor_slugs
+bundle exec rake department_slugs
 
 #reindex solr 
 RAILS_ENV=development bundle exec rake sunspot:solr:reindex

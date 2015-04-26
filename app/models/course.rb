@@ -34,12 +34,17 @@ class Course < ActiveRecord::Base
   end
 
   def scorecard
+    # puts self.name
     scorecard = {
       :id => self.id, 
-      :average_overall => self.average_courseoverall, 
-      :average_howmuchlearned => self.average_howmuchlearned, 
-      :average_challenge => self.average_challenge,
-      :average_priorinterest => self.average_priorinterest
+      :name => self.name,
+      :instructor_count => cache_instructor_count,
+      :total_fcqs => total_sections_offered,
+      :average_overall => self.average_courseoverall(3), 
+      :average_howmuchlearned => self.average_howmuchlearned(3), 
+      :average_challenge => self.average_challenge(3),
+      :average_priorinterest => self.average_priorinterest(3),
+      :slug => self.slug
     }
     return scorecard
   end
@@ -108,8 +113,7 @@ class Course < ActiveRecord::Base
   	# self.fcqs.where.not(instr_group: 'TA').average(:priorinterest).round(1)
     # self.fcqs.average(:priorinterest).round(1)
     
-    r = self.data['average_prior_interest'].texit
-    o_f || 0.0
+    r = self.data['average_prior_interest'].to_f || 0.0
     return r.round(rounding)
   end
 
