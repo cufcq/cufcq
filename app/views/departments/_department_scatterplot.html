@@ -1,9 +1,6 @@
 <script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
 
 <style>
-body {
-  font: 11px sans-serif;
-}
 
 .axis path,
 .axis line {
@@ -24,6 +21,7 @@ body {
 }
 </style>
 <br>
+<div class="col-xs-12">
 <div class="row">
   <div class="col-xs-6 col-sm-4"><b>Y Axis:</b><select id = "y-axis" class="form-control input-md">
 <option value="average_respect">Average Respect</option>
@@ -48,6 +46,7 @@ body {
   <!-- Optional: clear the XS cols if their content doesn't match in height -->
   <div class="clearfix visible-xs-block"></div>
   <div class="col-xs-6 col-sm-4"></div>
+</div>
 </div>
 
 
@@ -101,8 +100,8 @@ var tooltip = d3.select("body").append("div")
 
 // load data
 var id = "<%= @department.id %>";
-console.log(window.location.pathname + "/instructors.json");
-console.log("dept: "+id);
+// console.log(window.location.pathname + "/instructors.json");
+// console.log("dept: "+id);
 
 var init = function(){
 
@@ -148,12 +147,12 @@ var init = function(){
       .text("loading");
   //loading text
 data = d3.json( window.location.pathname + "/instructors.json", function( error, data ) {
-    console.log( data );
+    // console.log( data );
 
     // remove the loading screen text
     svg.selectAll("g.loading").remove();
 
-console.log(data);
+// console.log(data);
   // change string (from CSV) into number format
 //   data.forEach(function(d) {
 //     d.average_overall = +d.average_overall;
@@ -198,7 +197,7 @@ console.log(data);
   .on('change', function() {
     // get the selected value
     var selected = d3.select(this).property('value');
-    console.log(selected);
+    // console.log(selected);
     // change axis if necesarry
     if(selected == "requested_returned_ratio"){
       yScale.domain([0,1]);
@@ -215,7 +214,7 @@ console.log(data);
       svg.selectAll("g.y.axis").call(yAxis);
     }
     else{
-      console.log("else!");
+      // console.log("else!");
       yScale.domain([0,6]);
       svg.selectAll("g.y.axis").call(yAxis);
     }

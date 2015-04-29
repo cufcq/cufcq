@@ -12,28 +12,23 @@
 //                                                     
 //= require_tree .
 //= require showhide
-//= require jquery
-//= require jquery_ujs
-//= require bootstrap.min
+//= require bootstrap
 //= require d3.v3
 
 // 
-$(function () {  
-  $('#instructors th a').live('click', function () {  
-    $.getScript(this.href);  
-    return false;  
-  });  
-});
+// $(function () {  
+//   $('#instructors th a').live('click', function () {  
+//     $.getScript(this.href);  
+//     return false;  
+//   });  
+// });
 
-$(function () {  
-  $('#instructors th a, #instructors .pagination a').live('click',  
-    function () {  
-      $.getScript(this.href);  
-      return false;  
-    }  
-  );  
-}); 
+// $(function () {  
+//   $('#instructors th a, #instructors .pagination a').live('click',  
+//     function () {  
+//       $.getScript(this.href);  
+//       return false;  
+//     }  
+//   );  
+// }); 
 
-$(document).ready(function() {
-  $('.has-tooltip').tooltip();
-});

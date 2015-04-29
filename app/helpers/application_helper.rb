@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def semterm_from_int(s)
+    return (VALID_TERMS[s % 10] + " " + (s/10).to_s)
+  end
+
  # Returns the full title on a per-page basis.
    def full_title(page_title)
        base_title = "CUFCQ"

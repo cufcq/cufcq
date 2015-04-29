@@ -69,11 +69,15 @@
             </table>
 
           <h2 class="sub-header">Instructor FCQs</h2>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#fcqs">View Instructor Fcqs</button>
+      <div id="fcqs" class="collapse">
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Fcq</th>  
+                  <th>Semester</th>
+                  <th>Course</th>
+                  <th>Fcq Link</th> 
  		              <th>Level</th>
             		  <th>Instructor Overall</th>
             		  <th>Average GPA</th>
@@ -84,8 +88,10 @@
               <tbody>
                 <% @instructor.fcqs.each do |fcq| %>
                 <tr>
+                  <td><%= fcq.semterm %></td>
+                  <td><%= link_to fcq.course.uppercase_name, course_path(fcq.course)%></td>
                   <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
- 		              <td><%= fcq.rank_string()%></td>                 
+ 		              <td><%= fcq.rank_string%></td>                 
                   <td><%= fcq.instructor_overall_string%></td>
 		              <td><%= fcq.avg_grd_string %></td>
                   <td><%= fcq.percentage_passed_string %></td> 
@@ -93,6 +99,7 @@
                 <% end %>
               </tbody>
             </table>
+          </div>
           </div>
         </div>
     </div>

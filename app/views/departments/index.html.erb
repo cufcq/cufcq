@@ -8,6 +8,7 @@
   </head>
   <body>
 <title>Department - CUFCQ</title>
+<div class="row">
   <div class="col-lg-6">
     <div>    
       <%= form_tag departments_path, :method => 'get' do %>  
@@ -22,10 +23,12 @@
       <% end %>
     </div>
   </div><!-- /.col-lg-6 -->
+  <div class="col-lg-6">  
   <h1>Departments
   </br>
-  <small><%= @departments.total_count()%> results
-  </h1>
+  <small><%= @departments.total_count()%> results</small>
+  </h1></div>
+  </div>
   <div class="table-responsive">
     <div id="department_index_table">
       <%= render 'departments/department_index_table'%>

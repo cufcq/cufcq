@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://code.highcharts.com/highcharts.js"></script>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,15 +9,9 @@
 </head>
 
 <body>
-
   <title><%= @department.name%></title>
   <div class="container-fluid">
     <div class="row">
-
-      <div class="alert alert-warning" role="alert">
-        <a href="#" class="alert-link"><b>NOTE: </b> Department Pages are currently under construction. Errors abound!</a>
-      </div>
-      <%= render 'layouts/department_enrollment' %>
       <h1 class="page-header">
 
         <%= @department.name %> - <%= @department.long_name %><br>
@@ -27,6 +22,7 @@
         <br><small><abbr title="Number of instructors associated with this department since Fall 2008. Includes Teaching Assistants." >Total Instructors</abbr>: <b><%= @department.instructors.count %></b></small>
         <br><small><abbr title="Number of courses associated with this department since Fall 2008. Includes Recitations." >Total Courses</abbr>: <b><%= @department.courses.count %></b></small>
       </h1>
+
       <h1 class="page-header">Department Data</h1>
       <set1>
         This graph presents the overall scores for instructors, teaching assistants and courses.<br>
@@ -36,8 +32,12 @@
           <li>Course Overall is the average course overall score of every FCQ turned in for this department. </li>
         </ul>
       </set1>
-      <%= render 'layouts/department_graph' %>
+      <%= render 'departments/department_graph' %>
 
+      <h2 class="page-header">Department Enrollment</h2>
+      <%= render 'departments/department_enrollment' %>
+      <br>
+      
       <h2 class="sub-header">Instructor ScatterPlot</h2>
       <set1>
         This utility can be used to visualize the instructors of the <%= @department.long_name %> department. You can change the graphed axes with the dropdowns below.<br>
@@ -45,15 +45,21 @@
       <%= render 'departments/department_scatterplot' %>
 
       <h2 class="sub-header">Department Instructors</h2>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#instructors">View Department Instructors</button>
+      
+
+      <div id="instructors" class="collapse">
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Instructors</th>
+              <th>Instructor</th>
               <th>Group</th>
               <th>Last Class</th>
-              <th>Average Overall</th>                  
-              <th>Average Effectivenss</th>
+              <th>Instructor Overall</th>                  
+              <th>Instructor Effectivenss</th>
+              <th>Instructor Availability</th>                  
+              <th>Instructor Respect</th>
             </tr>
           </thead>
           <tbody>
@@ -61,13 +67,49 @@
             <tr>
               <td><%= link_to instructor.name, instructor %></td>
               <td><%= instructor.instr_group %></td>
-              <td><%= instructor.latest_teaching %></td>
-              <td><%= instructor.average_instructoroverall || "n/a" %> </td>
-              <td><%= instructor.average_instreffective || "n/a" %> </td>
+              <td><%= semterm_from_int(instructor.latest_teaching) %></td>
+              <td><%= instructor.average_instructoroverall || "n/a" %> / 6.0</td>
+              <td><%= instructor.average_instreffective || "n/a" %> / 6.0</td>
+              <td><%= instructor.average_availability || "n/a" %> / 6.0</td>
+              <td><%= instructor.average_instrrespect || "n/a" %> / 6.0</td>
             </tr>
             <% end %>
           </tbody>
         </table>
+      </div>
+      </div>
+
+      <h2 class="sub-header">Department Courses</h2>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#courses">View Department Courses</button>
+      <div id="courses" class="collapse">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Title</th>
+              <th>Level</th>
+              <th>Course Overall</th>                  
+              <th>Course Effectivenss</th>
+              <th>Course Availability</th>                  
+              <th>Course Respect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @department.courses.each do |course| %>
+            <tr>
+              <td><%= link_to course.uppercase_name, course_path(course)%></td>
+              <td><%= course.capitalized_title %></td>
+              <td><%= course.rank_string %></td>
+              <td><%= course.average_courseoverall || "n/a" %> / 6.0</td>
+              <td><%= course.average_challenge || "n/a" %> / 6.0</td>
+              <td><%= course.average_howmuchlearned || "n/a" %> / 6.0</td>
+              <td><%= course.average_priorinterest || "n/a" %> / 6.0</td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
       </div>
 
       

@@ -1,111 +1,117 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-  </head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+</head>
 
-  <body>
+<body>
 
-    <title><%= @course.capitalized_title%></title>
+  <title><%= @course.capitalized_title%></title>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="page-header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="page-header">
 
-          <h1><%= @course.course_identifier %>
+        <h1><%= @course.course_identifier %>
           <br><small>Department: <%= link_to @course.department.long_name, @course.department %></small>
           <br><small><abbr title="Number of FCQs associated with this course since Fall 2008. Includes recitations." >Sections Offered</abbr>: <b><%= @course.total_sections_offered %></b></small>
           <br><small><abbr title="Number of instructors associated with this class since Fall 2008. Includes Teaching Assistants." >Instructors Teaching</abbr>: <b><%= @course.instructors.count %></b></small>
           <br><small><abbr title="Number of students enrolled in this course since Fall 2008." >Students Taught</abbr>:  <b><%= @course.total_students_enrolled %></b></small>
-          </h1>
-        </div>
-        <h1 class="page-header">Course Data</h1>
-        <%= render 'layouts/course_graph' %>
+        </h1>
+      </div>
+      <h1 class="page-header">Course Data</h1>
+      <%= render 'layouts/course_graph' %>
+      <table class="table table-striped">
+        <caption class="text-left"><b>Course Data</b>
+          This table contains the averaged results of the fcq survey questions pertaining to the course.</caption>
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Course Title</td>
+              <td><%= @course.capitalized_title %></td>
+            </tr>
+            <tr>
+              <td>Course Code</td>
+              <td><%= @course.subject %> <%= @course.crse %></td>
+            </tr>
+            <tr>
+              <td>Course Level</td>
+              <td><%= @course.rank_string %></td>
+            </tr>
+          </tr>
+          <tr>
+            <td><abbr title="Students rate the course overall. All ratings are on a scale of 1 to 6. Average of all course associated FCQs." > Course Overall </abbr></td>
+            <td><%= @course.average_courseoverall %> / 6.0</td>
+          </tr>
+          <tr>
+            <td><abbr title="Students rate their personal interest in the material before they enrolled. All ratings are on a scale of 1 to 6. Average of all course associated FCQs." > Prior Interest </abbr></td>
+            <td><%= @course.average_priorinterest %> / 6.0</td>
+          </tr>
+          <tr>
+            <td><abbr title="Students rate the intellectual challenge of the course. All ratings are on a scale of 1 to 6. Average of all course associated FCQs." > Course Challenge </abbr></td>
+            <td><%= @course.average_challenge %> / 6.0</td>
+          </tr>
+          <tr>
+            <td><abbr title="Students rate how much they have learned in this course. All ratings are on a scale of 1 to 6. Average of all course associated FCQs." > Amount Learned </abbr></td>
+            <td><%= @course.average_howmuchlearned %> / 6.0</td>
+          </tr>
+          <tr>
+            <td><abbr title="Students estimate the average number of hours per week they have spent on this course for all course-related work, including attending classes, labs, recitations, readings reviewing notes, writing papers, etc. Statistical Mode of all course associated FCQs." > Mode Average Workload </abbr></td>
+            <td><%= @course.hoursperwkinclclass_string %> hours per week </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+
+      <h2 class="page-header">Grade Breakdown</h2>
+      <%= render 'layouts/course_stack' %>
+
+
+      <h2 class="sub-header">Course FCQs</h2>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#fcqs">View Course Fcqs</button>
+      <div id="fcqs" class="collapse">
+        <div class="table-responsive">
           <table class="table table-striped">
-            <caption class="text-left"><b>Course Data</b>
-            This table contains the averaged results of the fcq survey questions pertaining to the course.</caption>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Course Title</td>
-                  <td><%= @course.capitalized_title %></td>
-                </tr>
-                <tr>
-                  <td>Course Code</td>
-                  <td><%= @course.subject %> <%= @course.crse %></td>
-                </tr>
-                <tr>
-                  <td>Course Level</td>
-                  <td><%= @course.rank_string %></td>
-                </tr>
-                                </tr>
-                <tr>
-                  <td><abbr title="Students rate the course overall. All ratings are on a scale of 1 to 6. Average of all course associated FCQs." > Course Overall </abbr></td>
-                  <td><%= @course.average_courseoverall %> / 6.0</td>
-                </tr>
-                <tr>
-                  <td><abbr title="Students rate their personal interest in the material before they enrolled. All ratings are on a scale of 1 to 6. Average of all course associated FCQs." > Prior Interest </abbr></td>
-                  <td><%= @course.average_priorinterest %> / 6.0</td>
-                </tr>
-                <tr>
-                  <td><abbr title="Students rate the intellectual challenge of the course. All ratings are on a scale of 1 to 6. Average of all course associated FCQs." > Course Challenge </abbr></td>
-                  <td><%= @course.average_challenge %> / 6.0</td>
-                </tr>
-                <tr>
-                  <td><abbr title="Students rate how much they have learned in this course. All ratings are on a scale of 1 to 6. Average of all course associated FCQs." > Amount Learned </abbr></td>
-                  <td><%= @course.average_howmuchlearned %> / 6.0</td>
-                </tr>
-                <tr>
-                  <td><abbr title="Students estimate the average number of hours per week they have spent on this course for all course-related work, including attending classes, labs, recitations, readings reviewing notes, writing papers, etc. Statistical Mode of all course associated FCQs." > Mode Average Workload </abbr></td>
-                  <td><%= @course.hoursperwkinclclass_string %> hours per week </td>
-                </tr>
-                
-
-                </tbody>
-            </table>
-
-          <h1 class="page-header">Grade Breakdown</h1>
-          <%= render 'layouts/course_stack' %>
-
-          <h2 class="sub-header">Past FCQs</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Instructor</th>
-                  <th>Course Link</th>
-                  <th>Average Work Load </th>
-                  <th>Course Overall</th>
-                  <th>Average GPA</th>
-                  <th>Pass Rate</th> 
-                  <th>activity type</th> 
-                </tr>
-              </thead>
-              <tbody>
-                <% @course.fcqs.each do |fcq| %>
-                <tr>
-                    <td><%= link_to fcq.instructor.name, instructor_path(fcq.instructor)%></td>
-                    <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
-                    <td><%= fcq.hoursperwkinclclass %> hours / week</td>
-                    <td><%= fcq.course_overall_string%></td>
-                    <td><%= fcq.avg_grd_string%></td>
-                    <td><%= fcq.percentage_passed_string %></td>
-                    <td><%= fcq.activity_type %></td>
-                </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
+            <thead>
+              <tr>
+                <th>Semester</th>
+                <th>Instructor</th>
+                <th>Fcq Link</th>
+                <th>Average Work Load </th>
+                <th>Course Overall</th>
+                <th>Average GPA</th>
+                <th>Pass Rate</th> 
+                <th>activity type</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <% @course.fcqs.each do |fcq| %>
+              <tr>
+                <td><%= fcq.semterm %></td>
+                <td><%= link_to fcq.instructor.name, instructor_path(fcq.instructor)%></td>
+                <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
+                <td><%= fcq.hoursperwkinclclass %> hours / week</td>
+                <td><%= fcq.course_overall_string%></td>
+                <td><%= fcq.avg_grd_string%></td>
+                <td><%= fcq.percentage_passed_string %></td>
+                <td><%= fcq.activity_type %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-  
+

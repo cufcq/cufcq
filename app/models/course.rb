@@ -21,6 +21,8 @@ class Course < ActiveRecord::Base
     return "#{self.subject.downcase}-#{self.crse}"
   end
 
+
+
   def to_param
     slug
   end
@@ -55,6 +57,10 @@ class Course < ActiveRecord::Base
 
   def capitalized_title
     return course_title.split.map(&:capitalize).join(' ')
+  end
+
+  def uppercase_name
+    "#{subject} #{crse}"
   end
 
   def course_identifier

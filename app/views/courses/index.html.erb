@@ -9,6 +9,7 @@
 
   <body>
 <title>Courses - CUFCQ</title>
+<div class="row">
   <div class="col-lg-6">
     <div>    
       <%= form_tag courses_path, :method => 'get' do %>  
@@ -23,11 +24,14 @@
       <% end %>
     </div>
   </div><!-- /.col-lg-6 -->
-  
+  <div class="col-lg-6">  
   <h1>Courses
   </br>
-  <small><%= @courses.total_count() %> results
-  </h1>
+  <small><%= @courses.total_count() %> results</small>
+  </h1></div>
+  </div>
+  
+
   <!-- <h2 class="sub-header">courses</h2> -->
   <div class="table-responsive">
     <div id="course_index_table"><%= render 'courses/course_index_table'%></div> 
