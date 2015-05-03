@@ -10,6 +10,8 @@ class Department < ActiveRecord::Base
 	validates :name, presence: true
 	validates_uniqueness_of :name, scope: [:college, :campus]
 	validates :slug, uniqueness: true, presence: true
+#	testing to see if comments integrate with git
+
   	before_validation :generate_slug
   	searchable do
   		text :name
