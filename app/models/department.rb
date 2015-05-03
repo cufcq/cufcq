@@ -10,7 +10,7 @@ class Department < ActiveRecord::Base
 	validates :name, presence: true
 	validates_uniqueness_of :name, scope: [:college, :campus]
 	validates :slug, uniqueness: true, presence: true
-  	# before_validation :generate_slug
+  	before_validation :generate_slug
   	searchable do
   		text :name
   		text :long_name

@@ -11,6 +11,7 @@ gem 'database_cleaner'
 gem 'launchy'
 gem 'rspec-rails'
 gem 'progress_bar'
+gem 'eventmachine', github: "eventmachine/eventmachine"
 end
 
 
