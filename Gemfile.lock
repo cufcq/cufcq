@@ -4,6 +4,19 @@ GIT
   specs:
     eventmachine (1.0.7)
 
+GIT
+  remote: git@github.com:sunspot/sunspot.git
+  revision: 9c4ec23487d42cc24d6bc1d2a69fc1fc33db4eed
+  branch: master
+  specs:
+    sunspot (2.2.0)
+      pr_geohash (~> 1.0)
+      rsolr (~> 1.0.7)
+    sunspot_rails (2.2.0)
+      nokogiri
+      rails (>= 3)
+      sunspot (= 2.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -164,13 +177,6 @@ GEM
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    sunspot (2.1.1)
-      pr_geohash (~> 1.0)
-      rsolr (~> 1.0.7)
-    sunspot_rails (2.1.1)
-      nokogiri
-      rails (>= 3)
-      sunspot (= 2.1.1)
     sunspot_solr (2.1.1)
     taps (0.3.24)
       rack (>= 1.0.1)
@@ -213,6 +219,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
+  sunspot!
   sunspot_rails
   sunspot_solr
   taps

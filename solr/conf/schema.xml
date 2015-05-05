@@ -88,7 +88,20 @@
 
     <!-- A specialized field for geospatial search. If indexed, this fieldType must not be multivalued. -->
     <fieldType name="location" class="solr.LatLonType" subFieldSuffix="_coordinate"/>
-  </types>
+
+    <!-- CUFCQ custom autocomplete -->
+    <fieldType name="autocomplete" class="solr.TextField" positionIncrementGap="100">
+      <!-- The index analyzer adds parts of the field from 2 - 25 chars including whitespace etc. -->
+      <analyzer type="index">
+        <tokenizer class="solr.NGramTokenizerFactory" minGramSize="2" maxGramSize="25"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+      <analyzer type="query">
+        <!-- The query analyzer takes the whole input, whitespace and all -->            
+        <tokenizer class="solr.KeywordTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
   <fields>
     <!-- Valid attributes for fields:
      name: mandatory - the name for the field
@@ -236,9 +249,12 @@
     <dynamicField name="*_llm" stored="false" type="location" multiValued="true" indexed="true"/>
     <dynamicField name="*_lls" stored="true" type="location" multiValued="false" indexed="true"/>
     <dynamicField name="*_llms" stored="true" type="location" multiValued="true" indexed="true"/>
+
     
     <!-- required by Solr 4 -->
     <field name="_version_" type="string" indexed="true" stored="true" multiValued="false" />
+    <!-- cufcq custom autocomplete -->
+    <dynamicField name="*_ac" type="autocomplete" indexed="true"  stored="true"/>
   </fields>
   
   <!-- Field to use to determine and enforce document uniqueness.

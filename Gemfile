@@ -18,6 +18,7 @@ end
 #taps
 gem 'taps'
 #Sunspot solr Search 
+gem "sunspot", git: "git@github.com:sunspot/sunspot.git", branch: "master"
 gem 'sunspot_rails'
 gem 'sunspot_solr' 
 
