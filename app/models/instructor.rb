@@ -3,14 +3,11 @@ IG_OTH = 'Other primary instructor, such as adjunct, visiting, honorarium, etc.'
 IG_TA = 'Teaching_Assistant'
 
 # Instructor Model
-# Instructors have many instructors, courses , fcqs
+# Instructors have many fcqs, belong to many courses
 class Instructor < ActiveRecord::Base
-# attr_accessor :instructor_first, :instructor_last
   self.per_page = 10
 
   searchable do
-    # autocomplete :instructor_first
-    # autocomplete :instructor_last
     string :instructor_first
     string :instructor_last
     text :instructor_first
@@ -106,12 +103,12 @@ class Instructor < ActiveRecord::Base
     data['instructor_group'] || 'TTT'
   end
 
-  def is_TA
+  def ta?
     (instr_group == 'TA') ? true : false
   end
 
   def instructor_type_string
-    is_TA ? 'Teaching Assistant' : 'Instructor'
+    ta? ? 'Teaching Assistant' : 'Instructor'
   end
 
   def overall_from_course(c)
@@ -314,7 +311,7 @@ class Instructor < ActiveRecord::Base
   end
 
   def color
-    return 'box6' if is_TA
+    return 'box6' if ta?
     'box4'
   end
 end

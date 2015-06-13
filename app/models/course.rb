@@ -1,3 +1,5 @@
+# Course Model
+# Courses have many fcqs, belong to many instructors
 class Course < ActiveRecord::Base
   belongs_to :department, counter_cache: true
   has_many :fcqs
@@ -18,45 +20,41 @@ class Course < ActiveRecord::Base
   # after_save :cache_instructor_count
 
   def name
-    return "#{self.subject.downcase}-#{self.crse}"
+    "#{subject.downcase}-#{crse}"
   end
-
-
-
+  
   def to_param
     slug
   end
 
   def generate_slug
-    puts "generating slug!"
-    # puts "#{self.instructor_last.titleize}, #{self.instructor_first.titleize}".parameterize
-    self.slug ||= "#{self.name}".parameterize
-    puts "slug generated"
-    return self.slug
+    slug ||= "#{name}".parameterize
+    puts 'slug generated'
+    self.slug = slug
   end
 
   def scorecard
-    # puts self.name
+    # puts name
     scorecard = {
-      :id => self.id, 
-      :name => self.name,
+      :id => id,
+      :name => name,
       :instructor_count => cache_instructor_count,
       :total_fcqs => total_sections_offered,
-      :average_overall => self.average_courseoverall(3), 
-      :average_howmuchlearned => self.average_howmuchlearned(3), 
-      :average_challenge => self.average_challenge(3),
-      :average_priorinterest => self.average_priorinterest(3),
-      :slug => self.slug
+      :average_overall => average_courseoverall(3),
+      :average_howmuchlearned => average_howmuchlearned(3),
+      :average_challenge => average_challenge(3),
+      :average_priorinterest => average_priorinterest(3),
+      :slug => slug
     }
-    return scorecard
+    scorecard
   end
 
   def cache_instructor_count
-    self.update_attribute(:instructors_count, self.instructors.count)
+    update_attribute(:instructors_count, instructors.count)
   end
 
   def capitalized_title
-    return course_title.split.map(&:capitalize).join(' ')
+    course_title.split.map(&:capitalize).join(' ')
   end
 
   def uppercase_name
@@ -67,7 +65,7 @@ class Course < ActiveRecord::Base
     "#{subject} #{crse} - #{capitalized_title}"
   end
 
-  def self.averages(rank = nil, dept = nil)
+  def averages(rank = nil, dept = nil)
     prior = 0.0
     challenge = 0.0
     howmuchlearned = 0.0
@@ -75,14 +73,10 @@ class Course < ActiveRecord::Base
     count = 0
     Course.all.each do |crse|
       if rank != nil
-        if crse.abbv_rank_string != rank
-          next
-        end
+        next if crse.abbv_rank_string != rank
       end
       if dept != nil
-        if crse.department.name != dept
-          next
-        end
+        next if crse.department.name != dept
       end
       count += 1
       prior += crse.average_priorinterest
@@ -91,93 +85,75 @@ class Course < ActiveRecord::Base
       overall += crse.average_courseoverall
     end
     # count = Instructor.count || 1
-    prior = (prior / count ).round(1)
-    challenge = (challenge / count ).round(1)
-    howmuchlearned = (howmuchlearned / count ).round(1)
-    overall = (overall / count ).round(1)
+    prior = (prior / count).round(1)
+    challenge = (challenge / count).round(1)
+    howmuchlearned = (howmuchlearned / count).round(1)
+    overall = (overall / count).round(1)
     print "Average   prior int: #{prior}\n"
     print "Average   challenge: #{challenge}\n"
     print "Average muchlearned: #{howmuchlearned}\n"
     print "Average     Overall: #{overall}\n"
   end
 
-  def self.json_courses
+  def json_courses
     hash = {}
     Course.all.each do |crse|
       slug = crse.slug
-      if slug == nil
-        next
-      end
+      next if slug.nil?
       hash[slug] = crse.scorecard
     end
-    return hash.to_json
+    hash.to_json
   end
 
-
-
   def average_priorinterest(rounding = 1)
-  	# self.fcqs.where.not(instr_group: 'TA').average(:priorinterest).round(1)
-    # self.fcqs.average(:priorinterest).round(1)
-    
-    r = self.data['average_prior_interest'].to_f || 0.0
-    return r.round(rounding)
+    r = data['average_prior_interest'].to_f || 0.0
+    r.round(rounding)
   end
 
   def average_challenge(rounding = 1)
-  	# self.fcqs.where.not(instr_group: 'TA').average(:challenge).round(1)
-    # self.fcqs.average(:challenge).round(1)
-    
-    r = self.data['average_challenge'].to_f || 0.0
-    return r.round(rounding)
+    r = data['average_challenge'].to_f || 0.0
+    r.round(rounding)
   end
 
   def average_courseoverall(rounding = 1)
-  	# return self.fcqs.where.not(instr_group: 'TA').average(:courseoverall).round(1)
-    # return self.fcqs.average(:courseoverall).round(1)
-    
-    r = self.data['average_course_overall'].to_f || 0.0
-    return r.round(rounding)
+    r = data['average_course_overall'].to_f || 0.0
+    r.round(rounding)
   end
 
   def hoursperwkinclclass_string
-  	# return self.fcqs.where.not(instr_group: 'TA').pluck(:hoursperwkinclclass).mode
-    return self.data['hoursperwkinclclass'] || "--"
+    data['hoursperwkinclclass'] || '--'
   end
 
   def average_howmuchlearned(rounding = 1)
-  	# return self.fcqs.where.not(instr_group: 'TA').average(:howmuchlearned).round(1)
-    
-    r = self.data['average_how_much_learned'].to_f || 0.0
-    return r.round(rounding)
+    r = data['average_how_much_learned'].to_f || 0.0
+    r.round(rounding)
   end
 
   def total_sections_offered
-  	# return self.fcqs.where.not(instr_group: 'TA').count
-    return self.fcqs.count
+    fcqs.count
   end
 
   def total_students_enrolled
-  	# return self.fcqs.where.not(instr_group: 'TA').sum(:formsrequested) 
-    return self.fcqs.sum(:formsrequested) 
+    fcqs.sum(:formsrequested)
   end
 
   def average_class_size
-    return self.fcqs.average(:formsrequested)
+    fcqs.average(:formsrequested)
   end
 
   def instructors_sorted_by_instructoroverall
-    self.instructors.sort_by(:instructoroverall)
+    instructors.sort_by(:instructoroverall)
   end
 
   def course_object
-    %Q{#{subject} #{crse} - #{course_title}}
+    %(#{subject} #{crse} - #{course_title})
   end
 
   def overall_from_instructor(i)
     fname = i.instructor_first
     lname = i.instructor_last
-    set = self.fcqs.where("instructor_first = ? AND instructor_last = ?", fname, lname)
-    return set.average(:courseoverall).round(1)
+    set = fcqs.where('instructor_first = ? AND instructor_last = ?', fname, lname)
+    set.average(:courseoverall).round(1)
   end
 
   def ld?
@@ -185,7 +161,7 @@ class Course < ActiveRecord::Base
   end
 
   def ud?
-    return !(self.ld?) && (crse < 5000)
+    return !(ld?) && (crse < 5000)
   end
 
   def grad?
@@ -194,21 +170,21 @@ class Course < ActiveRecord::Base
 
   def rank_string
     if ld?
-      return "Lower Division"
+      return 'Lower Division'
     elsif ud?
-      return "Upper Division"
+      return 'Upper Division'
     else
-      return "Graduate Level"
+      return 'Graduate Level'
     end
   end
 
   def abbv_rank_string
     if ld?
-      return "ld"
+      return 'ld'
     elsif ud?
-      return "ud"
+      return 'ud'
     else
-      return "gd"
+      return 'gd'
     end
   end
 
@@ -217,32 +193,32 @@ class Course < ActiveRecord::Base
   attr_reader :semesters, :grade_data, :overall_data, :challenge_data, :interest_data, :learned_data, :grade_data, :categories, :pct_a_data, :pct_b_data, :pct_c_data, :pct_d_data, :pct_f_data, :pct_i_data
 
   def overall_query
-    @overall_data = self.data['overall_data']
-    @challenge_data = self.data['challenge_data']
-    @interest_data = self.data['interest_data']
-    @learned_data = self.data['learned_data']
-    @grade_data = self.data['grade_data']
+    @overall_data = data['overall_data']
+    @challenge_data = data['challenge_data']
+    @interest_data = data['interest_data']
+    @learned_data = data['learned_data']
+    @grade_data = data['grade_data']
   end
 
 
   def grade_query
-    @pct_a_data = self.data['pct_a_data']
-    @pct_b_data = self.data['pct_b_data']
-    @pct_c_data = self.data['pct_c_data']
-    @pct_d_data = self.data['pct_d_data']
-    @pct_f_data = self.data['pct_f_data']
-    @pct_i_data = self.data['pct_i_data']
-    @grade_data = self.data['grade_data']
+    @pct_a_data = data['pct_a_data']
+    @pct_b_data = data['pct_b_data']
+    @pct_c_data = data['pct_c_data']
+    @pct_d_data = data['pct_d_data']
+    @pct_f_data = data['pct_f_data']
+    @pct_i_data = data['pct_i_data']
+    @grade_data = data['grade_data']
   end
 
   def build_hstore
-    pct_a = self.fcqs.order("yearterm").group("yearterm").average(:pct_a)
-    pct_b = self.fcqs.order("yearterm").group("yearterm").average(:pct_b)
-    pct_c = self.fcqs.order("yearterm").group("yearterm").average(:pct_c)
-    pct_d = self.fcqs.order("yearterm").group("yearterm").average(:pct_d)
-    pct_f = self.fcqs.order("yearterm").group("yearterm").average(:pct_f)
-    pct_i = self.fcqs.order("yearterm").group("yearterm").average(:pct_incomp)
-    grade = self.fcqs.order("yearterm").group("yearterm").average(:avg_grd)
+    pct_a = fcqs.order('yearterm').group('yearterm').average(:pct_a)
+    pct_b = fcqs.order('yearterm').group('yearterm').average(:pct_b)
+    pct_c = fcqs.order('yearterm').group('yearterm').average(:pct_c)
+    pct_d = fcqs.order('yearterm').group('yearterm').average(:pct_d)
+    pct_f = fcqs.order('yearterm').group('yearterm').average(:pct_f)
+    pct_i = fcqs.order('yearterm').group('yearterm').average(:pct_incomp)
+    grade = fcqs.order('yearterm').group('yearterm').average(:avg_grd)
     # @semesters = []
     @pct_a_data = []
     @pct_b_data = []
@@ -251,55 +227,52 @@ class Course < ActiveRecord::Base
     @pct_f_data = []
     @pct_i_data = []
     @grade_data = []
-    pct_a.each {|k,v| @pct_a_data << [k,v.to_f.round(2)]}
-    pct_b.each {|k,v| @pct_b_data << [k,v.to_f.round(2)]}
-    pct_c.each {|k,v| @pct_c_data << [k,v.to_f.round(2)]}
-    pct_d.each {|k,v| @pct_d_data << [k,v.to_f.round(2)]}
-    pct_f.each {|k,v| @pct_f_data << [k,v.to_f.round(2)]}
-    pct_i.each {|k,v| @pct_i_data << [k,v.to_f.round(2)]}
-    grade.each {|k,v| @grade_data << [k,v.to_f.round(2)]}
-    overalls = self.fcqs.order("yearterm").group("yearterm").average(:courseoverall)
-    challenge = self.fcqs.order("yearterm").group("yearterm").average(:challenge)
-    interest = self.fcqs.order("yearterm").group("yearterm").average(:priorinterest)
-    learned = self.fcqs.order("yearterm").group("yearterm").average(:howmuchlearned)
+    pct_a.each { |k, v| @pct_a_data << [k, v.to_f.round(2)] }
+    pct_b.each { |k, v| @pct_b_data << [k, v.to_f.round(2)] }
+    pct_c.each { |k, v| @pct_c_data << [k, v.to_f.round(2)] }
+    pct_d.each { |k, v| @pct_d_data << [k, v.to_f.round(2)] }
+    pct_f.each { |k, v| @pct_f_data << [k, v.to_f.round(2)] }
+    pct_i.each { |k, v| @pct_i_data << [k, v.to_f.round(2)] }
+    grade.each { |k, v| @grade_data << [k, v.to_f.round(2)] }
+    overalls = fcqs.order('yearterm').group('yearterm').average(:courseoverall)
+    challenge = fcqs.order('yearterm').group('yearterm').average(:challenge)
+    interest = fcqs.order('yearterm').group('yearterm').average(:priorinterest)
+    learned = fcqs.order('yearterm').group('yearterm').average(:howmuchlearned)
     # @semesters = []
     @overall_data = []
-    @challenge_data = [] 
-    @interest_data = [] 
+    @challenge_data = []
+    @interest_data = []
     @learned_data = []
-    @grade_data = [] 
-    #records.each {|k,v| fixedrecords[Fcq.semterm_from_int(k)] = v.to_f.round(1)}
-    overalls.each {|k,v| @overall_data << [k,v.to_f.round(1)]}
-    challenge.each {|k,v| @challenge_data << [k,v.to_f.round(1)]}
-    interest.each {|k,v| @interest_data << [k,v.to_f.round(1)]}
-    learned.each {|k,v| @learned_data << [k,v.to_f.round(1)]}
-    grade.each {|k,v| @grade_data << [k,v.to_f.round(2)]}
+    @grade_data = []
+    overalls.each { |k, v| @overall_data << [k, v.to_f.round(1)] }
+    challenge.each { |k, v| @challenge_data << [k, v.to_f.round(1)] }
+    interest.each { |k, v| @interest_data << [k, v.to_f.round(1)] }
+    learned.each { |k, v| @learned_data << [k, v.to_f.round(1)] }
+    grade.each { |k, v| @grade_data << [k, v.to_f.round(2)] }
     # build the hstore
-    self.data = {}
-    self.data['pct_a_data'] = @pct_a_data
-    self.data['pct_b_data'] = @pct_b_data
-    self.data['pct_c_data'] = @pct_c_data
-    self.data['pct_d_data'] = @pct_d_data
-    self.data['pct_f_data'] = @pct_f_data
-    self.data['pct_i_data'] = @pct_i_data
-    self.data['overall_data'] = @overall_data
-    self.data['challenge_data'] = @challenge_data 
-    self.data['interest_data'] = @interest_data
-    self.data['learned_data'] = @learned_data
-    self.data['grade_data'] = @grade_data
-    r = self.fcqs.average(:priorinterest) || 0.0
-    self.data['average_prior_interest'] = r.round(1)
-    r = self.fcqs.average(:challenge) || 0.0
-    self.data['average_challenge'] = r.round(1)
-    r = self.fcqs.average(:courseoverall) || 0.0
-    self.data['average_course_overall'] = r.round(1)
-    r = self.fcqs.pluck(:hoursperwkinclclass) || [0.0]
-    self.data['hoursperwkinclclass'] = r.mode
-    r = self.fcqs.average(:howmuchlearned) || 0.0
-    self.data['average_how_much_learned'] = r.round(1)
+    data = {}
+    data['pct_a_data'] = @pct_a_data
+    data['pct_b_data'] = @pct_b_data
+    data['pct_c_data'] = @pct_c_data
+    data['pct_d_data'] = @pct_d_data
+    data['pct_f_data'] = @pct_f_data
+    data['pct_i_data'] = @pct_i_data
+    data['overall_data'] = @overall_data
+    data['challenge_data'] = @challenge_data
+    data['interest_data'] = @interest_data
+    data['learned_data'] = @learned_data
+    data['grade_data'] = @grade_data
+    r = fcqs.average(:priorinterest) || 0.0
+    data['average_prior_interest'] = r.round(1)
+    r = fcqs.average(:challenge) || 0.0
+    data['average_challenge'] = r.round(1)
+    r = fcqs.average(:courseoverall) || 0.0
+    data['average_course_overall'] = r.round(1)
+    r = fcqs.pluck(:hoursperwkinclclass) || [0.0]
+    data['hoursperwkinclclass'] = r.mode
+    r = fcqs.average(:howmuchlearned) || 0.0
+    data['average_how_much_learned'] = r.round(1)
     cache_instructor_count
-    self.save
+    save
   end
-
-
 end
