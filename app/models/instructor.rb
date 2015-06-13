@@ -7,14 +7,14 @@ class Instructor < ActiveRecord::Base
 self.per_page = 10
 
   searchable do 
-    autocomplete :instructor_first
-    autocomplete :instructor_last
-    # string :instructor_first
-    # string :instructor_last
+    # autocomplete :instructor_first
+    # autocomplete :instructor_last
+    string :instructor_first
+    string :instructor_last
     text :instructor_first
     text :instructor_last, :default_boost => 2
   end
-  handle_asynchronously :solr_index # works like a charm with delayed_job
+  # handle_asynchronously :solr_index # works like a charm with delayed_job
 
   belongs_to :department, counter_cache: true
   has_many :fcqs
