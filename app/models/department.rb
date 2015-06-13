@@ -28,7 +28,7 @@ class Department < ActiveRecord::Base
   def generate_slug
     slug ||= "#{name}".parameterize
     puts 'slug generated'
-    slug
+    self.slug = slug
   end
 
   def instructor_scorecards
