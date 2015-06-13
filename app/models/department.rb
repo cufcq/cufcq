@@ -2,7 +2,7 @@ CURRENT_YEAR = 20151
 ONE_YEAR_AGO = CURRENT_YEAR - 10
 TWO_YEARS_AGO = CURRENT_YEAR - 20
 
-# Departments Model
+# Department Model
 # Departments have many instructors, courses , fcqs
 class Department < ActiveRecord::Base
   # serialize :data, ActiveRecord::Coders::Hstore
