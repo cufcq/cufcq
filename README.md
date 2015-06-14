@@ -15,7 +15,8 @@ Last FCQs added: Fall 2014.
 ### To Run:
 1. Install the correct dependencies. On linux this can be done with the following command:
 
-```sudo apt-get install postgresql-common postgresql-9.3 libpq-dev rails node postgresql-contrib-9.3 openjdk-6-jdk```.
+```sudo apt-get install postgresql-common postgresql-9.3 libpq-dev rails node postgresql-contrib-9.3 openjdk-6-jdk```
+
 2. Create the Postgres DB following the commands at ```config/installing_postgresql.txt```
 
 3. Navigate to the cloned directory and perform a ```bundle install``` to make sure all Ruby gems are updated.
