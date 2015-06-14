@@ -17,10 +17,10 @@ end
 
 #taps
 gem 'taps'
-#Sunspot solr Search 
+#Sunspot solr Search
 gem "sunspot", git: "git@github.com:sunspot/sunspot.git", branch: "master"
 gem 'sunspot_rails'
-gem 'sunspot_solr' 
+gem 'sunspot_solr'
 
 
 # Use SCSS for stylesheets
@@ -38,7 +38,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails' 
+gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 # gem 'jquery-turbolinks'
@@ -65,9 +65,13 @@ end
 gem 'capistrano', group: :development
 # gem 'activerecord-postgres-hstore'
 
+group :test do
+  gem 'minitest'
+end
+
 group :development do
-    gem 'capistrano-rails'
-    gem 'capistrano-rbenv', '~> 2.0', require: false
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv', '~> 2.0', require: false
 end
 
 
