@@ -5,4 +5,4 @@ before_script:
     - psql -U postgres -c "CREATE USER cufcq WITH PASSWORD 'spina!';"
     - psql -U postgres -c "CREATE DATABASE cufcq_test;"
     - psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE cufcq_test to cufcq;"
-    - psql -U cufcq --password spina! "CREATE EXTENSION hstore;"
+    - psql -U cufcq --password 'spina!' "CREATE EXTENSION hstore;"
