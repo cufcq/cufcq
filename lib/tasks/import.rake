@@ -1,5 +1,5 @@
 #lib/tasks/import.rake
-# to call, run 
+# to call, run
 require 'csv'
 
 
@@ -17,17 +17,12 @@ EOF
   puts `#{sh}`
 end
 
-
-
-
-
-
 #require "#{Rails.root}/app/helpers/fcqs_helper.rb"
 desc "Imports a CSV file into an ActiveRecord table"
 task :import => :environment do
   puts "start"
-  Dir.glob('csv_make/fcq/fcq.*.csv').each do |csv|
-    puts "loading csv file: " + csv   
+  Dir.glob('data/fcq/fcq.*.csv').each do |csv|
+    puts "loading csv file: " + csv
     CSV.foreach(csv, :headers => true) do |row|
       begin
           #puts row.to_hash
@@ -44,7 +39,7 @@ task :import => :environment do
       h["instructor_last"] = i_name[1] || ""
       h["instructor_first"].capitalize!
       h["instructor_last"].capitalize!
-      h["course_title"] = h["crstitle"] 
+      h["course_title"] = h["crstitle"]
       h.select! {|k, v| Fcq.column_names.include? k }
 
       f = Fcq.create!(h)
@@ -69,7 +64,7 @@ task :import => :environment do
       puts "added " + i.full_name.to_s + " to " + d.name.to_s
       d.courses << c unless d.courses.exists?(c)
       puts "added " + c.course_title.to_s + " to " + d.name.to_s
-      
+
       rescue ActiveRecord::RecordInvalid => invalid
           puts invalid.message
           next
@@ -85,8 +80,8 @@ task :import => :environment do
 end
 # task :import => :environment do
 #   puts "start"
-#   Dir.glob('csv_make/output/*.csv').each do |csv|
-#     puts "loading csv file: " + csv   
+#   Dir.glob('data/output/*.csv').each do |csv|
+#     puts "loading csv file: " + csv
 #     CSV.foreach(csv, :headers => true) do |row|
 #       begin
 #           #puts row.to_hash
@@ -182,7 +177,7 @@ task :instructor_populate => :environment do
       i = i.nil? ? Instructor.where(params).first : i
       i.fcqs << x  unless (i.fcqs.exists?(x))
       puts i.id + x.id
-    end      
+    end
 end
 
 
@@ -199,7 +194,7 @@ end
 #       i = i.nil? ? Instructor.where(params).first : i
 #       i.fcqs << x  unless (i.fcqs.exists?(x))
 #       puts i.id + x.id
-#     end      
+#     end
 # end
 
 
@@ -214,13 +209,13 @@ task :course_populate => :environment do
       sec = x.sec
       i = Course.create!(params)
       rescue Exception => e
-        puts "rescued -" + e.inspect     
+        puts "rescued -" + e.inspect
     end
       #puts params
       i = i.nil? ? Course.where(params).first : i
       i.fcqs << x  unless (i.fcqs.exists?(x))
       puts i.id + x.id
-    end 
+    end
   #recitation correction
   Fcq.find_each(:batch_size => 200) do |x|
   begin
@@ -249,7 +244,7 @@ task :ic_relations => :environment do
         c = Course.where(params).first
         d = Department.where(dep_params).first
         d = Department.where(dep_params).first
-        if c.nil? 
+        if c.nil?
           next
         elsif d.nil?
           next
@@ -277,7 +272,7 @@ task :ic_relations => :environment do
       rescue Exception => e
         puts "rescued -" + e.inspect
       end
-    end     
+    end
 end
 
 # LONG_NAMES = {"CSCI" => "Computer Science", "MATH" => "Mathematics", "PHIL" => "Philosophy", "APPM" => "Applied Mathematics", "CHEN" => "Chemical Engineering"}
@@ -296,7 +291,7 @@ end
 #       ln = STDIN.gets.chomp
 #       puts ""
 #       #puts d.update_attribute(:long_name, ln)
-      
+
 #       Department.update(d.id, :long_name => ln)
 #       #puts d.long_name
 #       rescue Exception => e
@@ -312,8 +307,8 @@ end
 
 task :grades => :environment do
   puts "start"
-  Dir.glob('csv_make/grades/grades.csv').each do |csv|
-    puts "loading csv file: " + csv   
+  Dir.glob('data/grades/grades.csv').each do |csv|
+    puts "loading csv file: " + csv
     #puts Fcq.column_names
     CSV.foreach(csv, :headers => true) do |row|
       begin
@@ -359,8 +354,8 @@ end
 
 task :departments => :environment do
   puts "start"
-  Dir.glob('csv_make/departments/departments.csv').each do |csv|
-    puts "loading csv file: " + csv   
+  Dir.glob('data/departments/departments.csv').each do |csv|
+    puts "loading csv file: " + csv
     #puts Fcq.column_names
     CSV.foreach(csv, :headers => true) do |row|
       begin
@@ -397,8 +392,8 @@ end
 
 task :course_titles => :environment do
   puts "start"
-  Dir.glob('csv_make/courses/courses.csv').each do |csv|
-    puts "loading csv file: " + csv   
+  Dir.glob('data/courses/courses.csv').each do |csv|
+    puts "loading csv file: " + csv
     #puts Fcq.column_names
     termlookup = {1 => "Spring",4 => "Summer",7=>"Fall"}.invert
     CSV.foreach(csv, :headers => true) do |row|

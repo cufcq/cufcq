@@ -21,7 +21,7 @@ Last FCQs added: Fall 2014.
 
 3. Navigate to the cloned directory and perform a ```bundle install``` to make sure all Ruby gems are updated.
 
-4. Initialize the DB with total_reload.sh. This will run a bunch of rake tasks that reads the csv files stored in csv_make/output and put them into the DB.
+4. Initialize the DB with total_reload.sh. This will run a bunch of rake tasks that reads the csv files stored in data/output and put them into the DB.
 
 5. Run the correct launcher (./local_launcher.sh if you just want to run it on a local machine).
 
@@ -37,6 +37,11 @@ We also tie in grade data, provided seperately in gradesall.xlsx to individual F
 
 ###Imports:
 
-You can create csv files from the excel documents from the FCQ website using csv_make/csv_maker.sh, this requires ssconvert which is a gnumeric application. Put the final csv files into to the csv_make/output directory.
+You can create csv files from the excel documents from the FCQ website using data/csv_maker.sh, this requires ssconvert which is a gnumeric application. Put the final csv files into to the data/output directory.
 
-All files that end in .csv in csv_make/output are imported using the import script. This script is found in lib/tasks/import.rake.
+All files that end in .csv in data/output are imported using the import script. This script is found in lib/tasks/import.rake
+
+###API Endpoints:
+
+You can see the json returned for insturctors and courses in ```doc/```
+TODO - Add in more documentation for our endpoints. 
