@@ -1,5 +1,22 @@
 import mechanize
 import requests
+import os
+import argparse
+
+# 1 is Spring, 4 is Summer, 7 is Fall
+#lt is the last term, spring as well.
+
+parser = argparse.ArgumentParser()
+#ft is the first term, in this case spring
+parser.add_argument('-ft', '--firstterm', nargs='+', type=int)
+#lt is the last term, begin with spring(1)
+parser.add_argument('-lt', '--lastterm', nargs='+', type=int)
+
+#first years, are years that we will start terms with. For example:
+#if fyears are 2013, 2014, and last years are 2014, 2015 we will download 2013-2014 and 2014-2015
+parser.add_argument('-fy', '--firstyears', nargs='+', type=int)
+parser.add_argument('-ly', '--lastyears', nargs='+', type=int)
+arguments = parser.parse_args()
 
 #this is the boiler plate for the browser
 br = mechanize.Browser()
@@ -12,79 +29,86 @@ fcqdpt = 'BD : Entire Campus ## BD'
 # 1 is Spring, 4 is Summer, 7 is Fall
 #fterm is the first term, in this case spring
 #lterm is the last term, spring as well.
-ftrm = '1'
-ltrm = '1'
+#ftrm = '1'
+ftrm = str(arguments.firstterm[0])
+#ltrm = '1'
+ltrm = str(arguments.lastterm[0])
 
 fileFrmt = 'XLS'
 
-#years that we are interested in, from first years to last years 
-fyrs = ['2013', '2012', '2011', '2010', '2009', '2008', '2007']
-lyrs = ['2014', '2013', '2012', '2011', '2010', '2009', '2008']
+#years that we are interested in, from first years to last years
+fyrs = map(str,arguments.firstyears)
+lyrs = map(str,arguments.lastyears)
+#fyrs = ['2013', '2012', '2011', '2010', '2009', '2008', '2007']
+#lyrs = ['2014', '2013', '2012', '2011', '2010', '2009', '2008']
 # The instructor group grp1=[*ALL, TTT, OTH, T_O, TA]
 grp1 = 'ALL'
 
-
 for i in range (0,len(fyrs)):
 
-	#the url for the fcq site
-	url = 'https://fcq.colorado.edu/UCBdata.htm'
+    #the url for the fcq site
+    url = 'https://fcq.colorado.edu/UCBdata.htm'
 
-	#we open the url 
-	response = br.open(url)
+    #we open the url
+    response = br.open(url)
 
-	control = br.select_form("frmFCQ")
+    control = br.select_form("frmFCQ")
 
-	#go through all of the form options so we can change them 
-	for control in br.form.controls:
-		#this will show us all of our default value for the fields. See page options for the output of the FCQ page as of 1/3/15
-	    #print "DEFAULT: type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
-		
-	    if (control.name == 'fcqdpt'):
-	    	br[control.name] = [fcqdpt]
-	    	print "CHANGE fcqdpt type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
+    #go through all of the form options so we can change them
+    for control in br.form.controls:
+        #this will show us all of our default value for the fields. See page options for the output of the FCQ page as of 1/3/15
+        #print "DEFAULT: type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
 
-	    elif (control.name == 'ftrm'):
-	    	br[control.name] = [ftrm]
-	    	print "CHANGE first term type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
+        if (control.name == 'fcqdpt'):
+            br[control.name] = [fcqdpt]
+            print "CHANGE fcqdpt type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
 
-	    elif (control.name == 'ltrm'):
-	    	br[control.name] = [ltrm]
-	    	print "CHANGE last term type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
+        elif (control.name == 'ftrm'):
+            br[control.name] = [ftrm]
+            print "CHANGE first term type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
 
-	    elif (control.name == 'fileFrmt'):
-	    	br[control.name] = [fileFrmt]
-	    	print "CHANGE fileFrmt type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
+        elif (control.name == 'ltrm'):
+            br[control.name] = [ltrm]
+            print "CHANGE last term type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
 
-	    elif (control.name == 'fyr'):
-	    	br[control.name] = [fyrs[i]]
-	    	print "CHANGE first year type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
+        elif (control.name == 'fileFrmt'):
+            br[control.name] = [fileFrmt]
+            print "CHANGE fileFrmt type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
 
-	    elif (control.name == 'lyr'):
-	    	br[control.name] = [lyrs[i]]
-	    	print "CHANGE last year type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
+        elif (control.name == 'fyr'):
+            br[control.name] = [fyrs[i]]
+            print "CHANGE first year type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
 
-	response = br.submit()
+        elif (control.name == 'lyr'):
+            br[control.name] = [lyrs[i]]
+            print "CHANGE last year type=%s, name=%s value=%s" % (control.type, control.name, br[control.name])
 
-	if 'Currently, Excel files with FCQ results are limited to 50,000 rows.' in response.read():
-		print('CAUTION REQUEST HAS MORE THAN 50,000 LINES!')
+    response = br.submit()
 
-	for link in br.links():
-	    if (link.text == 'Click here'):
-			print(link.url)
-			original = link.url
-			#need to split because output link is: javascript:popup('/fcqtemp/BD010395426.xls','BD010395426','750','550','yes','yes')
-			split = original.replace("\'","").split(',')
-			#get this BD010395426
-			proper_link = "https://fcq.colorado.edu/fcqtemp/%s.xls" % (split[1])
-			print proper_link
+    if 'Currently, Excel files with FCQ results are limited to 50,000 rows.' in response.read():
+        print('CAUTION REQUEST HAS MORE THAN 50,000 LINES!')
 
-	r = requests.get(proper_link)
+    for link in br.links():
+        if (link.text == 'Click here'):
+            print(link.url)
+            original = link.url
+            #need to split because output link is: javascript:popup('/fcqtemp/BD010395426.xls','BD010395426','750','550','yes','yes')
+            split = original.replace("\'","").split(',')
+            #get this BD010395426
+            proper_link = "https://fcq.colorado.edu/fcqtemp/{xcel}.xls".format(xcel=split[1])
+            print proper_link
 
-	fileName = "raw/{ftrm}:{fyr}_{ltrm}:{lyr}.xls".format(fcqdpt=fcqdpt,ftrm=ftrm,fyr=fyrs[i],ltrm=ltrm,lyr=lyrs[i])
-	print(fileName)
-	output = open(fileName,'wb')
-	output.write(r.content)
-	output.close()
+    r = requests.get(proper_link)
+    file_name = "{ftrm}:{fyr}_{ltrm}:{lyr}".format(ftrm=ftrm,fyr=fyrs[i],ltrm=ltrm,lyr=lyrs[i])
+    xcel_path = "../raw/{file_name}.xls".format(file_name=file_name)
+
+    output = open(xcel_path,'wb')
+    output.write(r.content)
+    output.close()
+
+    csv_path = "../output/{file_name}.csv".format(file_name=file_name)
+    convert_command = "../instructor_maker.sh {input_file} {output_file}".format(input_file=xcel_path,output_file=csv_path)
+
+    #os.system(convert_command)
 
 print("SUCCESS!")
-
