@@ -1,5 +1,8 @@
 #!/bin/bash
 
+shuf -n 250 data/output/big.csv > data/output/test.csv
+mv data/output/big.csv data/output/big.null
+
 #kill solr process
 pkill -f solr
 
@@ -37,5 +40,7 @@ bundle exec rake course_slugs
 bundle exec rake instructor_slugs
 bundle exec rake department_slugs
 
-#reindex solr 
+#reindex solr
 RAILS_ENV=development bundle exec rake sunspot:solr:reindex
+mv data/output/big.null data/output/big.csv
+rm data/output/test.csv
