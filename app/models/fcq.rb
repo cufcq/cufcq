@@ -19,7 +19,7 @@ class Fcq < ActiveRecord::Base
   belongs_to :course, counter_cache: true
   belongs_to :department, counter_cache: true
   # validates the minimum entries are present
-  validates :yearterm, :subject, :crse, :sec, :instructor_last, :instructor_first, :formsrequested, :formsreturned, :campus, :college, :instr_group, presence: true
+  validates :yearterm, :subject, :crse, :sec, :instructor_last, :instructor_first, :forms_requested, :forms_returned, :campus, :college, presence: true
   # validates entries match established patterns
   validates :yearterm, length: { is: 5 }
   validates :subject, :crse, length: { is: 4 }
@@ -28,6 +28,10 @@ class Fcq < ActiveRecord::Base
   validates_uniqueness_of :sec, scope: [:crse, :subject, :yearterm, :instructor_last, :instructor_first]
   # before_save :update_counters
   ##################################
+
+  def kitties
+    "kitties"
+  end
 
   def pass_rate
     percentage_passed_string
