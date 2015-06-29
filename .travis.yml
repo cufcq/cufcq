@@ -6,3 +6,4 @@ before_script:
     - psql -U postgres -c "CREATE DATABASE cufcq_test;"
     - psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE cufcq_test to cufcq;"
     - psql cufcq_test -c 'create extension hstore;'
+    - psql -U postgres -c 'ALTER DATABASE cufcq_test OWNER TO cufcq'
