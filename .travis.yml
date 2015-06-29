@@ -10,3 +10,6 @@ before_script:
     - psql -U postgres -c 'ALTER DATABASE cufcq_test OWNER TO cufcq'
     - psql -U postgres -c 'ALTER ROLE cufcq SUPERUSER;'
     - psql cufcq_test -c 'create extension hstore;'
+
+script:
+    - ./test_reload.sh
