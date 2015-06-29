@@ -10,6 +10,9 @@ class FcqValidator < ActiveModel::Validator
     unless VALID_GROUPS.include?(record.instr_group)
       record.errors[:base] << 'instructor group is not valid! must be either TTT, TA, or OTH'
     end
+    # unless record.pct_c_minus_or_below.nil?
+    #   record.errors[:base] << 'instructor group is not valid! must be either TTT, TA, or OTH'
+    # end
   end
 end
 
@@ -19,7 +22,7 @@ class Fcq < ActiveRecord::Base
   belongs_to :course, counter_cache: true
   belongs_to :department, counter_cache: true
   # validates the minimum entries are present
-  validates :yearterm, :subject, :crse, :sec, :instructor_last, :instructor_first, :forms_requested, :forms_returned, :campus, :college, presence: true
+  validates :yearterm, :subject, :crse, :sec, :instructor_last, :instructor_first, :formsrequested, :formsreturned, :campus, :college, presence: true
   # validates entries match established patterns
   validates :yearterm, length: { is: 5 }
   validates :subject, :crse, length: { is: 4 }
@@ -29,79 +32,48 @@ class Fcq < ActiveRecord::Base
   # before_save :update_counters
   ##################################
 
-  def kitties
-    "kitties"
-  end
-
-  def pass_rate
-    percentage_passed_string
-  end
-
   def float_passed
     failed = pct_c_minus_or_below || 1.0
     (1.0 - failed)
   end
 
-  def percentage_passed_string
-    val = (float_passed * 100).round(0)
+  def to_percentage_string(input)
+    unless input.between?(0.0, 1.0)
+      fail StandardError, 'input not within acceptable bounds'
+    end
+    val = (input * 100).round(0)
     val = [val, 100].min
     val = [val, 0].max
-    return '--' if (val == 0)
     "#{val.round}%"
   end
 
+  def pass_rate
+    return to_percentage_string(float_passed) unless pct_c_minus_or_below.nil?
+    '--'
+  end
+
   def pct_a_string
-    unless pct_a.nil?
-      val = (pct_a * 100).round(0)
-      val = [val, 100].min
-      val = [val, 0].max
-      return '--' if (val == 0)
-      return "#{val.round}%"
-    end
+    return to_percentage_string(pct_a) unless pct_a.nil?
     '--'
   end
 
   def pct_b_string
-    unless pct_b.nil?
-      val = (pct_b * 100).round(0)
-      val = [val, 100].min
-      val = [val, 0].max
-      return '--' if (val == 0)
-      return "#{val.round}%"
-    end
+    return to_percentage_string(pct_b) unless pct_b.nil?
     '--'
   end
 
   def pct_c_string
-    unless pct_c.nil?
-      val = (pct_c * 100).round(0)
-      val = [val, 100].min
-      val = [val, 0].max
-      return '--' if (val == 0)
-      return "#{val.round}%"
-    end
+    return to_percentage_string(pct_c) unless pct_c.nil?
     '--'
   end
 
   def pct_d_string
-    unless pct_d.nil?
-      val = (pct_d * 100).round(0)
-      val = [val, 100].min
-      val = [val, 0].max
-      return '--' if (val == 0)
-      return "#{val.round}%"
-    end
+    return to_percentage_string(pct_d) unless pct_d.nil?
     '--'
   end
 
   def pct_f_string
-    unless pct_f.nil?
-      val = (pct_f * 100).round(0)
-      val = [val, 100].min
-      val = [val, 0].max
-      return '--' if (val == 0)
-      return "#{val.round}%"
-    end
+    return to_percentage_string(pct_f) unless pct_f.nil?
     '--'
   end
 

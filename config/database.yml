@@ -25,7 +25,6 @@ test:
   timeout: 5000
   username: cufcq
   password: spina!
-  port: 5432
 
 production:
   adapter: postgresql
@@ -36,4 +35,3 @@ production:
   timeout: 5000
   username: cufcq
   password: spina!
-  port: 5432

@@ -89,8 +89,8 @@
                 <th>Average Work Load </th>
                 <th>Course Overall</th>
                 <th>Average GPA</th>
-                <th>Pass Rate</th> 
-                <th>activity type</th> 
+                <th>Pass Rate</th>
+                <th>activity type</th>
               </tr>
             </thead>
             <tbody>
@@ -102,7 +102,7 @@
                 <td><%= fcq.hoursperwkinclclass %> hours / week</td>
                 <td><%= fcq.course_overall_string%></td>
                 <td><%= fcq.avg_grd_string%></td>
-                <td><%= fcq.percentage_passed_string %></td>
+                <td><%= fcq.pass_rate %></td>
                 <td><%= fcq.activity_type %></td>
               </tr>
               <% end %>
@@ -113,5 +113,3 @@
     </div>
   </div>
 </div>
-
-

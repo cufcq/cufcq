@@ -9,7 +9,7 @@
 
   <body>
     <title><%= @fcq.capitalized_title %></title>
-    
+
           <div class="page-header">
           <%= render 'layouts/grade_pie' %>
             <h1>
@@ -233,7 +233,7 @@
                 </tr>
                 <tr>
                   <td><abbr title="What percentage of the class received a C grade or higher">Percentage Passed</abbr></td>
-                  <td><%= @fcq.percentage_passed_string %></td>
+                  <td><%= @fcq.pass_rate %></td>
                 </tr>
 
                 <tr>
@@ -259,10 +259,8 @@
 
                 </tbody>
             </table>
-          
+
 
 
 
         </div>
-
-  
