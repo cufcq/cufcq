@@ -4,5 +4,5 @@ addons:
 before_script:
     - psql -U postgres -c "CREATE USER cufcq WITH PASSWORD 'spina!';"
     - psql -U postgres -c "CREATE DATABASE cufcq;"
-    - psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE dbtest to cufcq;"
+    - psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE cufcq to cufcq;"
     - psql -U postgres -c "CREATE EXTENSION hstore;"
