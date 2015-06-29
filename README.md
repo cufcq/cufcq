@@ -1,6 +1,6 @@
-#Official CU FCQ Project
+#Official CU FCQ Project 
 #####Project by: Samuel Volin, Alex Tsankov
-
+[![Build Status](https://travis-ci.org/cufcq/cufcq.svg?branch=master)](https://travis-ci.org/cufcq/cufcq)
 ### What is an FCQ?
 
 An FCQ (Faculy Course Questionnare) is a survey maintained by CU and collected at the end of every course with the intent of rating instructor proficiency and gauging the quality of a class. It measures a variety of different criteria like:
