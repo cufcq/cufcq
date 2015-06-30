@@ -2,7 +2,6 @@
 # to call, run
 require 'csv'
 
-
 # lib/tasks/kill_postgres_connections.rake
 task :kill_postgres_connections => :environment do
   db_name = "#{File.basename(Rails.root)}_#{Rails.env}"
@@ -18,7 +17,7 @@ EOF
 end
 
 #require "#{Rails.root}/app/helpers/fcqs_helper.rb"
-desc "Imports a CSV file into an ActiveRecord table"
+desc "Imports FCQ CSV file into an ActiveRecord table"
 task :import => :environment do
   puts "start"
   Dir.glob('data/fcq/fcq.*.csv').each do |csv|
@@ -57,13 +56,13 @@ task :import => :environment do
       c.fcqs << f
       d.fcqs << f
       c.instructors << i unless c.instructors.exists?(i)
-      puts "added " + i.full_name.to_s + " to " + c.course_title.to_s
+    #   puts "added " + i.full_name.to_s + " to " + c.course_title.to_s
       i.courses << c unless i.courses.exists?(c)
-      puts "added " + c.course_title.to_s + " to " + i.full_name.to_s
+    #   puts "added " + c.course_title.to_s + " to " + i.full_name.to_s
       d.instructors << i unless d.instructors.exists?(i)
-      puts "added " + i.full_name.to_s + " to " + d.name.to_s
+    #   puts "added " + i.full_name.to_s + " to " + d.name.to_s
       d.courses << c unless d.courses.exists?(c)
-      puts "added " + c.course_title.to_s + " to " + d.name.to_s
+    #   puts "added " + c.course_title.to_s + " to " + d.name.to_s
 
       rescue ActiveRecord::RecordInvalid => invalid
           puts invalid.message
@@ -76,7 +75,7 @@ task :import => :environment do
       end
     end
   end
-  puts "finish"
+  puts "Finished Importing FCQ CSV"
 end
 # task :import => :environment do
 #   puts "start"
@@ -112,6 +111,7 @@ end
 
 
 task :department_populate => :environment do
+  puts "Departmet populate"
   Fcq.find_each(:batch_size => 200) do |x|
     begin
       params = {"name" => x.subject, "college" => x.college, "campus" => x.campus}
@@ -126,33 +126,40 @@ task :department_populate => :environment do
       i.fcqs << x unless (i.fcqs.exists?(x))
       puts i.id + x.id
     end
+    puts "Finished Department populate"
 end
 
 # builds the hstore information for the departments. This is the data that is cached for the department.
 # This prevents a department page from having to reload large quanitites of information every time it wants to render a graph
 task :department_build_hstore => :environment do
+  puts "Building Department Hstore"
   Department.find_each(:batch_size => 200) do |x|
     begin
       x.build_hstore
-      puts "build #{x.name} hstore"
+    #   puts "build #{x.name} hstore"
     rescue Exception => e
         puts "rescued -" + e.message
     end
   end
+  puts "Finsihed Building Department Hstore"
+
 end
 
 task :instructor_build_hstore => :environment do
+  puts "Building Instructor Hstore"
   Instructor.find_each(:batch_size => 200) do |x|
     begin
       x.build_hstore
-      puts "build #{x.name} hstore"
+    #   puts "build #{x.name} hstore"
     rescue Exception => e
         puts "rescued -" + e.message
     end
   end
+  puts "Finsihed Building Instructor Hstore"
 end
 
 task :course_build_hstore => :environment do
+  puts "Building Course Hstore"
   Course.find_each(:batch_size => 200) do |x|
     begin
       x.build_hstore
@@ -161,23 +168,26 @@ task :course_build_hstore => :environment do
         puts "rescued -" + e.message
     end
   end
+  puts "Finished Building Course Hstore"
 end
 
 
 
 task :instructor_populate => :environment do
+  puts "Instructor Populate"
   Fcq.find_each(:batch_size => 200) do |x|
     begin
       params = {"instructor_first" => x.instructor_first, "instructor_last" => x.instructor_last}
       i = Instructor.create!(params)
-      puts i
+      # puts i
       rescue Exception => e
         puts "rescued -" + e.message
     end
       i = i.nil? ? Instructor.where(params).first : i
       i.fcqs << x  unless (i.fcqs.exists?(x))
-      puts i.id + x.id
+      # puts i.id + x.id
     end
+    puts "Finsihed Instructor Populate"
 end
 
 
@@ -199,6 +209,7 @@ end
 
 
 task :course_populate => :environment do
+  puts "Course Populate"
   Fcq.find_each(:batch_size => 200) do |x|
     begin
       if x.recitation?
@@ -211,10 +222,10 @@ task :course_populate => :environment do
       rescue Exception => e
         puts "rescued -" + e.inspect
     end
-      #puts params
+    #   puts params
       i = i.nil? ? Course.where(params).first : i
       i.fcqs << x  unless (i.fcqs.exists?(x))
-      puts i.id + x.id
+    #   puts i.id + x.id
     end
   #recitation correction
   Fcq.find_each(:batch_size => 200) do |x|
@@ -228,14 +239,16 @@ task :course_populate => :environment do
       next
     end
     i.fcqs << x
-    puts i.id + x.id
+    # puts i.id + x.id
    rescue Exception => e
      puts "rescued -" + e.inspect
    end
  end
+ puts "Finished Course Populate"
 end
 
 task :ic_relations => :environment do
+  puts "IC Relations"
   Fcq.find_each do |f|
     begin
         instr_params = {"instructor_last" => f.instructor_last , "instructor_first" => f.instructor}
@@ -261,8 +274,8 @@ task :ic_relations => :environment do
         d.courses << c unless d.courses.exists?(c)
         # puts "added " + c.course_title.to_s + " to " + d.name.to_s
 
-        puts "#{c.course_title}  <->  #{i.name.to_s}"
-      #puts c.instructors
+        # puts "#{c.course_title}  <->  #{i.name.to_s}"
+      # puts c.instructors
 
       rescue ActiveRecord::RecordInvalid => e
         #puts "skipping invalid record, this is intentional"
@@ -273,6 +286,8 @@ task :ic_relations => :environment do
         puts "rescued -" + e.inspect
       end
     end
+    puts  "Finsihed IC Relations"
+
 end
 
 # LONG_NAMES = {"CSCI" => "Computer Science", "MATH" => "Mathematics", "PHIL" => "Philosophy", "APPM" => "Applied Mathematics", "CHEN" => "Chemical Engineering"}
@@ -306,9 +321,9 @@ end
 
 
 task :grades => :environment do
-  puts "start"
+  puts "Grades start"
   Dir.glob('data/grades/grades.csv').each do |csv|
-    puts "loading csv file: " + csv
+    puts "loading grades csv file: " + csv
     #puts Fcq.column_names
     CSV.foreach(csv, :headers => true) do |row|
       begin
@@ -323,7 +338,7 @@ task :grades => :environment do
       f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
       d_params = {"name" => r["subject"], "long_name" => r["subject_label"]}
       d_short = {"name" => r["subject"]}
-      puts f_params
+      # puts f_params
       #puts "\n"
       #f = Fcq.create!(row.to_hash)
       #puts f.fcq_object
@@ -349,11 +364,11 @@ task :grades => :environment do
       end
     end
   end
-  puts "finish"
+  puts "Grades finish"
 end
 
 task :departments => :environment do
-  puts "start"
+  puts "Departments start"
   Dir.glob('data/departments/departments.csv').each do |csv|
     puts "loading csv file: " + csv
     #puts Fcq.column_names
@@ -374,7 +389,7 @@ task :departments => :environment do
       d = Department.where(d_params).first || Department.create!(r)
       d.update_attributes(r)
       d.save
-      puts r
+      # puts r
       rescue ActiveRecord::RecordInvalid => invalid
           puts invalid.message
           next
@@ -386,12 +401,12 @@ task :departments => :environment do
       end
     end
   end
-  puts "finish"
+  puts "finish deparments"
 end
 
 
 task :course_titles => :environment do
-  puts "start"
+  puts "course titles start"
   Dir.glob('data/courses/courses.csv').each do |csv|
     puts "loading csv file: " + csv
     #puts Fcq.column_names
@@ -444,5 +459,5 @@ task :course_titles => :environment do
       end
     end
   end
-  puts "finish"
+  puts "course titles finish"
 end
