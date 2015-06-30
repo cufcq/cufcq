@@ -18,8 +18,8 @@ end
 #taps
 gem 'taps'
 #Sunspot solr Search 
-gem 'sunspot_rails'
-gem 'sunspot_solr' 
+gem 'sunspot_rails', '2.2.0'
+gem 'sunspot_solr', '2.2.0' 
 
 
 # Use SCSS for stylesheets
