@@ -253,13 +253,13 @@ task :ic_relations => :environment do
           c.fcqs << f
         end
         c.instructors << i unless c.instructors.exists?(i)
-        puts "added " + i.full_name.to_s + " to " + c.course_title.to_s
+        # puts "added " + i.full_name.to_s + " to " + c.course_title.to_s
         i.courses << c unless i.courses.exists?(c)
-        puts "added " + c.course_title.to_s + " to " + i.full_name.to_s
+        # puts "added " + c.course_title.to_s + " to " + i.full_name.to_s
         d.instructors << i unless d.instructors.exists?(i)
-        puts "added " + i.full_name.to_s + " to " + d.name.to_s
+        # puts "added " + i.full_name.to_s + " to " + d.name.to_s
         d.courses << c unless d.courses.exists?(c)
-        puts "added " + c.course_title.to_s + " to " + d.name.to_s
+        # puts "added " + c.course_title.to_s + " to " + d.name.to_s
 
         puts "#{c.course_title}  <->  #{i.name.to_s}"
       #puts c.instructors
@@ -328,14 +328,14 @@ task :grades => :environment do
       #f = Fcq.create!(row.to_hash)
       #puts f.fcq_object
       # puts r
-      puts "==="
+      # puts "==="
       Fcq.where(f_params).each do |f|
         # puts f.yearterm
         # puts f.instructor.name
         # puts Fcq.column_names
         f.update_attributes(r.slice(*Fcq.column_names))
         # f.update_attributes(r)
-        puts "saved fcq"
+        # puts "saved fcq"
         f.save
       end
       rescue ActiveRecord::RecordInvalid => invalid
@@ -370,7 +370,7 @@ task :departments => :environment do
       #gets the fcq with the same courtitle, section, yearterm
       # f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
       d_params = {"name" => r["name"]}
-      puts "==="
+      #   puts "==="
       d = Department.where(d_params).first || Department.create!(r)
       d.update_attributes(r)
       d.save
@@ -409,13 +409,13 @@ task :course_titles => :environment do
       #gets the fcq with the same courtitle, section, yearterm
       # f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
       c_params = {"subject" => r["subject"], "crse" => r["crsnum"]}
-      puts "==="
+      # puts "==="
       # puts "c params " + c_params.to_s
       c = Course.where(c_params).first
       if(c != nil)
         c.update_attribute(:course_title, r["crstitle"])
         c.save
-        puts r["crstitle"]
+        # puts r["crstitle"]
       end
 
       # gets the first word
@@ -425,7 +425,7 @@ task :course_titles => :environment do
       # gets the last 3 characters of the course string, identifying the section
       sec = r["course"][-3..-1]
       f_params = {"yearterm" => yearterm, "subject" => r["subject"], "crse" => r["crsnum"], "sec"=>sec}
-      puts "f params " + f_params.to_s
+    #   puts "f params " + f_params.to_s
       for f in Fcq.where(f_params)
         f.update_attribute(:course_title, r["crstitle"])
         f.update_attribute(:hours, r["avghrs"])

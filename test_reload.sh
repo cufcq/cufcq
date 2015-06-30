@@ -1,6 +1,6 @@
 #!/bin/bash
 
-shuf -n 250 data/output/big.csv > data/output/test.csv
+shuf -n 20 data/output/big.csv > data/output/test.csv
 mv data/output/big.csv data/output/big.null
 
 #kill solr process
