@@ -1,4 +1,4 @@
-#Official CU FCQ Project 
+#Official CU FCQ Project
 #####Project by: Samuel Volin, Alex Tsankov
 [![Build Status](https://travis-ci.org/cufcq/cufcq.svg?branch=master)](https://travis-ci.org/cufcq/cufcq)
 ### What is an FCQ?
@@ -7,6 +7,8 @@ An FCQ (Faculy Course Questionnare) is a survey maintained by CU and collected a
 * How effective was a teacher at generating interest in a subject?
 * How many hours a week, on average, did students spend on a class?
 * How available was an instructor for the class?
+
+You can see a sample of an FCQ [here](http://www.colorado.edu/fcq/form/online06.html).
 
 This is all fascinating info that we believe can inform students when it comes time to pick classes. Fortunately it's all publicly available at this [site](http://www.colorado.edu/fcq/) maintained by CU. This program takes the data, adds its to a database, draws connections between the FCQs, and formats it nicely using JS. You can see the a server running this at [cufcq.com](cufcq.com).
 
@@ -44,4 +46,4 @@ All files that end in .csv in data/output are imported using the import script. 
 ###API Endpoints:
 
 You can see the json returned for insturctors and courses in ```doc/```
-TODO - Add in more documentation for our endpoints. 
+TODO - Add in more documentation for our endpoints.
