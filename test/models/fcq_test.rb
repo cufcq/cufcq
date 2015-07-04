@@ -1,5 +1,5 @@
 require_relative '../minitest_helper'
-
+# rake db:test:prepare
 def test_reverse
   rose = 'a rose'
   assert_equal "#{rose}", 'esor a'.reverse!
@@ -128,6 +128,86 @@ describe Fcq do
     end
     it 'should return "--" if it is unknown' do
       assert_equal '--', @fcq.pct_f_string
+    end
+  end
+
+  describe 'course_overall_string' do
+    it 'should not return -- if courseoverall is set' do
+      @fcq.update_attribute(:courseoverall, 6.0)
+      @fcq.save
+      assert_equal '6.0 / 6.0', @fcq.course_overall_string
+    end
+    it 'should not return -- if courseoverall is set' do
+      @fcq.update_attribute(:courseoverall, 0.0)
+      @fcq.save
+      assert_equal '0.0 / 6.0', @fcq.course_overall_string
+    end
+    it 'should not return -- if courseoverall is not set' do
+      assert_equal '--', @fcq.course_overall_string
+    end
+  end
+
+  describe 'instructor_overall_string' do
+    it 'should not return -- if courseoverall is set' do
+      @fcq.update_attribute(:instructoroverall, 6.0)
+      @fcq.save
+      assert_equal '6.0 / 6.0', @fcq.instructor_overall_string
+    end
+    it 'should not return -- if courseoverall is set' do
+      @fcq.update_attribute(:instructoroverall, 0.0)
+      @fcq.save
+      assert_equal '0.0 / 6.0', @fcq.instructor_overall_string
+    end
+    it 'should not return -- if courseoverall is not set' do
+      assert_equal '--', @fcq.instructor_overall_string
+    end
+  end
+
+  describe 'challenge_string' do
+    it 'should not return -- if courseoverall is set' do
+      @fcq.update_attribute(:challenge, 6.0)
+      @fcq.save
+      assert_equal '6.0 / 6.0', @fcq.challenge_string
+    end
+    it 'should not return -- if courseoverall is set' do
+      @fcq.update_attribute(:challenge, 0.0)
+      @fcq.save
+      assert_equal '0.0 / 6.0', @fcq.challenge_string
+    end
+    it 'should not return -- if courseoverall is not set' do
+      assert_equal '--', @fcq.challenge_string
+    end
+  end
+
+  describe 'prior_interest_string' do
+    it 'should not return -- if priorinterest is set' do
+      @fcq.update_attribute(:priorinterest, 6.0)
+      @fcq.save
+      assert_equal '6.0 / 6.0', @fcq.prior_interest_string
+    end
+    it 'should not return -- if priorinterest is set' do
+      @fcq.update_attribute(:priorinterest, 0.0)
+      @fcq.save
+      assert_equal '0.0 / 6.0', @fcq.prior_interest_string
+    end
+    it 'should not return -- if priorinterest is not set' do
+      assert_equal '--', @fcq.prior_interest_string
+    end
+  end
+
+  describe 'howmuchlearned_string' do
+    it 'should not return -- if howmuchlearned is set' do
+      @fcq.update_attribute(:howmuchlearned, 6.0)
+      @fcq.save
+      assert_equal '6.0 / 6.0', @fcq.howmuchlearned_string
+    end
+    it 'should not return -- if howmuchlearned is set' do
+      @fcq.update_attribute(:howmuchlearned, 0.0)
+      @fcq.save
+      assert_equal '0.0 / 6.0', @fcq.howmuchlearned_string
+    end
+    it 'should not return -- if howmuchlearned is not set' do
+      assert_equal '--', @fcq.howmuchlearned_string
     end
   end
 

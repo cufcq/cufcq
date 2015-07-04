@@ -1,5 +1,6 @@
 VALID_TERMS = { 1 => 'Spring', 4 => 'Summer', 7 => 'Fall' }
 VALID_GROUPS = ['TA', 'TTT', 'OTH']
+include FcqsHelper
 class FcqValidator < ActiveModel::Validator
   def validate(record)
     key = record.yearterm || 0
@@ -15,8 +16,9 @@ class FcqValidator < ActiveModel::Validator
     # end
   end
 end
-
+# represents Fcqs as a unque record
 class Fcq < ActiveRecord::Base
+
   # Belongs to
   belongs_to :instructor, counter_cache: true
   belongs_to :course, counter_cache: true
@@ -80,38 +82,29 @@ class Fcq < ActiveRecord::Base
   ###################################
 
   def course_overall_string
-    return "#{courseoverall.round(1)} / 6.0" unless courseoverall.nil?
+    return out_of_6(courseoverall.round(1)) unless courseoverall.nil?
     '--'
   end
 
   def instructor_overall_string
-    if instructoroverall != nil
-      val = instructoroverall.round(1)
-      return "#{val} / 6.0"
-    else
-      return '--'
-    end
+    return out_of_6(instructoroverall.round(1)) unless instructoroverall.nil?
+    '--'
   end
 
   ##################################
 
-  def department_name_string
-    return "#{department.name} / 6.0" unless department.nil?
-    '--'
-  end
-
   def challenge_string
-    return "#{challenge.round(1)} / 6.0" unless challenge.nil?
+    return out_of_6(challenge.round(1)) unless challenge.nil?
     '--'
   end
 
   def prior_interest_string
-    return "#{priorinterest.round(1)} / 6.0" unless priorinterest.nil?
+    return out_of_6(priorinterest.round(1)) unless priorinterest.nil?
     '--'
   end
 
   def howmuchlearned_string
-    return "#{howmuchlearned.round(1)} / 6.0" unless howmuchlearned.nil?
+    return out_of_6(howmuchlearned.round(1)) unless howmuchlearned.nil?
     '--'
   end
 

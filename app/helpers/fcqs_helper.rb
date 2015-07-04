@@ -5,7 +5,7 @@ module FcqsHelper
     	return true
     elsif (sec != 1 || sec != 10 || sec != 100)
     	return true
-    else 
+    else
     	return false
     end
   end
@@ -18,6 +18,10 @@ module FcqsHelper
     else
     	return false
     end
+  end
+
+  def out_of_6(val)
+    "#{val} / 6.0"
   end
 
 end
