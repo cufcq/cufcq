@@ -1,5 +1,8 @@
 #!/bin/bash
 
+shuf -n 20 data/output/big.csv > data/output/test.csv
+mv data/output/big.csv data/output/big.null
+
 #kill solr process
 pkill -f solr
 
@@ -11,7 +14,7 @@ rm -rf solr/pids
 rm -rf solr/test
 
 #startup solr in development environment
-rake sunspot:solr:start RAILS_ENV=development
+bundle exec rake sunspot:solr:start RAILS_ENV=development
 
 #all of our rake tasks
 bundle exec rake db:reset
@@ -39,3 +42,5 @@ bundle exec rake department_slugs
 
 #reindex solr
 RAILS_ENV=development bundle exec rake sunspot:solr:reindex
+mv data/output/big.null data/output/big.csv
+rm data/output/test.csv

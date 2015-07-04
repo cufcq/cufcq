@@ -18,9 +18,8 @@ end
 #taps
 gem 'taps'
 #Sunspot solr Search
-gem "sunspot", git: "git@github.com:sunspot/sunspot.git", branch: "master"
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+gem 'sunspot_rails', '2.2.0'
+gem 'sunspot_solr', '2.2.0'
 
 
 # Use SCSS for stylesheets
@@ -65,13 +64,9 @@ end
 gem 'capistrano', group: :development
 # gem 'activerecord-postgres-hstore'
 
-group :test do
-  gem 'minitest'
-end
-
 group :development do
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv', '~> 2.0', require: false
+    gem 'capistrano-rails'
+    gem 'capistrano-rbenv', '~> 2.0', require: false
 end
 
 

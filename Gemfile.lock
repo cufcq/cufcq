@@ -1,21 +1,8 @@
 GIT
   remote: git://github.com/eventmachine/eventmachine.git
-  revision: 98b0d480091fd12a4a1f9294f75a5903d9215e06
+  revision: 45db519d1f24a965c0da3751f0850ff3c099d5a2
   specs:
     eventmachine (1.0.7)
-
-GIT
-  remote: git@github.com:sunspot/sunspot.git
-  revision: c7be0bceb59e0778b921ed621749af1d83c505e0
-  branch: master
-  specs:
-    sunspot (2.2.0)
-      pr_geohash (~> 1.0)
-      rsolr (~> 1.0.7)
-    sunspot_rails (2.2.0)
-      nokogiri
-      rails (>= 3)
-      sunspot (= 2.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -69,7 +56,7 @@ GEM
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
     columnize (0.9.0)
-    daemons (1.2.2)
+    daemons (1.2.3)
     database_cleaner (1.4.1)
     debugger (1.6.8)
       columnize (>= 0.3.1)
@@ -86,7 +73,7 @@ GEM
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
-    jquery-rails (3.1.2)
+    jquery-rails (3.1.3)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
@@ -98,7 +85,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.2)
     minitest (4.7.5)
-    multi_json (1.11.1)
+    multi_json (1.11.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
@@ -111,7 +98,7 @@ GEM
     progress_bar (1.0.3)
       highline (~> 1.6.1)
       options (~> 2.3.0)
-    rack (1.5.3)
+    rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.0.0)
@@ -134,15 +121,15 @@ GEM
       mime-types (~> 1.16)
     rsolr (1.0.12)
       builder (>= 2.1.2)
-    rspec-core (3.3.0)
+    rspec-core (3.3.1)
       rspec-support (~> 3.3.0)
     rspec-expectations (3.3.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
-    rspec-mocks (3.3.0)
+    rspec-mocks (3.3.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
-    rspec-rails (3.3.1)
+    rspec-rails (3.3.2)
       actionpack (>= 3.0, < 4.3)
       activesupport (>= 3.0, < 4.3)
       railties (>= 3.0, < 4.3)
@@ -163,7 +150,7 @@ GEM
     sequel (3.20.0)
     sinatra (1.0)
       rack (>= 1.0)
-    sprockets (2.12.3)
+    sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -176,7 +163,14 @@ GEM
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    sunspot_solr (2.1.1)
+    sunspot (2.2.0)
+      pr_geohash (~> 1.0)
+      rsolr (~> 1.0.7)
+    sunspot_rails (2.2.0)
+      nokogiri
+      rails (>= 3)
+      sunspot (= 2.2.0)
+    sunspot_solr (2.2.0)
     taps (0.3.24)
       rack (>= 1.0.1)
       rest-client (>= 1.4.0, < 1.7.0)
@@ -212,16 +206,14 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   launchy
-  minitest
   pg
   progress_bar
   rails (= 4.0.0)
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
-  sunspot!
-  sunspot_rails
-  sunspot_solr
+  sunspot_rails (= 2.2.0)
+  sunspot_solr (= 2.2.0)
   taps
   thin
   uglifier (>= 1.3.0)

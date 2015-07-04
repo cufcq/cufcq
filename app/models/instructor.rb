@@ -2,6 +2,7 @@ IG_TTT = 'Tenured or tenure-track instructor'
 IG_OTH = 'Other primary instructor, such as adjunct, visiting, honorarium, etc.'
 IG_TA = 'Teaching_Assistant'
 
+<<<<<<< HEAD
 # Instructor Model
 # Instructors have many fcqs, belong to many courses
 class Instructor < ActiveRecord::Base
@@ -30,6 +31,7 @@ class Instructor < ActiveRecord::Base
   end
 
   def generate_slug
+<<<<<<< HEAD
     slug ||= "#{instructor_last.titleize}-#{instructor_first.titleize}".parameterize
     puts slug
     # puts "slug generated"
@@ -83,6 +85,7 @@ class Instructor < ActiveRecord::Base
   end
 
   def full_name
+<<<<<<< HEAD
     name.split.map(&:capitalize).join(' ')
   end
 
@@ -91,6 +94,7 @@ class Instructor < ActiveRecord::Base
   end
 
   def campus
+<<<<<<< HEAD
     department.campus
   end
 
@@ -103,11 +107,13 @@ class Instructor < ActiveRecord::Base
     data['instructor_group'] || 'TTT'
   end
 
+<<<<<<< HEAD
   def ta?
     (instr_group == 'TA') ? true : false
   end
 
   def instructor_type_string
+<<<<<<< HEAD
     ta? ? 'Teaching Assistant' : 'Instructor'
   end
 
@@ -138,6 +144,7 @@ class Instructor < ActiveRecord::Base
     overall = 0.0
     count = 0
     Instructor.all.each do |instr|
+<<<<<<< HEAD
       unless instr_group.nil?
         next if instr.instr_group != instr_group
       end
@@ -151,16 +158,17 @@ class Instructor < ActiveRecord::Base
       overall += instr.average_instructoroverall
     end
     # count = Instructor.count || 1
-    respect = (respect / count ).round(1)
-    availability = (availability / count ).round(1)
-    effectiveness = (effectiveness / count ).round(1)
-    overall = (overall / count ).round(1)
+    respect = (respect / count).round(1)
+    availability = (availability / count).round(1)
+    effectiveness = (effectiveness / count).round(1)
+    overall = (overall / count).round(1)
     print "Average Respect: #{respect}\n"
     print "Average Availab: #{availability}\n"
     print "Average Effectv: #{effectiveness}\n"
     print "Average Overall: #{overall}\n"
   end
 
+<<<<<<< HEAD
   # def self.json_instructors
   #   hash = {}
   #   Instructor.all.each do |instr|
@@ -191,7 +199,6 @@ class Instructor < ActiveRecord::Base
     fcqs.sum(:formsreturned) || 1
   end
 
-
   def requested_returned_ratio(rounding = 2)
     (total_returned.to_f / total_requested.to_f).round(rounding)
   end
@@ -208,17 +215,18 @@ class Instructor < ActiveRecord::Base
 
   attr_reader :semesters, :overall_data, :availability_data, :instrrespect_data, :instreffective_data, :overall_average, :availability_average, :instrrespect_average, :instreffective_average
 
-
   ########################################
   # This is where we use the grade csv   #
   ########################################
 
   def average_percentage_passed_float
+<<<<<<< HEAD
     data['average_percent_passed'].to_f
   end
 
   def compute_average_percentage_passed
     total = 0.0
+<<<<<<< HEAD
     fcqs.compact.each { |x| next if x.float_passed < 0.0 ; total += x.float_passed }
     count = courses_taught
     return 1.0 if count == 0
@@ -242,15 +250,14 @@ class Instructor < ActiveRecord::Base
   # these take the avg grades of all classes taught by a prof and avg them
   def compute_average_grade
     total = 0.0
+<<<<<<< HEAD
     fcqs.compact.each { |x| next if x.avg_grd.nil? ; total += x.avg_grd }
     count = courses_taught
     return 1.0 if count == 0
     (total.to_f / count.to_f)
   end
 
-  ##################End grades.csv stuff#####################
-
-
+  # #################End grades.csv stuff#####################
   def overall_query
     @overall_data = data['overall_data']
     @availability_data = data['availability_data']
@@ -272,11 +279,13 @@ class Instructor < ActiveRecord::Base
     @availability_data = []
     @instrrespect_data = []
     @instreffective_data = []
+<<<<<<< HEAD
     #records.each {|k,v| fixedrecords[Fcq.semterm_from_int(k)] = v.to_f.round(1)}
     overalls.each { |k, v| @overall_data << [k, v.to_f.round(1)] }
     avails.each { |k, v| @availability_data << [k, v.to_f.round(1)] }
     effects.each { |k, v| @instreffective_data << [k, v.to_f.round(1)] }
     instrrespects.each { |k, v| @instrrespect_data << [k, v.to_f.round(1)] }
+<<<<<<< HEAD
     data = {}
     data['overall_data'] = @overall_data
     data['availability_data'] = @availability_data
@@ -295,7 +304,6 @@ class Instructor < ActiveRecord::Base
     cache_course_count
     save
   end
-
 
   def instr_group_flavor_text
     case instr_group

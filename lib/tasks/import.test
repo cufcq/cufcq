@@ -1,12 +1,12 @@
 #lib/tasks/import.rake
-# to call, run 
+# to call, run
 require 'csv'
 #require "#{Rails.root}/app/helpers/fcqs_helper.rb"
 desc "Imports a CSV file into an ActiveRecord table"
 task :import => :environment do
   puts "start"
-  Dir.glob('csv_make/output/*.csv').each do |csv|
-    puts "loading csv file: " + csv   
+  Dir.glob('data/output/*.csv').each do |csv|
+    puts "loading csv file: " + csv
     CSV.foreach(csv, :headers => true) do |row|
       begin
           #puts row.to_hash
@@ -33,7 +33,7 @@ task :import => :environment do
       puts "added " + i.full_name.to_s + " to " + d.name.to_s
       d.courses << c unless d.courses.exists?(c)
       puts "added " + c.course_title.to_s + " to " + d.name.to_s
-      
+
       rescue ActiveRecord::RecordInvalid =>
           puts invalid.message
           next
@@ -71,7 +71,7 @@ task :set_department_name => :environment do
       ln = STDIN.gets.chomp
       puts ""
       #puts d.update_attribute(:long_name, ln)
-      
+
       Department.update(d.id, :long_name => ln)
       #puts d.long_name
       rescue Exception => e
@@ -83,9 +83,6 @@ task :set_department_name => :environment do
       puts d.long_name
   end
 end
-
-
-
 
 
 task :recitation_correction => :environment do
@@ -105,7 +102,7 @@ task :recitation_correction => :environment do
       puts pre.to_s + " -> " + x.corrected_course_title.to_s
     rescue Exception => e
         puts "rescued -" + e.message + " - " + x.course_title
-    end     
+    end
   end
 
 #eof

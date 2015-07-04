@@ -23,11 +23,12 @@
 *.xlsm
 *.xls
 
-#Ignore all of the solr stuff except the xml and the conf 
+#Ignore all of the solr stuff except the xml and the conf
 solr/data
 solr/default
 solr/development
 solr/pids
 solr/test
 
-
+*.DS_Store
+Gemfile.lock
