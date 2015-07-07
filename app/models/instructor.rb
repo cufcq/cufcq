@@ -2,7 +2,6 @@ IG_TTT = 'Tenured or tenure-track instructor'
 IG_OTH = 'Other primary instructor, such as adjunct, visiting, honorarium, etc.'
 IG_TA = 'Teaching_Assistant'
 
-<<<<<<< HEAD
 # Instructor Model
 # Instructors have many fcqs, belong to many courses
 class Instructor < ActiveRecord::Base
@@ -31,10 +30,9 @@ class Instructor < ActiveRecord::Base
   end
 
   def generate_slug
-<<<<<<< HEAD
+    return unless self.slug.nil?
     slug ||= "#{instructor_last.titleize}-#{instructor_first.titleize}".parameterize
-    puts slug
-    # puts "slug generated"
+    puts "slug generated: #{slug}"
     self.slug = slug
   end
 
@@ -85,7 +83,7 @@ class Instructor < ActiveRecord::Base
   end
 
   def full_name
-<<<<<<< HEAD
+
     name.split.map(&:capitalize).join(' ')
   end
 
@@ -94,7 +92,7 @@ class Instructor < ActiveRecord::Base
   end
 
   def campus
-<<<<<<< HEAD
+
     department.campus
   end
 
@@ -107,13 +105,13 @@ class Instructor < ActiveRecord::Base
     data['instructor_group'] || 'TTT'
   end
 
-<<<<<<< HEAD
+
   def ta?
     (instr_group == 'TA') ? true : false
   end
 
   def instructor_type_string
-<<<<<<< HEAD
+
     ta? ? 'Teaching Assistant' : 'Instructor'
   end
 
@@ -144,7 +142,7 @@ class Instructor < ActiveRecord::Base
     overall = 0.0
     count = 0
     Instructor.all.each do |instr|
-<<<<<<< HEAD
+
       unless instr_group.nil?
         next if instr.instr_group != instr_group
       end
@@ -168,7 +166,7 @@ class Instructor < ActiveRecord::Base
     print "Average Overall: #{overall}\n"
   end
 
-<<<<<<< HEAD
+
   # def self.json_instructors
   #   hash = {}
   #   Instructor.all.each do |instr|
@@ -220,15 +218,14 @@ class Instructor < ActiveRecord::Base
   ########################################
 
   def average_percentage_passed_float
-<<<<<<< HEAD
+
     data['average_percent_passed'].to_f
   end
 
   def compute_average_percentage_passed
     total = 0.0
-<<<<<<< HEAD
     fcqs.compact.each { |x| next if x.float_passed < 0.0 ; total += x.float_passed }
-    count = courses_taught
+    count = fcqs.count
     return 1.0 if count == 0
     (total.to_f / count.to_f)
   end
@@ -250,9 +247,8 @@ class Instructor < ActiveRecord::Base
   # these take the avg grades of all classes taught by a prof and avg them
   def compute_average_grade
     total = 0.0
-<<<<<<< HEAD
     fcqs.compact.each { |x| next if x.avg_grd.nil? ; total += x.avg_grd }
-    count = courses_taught
+    count = fcqs.count
     return 1.0 if count == 0
     (total.to_f / count.to_f)
   end
@@ -270,6 +266,7 @@ class Instructor < ActiveRecord::Base
   end
 
   def build_hstore
+    self.department = fcqs.pluck(:department).mode
     overalls = fcqs.order('yearterm').group('yearterm').average(:instructoroverall)
     avails = fcqs.order('yearterm').group('yearterm').average(:availability)
     effects = fcqs.order('yearterm').group('yearterm').average(:instreffective)
@@ -279,13 +276,13 @@ class Instructor < ActiveRecord::Base
     @availability_data = []
     @instrrespect_data = []
     @instreffective_data = []
-<<<<<<< HEAD
+
     #records.each {|k,v| fixedrecords[Fcq.semterm_from_int(k)] = v.to_f.round(1)}
     overalls.each { |k, v| @overall_data << [k, v.to_f.round(1)] }
     avails.each { |k, v| @availability_data << [k, v.to_f.round(1)] }
     effects.each { |k, v| @instreffective_data << [k, v.to_f.round(1)] }
     instrrespects.each { |k, v| @instrrespect_data << [k, v.to_f.round(1)] }
-<<<<<<< HEAD
+
     data = {}
     data['overall_data'] = @overall_data
     data['availability_data'] = @availability_data
@@ -301,6 +298,7 @@ class Instructor < ActiveRecord::Base
     data['latest_class'] = fcqs.maximum(:yearterm)
     data['earliest_class'] = fcqs.minimum(:yearterm)
     data['instructor_group'] = fcqs.pluck(:instr_group).mode
+    self.data = data
     cache_course_count
     save
   end

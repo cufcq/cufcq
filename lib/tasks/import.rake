@@ -19,55 +19,46 @@ end
 #require "#{Rails.root}/app/helpers/fcqs_helper.rb"
 desc "Imports FCQ CSV file into an ActiveRecord table"
 task :import => :environment do
-  puts "start"
+  puts 'starting import'
   Dir.glob('data/fcq/fcq.*.csv').each do |csv|
     puts "loading csv file: " + csv
     CSV.foreach(csv, :headers => true) do |row|
       begin
-          #puts row.to_hash
-          #h = row.to_hash.select {|k,v| k == "instructor_first" || "k == instructor_last"}
-          #inst = get_instructor(params)
-          #inst.fcqs.create!(row.to_hash)
-      h = row.to_hash
-      # puts h.to_s
-      # does a number of operations to split an instructor name into a first and last name
-      puts h["instructor"].to_s
-      name = h["instructor"] || ","
-      i_name = name.split(',') || ["",""]
-      h["instructor_first"] = i_name[0] || ""
-      h["instructor_last"] = i_name[1] || ""
-      h["instructor_first"].capitalize!
-      h["instructor_last"].capitalize!
-      h["course_title"] = h["crstitle"]
-      h.select! {|k, v| Fcq.column_names.include? k }
-
-      f = Fcq.create!(h)
-      # puts f.fcq_object
-      #given a new fcq object, create the instructor and course
-      i_params = {"instructor_first" => f.instructor_first, "instructor_last" => f.instructor_last}
-      c_params = {"course_title" => f.course_title, "crse" => f.crse, "subject" => f.subject}
-      # fix for the phil1400 bug
-      c_abridged_params = {"crse" => f.crse, "subject" => f.subject}
-      d_params = {"name" => f.subject}
-      c = Course.where(c_abridged_params).first || Course.create!(c_params)
-      i = Instructor.where(i_params).first || Instructor.create!(i_params)
-      d = Department.where(d_params).first || Department.create!(d_params)
-      i.fcqs << f
-      c.fcqs << f
-      d.fcqs << f
-      c.instructors << i unless c.instructors.exists?(i)
-    #   puts "added " + i.full_name.to_s + " to " + c.course_title.to_s
-      i.courses << c unless i.courses.exists?(c)
-    #   puts "added " + c.course_title.to_s + " to " + i.full_name.to_s
-      d.instructors << i unless d.instructors.exists?(i)
-    #   puts "added " + i.full_name.to_s + " to " + d.name.to_s
-      d.courses << c unless d.courses.exists?(c)
-    #   puts "added " + c.course_title.to_s + " to " + d.name.to_s
-
+        h = row.to_hash
+        # does a number of operations to split an instructor name into a first and last name
+        name = h['instructor'] || ','
+        i_name = name.split(', ') || ['', '']
+        h['instructor_first'] = i_name[1] || ''
+        h['instructor_last'] = i_name[0] || ''
+        h['instructor_first'].capitalize!
+        h['instructor_last'].capitalize!
+        h['course_title'] = h['crstitle']
+        h.select! { |k, _v| Fcq.column_names.include? k }
+        puts 'creating a new fcq'
+        f = Fcq.create!(h)
+        puts 'finished rceating annew fcqS'
+        # puts f.fcq_object
+        # given a new fcq object, create the instructor and course
+        i_params = {'instructor_first' => f.instructor_first, "instructor_last" => f.instructor_last}
+        c_params = {'course_title' => f.course_title, "crse" => f.crse, "subject" => f.subject}
+        # fix for the phil1400 bug
+        c_abridged_params = { 'crse' => f.crse, 'subject' => f.subject }
+        d_params = { 'name' => f.subject }
+        c = Course.where(c_abridged_params).first || Course.create!(c_params)
+        i = Instructor.where(i_params).first || Instructor.create!(i_params)
+        d = Department.where(d_params).first || Department.create!(d_params)
+        i.fcqs << f
+        c.fcqs << f
+        d.fcqs << f
+        c.instructors << i unless c.instructors.exists?(i)
+        i.courses << c unless i.courses.exists?(c)
+        d.instructors << i unless d.instructors.exists?(i)
+        d.courses << c unless d.courses.exists?(c)
       rescue ActiveRecord::RecordInvalid => invalid
-          puts invalid.message
-          next
+        puts invalid.message
+        next
       rescue ActiveRecord::RecordNotUnique => unique
+        puts unique.message
         next
       rescue ActiveRecord::UnknownAttributeError => unknown
         puts unknown.message
@@ -75,7 +66,7 @@ task :import => :environment do
       end
     end
   end
-  puts "Finished Importing FCQ CSV"
+  puts 'Finished Importing FCQ CSV'
 end
 # task :import => :environment do
 #   puts "start"
@@ -118,7 +109,7 @@ task :department_populate => :environment do
       i = Department.create!(params)
 
       puts i
-    rescue Exception => e
+    rescue StandardError => e
         puts "rescued -" + e.message
     end
       i = i.nil? ? Department.where(params).first : i
@@ -137,8 +128,8 @@ task :department_build_hstore => :environment do
     begin
       x.build_hstore
     #   puts "build #{x.name} hstore"
-    rescue Exception => e
-        puts "rescued -" + e.message
+    # rescue StandardError => e
+    #     puts "rescued -" + e.message
     end
   end
   puts "Finsihed Building Department Hstore"
@@ -151,7 +142,7 @@ task :instructor_build_hstore => :environment do
     begin
       x.build_hstore
     #   puts "build #{x.name} hstore"
-    rescue Exception => e
+    rescue StandardError => e
         puts "rescued -" + e.message
     end
   end
@@ -164,11 +155,62 @@ task :course_build_hstore => :environment do
     begin
       x.build_hstore
       puts "build #{x.course_title} hstore"
-    rescue Exception => e
+    rescue StandardError => e
         puts "rescued -" + e.message
     end
   end
   puts "Finished Building Course Hstore"
+end
+
+task :build_data => :environment do
+  puts 'building all of the datas'
+  total = Fcq.count
+  puts "#{total} total Fcqs"
+  x = 0
+  errors = []
+  Fcq.find_each(:batch_size => 200) do |f|
+    begin
+      x += 1
+      c = f.course
+      d = f.department
+      i = f.instructor
+      c.instructors << i unless c.instructors.exists?(i)
+      i.courses << c unless i.courses.exists?(c)
+      d.instructors << i unless d.instructors.exists?(i)
+      d.courses << c unless d.courses.exists?(c)
+      puts "#{total} / #{x}"
+    rescue NoMethodError => e
+      begin
+      puts "NoMethodError #{e}"
+      puts "caught for fcq #{f.id}"
+      # puts f.fcq_object
+      # given a new fcq object, create the instructor and course
+      i_params = {'instructor_first' => f.instructor_first, "instructor_last" => f.instructor_last}
+      c_params = {'course_title' => f.course_title, "crse" => f.crse, "subject" => f.subject}
+      # fix for the phil1400 bug
+      c_abridged_params = { 'crse' => f.crse, 'subject' => f.subject }
+      d_params = { 'name' => f.subject }
+      c = Course.where(c_abridged_params).first || Course.create!(c_params)
+      i = Instructor.where(i_params).first || Instructor.create!(i_params)
+      d = Department.where(d_params).first || Department.create!(d_params)
+      i.fcqs << f
+      c.fcqs << f
+      d.fcqs << f
+      retry
+      rescue StandardError => e
+        errors << f.id
+        next
+      end
+    # rescue StandardError => e
+    #   puts "rescued -" + e.message
+    end
+  end
+  puts 'finished building all of the datas'
+  puts 'errors at'
+  errors.each do |e|
+    puts "#{e}"
+  end
+
 end
 
 
@@ -180,7 +222,7 @@ task :instructor_populate => :environment do
       params = {"instructor_first" => x.instructor_first, "instructor_last" => x.instructor_last}
       i = Instructor.create!(params)
       # puts i
-      rescue Exception => e
+      rescue StandardError => e
         puts "rescued -" + e.message
     end
       i = i.nil? ? Instructor.where(params).first : i
@@ -198,7 +240,7 @@ end
 #       params = {"instructor_first" => x.instructor_first, "instructor_last" => x.instructor_last}
 #       i = Instructor.create!(params)
 #       puts i
-#       rescue Exception => e
+#       rescue StandardError => e
 #         puts "rescued -" + e.message
 #     end
 #       i = i.nil? ? Instructor.where(params).first : i
@@ -219,7 +261,7 @@ task :course_populate => :environment do
       title = x.course_title
       sec = x.sec
       i = Course.create!(params)
-      rescue Exception => e
+      rescue StandardError => e
         puts "rescued -" + e.inspect
     end
     #   puts params
@@ -240,7 +282,7 @@ task :course_populate => :environment do
     end
     i.fcqs << x
     # puts i.id + x.id
-   rescue Exception => e
+   rescue StandardError => e
      puts "rescued -" + e.inspect
    end
  end
@@ -282,7 +324,7 @@ task :ic_relations => :environment do
       rescue ActiveRecord::AssociationTypeMismatch => e
         puts "association mismatch error, this means courses are having a hard time being found/associated. This is bad"
       #end
-      rescue Exception => e
+      rescue StandardError => e
         puts "rescued -" + e.inspect
       end
     end
@@ -309,7 +351,7 @@ end
 
 #       Department.update(d.id, :long_name => ln)
 #       #puts d.long_name
-#       rescue Exception => e
+#       rescue StandardError => e
 #         puts "rescued -" + e.message
 #      end
 #      puts "finished"
@@ -364,7 +406,7 @@ task :grades => :environment do
       end
     end
   end
-  puts "Grades finish"
+  puts 'Grades finish'
 end
 
 task :departments => :environment do
@@ -391,9 +433,10 @@ task :departments => :environment do
       d.save
       # puts r
       rescue ActiveRecord::RecordInvalid => invalid
-          puts invalid.message
-          next
+        puts invalid.message
+        next
       rescue ActiveRecord::RecordNotUnique => unique
+        puts unique.message
         next
       rescue ActiveRecord::UnknownAttributeError => unknown
         puts unknown.message
@@ -401,7 +444,7 @@ task :departments => :environment do
       end
     end
   end
-  puts "finish deparments"
+  puts 'finish deparments'
 end
 
 
@@ -413,45 +456,33 @@ task :course_titles => :environment do
     termlookup = {1 => "Spring",4 => "Summer",7=>"Fall"}.invert
     CSV.foreach(csv, :headers => true) do |row|
       begin
-          #puts row.to_hash
-          #h = row.to_hash.select {|k,v| k == "instructor_first" || "k == instructor_last"}
-          #inst = get_instructor(params)
-          #inst.fcqs.create!(row.to_hash)
-      r = row.to_hash
-      # r["campus"] = "BD"
-      # puts r.to_s
-      #  puts "\n"
-      #gets the fcq with the same courtitle, section, yearterm
-      # f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
-      c_params = {"subject" => r["subject"], "crse" => r["crsnum"]}
-      # puts "==="
-      # puts "c params " + c_params.to_s
-      c = Course.where(c_params).first
-      if(c != nil)
-        c.update_attribute(:course_title, r["crstitle"])
-        c.save
-        # puts r["crstitle"]
-      end
+        r = row.to_hash
+        c_params = { 'subject' => r['subject'], 'crse' => r['crsnum'] }
+        c = Course.where(c_params).first
+        unless c.nil?
+          c.update_attribute(:course_title, r['crstitle'])
+          c.save
+        end
 
-      # gets the first word
-      term = termlookup[r["term"].split(' ')[0]]
-      year = r["fyc"].to_i
-      yearterm = (year*10+term).to_s
-      # gets the last 3 characters of the course string, identifying the section
-      sec = r["course"][-3..-1]
-      f_params = {"yearterm" => yearterm, "subject" => r["subject"], "crse" => r["crsnum"], "sec"=>sec}
-    #   puts "f params " + f_params.to_s
-      for f in Fcq.where(f_params)
-        f.update_attribute(:course_title, r["crstitle"])
-        f.update_attribute(:hours, r["avghrs"])
-        f.update_attribute(:activity_type, r["actvtyp"])
-        f.save
-        print "#{r['term']} #{r["course"]}"
-      end
+        # gets the first word
+        term = termlookup[r['term'].split(' ')[0]]
+        year = r['fyc'].to_i
+        yearterm = (year * 10 + term).to_s
+        # gets the last 3 characters of the course string, identifying the section
+        sec = r['course'][-3..-1]
+        f_params = { 'yearterm' => yearterm, 'subject' => r['subject'], 'crse' => r['crsnum'], 'sec' => sec}
+        Fcq.where(f_params).each do |f|
+          f.update_attribute(:course_title, r['crstitle'])
+          f.update_attribute(:hours, r['avghrs'])
+          f.update_attribute(:activity_type, r['actvtyp'])
+          f.save
+          puts "#{r['term']} #{r['course']}"
+        end
       rescue ActiveRecord::RecordInvalid => invalid
-          puts invalid.message
-          next
+        puts invalid.message
+        next
       rescue ActiveRecord::RecordNotUnique => unique
+        puts unique.message
         next
       rescue ActiveRecord::UnknownAttributeError => unknown
         puts unknown.message
@@ -459,5 +490,5 @@ task :course_titles => :environment do
       end
     end
   end
-  puts "course titles finish"
+  puts 'course titles finish'
 end

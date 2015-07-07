@@ -14,7 +14,7 @@ task :instructor_slugs => :environment do
     rescue Exception => e
 
         puts "rescued - " + e.message
-        
+
     end
     end
 end
@@ -35,7 +35,7 @@ task :course_slugs => :environment do
     rescue Exception => e
 
         puts "rescued - " + e.message
-        
+
     end
     end
 end
@@ -56,7 +56,7 @@ task :department_slugs => :environment do
     rescue Exception => e
 
         puts "rescued - " + e.message
-        
+
     end
     end
 end

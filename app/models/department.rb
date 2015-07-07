@@ -26,8 +26,9 @@ class Department < ActiveRecord::Base
   end
 
   def generate_slug
+    return unless self.slug.nil?
     slug ||= "#{name}".parameterize
-    puts 'slug generated'
+    puts "slug generated: #{slug}"
     self.slug = slug
   end
 
@@ -135,13 +136,15 @@ class Department < ActiveRecord::Base
     data['io_data'] = @io_data
     data['to_data'] = @to_data
     data['co_data'] = @co_data
+    self.data = data
     build_averages
     build_scorecards
-    cache_update_counts
     save
+    # cache_update_counts
   end
 
   def build_averages
+    data = {}
     data['average_TTT_instructoroverall'] = fcqs.where(:instr_group == 'TTT').average(:instructoroverall)
     data['average_OTH_instructoroverall'] = fcqs.where(:instr_group == 'OTH').average(:instructoroverall)
     data['average_TA_instructoroverall'] = fcqs.where(:instr_group == 'TA').average(:instructoroverall)
@@ -150,28 +153,31 @@ class Department < ActiveRecord::Base
     data['average_instreffective'] = fcqs.average(:instrrespect)
     data['average_availability'] = fcqs.average(:instrrespect)
     data['average_instrrespect'] = fcqs.average(:instrrespect)
+    self.data = data
     save
   end
 
   def build_scorecards
     # flag data as volatile
+    data = {}
     data_will_change!
     data['instructors_json'] = build_instructor_scorecards.to_json
     data['courses_json'] = build_course_scorecards.to_json
+    self.data = data
     save
   end
 
 
   def average_courseoverall
-    return fcqs.average(:courseoverall).round(1)
+    fcqs.average(:courseoverall).round(1)
   end
 
   def average_instructoroverall
-    return fcqs.average(:courseoverall).round(1)
+    fcqs.average(:courseoverall).round(1)
   end
 
   def average_student_enrollment
-    return fcqs.group(:semterm).average(:courseoverall).round(1)
+    fcqs.group(:semterm).average(:courseoverall).round(1)
   end
 
   def elligible_for_ranking(i)

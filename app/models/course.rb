@@ -22,14 +22,15 @@ class Course < ActiveRecord::Base
   def name
     "#{subject.downcase}-#{crse}"
   end
-  
+
   def to_param
     slug
   end
 
   def generate_slug
+    return unless self.slug.nil?
     slug ||= "#{name}".parameterize
-    puts 'slug generated'
+    puts "slug generated: #{slug}"
     self.slug = slug
   end
 
@@ -188,8 +189,6 @@ class Course < ActiveRecord::Base
     end
   end
 
-
-
   attr_reader :semesters, :grade_data, :overall_data, :challenge_data, :interest_data, :learned_data, :grade_data, :categories, :pct_a_data, :pct_b_data, :pct_c_data, :pct_d_data, :pct_f_data, :pct_i_data
 
   def overall_query
@@ -199,7 +198,6 @@ class Course < ActiveRecord::Base
     @learned_data = data['learned_data']
     @grade_data = data['grade_data']
   end
-
 
   def grade_query
     @pct_a_data = data['pct_a_data']
@@ -273,6 +271,7 @@ class Course < ActiveRecord::Base
     r = fcqs.average(:howmuchlearned) || 0.0
     data['average_how_much_learned'] = r.round(1)
     cache_instructor_count
+    self.data = data
     save
   end
 end

@@ -150,16 +150,6 @@ class Fcq < ActiveRecord::Base
     write_attribute(:corrected_course_title, title)
   end
 
-  def recitation?
-    return true if (course_title == 'REC' || course_title == 'RECITATION')
-    return true if (activity_type[0..2] == 'LEC' && instr_group == 'TA')
-    unless activity_type.nil?
-      return true if (activity_type[0..2] == 'REC')
-      return false
-    end
-    true
-  end
-
   def activity_type_string
     activity_type unless activity_type.nil?
     '--'
@@ -244,5 +234,15 @@ class Fcq < ActiveRecord::Base
 
   def instructor_full_name
     "#{instructor_first} #{instructor_last}"
+  end
+
+  def recitation?
+    return true if course_title == 'REC' || course_title == 'RECITATION'
+    unless activity_type.nil?
+      return true if activity_type[0..2] == 'LEC' && instr_group == 'TA'
+      return true if (activity_type[0..2] == 'REC')
+      return false
+    end
+    true
   end
 end
