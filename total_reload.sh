@@ -27,6 +27,9 @@ bundle exec rake instructor_build_hstore
 bundle exec rake course_build_hstore
 bundle exec rake department_build_hstore
 
+# remove unnecesarry departments
+bundle exec rake department_correction
+
 # these rake tasks make slight corrections to the dataset. They should run pretty darn fast
 bundle exec rake course_names
 bundle exec rake course_missing_hstore

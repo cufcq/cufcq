@@ -1,9 +1,5 @@
 require_relative '../minitest_helper'
 # rake db:test:prepare
-def test_reverse
-  rose = 'a rose'
-  assert_equal "#{rose}", 'esor a'.reverse!
-end
 
 describe Fcq do
   before do
@@ -243,7 +239,7 @@ describe Fcq do
       assert_equal '003', @fcq.section_string
     end
     it 'uid should return correctly' do
-      assert_equal '20151TEST10003', @fcq.uid
+      assert_equal "#{@data.yearterm}#{@data.subject}#{@data.crse}#{@data.sec}", @fcq.uid
     end
     it 'year return correctly' do
       assert_equal '2015', @fcq.year
