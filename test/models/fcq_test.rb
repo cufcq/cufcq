@@ -239,18 +239,18 @@ describe Fcq do
       assert_equal '003', @fcq.section_string
     end
     it 'uid should return correctly' do
-      assert_equal "#{@data.yearterm}#{@data.subject}#{@data.crse}#{@data.sec}", @fcq.uid
+      assert_equal "#{@data['yearterm']}#{@data['subject']}#{@data['crse']}#{@data['sec']}", @fcq.uid
     end
     it 'year return correctly' do
-      assert_equal '2015', @fcq.year
+      assert_equal @data['yearterm'] / 10, @fcq.year
     end
   end
 
   describe 'ld?, ud?, grad?, rank_string, rank_string_abridged' do
     it 'should return true for the appropriate level, and false for others' do
-      ld = %w(1000, 1020, 1099, 2000, 2131, 2344, 2999)
-      ud = %w(3000, 3020, 3099, 4000, 4131, 4344, 4999)
-      gd = %w(5000, 5020, 5099, 6000, 6131, 6344, 6999)
+      ld = %w(1000 1020 1099 2000 2131 2344 2999)
+      ud = %w(3000 3020 3099 4000 4131 4344 4999)
+      gd = %w(5000 5020 5099 6000 6131 6344 6999)
       ld.each do |x|
         @fcq.update_attribute(:crse, x)
         @fcq.save

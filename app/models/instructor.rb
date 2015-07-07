@@ -32,7 +32,7 @@ class Instructor < ActiveRecord::Base
   def generate_slug
     return unless self.slug.nil?
     slug ||= "#{instructor_last.titleize}-#{instructor_first.titleize}".parameterize
-    puts "slug generated: #{slug}"
+    puts "slug generated: #{slug}" unless ENV['RAILS_ENV'] == 'test'
     self.slug = slug
   end
 
@@ -79,11 +79,10 @@ class Instructor < ActiveRecord::Base
   end
 
   def name
-    "#{instructor_first.titleize}, #{instructor_last.titleize}"
+    "#{instructor_last.titleize}, #{instructor_first.titleize}"
   end
 
   def full_name
-
     name.split.map(&:capitalize).join(' ')
   end
 
@@ -92,7 +91,6 @@ class Instructor < ActiveRecord::Base
   end
 
   def campus
-
     department.campus
   end
 
@@ -105,13 +103,11 @@ class Instructor < ActiveRecord::Base
     data['instructor_group'] || 'TTT'
   end
 
-
   def ta?
     (instr_group == 'TA') ? true : false
   end
 
   def instructor_type_string
-
     ta? ? 'Teaching Assistant' : 'Instructor'
   end
 
@@ -311,8 +307,6 @@ class Instructor < ActiveRecord::Base
       return IG_OTH
     when 'TA'
       return IG_TA
-    else
-      return 'ERROR! Flavor text not found'
     end
   end
 

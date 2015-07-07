@@ -30,7 +30,7 @@ class Course < ActiveRecord::Base
   def generate_slug
     return unless self.slug.nil?
     slug ||= "#{name}".parameterize
-    puts "slug generated: #{slug}"
+    puts "slug generated: #{slug}" unless ENV['RAILS_ENV'] == 'test'
     self.slug = slug
   end
 
@@ -63,7 +63,7 @@ class Course < ActiveRecord::Base
   end
 
   def course_identifier
-    "#{subject} #{crse} - #{capitalized_title}"
+    "#{uppercase_name} - #{capitalized_title}"
   end
 
   def averages(rank = nil, dept = nil)
@@ -74,7 +74,7 @@ class Course < ActiveRecord::Base
     count = 0
     Course.all.each do |crse|
       if rank != nil
-        next if crse.abbv_rank_string != rank
+        next if crse.rank_string_abridged != rank
       end
       if dept != nil
         next if crse.department.name != dept
@@ -158,35 +158,27 @@ class Course < ActiveRecord::Base
   end
 
   def ld?
-    return (crse < 3000)
+    (crse < 3000)
   end
 
   def ud?
-    return !(ld?) && (crse < 5000)
+    !(ld?) && (crse < 5000)
   end
 
   def grad?
-    return (crse >= 5000)
+    (crse >= 5000)
   end
 
   def rank_string
-    if ld?
-      return 'Lower Division'
-    elsif ud?
-      return 'Upper Division'
-    else
-      return 'Graduate Level'
-    end
+    return 'Lower Division' if ld?
+    return 'Upper Division' if ud?
+    'Graduate Level'
   end
 
-  def abbv_rank_string
-    if ld?
-      return 'ld'
-    elsif ud?
-      return 'ud'
-    else
-      return 'gd'
-    end
+  def rank_string_abridged
+    return 'ld' if ld?
+    return 'ud' if ud?
+    'gd'
   end
 
   attr_reader :semesters, :grade_data, :overall_data, :challenge_data, :interest_data, :learned_data, :grade_data, :categories, :pct_a_data, :pct_b_data, :pct_c_data, :pct_d_data, :pct_f_data, :pct_i_data
@@ -217,7 +209,6 @@ class Course < ActiveRecord::Base
     pct_f = fcqs.order('yearterm').group('yearterm').average(:pct_f)
     pct_i = fcqs.order('yearterm').group('yearterm').average(:pct_incomp)
     grade = fcqs.order('yearterm').group('yearterm').average(:avg_grd)
-    # @semesters = []
     @pct_a_data = []
     @pct_b_data = []
     @pct_c_data = []
