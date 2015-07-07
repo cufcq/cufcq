@@ -121,7 +121,7 @@ class Fcq < ActiveRecord::Base
     sec.to_s.rjust(3, '0')
   end
 
-  def collected_online
+  def collected_online?
     return true if onlinefcq == 'OL'
     false
   end

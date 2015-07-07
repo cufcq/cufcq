@@ -211,5 +211,78 @@ describe Fcq do
     end
   end
 
+  describe 'avg_grd_string' do
+    it 'should not return -- if avg_grd is set' do
+      @fcq.update_attribute(:avg_grd, 4.0)
+      @fcq.save
+      assert_equal '4.0 / 4.0', @fcq.avg_grd_string
+    end
+    it 'should not return -- if avg_grd is set' do
+      @fcq.update_attribute(:avg_grd, 2.456)
+      @fcq.save
+      assert_equal '2.46 / 4.0', @fcq.avg_grd_string
+    end
+    it 'should not return -- if avg_grd is not set' do
+      assert_equal '--', @fcq.avg_grd_string
+    end
+  end
+
+  describe 'collected_online?' do
+    it 'should return true if collected_online? is set' do
+      @fcq.update_attribute(:onlinefcq, 'OL')
+      @fcq.save
+      assert_equal true, @fcq.collected_online?
+    end
+    it 'should return false if collected_online is set' do
+      assert_equal false, @fcq.collected_online?
+    end
+  end
+
+  describe 'section_string, uid' do
+    it 'section_string should return correctly' do
+      assert_equal '003', @fcq.section_string
+    end
+    it 'uid should return correctly' do
+      assert_equal '20151TEST10003', @fcq.uid
+    end
+    it 'year return correctly' do
+      assert_equal '2015', @fcq.year
+    end
+  end
+
+  describe 'ld?, ud?, grad?, rank_string, rank_string_abridged' do
+    it 'should return true for the appropriate level, and false for others' do
+      ld = %w(1000, 1020, 1099, 2000, 2131, 2344, 2999)
+      ud = %w(3000, 3020, 3099, 4000, 4131, 4344, 4999)
+      gd = %w(5000, 5020, 5099, 6000, 6131, 6344, 6999)
+      ld.each do |x|
+        @fcq.update_attribute(:crse, x)
+        @fcq.save
+        assert_equal true, @fcq.ld?
+        assert_equal false, @fcq.ud?
+        assert_equal false, @fcq.grad?
+        assert_equal 'Lower Division', @fcq.rank_string
+        assert_equal 'ld', @fcq.rank_string_abridged
+      end
+      ud.each do |x|
+        @fcq.update_attribute(:crse, x)
+        @fcq.save
+        assert_equal false, @fcq.ld?
+        assert_equal true, @fcq.ud?
+        assert_equal false, @fcq.grad?
+        assert_equal 'Upper Division', @fcq.rank_string
+        assert_equal 'ud', @fcq.rank_string_abridged
+      end
+      gd.each do |x|
+        @fcq.update_attribute(:crse, x)
+        @fcq.save
+        assert_equal false, @fcq.ld?
+        assert_equal false, @fcq.ud?
+        assert_equal true, @fcq.grad?
+        assert_equal 'Graduate Level', @fcq.rank_string
+        assert_equal 'gd', @fcq.rank_string_abridged
+      end
+    end
+  end
 
 end

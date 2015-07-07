@@ -89,7 +89,7 @@
               <tbody>
                 <tr>
                   <td>Fcqs collected online</td>
-                  <td><%= @fcq.collected_online %></td>
+                  <td><%= @fcq.collected_online? %></td>
                 </tr>
                 <!-- Commented out temporarilly -->
                 <tr>
@@ -128,22 +128,22 @@
                 <tr>
                   <td><abbr title="Students rate the course overall. All ratings are on a scale of 1 to 6." >
                      Course Overall </abbr></td>
-                  <td><%= @fcq.courseoverall %> </td>
+                  <td><%= @fcq.course_overall_string %> </td>
                 </tr>
                 <tr>
                   <td><abbr title="Students rate their personal interest in the material before they enrolled. All ratings are on a scale of 1 to 6." >
                      Prior Interest </abbr></td>
-                  <td><%= @fcq.priorinterest %></td>
+                  <td><%= @fcq.prior_interest_string %></td>
                 </tr>
                 <tr>
                   <td><abbr title="Students rate the intellectual challenge of the course. All ratings are on a scale of 1 to 6." >
                      Course Challenge </abbr></td>
-                  <td><%= @fcq.challenge %></td>
+                  <td><%= @fcq.challenge_string %></td>
                 </tr>
                 <tr>
                   <td><abbr title="Students rate how much they have learned in this course. All ratings are on a scale of 1 to 6." >
                      Amount Learned </abbr></td>
-                  <td><%= @fcq.howmuchlearned %></td>
+                  <td><%= @fcq.howmuchlearned_string %></td>
                 </tr>
                 <tr>
                   <td><abbr title="Students estimate the average number of hours per week they have spent on this course for all course-related work, including attending classes, labs, recitations, readings reviewing notes, writing papers, etc." >
