@@ -1,12 +1,18 @@
+# This scraper accesses the fcq website, fills out the forms, downloads FCQ data, and then optionally converts them to CSVs for the DB 
+
 import mechanize
 import requests
 import os
 import argparse
 
-# 1 is Spring, 4 is Summer, 7 is Fall
-#lt is the last term, spring as well.
+# Sample for getting Spring Semester of 2015: 
+# python scraper.py -c true -ft 1 -fy 2015 -lt 1 -ly 2015 
 
+
+# 1 is Spring, 4 is Summer, 7 is Fall
 parser = argparse.ArgumentParser()
+#if we want to do conversion  
+parser.add_argument('-c', '--convert', nargs='+', type=bool)
 #ft is the first term, in this case spring
 parser.add_argument('-ft', '--firstterm', nargs='+', type=int)
 #lt is the last term, begin with spring(1)
@@ -99,16 +105,19 @@ for i in range (0,len(fyrs)):
             print proper_link
 
     r = requests.get(proper_link)
-    file_name = "{ftrm}:{fyr}_{ltrm}:{lyr}".format(ftrm=ftrm,fyr=fyrs[i],ltrm=ltrm,lyr=lyrs[i])
+    file_name = "{ftrm}-{fyr}_{ltrm}-{lyr}".format(ftrm=ftrm,fyr=fyrs[i],ltrm=ltrm,lyr=lyrs[i])
     xcel_path = "../raw/{file_name}.xls".format(file_name=file_name)
 
     output = open(xcel_path,'wb')
     output.write(r.content)
     output.close()
 
-    csv_path = "../output/{file_name}.csv".format(file_name=file_name)
+    csv_path = "../fcq/{file_name}.csv".format(file_name=file_name)
     convert_command = "../instructor_maker.sh {input_file} {output_file}".format(input_file=xcel_path,output_file=csv_path)
-
-    #os.system(convert_command)
+    if arguments.convert:  
+    	os.system(convert_command)
+	print "Converted!"
+    else: 
+	print "Did not convert!"
 
 print("SUCCESS!")

@@ -1,5 +1,5 @@
 #!/bin/bash
-
+mv data/fcq/ data/fcq_temp/
 shuf -n 20 data/output/big.csv > data/output/test.csv
 mv data/output/big.csv data/output/big.null
 
