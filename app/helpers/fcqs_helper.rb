@@ -1,22 +1,17 @@
 module FcqsHelper
-  def recitation?
-    if course_title == 'REC' || course_title == 'RECITATION'
-      return true
-    elsif sec != 1 || sec != 10 || sec != 100
-      return true
-    else
-      return false
-    end
-  end
 
   def recitation?(course_title, sec)
-    if course_title == 'REC' || course_title == 'RECITATION'
-      return true
-    elsif sec != 1 || sec != 10 || sec != 100
-      return true
-    else
+    return true if course_title == 'REC' || course_title == 'RECITATION'
+    unless activity_type.nil?
+      return true if activity_type[0..2] == 'LEC' && instr_group == 'TA'
+      return true if (activity_type[0..2] == 'REC')
       return false
     end
+    true
+  end
+
+  def out_of_6(val)
+    "#{val} / 6.0"
   end
 
 end

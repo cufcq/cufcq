@@ -11,7 +11,7 @@
 					<br>instructor overall</li></a>
 
 				<li><a href="" accesskey="4" title="Percentage of students that pass their classes when taken with this proffesor. Considers only students that are still enrolled in the course when FCQs are turned in. Passing is earning 70% or higher.">
-									<strong> <%= @fcq.percentage_passed_string %></strong>
+									<strong> <%= @fcq.pass_rate %></strong>
 					<br>percentage passed</li></a>
 				<li><a href="" accesskey="5" title="Students rate the instructor's instreffective in encouraging interest in the subject. All ratings are on a scale of 1 to 6.">
 										<strong><%= @fcq.instreffective.round(1) %> </strong>

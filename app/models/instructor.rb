@@ -2,7 +2,8 @@ IG_TTT = 'Tenured or tenure-track instructor'
 IG_OTH = 'Other primary instructor, such as adjunct, visiting, honorarium, etc.'
 IG_TA = 'Teaching_Assistant'
 
-# Instructor: This is the class we use for modelling instructors in ActiveRecord
+# Instructor Model
+# Instructors have many fcqs, belong to many courses
 class Instructor < ActiveRecord::Base
   self.per_page = 10
 
@@ -12,6 +13,7 @@ class Instructor < ActiveRecord::Base
     text :instructor_first
     text :instructor_last, :default_boost => 2
   end
+  # handle_asynchronously :solr_index # works like a charm with delayed_job
 
   belongs_to :department, counter_cache: true
   has_many :fcqs
@@ -28,9 +30,10 @@ class Instructor < ActiveRecord::Base
   end
 
   def generate_slug
-    self.slug ||= "#{instructor_last.titleize}-#{instructor_first.titleize}".parameterize
-    puts self.slug
-    self.slug
+    return unless self.slug.nil?
+    slug ||= "#{instructor_last.titleize}-#{instructor_first.titleize}".parameterize
+    puts "slug generated: #{slug}" unless ENV['RAILS_ENV'] == 'test'
+    self.slug = slug
   end
 
   def scorecard
@@ -68,49 +71,44 @@ class Instructor < ActiveRecord::Base
       end
       arr << instr.scorecard
     end
-    return arr
+    arr
   end
-
 
   def cache_course_count
     update_attribute(:courses_count, courses.count)
   end
 
   def name
-    "#{instructor_first.titleize}, #{instructor_last.titleize}"
+    "#{instructor_last.titleize}, #{instructor_first.titleize}"
   end
 
   def full_name
-    return name.split.map(&:capitalize).join(' ')
+    name.split.map(&:capitalize).join(' ')
   end
 
   def instructor_object
-    return %Q{#{college}}
+    %(#{college})
   end
 
   def campus
-    # currently defaults to string literal. This should be changed!
-    'CU Boulder'
+    department.campus
   end
 
   def department_string
-    if department.nil?
-      return '--'
-    else
-      return department.name
-    end
+    return '--' if department.nil?
+    department.name
   end
 
   def instr_group
     data['instructor_group'] || 'TTT'
   end
 
-  def is_TA
+  def ta?
     (instr_group == 'TA') ? true : false
   end
 
   def instructor_type_string
-    is_TA ? 'Teaching Assistant' : 'Instructor'
+    ta? ? 'Teaching Assistant' : 'Instructor'
   end
 
   def overall_from_course(c)
@@ -140,13 +138,12 @@ class Instructor < ActiveRecord::Base
     overall = 0.0
     count = 0
     Instructor.all.each do |instr|
-      if instr_group.nil?
-        if instr.instr_group != instr_group
-          next
-        end
+
+      unless instr_group.nil?
+        next if instr.instr_group != instr_group
       end
-      if dept != nil && instr.department.name != dept
-        next
+      unless dept.nil?
+        next if instr.department.name != dept
       end
       count += 1
       respect += instr.average_instrrespect
@@ -165,7 +162,20 @@ class Instructor < ActiveRecord::Base
     print "Average Overall: #{overall}\n"
   end
 
-  def average_availability(rounding = 1)
+
+  # def self.json_instructors
+  #   hash = {}
+  #   Instructor.all.each do |instr|
+  #     slug = instr.slug
+  #     if slug == nil
+  #       next
+  #     end
+  #     hash[slug] = instr.scorecard
+  #   end
+  #   return hash
+  # end
+
+  def average_availability(rounding  = 1)
     x = data['average_instructor_availability'].to_f || 0.0
     x.round(rounding)
   end
@@ -204,18 +214,16 @@ class Instructor < ActiveRecord::Base
   ########################################
 
   def average_percentage_passed_float
-    data["average_percent_passed"].to_f
+
+    data['average_percent_passed'].to_f
   end
 
   def compute_average_percentage_passed
     total = 0.0
-    fcqs.compact.each { |x| next if x.float_passed < 0.0; total += x.float_passed }
-    count = courses_taught
-    if count == 0
-      return 1.0
-    else
-      return (total.to_f / count.to_f)
-    end
+    fcqs.compact.each { |x| next if x.float_passed < 0.0 ; total += x.float_passed }
+    count = fcqs.count
+    return 1.0 if count == 0
+    (total.to_f / count.to_f)
   end
 
   def pass_rate_string
@@ -235,13 +243,10 @@ class Instructor < ActiveRecord::Base
   # these take the avg grades of all classes taught by a prof and avg them
   def compute_average_grade
     total = 0.0
-    fcqs.compact.each { |x| next if x.avg_grd.nil?; total += x.avg_grd }
-    count = courses_taught
-    if count == 0
-      return 1.0
-    else
-      return (total.to_f / count.to_f)
-    end
+    fcqs.compact.each { |x| next if x.avg_grd.nil? ; total += x.avg_grd }
+    count = fcqs.count
+    return 1.0 if count == 0
+    (total.to_f / count.to_f)
   end
 
   # #################End grades.csv stuff#####################
@@ -257,6 +262,7 @@ class Instructor < ActiveRecord::Base
   end
 
   def build_hstore
+    self.department = fcqs.pluck(:department).mode
     overalls = fcqs.order('yearterm').group('yearterm').average(:instructoroverall)
     avails = fcqs.order('yearterm').group('yearterm').average(:availability)
     effects = fcqs.order('yearterm').group('yearterm').average(:instreffective)
@@ -267,12 +273,13 @@ class Instructor < ActiveRecord::Base
     @instrrespect_data = []
     @instreffective_data = []
 
-    # records.each {|k,v| fixedrecords[Fcq.semterm_from_int(k)] = v.to_f.round(1)}
+    #records.each {|k,v| fixedrecords[Fcq.semterm_from_int(k)] = v.to_f.round(1)}
     overalls.each { |k, v| @overall_data << [k, v.to_f.round(1)] }
     avails.each { |k, v| @availability_data << [k, v.to_f.round(1)] }
     effects.each { |k, v| @instreffective_data << [k, v.to_f.round(1)] }
     instrrespects.each { |k, v| @instrrespect_data << [k, v.to_f.round(1)] }
-    self.data = {}
+
+    data = {}
     data['overall_data'] = @overall_data
     data['availability_data'] = @availability_data
     data['instreffective_data'] = @instreffective_data
@@ -287,6 +294,7 @@ class Instructor < ActiveRecord::Base
     data['latest_class'] = fcqs.maximum(:yearterm)
     data['earliest_class'] = fcqs.minimum(:yearterm)
     data['instructor_group'] = fcqs.pluck(:instr_group).mode
+    self.data = data
     cache_course_count
     save
   end
@@ -299,16 +307,11 @@ class Instructor < ActiveRecord::Base
       return IG_OTH
     when 'TA'
       return IG_TA
-    else
-      return 'ERROR! Flavor text not found'
     end
   end
 
   def color
-    if is_TA
-      return 'box6'
-    else
-      return 'box4'
-    end
+    return 'box6' if ta?
+    'box4'
   end
 end

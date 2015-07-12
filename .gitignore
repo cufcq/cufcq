@@ -31,3 +31,4 @@ solr/pids
 solr/test
 
 *.DS_Store
+Gemfile.lock

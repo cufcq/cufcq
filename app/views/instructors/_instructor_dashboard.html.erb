@@ -63,7 +63,7 @@
                   <td><%= @instructor.average_instrrespect %> / 6.0</td>
                 </tr>
 
-                
+
 
                 </tbody>
             </table>
@@ -77,11 +77,11 @@
                 <tr>
                   <th>Semester</th>
                   <th>Course</th>
-                  <th>Fcq Link</th> 
+                  <th>Fcq Link</th>
  		              <th>Level</th>
             		  <th>Instructor Overall</th>
             		  <th>Average GPA</th>
-            		  <th>Percent Passed</th> 
+            		  <th>Percent Passed</th>
                 </tr>
               </thead>
 
@@ -91,10 +91,10 @@
                   <td><%= fcq.semterm %></td>
                   <td><%= link_to fcq.course.uppercase_name, course_path(fcq.course)%></td>
                   <td><%= link_to fcq.fcq_object, fcq_path(fcq)%></td>
- 		              <td><%= fcq.rank_string%></td>                 
+ 		              <td><%= fcq.rank_string%></td>
                   <td><%= fcq.instructor_overall_string%></td>
 		              <td><%= fcq.avg_grd_string %></td>
-                  <td><%= fcq.percentage_passed_string %></td> 
+                  <td><%= fcq.pass_rate %></td> 
                 </tr>
                 <% end %>
               </tbody>
@@ -103,4 +103,3 @@
           </div>
         </div>
     </div>
-  
