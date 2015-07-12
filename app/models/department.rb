@@ -28,7 +28,7 @@ class Department < ActiveRecord::Base
   def generate_slug
     return unless self.slug.nil?
     slug ||= "#{name}".parameterize
-    puts "slug generated: #{slug}" unless ENV['RAILS_ENV'] == 'test'
+    puts "slug generated: #{slug}"
     self.slug = slug
   end
 

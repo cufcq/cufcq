@@ -1,5 +1,5 @@
 require_relative '../minitest_helper'
-# rake db:test:prepare
+# parallel plot
 
 describe Fcq do
   before do
