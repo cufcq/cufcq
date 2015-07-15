@@ -13,6 +13,8 @@ rm -rf solr/test
 #startup solr in development environment
 rake sunspot:solr:start RAILS_ENV=development
 
+sleep 5
+
 #all of our rake tasks
 bundle exec rake db:reset
 bundle exec rake db:migrate
