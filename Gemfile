@@ -2,22 +2,19 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-#gem 'bootstrap-sass', '2.3.2.0'
+# gem 'bootstrap-sass', '2.3.2.0'
 # Use sqlite3 as the database for Active Record
 group :development do
-# gem 'sqlite3'
-gem 'debugger', group: [:development, :test]
-gem 'database_cleaner'
-gem 'launchy'
-gem 'rspec-rails'
-gem 'progress_bar'
-gem 'eventmachine', github: "eventmachine/eventmachine"
+  gem 'debugger', group: [:development, :test]
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'rspec-rails'
+  gem 'progress_bar'
+  gem 'eventmachine', github: 'eventmachine/eventmachine'
 end
 
-
-#taps
 gem 'taps'
-#Sunspot solr Search
+# Sunspot solr Search
 gem 'sunspot_rails', '2.2.0'
 gem 'sunspot_solr', '2.2.0'
 
@@ -54,27 +51,20 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
 # Use Capistrano for deployment
 gem 'capistrano', group: :development
 # gem 'activerecord-postgres-hstore'
 
 group :development do
-    gem 'capistrano-rails'
-    gem 'capistrano-rbenv', '~> 2.0', require: false
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv', '~> 2.0', require: false
 end
 
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-#
 group :production do
-gem 'thin'
-#   gem 'pg', '0.15.1'
-#     gem 'rails_12factor', '0.0.2'
+  gem 'thin'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'minitest-spec-rails'
 end
