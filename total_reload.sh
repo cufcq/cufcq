@@ -10,10 +10,17 @@ rm -rf solr/development
 rm -rf solr/pids
 rm -rf solr/test
 
-#startup solr in development environment
-rake sunspot:solr:start RAILS_ENV=development
+while getopts 'pdt' flag; do
+  case "${flag}" in
+    d) RAILS_ENV=development ;;
+    p) RAILS_ENV=production ;;
+    t) RAILS_ENV=test ;;
+    *) error "Unexpected option ${flag}" ;;
+  esac
+done
 
-sleep 5
+#startup solr
+rake sunspot:solr:start
 
 #all of our rake tasks
 bundle exec rake db:reset

@@ -1,0 +1,253 @@
+have_struct_member: checking for rb_method_entry_t.called_id in method.h... -------------------- no
+
+"gcc -o conftest -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -D_FORTIFY_SOURCE=2  -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC conftest.c  -L. -L/usr/lib -L. -Wl,-Bsymbolic-functions -Wl,-z,relro -L/build/buildd/ruby1.9.1-1.9.3.484/debian/lib -rdynamic -Wl,-export-dynamic     -lruby-1.9.1  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"gcc -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -D_FORTIFY_SOURCE=2  -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC   -c conftest.c"
+conftest.c:3:20: fatal error: method.h: No such file or directory
+ #include <method.h>
+                    ^
+compilation terminated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_method_entry_t*)0)->called_id - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_control_frame_t.method_id in method.h... -------------------- no
+
+"gcc -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -D_FORTIFY_SOURCE=2  -D_FORTIFY_SOURCE=2 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC   -c conftest.c"
+conftest.c:3:20: fatal error: method.h: No such file or directory
+ #include <method.h>
+                    ^
+compilation terminated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_control_frame_t*)0)->method_id - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_method_entry_t.called_id in method.h... -------------------- no
+
+"gcc -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -I/usr/include/ruby-1.9.1/ruby-1.9.3-p484 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC   -c conftest.c"
+conftest.c:3:20: fatal error: method.h: No such file or directory
+ #include <method.h>
+                    ^
+compilation terminated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_method_entry_t*)0)->called_id - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_control_frame_t.method_id in method.h... -------------------- no
+
+"gcc -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -I/usr/include/ruby-1.9.1/ruby-1.9.3-p484 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC   -c conftest.c"
+conftest.c:3:20: fatal error: method.h: No such file or directory
+ #include <method.h>
+                    ^
+compilation terminated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_control_frame_t*)0)->method_id - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_method_entry_t.called_id in method.h... -------------------- yes
+
+"gcc -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -I/home/user/cufcq/vendor/bundle/ruby/1.9.1/gems/debugger-ruby_core_source-1.3.8/lib/debugger/ruby_core_source/ruby-1.9.3-p484 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_method_entry_t*)0)->called_id - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_header: checking for vm_core.h... -------------------- yes
+
+"gcc -E -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -I/home/user/cufcq/vendor/bundle/ruby/1.9.1/gems/debugger-ruby_core_source-1.3.8/lib/debugger/ruby_core_source/ruby-1.9.3-p484 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <vm_core.h>
+/* end */
+
+--------------------
+
+have_header: checking for iseq.h... -------------------- yes
+
+"gcc -E -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -I/home/user/cufcq/vendor/bundle/ruby/1.9.1/gems/debugger-ruby_core_source-1.3.8/lib/debugger/ruby_core_source/ruby-1.9.3-p484 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <iseq.h>
+/* end */
+
+--------------------
+
+have_header: checking for insns.inc... -------------------- yes
+
+"gcc -E -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -I/home/user/cufcq/vendor/bundle/ruby/1.9.1/gems/debugger-ruby_core_source-1.3.8/lib/debugger/ruby_core_source/ruby-1.9.3-p484 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <insns.inc>
+/* end */
+
+--------------------
+
+have_header: checking for insns_info.inc... -------------------- yes
+
+"gcc -E -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -I/home/user/cufcq/vendor/bundle/ruby/1.9.1/gems/debugger-ruby_core_source-1.3.8/lib/debugger/ruby_core_source/ruby-1.9.3-p484 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <insns_info.inc>
+/* end */
+
+--------------------
+
+have_header: checking for eval_intern.h... -------------------- yes
+
+"gcc -E -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -I/home/user/cufcq/vendor/bundle/ruby/1.9.1/gems/debugger-ruby_core_source-1.3.8/lib/debugger/ruby_core_source/ruby-1.9.3-p484 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <eval_intern.h>
+/* end */
+
+--------------------
+
+have_type: checking for struct iseq_line_info_entry in vm_core.h,iseq.h... -------------------- no
+
+"gcc -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -I/home/user/cufcq/vendor/bundle/ruby/1.9.1/gems/debugger-ruby_core_source-1.3.8/lib/debugger/ruby_core_source/ruby-1.9.3-p484 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC   -c conftest.c"
+conftest.c:8:24: error: invalid application of ‘sizeof’ to incomplete type ‘conftest_type’
+ int conftestval[sizeof(conftest_type)?1:-1];
+                        ^
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <vm_core.h>
+4: #include <iseq.h>
+5: 
+6: /*top*/
+7: typedef struct iseq_line_info_entry conftest_type;
+8: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+have_type: checking for struct iseq_insn_info_entry in vm_core.h,iseq.h... -------------------- yes
+
+"gcc -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -I/home/user/cufcq/vendor/bundle/ruby/1.9.1/gems/debugger-ruby_core_source-1.3.8/lib/debugger/ruby_core_source/ruby-1.9.3-p484 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <vm_core.h>
+4: #include <iseq.h>
+5: 
+6: /*top*/
+7: typedef struct iseq_insn_info_entry conftest_type;
+8: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+block in <main>: checking for if rb_iseq_compile_with_option was added an argument filepath... -------------------- yes
+
+"gcc -I/usr/include/ruby-1.9.1/x86_64-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I. -I/home/user/cufcq/vendor/bundle/ruby/1.9.1/gems/debugger-ruby_core_source-1.3.8/lib/debugger/ruby_core_source/ruby-1.9.3-p484 -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wall -fno-strict-aliasing -fPIC   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ruby.h>
+4: #include "vm_core.h"
+5: extern VALUE rb_iseq_new_main(NODE *node, VALUE filename, VALUE filepath);
+/* end */
+
+--------------------
+
