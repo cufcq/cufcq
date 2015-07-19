@@ -23,6 +23,7 @@ done
 rake sunspot:solr:start
 
 #all of our rake tasks
+bundle exec rake db:create
 bundle exec rake db:reset
 bundle exec rake db:migrate
 bundle exec rake departments
