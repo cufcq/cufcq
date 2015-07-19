@@ -3,19 +3,24 @@ require_relative '../minitest_helper'
 
 describe Fcq do
   before do
-    @data = {
-      'yearterm' => 20151,
-      'subject' => 'TEST',
-      'crse' => 1000,
-      'sec' => 3,
-      'instructor_first' => 'Alejandro',
-      'instructor_last' => 'Spina',
-      'formsrequested' => 30,
-      'formsreturned' => 20,
-      'campus' => 'BD',
-      'college' => 'AS'
-    }
-    @fcq = Fcq.new(@data)
+    @data =   {
+        'subject' => 'TEST',
+        'crse' => 1000,
+        'course_title' => 'Test Course',
+        'sec' => 3,
+        'instructor_first' => 'Alejandro',
+        'instructor_last' => 'Spina',
+        'formsrequested' => 30,
+        'formsreturned' => 20,
+        'campus' => 'BD',
+        'college' => 'AS',
+        'activity_type' => 'LEC - Lecture',
+        'hours' => '3',
+        'n_enroll' => '35',
+        'n_incomp' => '0',
+        'instr_group' => 'TTT'
+      }
+    @fcq = Fcq.where(@data).first
   end
 
   describe 'float_passed' do
