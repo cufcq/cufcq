@@ -20,7 +20,7 @@ end
 desc "Imports FCQ CSV file into an ActiveRecord table"
 task :import => :environment do
   puts 'starting import'
-  Dir.glob('data/fcq/fcq.*.csv').each do |csv|
+  Dir.glob('data/fcq/*.csv').each do |csv|
     puts "loading csv file: " + csv
     CSV.foreach(csv, :headers => true) do |row|
       begin
