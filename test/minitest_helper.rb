@@ -11,10 +11,3 @@ class Array
   end
 
 end
-# class ActiveSupport::TestCase
-#   setup :load_seeds
-#   def load_seeds
-#     puts 'loading insanity'
-#     load "#{Rails.root}/db/seeds.rb"
-#   end
-# end

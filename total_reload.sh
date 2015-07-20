@@ -11,7 +11,7 @@ rm -rf solr/pids
 rm -rf solr/test
 
 #startup solr in development environment
-rake RAILS_ENV=development sunspot:solr:start
+rake sunspot:solr:start RAILS_ENV=development
 
 #all of our rake tasks
 bundle exec rake db:reset
