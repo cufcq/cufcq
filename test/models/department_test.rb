@@ -9,7 +9,7 @@ describe Department do
       'college' => 'AS',
       'campus' => 'BD'
     }
-    @department = Department.new(@data)
+    @department = Department.where(@data).first
   end
 
   describe 'name, slug' do

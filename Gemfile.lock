@@ -85,6 +85,9 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.2)
     minitest (4.7.5)
+    minitest-spec-rails (4.7.8)
+      minitest (~> 4.7)
+      rails (>= 3.0, < 4.1)
     multi_json (1.11.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -206,6 +209,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   launchy
+  minitest-spec-rails
   pg
   progress_bar
   rails (= 4.0.0)

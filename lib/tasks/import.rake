@@ -1,4 +1,3 @@
-#lib/tasks/import.rake
 # to call, run
 require 'csv'
 
@@ -39,8 +38,8 @@ task :import => :environment do
         puts 'finished rceating annew fcqS'
         # puts f.fcq_object
         # given a new fcq object, create the instructor and course
-        i_params = {'instructor_first' => f.instructor_first, "instructor_last" => f.instructor_last}
-        c_params = {'course_title' => f.course_title, "crse" => f.crse, "subject" => f.subject}
+        i_params = { 'instructor_first' => f.instructor_first, "instructor_last" => f.instructor_last}
+        c_params = { 'course_title' => f.course_title, "crse" => f.crse, "subject" => f.subject}
         # fix for the phil1400 bug
         c_abridged_params = { 'crse' => f.crse, 'subject' => f.subject }
         d_params = { 'name' => f.subject }
@@ -68,31 +67,7 @@ task :import => :environment do
   end
   puts 'Finished Importing FCQ CSV'
 end
-# task :import => :environment do
-#   puts "start"
-#   Dir.glob('data/output/*.csv').each do |csv|
-#     puts "loading csv file: " + csv
-#     CSV.foreach(csv, :headers => true) do |row|
-#       begin
-#           #puts row.to_hash
-#           #h = row.to_hash.select {|k,v| k == "instructor_first" || "k == instructor_last"}
-#           #inst = get_instructor(params)
-#           #inst.fcqs.create!(row.to_hash)
-#       f = Fcq.create!(row.to_hash)
-#       puts f.fcq_object
-#       rescue ActiveRecord::RecordInvalid => invalid
-#           puts invalid.message
-#           next
-#       rescue ActiveRecord::RecordNotUnique => unique
-#         next
-#       rescue ActiveRecord::UnknownAttributeError => unknown
-#         puts unknown.message
-#         next
-#       end
-#     end
-#   end
-#   puts "finish"
-# end
+
 
 task :drop_tables => :environment do
   drop_table :departments
@@ -374,7 +349,7 @@ task :grades => :environment do
           #inst = get_instructor(params)
           #inst.fcqs.create!(row.to_hash)
       r = row.to_hash
-      # puts r.to_s
+      puts r.to_s
       #  puts "\n"
       #gets the fcq with the same courtitle, section, yearterm
       f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
