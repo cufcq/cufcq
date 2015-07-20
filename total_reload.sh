@@ -10,10 +10,23 @@ rm -rf solr/development
 rm -rf solr/pids
 rm -rf solr/test
 
-#startup solr in development environment
-rake sunspot:solr:start RAILS_ENV=development
+
+while getopts 'pdt' flag; do
+  case "${flag}" in
+    d) export RAILS_ENV=development ;;
+    p) export RAILS_ENV=production ;;
+    t) export RAILS_ENV=test ;;
+    *) error "Unexpected option ${flag}" ;;
+  esac
+done
+
+echo $RAILS_ENV
+
+#startup solr
+bundle exec rake sunspot:solr:start
 
 #all of our rake tasks
+bundle exec rake db:create
 bundle exec rake db:reset
 bundle exec rake db:migrate
 bundle exec rake departments
@@ -34,5 +47,7 @@ bundle exec rake department_correction
 bundle exec rake course_names
 bundle exec rake course_missing_hstore
 
+
+
 #reindex solr
-RAILS_ENV=development bundle exec rake sunspot:solr:reindex
+bundle exec rake sunspot:solr:reindex

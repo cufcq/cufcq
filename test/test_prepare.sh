@@ -3,6 +3,7 @@
 # test_prepare : file needs to be run once for all unit tests to operate properly
 # seeds and prepares the test database
 
+export RAILS_ENV=test
 #kill solr process
 pkill -f solr
 #remove old data
@@ -12,7 +13,7 @@ rm -rf solr/development
 rm -rf solr/pids
 rm -rf solr/test
 #startup solr in development environment
-rake RAILS_ENV=test sunspot:solr:start
+rake  sunspot:solr:start
 # meat n potatoes right here
 rake db:test:prepare
-rake RAILS_ENV=test db:seed
+rake db:seed
