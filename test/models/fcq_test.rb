@@ -3,19 +3,14 @@ require_relative '../minitest_helper'
 
 describe Fcq do
   before do
-    @data = {
+    @data =   {
       'yearterm' => 20151,
+      'sec' => 6,
+      'course_title' => 'Blank Test Course',
       'subject' => 'TEST',
-      'crse' => 1000,
-      'sec' => 3,
-      'instructor_first' => 'Alejandro',
-      'instructor_last' => 'Spina',
-      'formsrequested' => 30,
-      'formsreturned' => 20,
-      'campus' => 'BD',
-      'college' => 'AS'
-    }
-    @fcq = Fcq.new(@data)
+      'crse' => 1000
+      }
+    @fcq = Fcq.where(@data).first
   end
 
   describe 'float_passed' do
@@ -236,7 +231,7 @@ describe Fcq do
 
   describe 'section_string, uid' do
     it 'section_string should return correctly' do
-      assert_equal '003', @fcq.section_string
+      assert_equal '006', @fcq.section_string
     end
     it 'uid should return correctly' do
       assert_equal "#{@data['yearterm']}#{@data['subject']}#{@data['crse']}#{@data['sec']}", @fcq.uid

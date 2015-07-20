@@ -8,7 +8,7 @@ describe Course do
       'subject' => 'TEST',
       'crse' => 1000
     }
-    @course = Course.new(@data)
+    @course = Course.where(@data).first
   end
 
   describe 'name, slug' do
@@ -21,6 +21,12 @@ describe Course do
       assert_equal @course.slug, @course.to_param
     end
   end
+
+  # describe 'sanity' do
+  #   it 'should watch my sanity' do
+  #     puts fcq_data.average_hash('avg_grd')
+  #   end
+  # end
 
   # describe 'ld?, ud?, grad?, rank_string, rank_string_abridged' do
   #   it 'should return true for the appropriate level, and false for others' do

@@ -7,7 +7,7 @@ describe Instructor do
       'instructor_first' => 'Alejandro',
       'instructor_last' => 'Spina'
     }
-    @instructor = Instructor.new(@data)
+    @instructor = Instructor.where(@data).first
   end
 
   describe 'name, slug' do
