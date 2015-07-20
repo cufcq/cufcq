@@ -11,9 +11,7 @@
  *= require_self
  *= require_tree .
  *= require bootstrap
- */
-
-*=require bootstrap-wysihtml5
+*/
 
 .pretty th .current {
   padding-right: 12px;

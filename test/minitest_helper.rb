@@ -1,7 +1,7 @@
 ENV['RAILS_ENV'] = 'test'
 require 'rake'
 require File.expand_path('../../config/environment', __FILE__)
-require 'rails/test_help'
+# require 'rails/test_help'
 
 # alteration to array class
 class Array
