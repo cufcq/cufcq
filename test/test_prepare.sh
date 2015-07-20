@@ -13,7 +13,7 @@ rm -rf solr/development
 rm -rf solr/pids
 rm -rf solr/test
 #startup solr in development environment
-rake  sunspot:solr:start
+rake sunspot:solr:start
 # meat n potatoes right here
 rake db:test:prepare
 rake db:seed
