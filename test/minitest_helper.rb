@@ -2,14 +2,6 @@ ENV['RAILS_ENV'] = 'test'
 require 'rake'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-require 'minitest/autorun'
-
-# task :prepare => :environment do
-#   Rake::Task["db:reset"].invoke
-#   Rake::Task["db:test:prepare"].invoke
-#   Rake::Task["db:migrate"].invoke
-#   Rake::Task["db:seed"].invoke
-# end
 
 # alteration to array class
 class Array

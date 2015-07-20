@@ -21,7 +21,6 @@ def all
     'subject' => 'TEST',
     'crse' => 1000,
     'course_title' => 'Test Course',
-    'sec' => 3,
     'instructor_first' => 'Alejandro',
     'instructor_last' => 'Spina',
     'formsrequested' => 30,
@@ -35,8 +34,19 @@ def all
     'instr_group' => 'TTT'
   }
 end
+
+def _fcq_blank
+  data = {
+    'yearterm' => 20151,
+    'sec' => 6,
+    'course_title' => 'Blank Test Course'
+  }
+  all.merge(data)
+end
+
 def _fcq_a
   data = {
+    'sec' => 1,
     'yearterm' => 20151,
     'pct_a' => '0.3548387097',
     'pct_b' => '0.4193548387',
@@ -61,6 +71,7 @@ def _fcq_a
 end
 def _fcq_b
   data = {
+    'sec' => 2,
     'yearterm' => 20147,
     'pct_a' => '0.375',
     'pct_b' => '0.34375',
@@ -85,6 +96,7 @@ def _fcq_b
 end
 def _fcq_c
   data = {
+    'sec' => 3,
     'yearterm' => 20144,
     'pct_a' => '0.4848484848',
     'pct_b' => '0.303030303',
@@ -109,6 +121,7 @@ def _fcq_c
 end
 def _fcq_d
   data = {
+    'sec' => 4,
     'yearterm' => 20141,
     'pct_a' => '0.5',
     'pct_b' => '0.2647058824',
@@ -133,6 +146,7 @@ def _fcq_d
 end
 def _fcq_e
   data = {
+    'sec' => 5,
     'yearterm' => 20137,
     'pct_a' => '0.5428571429',
     'pct_b' => '0.2',
@@ -171,28 +185,37 @@ def _instructor_a
   }
 end
 
-def course_data
-  _course_a
-end
-
-def instructor_data
-  _instructor_a
+def _department_a
+  {
+    'name' => 'TEST',
+    'long_name' => 'Testing',
+    'college' => 'AS',
+    'campus' => 'BD'
+  }
 end
 
 # da main
 def main
-  puts Rails.env.test?
+  # only test environment should be calling db:seed
+  return unless Rails.env.test?
   puts 'seed main called'
   fcqs = []
   fcq_data.each do |f|
-    fcqs << Fcq.create(f)
+    fcqs << Fcq.create!(f)
   end
-  course = Course.create(course_data)
-  instructor = Instructor.create(instructor_data)
+  Fcq.create!(_fcq_blank)
+  c = Course.create!(_course_a)
+  i = Instructor.create!(_instructor_a)
+  d = Department.create!(_department_a)
   fcqs.each do |f|
-    course.fcqs << f
-    instructor.fcqs << f
+    c.fcqs << f
+    i.fcqs << f
+    d.fcqs << f
   end
+  c.instructors << i unless c.instructors.exists?(i)
+  i.courses << c unless i.courses.exists?(c)
+  d.instructors << i unless d.instructors.exists?(i)
+  d.courses << c unless d.courses.exists?(c)
   puts 'seed finished successfully'
 end
 
