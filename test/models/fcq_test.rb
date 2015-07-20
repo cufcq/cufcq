@@ -271,6 +271,7 @@ describe Fcq do
         assert_equal true, @fcq.grad?
         assert_equal 'Graduate Level', @fcq.rank_string
         assert_equal 'gd', @fcq.rank_string_abridged
+        assert_equal false, true
       end
     end
   end
