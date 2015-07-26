@@ -246,8 +246,7 @@ describe Fcq do
       ud = %w(3000 3020 3099 4000 4131 4344 4999)
       gd = %w(5000 5020 5099 6000 6131 6344 6999)
       ld.each do |x|
-        @fcq.attributes = { crse: x}
-
+        @fcq.attributes = { crse: x }
         assert_equal true, @fcq.ld?
         assert_equal false, @fcq.ud?
         assert_equal false, @fcq.grad?
@@ -255,8 +254,7 @@ describe Fcq do
         assert_equal 'ld', @fcq.rank_string_abridged
       end
       ud.each do |x|
-        @fcq.attributes = { crse: x}
-
+        @fcq.attributes = { crse: x }
         assert_equal false, @fcq.ld?
         assert_equal true, @fcq.ud?
         assert_equal false, @fcq.grad?
@@ -264,8 +262,7 @@ describe Fcq do
         assert_equal 'ud', @fcq.rank_string_abridged
       end
       gd.each do |x|
-        @fcq.attributes = { crse: x}
-
+        @fcq.attributes = { crse: x }
         assert_equal false, @fcq.ld?
         assert_equal false, @fcq.ud?
         assert_equal true, @fcq.grad?

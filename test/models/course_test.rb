@@ -22,12 +22,6 @@ describe Course do
     end
   end
 
-  # describe 'sanity' do
-  #   it 'should watch my sanity' do
-  #     puts fcq_data.average_hash('avg_grd')
-  #   end
-  # end
-
   # describe 'ld?, ud?, grad?, rank_string, rank_string_abridged' do
   #   it 'should return true for the appropriate level, and false for others' do
   #     ld = %w(1000 1020 1099 2000 2131 2344 2999)

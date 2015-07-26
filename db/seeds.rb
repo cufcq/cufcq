@@ -31,7 +31,7 @@ def all
     'hours' => '3',
     'n_enroll' => '35',
     'n_incomp' => '0',
-    'instr_group' => 'TTT'
+    'instr_group' => 'OTH'
   }
 end
 
@@ -216,6 +216,13 @@ def main
   i.courses << c unless i.courses.exists?(c)
   d.instructors << i unless d.instructors.exists?(i)
   d.courses << c unless d.courses.exists?(c)
+  # i.save
+  # c.save
+  # d.save
+  puts 'hstore going'
+  i.build_hstore
+  c.build_hstore
+  d.build_hstore
   puts 'seed finished successfully'
 end
 
