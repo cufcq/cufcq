@@ -44,7 +44,7 @@ class Course < ActiveRecord::Base
       :average_overall => average_courseoverall(3),
       :average_howmuchlearned => average_howmuchlearned(3),
       :average_challenge => average_challenge(3),
-      :average_priorinterest => average_priorinterest(3),
+      :average_prior_interest => average_prior_interest(3),
       :slug => slug
     }
     scorecard
@@ -73,14 +73,14 @@ class Course < ActiveRecord::Base
     overall = 0.0
     count = 0
     Course.all.each do |crse|
-      if rank != nil
+      unless rank.nil?
         next if crse.rank_string_abridged != rank
       end
-      if dept != nil
+      unless dept.nil?
         next if crse.department.name != dept
       end
       count += 1
-      prior += crse.average_priorinterest
+      prior += crse.average_prior_interest
       challenge += crse.average_challenge
       howmuchlearned += crse.average_howmuchlearned
       overall += crse.average_courseoverall
@@ -106,7 +106,7 @@ class Course < ActiveRecord::Base
     hash.to_json
   end
 
-  def average_priorinterest(rounding = 1)
+  def average_prior_interest(rounding = 1)
     r = data['average_prior_interest'].to_f || 0.0
     r.round(rounding)
   end
@@ -142,19 +142,8 @@ class Course < ActiveRecord::Base
     fcqs.average(:formsrequested)
   end
 
-  def instructors_sorted_by_instructoroverall
-    instructors.sort_by(:instructoroverall)
-  end
-
   def course_object
-    %(#{subject} #{crse} - #{course_title})
-  end
-
-  def overall_from_instructor(i)
-    fname = i.instructor_first
-    lname = i.instructor_last
-    set = fcqs.where('instructor_first = ? AND instructor_last = ?', fname, lname)
-    set.average(:courseoverall).round(1)
+    "#{subject} #{crse} - #{course_title}"
   end
 
   def ld?

@@ -56,7 +56,6 @@ class Department < ActiveRecord::Base
     arr
   end
 
-
   def cache_update_counts
     update_attribute(:instructors_count, instructors.count)
     update_attribute(:courses_count, courses.count)
@@ -167,109 +166,4 @@ class Department < ActiveRecord::Base
     save
   end
 
-
-  def average_courseoverall
-    fcqs.average(:courseoverall).round(1)
-  end
-
-  def average_instructoroverall
-    fcqs.average(:courseoverall).round(1)
-  end
-
-  def average_student_enrollment
-    fcqs.group(:semterm).average(:courseoverall).round(1)
-  end
-
-  def elligible_for_ranking(i)
-    if (i.is_TA)
-      if(i.fcqs.maximum(:yearterm) < ONE_YEAR_AGO)
-        return false
-      elsif(i.fcqs.count < 3)
-        return false
-      else
-        return true
-      end
-    else
-      if(i.fcqs.maximum(:yearterm) < TWO_YEARS_AGO)
-        return false
-      elsif(i.fcqs.count < 5)
-        return false
-      else
-        return true
-      end
-    end
-  end
-
-  def get_instructor(a)
-    set = Instructor.where('instructor_first = ? AND instructor_last = ?', a[0], a[1])
-    puts set
-    set.first
-  end
-
-  def instructors_count
-    hash = self.fcqs.group([:instructor_first,:instructor_last]).count
-  end
-
-  def instructors_by_courses_taught
-    #taught a minimum of 3 courses
-    set = self.instructors.group([:instructor_first,:instructor_last])
-    #no TAs allowed
-    set = set.delete_if{|x| !elligible_for_ranking(x)}
-    set = set.delete_if{|x| x.instr_group == 'TA'}
-    #sort by average overall
-    set.sort_by{|x| x.average_instructoroverall}
-  end
-
-  def set_rank
-    ibct = instructors_by_courses_taught
-    result = Hash.new
-    s = ibct.length
-    i = 0
-    ibct.each {|k,v| result[k] = s - i; i+=1}
-    @instructors_rank = result
-  end
-
-  #returns an instructors rank when passing in the i value
-  def instructor_rank(i)
-    instructor_rank(i.fname,i.lname)
-  end
-
-  #returns an instructors rank when passing in a fname,lname
-  def instructor_rank(fname,lname)
-    a = [fname,lname]
-    @instructors_rank.include?(a) ? @instructors_rank[a] : 'N/A'
-  end
-
-
-  def course_count
-    courses.count
-  end
-
-  def course_ld_count
-    courses
-  end
-
-  def course_ud_count
-    courses.where('crse = ?',3000...5000).group('crse').to_a
-  end
-
-  def course_gd_count
-    courses.where('crse = ?',5000...10000).group('crse').to_a
-  end
-
-  def instructor_total_count
-    instructors.count
-  end
-
-  def instructor_ta_count
-    instructors.count
-  end
-
-  def instructor_nonta_count
-    instructors.count
-  end
-
-  def instructor_order
-    instructors.group([:instructor_first, :instructor_last]).order(average_instructoroverall)
-  end
 end
