@@ -106,7 +106,7 @@ class Course < ActiveRecord::Base
     hash.to_json
   end
 
-  def average_priorinterest(rounding = 1)
+  def average_prior_interest(rounding = 1)
     r = data['average_prior_interest'].to_f || 0.0
     r.round(rounding)
   end

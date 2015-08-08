@@ -113,6 +113,4 @@ describe Course do
       assert_equal @course.hoursperwkinclclass_string, '--'
     end
   end
-
-
 end
