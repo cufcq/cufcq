@@ -10,7 +10,6 @@ rm -rf solr/development
 rm -rf solr/pids
 rm -rf solr/test
 
-
 while getopts 'pdt' flag; do
   case "${flag}" in
     d) export RAILS_ENV=development ;;

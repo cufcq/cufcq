@@ -22,20 +22,13 @@ task :import => :environment do
   Dir.glob('data/fcq/*.csv').each do |csv|
     puts "loading csv file: " + csv
     CSV.foreach(csv, :headers => true) do |row|
+      h = row.to_hash
       begin
-        h = row.to_hash
-        # does a number of operations to split an instructor name into a first and last name
-        name = h['instructor'] || ','
-        i_name = name.split(', ') || ['', '']
-        h['instructor_first'] = i_name[1] || ''
-        h['instructor_last'] = i_name[0] || ''
         h['instructor_first'].capitalize!
         h['instructor_last'].capitalize!
-        h['course_title'] = h['crstitle']
+        # h['course_title'] = h['crstitle']
         h.select! { |k, _v| Fcq.column_names.include? k }
-        puts 'creating a new fcq'
         f = Fcq.create!(h)
-        puts 'finished rceating annew fcqS'
         # puts f.fcq_object
         # given a new fcq object, create the instructor and course
         i_params = { 'instructor_first' => f.instructor_first, "instructor_last" => f.instructor_last}
@@ -55,12 +48,15 @@ task :import => :environment do
         d.courses << c unless d.courses.exists?(c)
       rescue ActiveRecord::RecordInvalid => invalid
         puts invalid.message
+        puts h
         next
       rescue ActiveRecord::RecordNotUnique => unique
         puts unique.message
+        puts h
         next
       rescue ActiveRecord::UnknownAttributeError => unknown
         puts unknown.message
+        puts h
         next
       end
     end

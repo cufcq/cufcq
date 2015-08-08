@@ -1,17 +1,19 @@
-# This scraper accesses the fcq website, fills out the forms, downloads FCQ data, and then optionally converts them to CSVs for the DB 
+# This scraper accesses the fcq website, fills out the forms, downloads FCQ data, and then optionally converts them to CSVs for the DB
 
 import mechanize
 import requests
 import os
 import argparse
 
-# Sample for getting Spring Semester of 2015: 
-# python scraper.py -c true -ft 1 -fy 2015 -lt 1 -ly 2015 
+import csv
+
+# Sample for getting Spring Semester of 2015:
+# python scraper.py -c true -ft 1 -fy 2015 -lt 1 -ly 2015
 
 
 # 1 is Spring, 4 is Summer, 7 is Fall
 parser = argparse.ArgumentParser()
-#if we want to do conversion  
+#if we want to do conversion
 parser.add_argument('-c', '--convert', nargs='+', type=bool)
 #ft is the first term, in this case spring
 parser.add_argument('-ft', '--firstterm', nargs='+', type=int)
@@ -32,6 +34,7 @@ br.addheaders = [('User-agent', 'Firefox')]
 
 #this sets the department we want, in this case we use entire campus
 fcqdpt = 'BD : Entire Campus ## BD'
+# fcqdpt = 'AS : MATHEMATICS -- MATH'
 # 1 is Spring, 4 is Summer, 7 is Fall
 #fterm is the first term, in this case spring
 #lterm is the last term, spring as well.
@@ -49,6 +52,23 @@ lyrs = map(str,arguments.lastyears)
 #lyrs = ['2014', '2013', '2012', '2011', '2010', '2009', '2008']
 # The instructor group grp1=[*ALL, TTT, OTH, T_O, TA]
 grp1 = 'ALL'
+
+
+def convert_csv(input_file,output_file):
+    with open(input_file, 'rb') as f:
+        with open(output_file,'w') as f1:
+            # f.next() # skip header line
+            first = True
+            for line in f:
+                if first:
+                    # This is the custom header line that our import task wants.
+                    f1.write('yearterm,subject,crse,sec,onlineFCQ,bd_continuing_education,instructor_last,instructor_first,formsrequested,formsreturned,percentage_passed,course_overall,course_overall_SD,instructoroverall,instructoroverall_SD,total_hours,prior_interest,effectiveness,availability,challenge,amount_learned,respect,course_title,courseOverall_old,courseOverall_SD_old,instrOverall_old,instrOverall_SD_old,r_Fair,r_Access,workload,r_Divstu,r_Diviss,r_Presnt,r_Explan,r_Assign,r_Motiv,r_Learn,r_Complx,campus,college,aSdiv,level,fcqdept,instr_group,i_Num\n')
+                    first = False
+                else:
+                    # Replace double quotes with null, relace spaced commas with normal commas, replace the big comma chunk with a bigger one for our header. 
+                    line = line.replace('"','').replace(', ',',').replace(',,,,,,',',,,,,,,,,,,,,,,')
+                    f1.write(line)
+    print("DONE")
 
 for i in range (0,len(fyrs)):
 
@@ -113,11 +133,19 @@ for i in range (0,len(fyrs)):
     output.close()
 
     csv_path = "../fcq/{file_name}.csv".format(file_name=file_name)
-    convert_command = "../instructor_maker.sh {input_file} {output_file}".format(input_file=xcel_path,output_file=csv_path)
-    if arguments.convert:  
-    	os.system(convert_command)
-	print "Converted!"
-    else: 
-	print "Did not convert!"
+    convert_command = "ssconvert -S {path} temp.csv".format(path=xcel_path)
+    rm_command = "rm temp.csv.*"
+
+    if arguments.convert:
+        os.system(convert_command)
+        convert_csv('temp.csv.1',csv_path)
+        os.system(rm_command)
+
+        print "Converted!"
+    else:
+        print "Did not convert!"
+
+
+    convert_csv
 
 print("SUCCESS!")

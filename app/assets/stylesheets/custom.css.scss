@@ -26,18 +26,18 @@ textarea {
   }
 }
 
-/* fonts */ 
+/* fonts */
 
 @font-face {
   font-family: 'Canter';
-  src:font-url('fonts/canter_bold.otf') format("opentype");
+  src:font-url('fonts/canter_bold.otf...') format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Mission Gothic';
-  src:font-url('fonts/mission_gothic_regular.otf') format("opentype");
+  src:font-url('mission_gothic_regular.otf') format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -49,7 +49,7 @@ label {
 
 
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1; 
+  line-height: 1;
 }
 
 h1 {
@@ -78,7 +78,7 @@ p_special{
 p {
   font-size: 1.1em;
   line-height: 1.7em;
-  font-family:'Helvetica', 'Arial', 'Sans-Serif'; 
+  font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 
 
@@ -217,18 +217,18 @@ form {
 }
 
 
-.th .current {  
-  padding-right: 12px;  
-  background-repeat: no-repeat;  
-  background-position: right center;  
-}  
-.th .asc {   
-  background-image: url(/images/up_arrow.gif);   
-}  
-  
-.th .desc {   
-  background-image: url(/images/down_arrow.gif);   
-} 
+.th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.th .asc {
+  background-image: url(/images/up_arrow.gif);
+}
+
+.th .desc {
+  background-image: url(/images/down_arrow.gif);
+}
 
 .square {
     float:left;
@@ -250,11 +250,11 @@ form {
     text-align: center;
     display: table-cell;
     list-style-position:inside;
-    
+
 }
 
 .challenge {
-  color: #7cb5ec; 
+  color: #7cb5ec;
 }
 
 .courseoverall {
