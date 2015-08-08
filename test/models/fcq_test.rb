@@ -3,13 +3,13 @@ require_relative '../minitest_helper'
 
 describe Fcq do
   before do
-    @data =   {
+    @data = {
       'yearterm' => 20151,
       'sec' => 6,
       'course_title' => 'Blank Test Course',
       'subject' => 'TEST',
       'crse' => 1000
-      }
+    }
     @fcq = Fcq.where(@data).first
   end
 

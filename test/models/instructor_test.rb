@@ -1,5 +1,5 @@
 require_relative '../minitest_helper'
-  # rake db:test:prepare
+# rake db:test:prepare
 
 describe Instructor do
   before do
@@ -55,7 +55,6 @@ describe Instructor do
         'average_availability' => @fcqs.average(:availability).to_f.round(1),
         'total_requested' => @fcqs.sum(:formsrequested),
         'total_returned' => @fcqs.sum(:formsreturned),
-
       }
     end
     it 'instr_group' do
@@ -81,35 +80,35 @@ describe Instructor do
     end
     it 'average_availability' do
       assert_equal @instructor.average_availability, @solutions['average_availability']
-    endsims
-    it 'average_instrrespect' do
-      assert_equal @instructor.average_instrrespect, @solutions['average_instrrespect']
-    end
-    it 'average_instreffective' do
-      assert_equal @instructor.average_instreffective, @solutions['average_instreffective']
-    end
-    it 'total_requested' do
-      assert_equal @instructor.total_requested, @solutions['total_requested']
-    end
-    it 'total_returned' do
-      assert_equal @instructor.total_returned, @solutions['total_returned']
-    end
-
-    describe 'failsafes' do
-      before do
-        @instructor.data['average_instructor_overall'] = nil
-        @instructor.data['average_instructor_effectiveness'] = nil
-        @instructor.data['average_instructor_respect'] = nil
-        @instructor.data['average_instructor_availability'] = nil
+      endsims
+      it 'average_instrrespect' do
+        assert_equal @instructor.average_instrrespect, @solutions['average_instrrespect']
+      end
+      it 'average_instreffective' do
+        assert_equal @instructor.average_instreffective, @solutions['average_instreffective']
+      end
+      it 'total_requested' do
+        assert_equal @instructor.total_requested, @solutions['total_requested']
+      end
+      it 'total_returned' do
+        assert_equal @instructor.total_returned, @solutions['total_returned']
       end
 
-      it 'should return 0.0 for null values' do
-        assert_equal @instructor.average_instructoroverall, 0.0
-        assert_equal @instructor.average_availability, 0.0
-        assert_equal @instructor.average_instrrespect, 0.0
-        assert_equal @instructor.average_instreffective, 0.0
+      describe 'failsafes' do
+        before do
+          @instructor.data['average_instructor_overall'] = nil
+          @instructor.data['average_instructor_effectiveness'] = nil
+          @instructor.data['average_instructor_respect'] = nil
+          @instructor.data['average_instructor_availability'] = nil
+        end
+
+        it 'should return 0.0 for null values' do
+          assert_equal @instructor.average_instructoroverall, 0.0
+          assert_equal @instructor.average_availability, 0.0
+          assert_equal @instructor.average_instrrespect, 0.0
+          assert_equal @instructor.average_instreffective, 0.0
+        end
       end
     end
   end
-
 end
