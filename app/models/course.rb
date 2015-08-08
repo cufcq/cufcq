@@ -44,7 +44,7 @@ class Course < ActiveRecord::Base
       :average_overall => average_courseoverall(3),
       :average_howmuchlearned => average_howmuchlearned(3),
       :average_challenge => average_challenge(3),
-      :average_prior_interest => average_prio_interest(3),
+      :average_prior_interest => average_prior_interest(3),
       :slug => slug
     }
     scorecard
