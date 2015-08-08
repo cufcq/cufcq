@@ -23,13 +23,6 @@ describe Instructor do
     end
   end
 
-  describe 'cache_course_count' do
-    it 'should ensure the course count is properly cached' do
-      @instructor.cache_course_count
-      assert_equal @instructor.courses.count, @instructor.courses_count
-    end
-  end
-
   describe 'department_string' do
     it 'should return the department name if it is set' do
       assert_equal @instructor.department_string, @department.name
@@ -110,5 +103,4 @@ describe Instructor do
       end
     end
   end
-end
 end
