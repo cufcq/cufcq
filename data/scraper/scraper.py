@@ -62,10 +62,11 @@ def convert_csv(input_file,output_file):
             for line in f:
                 if first:
                     # This is the custom header line that our import task wants.
-                    f1.write('yearterm,subject,crse,sec,onlineFCQ,bd_continuing_education,instructor_last,instructor_first,formsrequested,formsreturned,percentage_passed,course_overall,course_overall_SD,instructoroverall,instructoroverall_SD,total_hours,prior_interest,effectiveness,availability,challenge,amount_learned,respect,course_title,courseOverall_old,courseOverall_SD_old,instrOverall_old,instrOverall_SD_old,r_Fair,r_Access,workload,r_Divstu,r_Diviss,r_Presnt,r_Explan,r_Assign,r_Motiv,r_Learn,r_Complx,campus,college,aSdiv,level,fcqdept,instr_group,i_Num\n')
+                    f1.write('yearterm,subject,crse,sec,onlinefcq,bdcontinedcrse,instructor_last,instructor_first,formsrequested,formsreturned,percentage_passed,courseoverall,courseoverall_sd,instructoroverall,instructoroverall_sd,hoursperwkinclclass,priorinterest,instreffective,availability,challenge,howmuchlearned,instrrespect,course_title,courseoverall_old,courseoverall_sd_old,instroverall_old,instroverall_sd_old,r_fair,r_access,workload,r_divstu,r_diviss,r_presnt,r_explan,r_assign,r_motiv,r_learn,r_complx,campus,college,asdiv,level,fcqdept,instr_group,i_num\n')
+                    # f1.write('yearterm,subject,crse,sec,onlineFCQ,bd_continuing_education,instructor_last,instructor_first,formsrequested,formsreturned,percentage_passed,course_overall,course_overall_SD,instructoroverall,instructoroverall_SD,total_hours,prior_interest,effectiveness,availability,challenge,amount_learned,respect,course_title,courseOverall_old,courseOverall_SD_old,instrOverall_old,instrOverall_SD_old,r_Fair,r_Access,workload,r_Divstu,r_Diviss,r_Presnt,r_Explan,r_Assign,r_Motiv,r_Learn,r_Complx,campus,college,aSdiv,level,fcqdept,instr_group,i_Num\n')
                     first = False
                 else:
-                    # Replace double quotes with null, relace spaced commas with normal commas, replace the big comma chunk with a bigger one for our header. 
+                    # Replace double quotes with null, relace spaced commas with normal commas, replace the big comma chunk with a bigger one for our header.
                     line = line.replace('"','').replace(', ',',').replace(',,,,,,',',,,,,,,,,,,,,,,')
                     f1.write(line)
     print("DONE")

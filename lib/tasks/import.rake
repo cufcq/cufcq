@@ -26,6 +26,8 @@ task :import => :environment do
       begin
         h['instructor_first'].capitalize!
         h['instructor_last'].capitalize!
+        puts h
+        puts '---------------------------'
         # h['course_title'] = h['crstitle']
         h.select! { |k, _v| Fcq.column_names.include? k }
         f = Fcq.create!(h)
