@@ -24,15 +24,19 @@ task :import => :environment do
     CSV.foreach(csv, :headers => true) do |row|
       h = row.to_hash
       begin
-        h['instructor_first'].capitalize!
-        h['instructor_last'].capitalize!
-        # h['course_title'] = h['crstitle']
+        # if instructor_first is nil/false, then set it to ''
+        h['instructor_first'] ||= ''
+        h['instructor_first'] = h['instructor_first'].capitalize
+        h['instructor_last'] ||= ''
+        h['instructor_last']= h['instructor_last'].capitalize
+
         h.select! { |k, _v| Fcq.column_names.include? k }
         f = Fcq.create!(h)
-        # puts f.fcq_object
+
         # given a new fcq object, create the instructor and course
         i_params = { 'instructor_first' => f.instructor_first, "instructor_last" => f.instructor_last}
         c_params = { 'course_title' => f.course_title, "crse" => f.crse, "subject" => f.subject}
+
         # fix for the phil1400 bug
         c_abridged_params = { 'crse' => f.crse, 'subject' => f.subject }
         d_params = { 'name' => f.subject }
@@ -78,7 +82,6 @@ task :department_populate => :environment do
     begin
       params = {"name" => x.subject, "college" => x.college, "campus" => x.campus}
       i = Department.create!(params)
-
       puts i
     rescue StandardError => e
         puts "rescued -" + e.message
@@ -98,9 +101,6 @@ task :department_build_hstore => :environment do
   Department.find_each(:batch_size => 200) do |x|
     begin
       x.build_hstore
-    #   puts "build #{x.name} hstore"
-    # rescue StandardError => e
-    #     puts "rescued -" + e.message
     end
   end
   puts "Finsihed Building Department Hstore"
@@ -111,10 +111,11 @@ task :instructor_build_hstore => :environment do
   puts "Building Instructor Hstore"
   Instructor.find_each(:batch_size => 200) do |x|
     begin
+      puts x
       x.build_hstore
-    #   puts "build #{x.name} hstore"
     rescue StandardError => e
         puts "rescued -" + e.message
+        raise e
     end
   end
   puts "Finsihed Building Instructor Hstore"
@@ -154,7 +155,7 @@ task :build_data => :environment do
       begin
       puts "NoMethodError #{e}"
       puts "caught for fcq #{f.id}"
-      # puts f.fcq_object
+
       # given a new fcq object, create the instructor and course
       i_params = {'instructor_first' => f.instructor_first, "instructor_last" => f.instructor_last}
       c_params = {'course_title' => f.course_title, "crse" => f.crse, "subject" => f.subject}
@@ -172,8 +173,6 @@ task :build_data => :environment do
         errors << f.id
         next
       end
-    # rescue StandardError => e
-    #   puts "rescued -" + e.message
     end
   end
   puts 'finished building all of the datas'
@@ -181,10 +180,7 @@ task :build_data => :environment do
   errors.each do |e|
     puts "#{e}"
   end
-
 end
-
-
 
 task :instructor_populate => :environment do
   puts "Instructor Populate"
@@ -192,34 +188,14 @@ task :instructor_populate => :environment do
     begin
       params = {"instructor_first" => x.instructor_first, "instructor_last" => x.instructor_last}
       i = Instructor.create!(params)
-      # puts i
       rescue StandardError => e
         puts "rescued -" + e.message
     end
       i = i.nil? ? Instructor.where(params).first : i
       i.fcqs << x  unless (i.fcqs.exists?(x))
-      # puts i.id + x.id
     end
     puts "Finsihed Instructor Populate"
 end
-
-
-# task :instructor_rake => :environment do
-#   Fcq.find_each(:batch_size => 200) do |f|
-#     begin
-#       f.instructor
-#       params = {"instructor_first" => x.instructor_first, "instructor_last" => x.instructor_last}
-#       i = Instructor.create!(params)
-#       puts i
-#       rescue StandardError => e
-#         puts "rescued -" + e.message
-#     end
-#       i = i.nil? ? Instructor.where(params).first : i
-#       i.fcqs << x  unless (i.fcqs.exists?(x))
-#       puts i.id + x.id
-#     end
-# end
-
 
 task :course_populate => :environment do
   puts "Course Populate"
@@ -235,10 +211,8 @@ task :course_populate => :environment do
       rescue StandardError => e
         puts "rescued -" + e.inspect
     end
-    #   puts params
       i = i.nil? ? Course.where(params).first : i
       i.fcqs << x  unless (i.fcqs.exists?(x))
-    #   puts i.id + x.id
     end
   #recitation correction
   Fcq.find_each(:batch_size => 200) do |x|
@@ -252,7 +226,6 @@ task :course_populate => :environment do
       next
     end
     i.fcqs << x
-    # puts i.id + x.id
    rescue StandardError => e
      puts "rescued -" + e.inspect
    end
@@ -279,16 +252,9 @@ task :ic_relations => :environment do
           c.fcqs << f
         end
         c.instructors << i unless c.instructors.exists?(i)
-        # puts "added " + i.full_name.to_s + " to " + c.course_title.to_s
         i.courses << c unless i.courses.exists?(c)
-        # puts "added " + c.course_title.to_s + " to " + i.full_name.to_s
         d.instructors << i unless d.instructors.exists?(i)
-        # puts "added " + i.full_name.to_s + " to " + d.name.to_s
         d.courses << c unless d.courses.exists?(c)
-        # puts "added " + c.course_title.to_s + " to " + d.name.to_s
-
-        # puts "#{c.course_title}  <->  #{i.name.to_s}"
-      # puts c.instructors
 
       rescue ActiveRecord::RecordInvalid => e
         #puts "skipping invalid record, this is intentional"
@@ -303,36 +269,6 @@ task :ic_relations => :environment do
 
 end
 
-# LONG_NAMES = {"CSCI" => "Computer Science", "MATH" => "Mathematics", "PHIL" => "Philosophy", "APPM" => "Applied Mathematics", "CHEN" => "Chemical Engineering"}
-# task :set_department_name => :environment do
-#     puts "Setting Department Long Names"
-#     puts "For every Department code, Enter it's long name, eg"
-#   Department.find_each do |d|
-#     begin
-#       print d.name + ": "
-#       if LONG_NAMES.include?(d.name)
-#         Department.update(d.id, :long_name => LONG_NAMES[d.name])
-#         print LONG_NAMES[d.name]
-#         puts ""
-#         next
-#       end
-#       ln = STDIN.gets.chomp
-#       puts ""
-#       #puts d.update_attribute(:long_name, ln)
-
-#       Department.update(d.id, :long_name => ln)
-#       #puts d.long_name
-#       rescue StandardError => e
-#         puts "rescued -" + e.message
-#      end
-#      puts "finished"
-#     end
-#   Department.find_each do |d|
-#       puts d.long_name
-#   end
-# end
-
-
 task :grades => :environment do
   puts "Grades start"
   Dir.glob('data/grades/grades.csv').each do |csv|
@@ -346,24 +282,11 @@ task :grades => :environment do
           #inst.fcqs.create!(row.to_hash)
       r = row.to_hash
       puts r.to_s
-      #  puts "\n"
-      #gets the fcq with the same courtitle, section, yearterm
       f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
       d_params = {"name" => r["subject"], "long_name" => r["subject_label"]}
       d_short = {"name" => r["subject"]}
-      # puts f_params
-      #puts "\n"
-      #f = Fcq.create!(row.to_hash)
-      #puts f.fcq_object
-      # puts r
-      # puts "==="
       Fcq.where(f_params).each do |f|
-        # puts f.yearterm
-        # puts f.instructor.name
-        # puts Fcq.column_names
         f.update_attributes(r.slice(*Fcq.column_names))
-        # f.update_attributes(r)
-        # puts "saved fcq"
         f.save
       end
       rescue ActiveRecord::RecordInvalid => invalid
@@ -393,12 +316,7 @@ task :departments => :environment do
           #inst.fcqs.create!(row.to_hash)
       r = row.to_hash
       r["campus"] = "BD"
-      # puts r.to_s
-      #  puts "\n"
-      #gets the fcq with the same courtitle, section, yearterm
-      # f_params = {"yearterm" => r["yearterm"], "subject" => r["subject"], "crse" => r["crse"], "sec" => r["sec"]}
       d_params = {"name" => r["name"]}
-      #   puts "==="
       d = Department.where(d_params).first || Department.create!(r)
       d.update_attributes(r)
       d.save
