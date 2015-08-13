@@ -262,7 +262,6 @@ class Instructor < ActiveRecord::Base
   end
 
   def build_hstore
-    self.department = fcqs.pluck(:department).mode
     overalls = fcqs.order('yearterm').group('yearterm').average(:instructoroverall)
     avails = fcqs.order('yearterm').group('yearterm').average(:availability)
     effects = fcqs.order('yearterm').group('yearterm').average(:instreffective)

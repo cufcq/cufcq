@@ -67,7 +67,7 @@ def convert_csv(input_file,output_file):
                     first = False
                 else:
                     # Replace double quotes with null, relace spaced commas with normal commas, replace the big comma chunk with a bigger one for our header.
-                    line = line.replace('"','').replace(',,,,,,',',,,,,,,,,,,,,,,').replace(', ',',',1).replace(', ',' ')
+                    line = line.replace('"','').replace(',,,,,,',',,,,,,,,,,,,,,,',1).replace(', ',',',1).replace(', ',' ')
                     f1.write(line)
     print("DONE")
 
