@@ -1,0 +1,58 @@
+"This Excel was generated vis the FCQ data requester - see campus-specific link at:"||||||http://www.colorado.edu/fcq|
+"Questions?  Send email to fcq@colorado.edu or call (303) 492-7069. "|||||||
+|||||||
+"For information on interpreting FCQ statistics, see:"|||http://www.colorado.edu/pba/fcq/stats/index.html||||
+|||||||
+"Tabs (worksheets) contained in this file:"|||||||
+"     Fields (this sheet)--describes the layout of the ""DATA: tab. Gives information on variables and"|||||||
+"          their formats (i.e., text, numeric). Describes ""PIVOT_TABLE"" tab."|||||||
+"     Data--FCQ results for one or more years. FCQ results will appear in gold-headed columns"|||||||
+"           for CU-Boulder and UCCS (and CU Denver course/instructor ratings), whereas CU Denver results"|||||||
+"           not common with CU-Boulder and UCCS will appear in columns headed with blue."|||||||
+"Click here to see data"|||||||
+"     Pivot_Table--a table displaying the average, over class level and instructor group, of the"|||||||
+"          averages of the course & instructor rating items (AvgCourse, AvgInstructor)."|||||||
+"      Click here for instructions on creating your own pivot table."|||||||
+|||||||
+"Data tab layout"|||||||
+Name|Type|Length|Label||||
+Yearterm|text|5|"SIS term, CentYYt (e.g., 19997) 1=spring, 4=summer, 7=fall"||||
+Subject|text|4|Subject||||
+Crse|text|4|"Course number"||||
+Sec|text|3|"Section number"||||
+OnlineFCQ|text|2|"Online FCQ Administration (OL=online, blank=paper)"||||
+BDContinEdCrse|text|2|"Boulder campus Continuing Ed or CAETE course-section (CE=yes, blank=no)"||||
+Instructor|text|20|"Instructor name"||||
+FormsRequested|numeric||"Number of forms requested, which usually equals the number of students in the section"||||
+FormsReturned|numeric||"Number of forms returned with any responses"||||
+CourseOverallPctValid|numeric||"Percent of returned forms with 1-6 responses on the course rating overall, item 7"||||
+CourseOverall|numeric||"Scale=1 (low) to 6 (high); Course rating overall, item 7"||||
+CourseOverall_SD|numeric||"Course rating standard deviation. See"||||http://www.colorado.edu/fcq/stats/sectrpt_interp/std_dev.htm
+InstructorOverall|numeric||"Scale=1 (low) to 6 (high); Instructor rating overall, item 8"||||
+InstructorOverall_SD|numeric||"Instructor rating standard deviation. See"||||http://www.colorado.edu/fcq/stats/sectrpt_interp/std_dev.htm
+HoursPerWkInclClass|text|5|"CU-Boulder/UCCS, Fall 2006+; CU Denver, Fall 2014+: Average number of hours per week student spent on course, including class time, item 1"||||
+|||"     ""Estimate the average number of hours per week you have spent on this course for all course-related"||||
+|||"     work including attending classes, labs, recitations, readings, reviewing notes, writing papers, etc."""||||
+|||"     Students select from options 0-3, 4-6, 7-9, 10-12, 13-15, and 16+ hours. An ""S"" indicates the rating was"||||
+|||"     suppressed because fewer than half of completed forms contained responses to the Course Rating item."||||
+PriorInterest|numeric||"CU-Boulder/UCCS, Fall 2006+; CU Denver, Fall 2014+: scale=1 (low) to 6 (high); Personal Interest before enrollment, item 2"||||
+InstrEffective|numeric||"CU-Boulder/UCCS, Fall 2006+; CU Denver, Fall 2014+: scale=1 (low) to 6 (high); Instr effective encouraging interest, item 3"||||
+Availability|numeric||"CU-Boulder/UCCS, Fall 2006+; CU Denver, Fall 2014+: scale=1 (low) to 6 (high); Instr availability for assistance, item 4"||||
+Challenge|numeric||"CU-Boulder/UCCS, Fall 2006+; CU Denver, Fall 2014+: scale=1 (low) to 6 (high); Intellectual challenge of course, item 5"||||
+HowMuchLearned|numeric||"CU-Boulder/UCCS, Fall 2006+; CU Denver, Fall 2014+: scale=1 (low) to 6 (high); How much you learned in the course, item 6"||||
+InstrRespect|numeric||"CU-Boulder/UCCS, Fall 2006+; CU Denver, Fall 2014+: scale=1 (low) to 6 (high); Instructor respect for students, item 9"||||
+CrsTitle|text|24|"Course title"||||
+R_Presnt|numeric||"CU Denver ONLY, Fall 2006-Summer 2014: scale=1 (low) to 6 (high); Presentation rating, item 1"||||
+R_Fair|numeric||"CU Denver ONLY, Fall 2006-Summer 2014: scale=1 (low) to 6 (high); Grade fairness rating, item 2"||||
+Workload|numeric||"CU Denver ONLY, Fall 2006-Summer 2014: scale=1 (low) to 6 (high); Workload rating, item 3"||||
+R_Divstu|numeric||"CU Denver ONLY, Fall 2006-Summer 2014: scale=1 (low) to 6 (high); Diversity students, item 4"||||
+R_Access|numeric||"CU Denver ONLY, Fall 2006-Summer 2014: scale=1 (low) to 6 (high); Accessibility rating, item 5"||||
+R_Learn|numeric||"CU Denver ONLY, Fall 2006-Summer 2014: scale=1 (low) to 6 (high); Learning experience, item 6"||||
+Campus|text|2|"Campus, BD=Boulder, CE=Boulder-Continuing Ed, CS=Colorado Springs, DN=Denver"||||
+College|text|2|"College code"||||
+ASDiv|text|2|"A&S Division code (AH = Arts & Humanities, NS = Natural Sciences, SS = Social Sciences)"||||
+Level|text|2|"Class Level code (LD = lower division, UD = upper division, GR = grad)"||||
+Fcqdept|text|4|"FCQ department"||||
+Instr_group|text|3|"Instructor group (TTT -- tenured and tenure-track; OTH -- other primary instructors, "||||
+|||"     including GPTI, adjunct,  visiting, honoraria, etc.; TA -- teaching assistants) "||||
+I_Num|numeric||"Instructor number"||||
