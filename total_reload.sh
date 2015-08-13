@@ -1,7 +1,5 @@
 #!/bin/bash
 
-Use: total-reload -
-
 #kill solr process
 pkill -f solr
 
