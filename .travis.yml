@@ -19,5 +19,4 @@ before_script:
     - chmod +x ./test/tester.rb
 
 script:
-    - ./test/test_prepare.sh
-	    
+    - ./test/test_prepare.sh	    
