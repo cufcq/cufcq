@@ -17,4 +17,4 @@ bundle exec rake sunspot:solr:start
 # meat n potatoes right here
 bundle exec rake db:test:prepare
 bundle exec rake db:seed
-ruby tester.rb
+

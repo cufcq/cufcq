@@ -1,6 +1,3 @@
-language: ruby
-cache: bundler
-
 addons:
   postgresql: "9.3"
 
@@ -19,4 +16,5 @@ before_script:
     - chmod +x ./test/tester.rb
 
 script:
-    - ./test/test_prepare.sh	    
+    - ./test/test_prepare.sh
+    - ruby test/tester.rb    
