@@ -20,4 +20,4 @@ before_script:
 
 script:
     - ./test/test_prepare.sh
-    - ruby test/tester.rb
+	    
