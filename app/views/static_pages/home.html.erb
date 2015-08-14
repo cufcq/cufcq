@@ -7,7 +7,7 @@
 <meta name="author" content="">
 
 <style>
-  body { 
+  body {
     min-height: 100%
     padding-top: 50px;
     background: linear-gradient(#88b3a2 0% , #c6ddc2 100%);
@@ -38,20 +38,18 @@
 
         <%= javascript_tag do %>
         jQuery(function() {
-       
+
           $('#search').keypress(function() { // hide found text when user starts typing again
               $('#found_name').html('');
           });
-       
-          $('#search').placeholder(); // if using placeholder plugin, init the field with the text
-       
+
           $('#search').autocomplete({
             minLength: 2,
             source: function(request, response) {
               $.ajax({
                 url: '<%= request.scheme + '://' + request.host_with_port %>/solr/select?wt=json&fq=type:Model&start=0&rows=20&q=*:*',
                 dataType: "json",
-                // pduey: note, you could use dataType : "jsonp" and add an additional parameter 
+                // pduey: note, you could use dataType : "jsonp" and add an additional parameter
                 // jsonp: json.wrf. see http://wiki.apache.org/solr/SolJSON
                 data: {
                   fq: 'name_ac:' + '"' + request.term + '"' // wrap in quotes so user doesn't have to
@@ -79,9 +77,9 @@
         <a href ="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top" ></a>
         <%= text_field_tag :search, params[:search], :class => "form-control",:placeholder => 'Ex: Ralphie Buffalo' %>
         <span id="found_name"></span>
-        <span class="input-group-btn" > 
+        <span class="input-group-btn" >
           <%= submit_tag "Search", :name => nil, :class=> "btn btn-danger" %>
-        </span>  
+        </span>
       </div> </p>
 
 
@@ -105,4 +103,3 @@
 
   </script>
 </body></html>
-
