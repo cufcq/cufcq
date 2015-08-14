@@ -86,10 +86,6 @@ class Instructor < ActiveRecord::Base
     name.split.map(&:capitalize).join(' ')
   end
 
-  def instructor_object
-    %(#{college})
-  end
-
   def campus
     department.campus
   end
@@ -111,24 +107,12 @@ class Instructor < ActiveRecord::Base
     ta? ? 'Teaching Assistant' : 'Instructor'
   end
 
-  def overall_from_course(c)
-    subject = c.subject
-    crse = c.crse
-    set = fcqs.where('subject = ? AND crse = ?', subject, crse)
-    set.average(:instructoroverall).round(1)
-  end
-
   def started_teaching
     data['earliest_class'].to_i
   end
 
   def latest_teaching
     data['latest_class'].to_i
-  end
-
-  def average_instrrespect(rounding = 1)
-    x = data['average_instructor_respect'].to_f || 0.0
-    x.round(rounding)
   end
 
   def self.averages(instr_group = nil, dept = nil)
@@ -175,6 +159,11 @@ class Instructor < ActiveRecord::Base
   #   return hash
   # end
 
+  def average_instrrespect(rounding = 1)
+    x = data['average_instructor_respect'].to_f || 0.0
+    x.round(rounding)
+  end
+
   def average_availability(rounding  = 1)
     x = data['average_instructor_availability'].to_f || 0.0
     x.round(rounding)
@@ -186,7 +175,7 @@ class Instructor < ActiveRecord::Base
   end
 
   def total_requested
-    fcqs.sum(:formsrequested) || 0
+    fcqs.sum(:formsrequested) || 1
   end
 
   def total_returned

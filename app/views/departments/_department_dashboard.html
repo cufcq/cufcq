@@ -27,7 +27,7 @@
       <set1>
         This graph presents the overall scores for instructors, teaching assistants and courses.<br>
         <ul>
-          <li>Instructor Overall is the average instructor overall score of every FCQ turned in for this department <i> not taught</i> by a teaching assistant. </li> 
+          <li>Instructor Overall is the average instructor overall score of every FCQ turned in for this department <i> not taught</i> by a teaching assistant. </li>
           <li>Teaching Assistant Overall is the average instructor overall score of every FCQ turned in for this department <i> specifically taught</i> by a teaching assistant. </li>
           <li>Course Overall is the average course overall score of every FCQ turned in for this department. </li>
         </ul>
@@ -37,7 +37,7 @@
       <h2 class="page-header">Department Enrollment</h2>
       <%= render 'departments/department_enrollment' %>
       <br>
-      
+
       <h2 class="sub-header">Instructor ScatterPlot</h2>
       <set1>
         This utility can be used to visualize the instructors of the <%= @department.long_name %> department. You can change the graphed axes with the dropdowns below.<br>
@@ -46,7 +46,7 @@
 
       <h2 class="sub-header">Department Instructors</h2>
       <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#instructors">View Department Instructors</button>
-      
+
 
       <div id="instructors" class="collapse">
       <div class="table-responsive">
@@ -56,9 +56,9 @@
               <th>Instructor</th>
               <th>Group</th>
               <th>Last Class</th>
-              <th>Instructor Overall</th>                  
+              <th>Instructor Overall</th>
               <th>Instructor Effectivenss</th>
-              <th>Instructor Availability</th>                  
+              <th>Instructor Availability</th>
               <th>Instructor Respect</th>
             </tr>
           </thead>
@@ -89,9 +89,9 @@
               <th>Course</th>
               <th>Title</th>
               <th>Level</th>
-              <th>Course Overall</th>                  
+              <th>Course Overall</th>
               <th>Course Effectivenss</th>
-              <th>Course Availability</th>                  
+              <th>Course Availability</th>
               <th>Course Respect</th>
             </tr>
           </thead>
@@ -104,7 +104,7 @@
               <td><%= course.average_courseoverall || "n/a" %> / 6.0</td>
               <td><%= course.average_challenge || "n/a" %> / 6.0</td>
               <td><%= course.average_howmuchlearned || "n/a" %> / 6.0</td>
-              <td><%= course.average_priorinterest || "n/a" %> / 6.0</td>
+              <td><%= course.average_prior_interest || "n/a" %> / 6.0</td>
             </tr>
             <% end %>
           </tbody>
@@ -112,9 +112,7 @@
       </div>
       </div>
 
-      
+
 
     </div>
   </div>
-
-  
