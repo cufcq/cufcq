@@ -10,8 +10,10 @@ group :development do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'progress_bar'
-  gem 'eventmachine', github: 'eventmachine/eventmachine'
+  gem 'eventmachine'
 end
+
+
 
 gem 'taps'
 # Sunspot solr Search

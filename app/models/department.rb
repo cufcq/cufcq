@@ -135,9 +135,9 @@ class Department < ActiveRecord::Base
     data['io_data'] = @io_data
     data['to_data'] = @to_data
     data['co_data'] = @co_data
+    data.merge! build_averages
+    data.merge! build_scorecards
     self.data = data
-    build_averages
-    build_scorecards
     save
     # cache_update_counts
   end
@@ -152,8 +152,7 @@ class Department < ActiveRecord::Base
     data['average_instreffective'] = fcqs.average(:instrrespect)
     data['average_availability'] = fcqs.average(:instrrespect)
     data['average_instrrespect'] = fcqs.average(:instrrespect)
-    self.data = data
-    save
+    data
   end
 
   def build_scorecards
@@ -162,8 +161,7 @@ class Department < ActiveRecord::Base
     data_will_change!
     data['instructors_json'] = build_instructor_scorecards.to_json
     data['courses_json'] = build_course_scorecards.to_json
-    self.data = data
-    save
+    data
   end
 
 end

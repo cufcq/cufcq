@@ -10,7 +10,6 @@ rm -rf solr/development
 rm -rf solr/pids
 rm -rf solr/test
 
-
 while getopts 'pdt' flag; do
   case "${flag}" in
     d) export RAILS_ENV=development ;;
@@ -19,8 +18,6 @@ while getopts 'pdt' flag; do
     *) error "Unexpected option ${flag}" ;;
   esac
 done
-
-echo $RAILS_ENV
 
 #startup solr
 bundle exec rake sunspot:solr:start
@@ -46,8 +43,6 @@ bundle exec rake department_correction
 # these rake tasks make slight corrections to the dataset. They should run pretty darn fast
 bundle exec rake course_names
 bundle exec rake course_missing_hstore
-
-
 
 #reindex solr
 bundle exec rake sunspot:solr:reindex

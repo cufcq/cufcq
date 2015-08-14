@@ -3,7 +3,6 @@
 echo "FOR USE ON THE PRODUCTION SERVER"
 
 # RAILS_ENV=production rake sunspot:solr:start
-RAILS_ENV=production rake sunspot:solr:reindex
 rake assets:precompile
 
 
