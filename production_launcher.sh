@@ -2,14 +2,11 @@
 
 echo "FOR USE ON THE PRODUCTION SERVER"
 
-# RAILS_ENV=production rake sunspot:solr:start
 rake assets:precompile
 
+./solr_start.sh -p
 
 echo "starting passenger"
-
-# passenger start -a 0.0.0.0 -p 80
-#TODO in future, setup production
 sudo passenger start -a 0.0.0.0 -p 80 -e production
 
-echo "rails server closed!"
+echo "production server closed!"
