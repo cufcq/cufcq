@@ -4,7 +4,9 @@
 $gray-light: 3d3d3d;
 $gray-lighter: 414141;
 
-$green: 9BBBA3;
+$green: #9BBBA3;
+$green-dark: #7C9682;
+$green-light: #A5C2AC;
 
 
 html {
@@ -45,11 +47,11 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-/* typography */
 
+/* These are for the buttons below the search box */
 label {
   font-family: 'Mission Gothic';
-  font-family: 'Canter';
+  font-size: 16px;
 }
 
 
@@ -191,6 +193,7 @@ footer ul li {
   }
 }
 
+/* These are the elements of the navbar on top */
 .navbar-inverse .navbar-nav > li > a {
   color: #9BBBA3;
   font-family: 'Mission Gothic'
@@ -201,6 +204,10 @@ footer ul li {
   color: #9BBBA3;
   font-family: 'Mission Gothic'
 }
+
+/* These are for the show buttons on the dashboards */
+.btn-info {background-color: $green; border-color: $green-light}
+.btn-info:hover, .btn-info:focus, .btn-info.focus, .btn-info:active, .btn-info.active, .open > .dropdown-toggle.btn-info { background-color: $green-dark; border-color: $green}
 
 form {
                 width:500px;
