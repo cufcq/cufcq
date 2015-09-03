@@ -3,6 +3,10 @@
 /* universal */
 $gray-light: 3d3d3d;
 $gray-lighter: 414141;
+
+$green: 9BBBA3;
+
+
 html {
   overflow-y: scroll;
 }
@@ -44,7 +48,8 @@ textarea {
 /* typography */
 
 label {
-  font-family: "Mission Gothic";
+  font-family: 'Mission Gothic';
+  font-family: 'Canter';
 }
 
 
@@ -54,13 +59,13 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3em;
-  letter-spacing: -2px;
+  letter-spacing: 0px;
   margin-bottom: 30px;
 }
 
 h2 {
   font-size: 1.2em;
-  letter-spacing: -1px;
+  letter-spacing: 0px;
   margin-bottom: 30px;
   font-weight: normal;
   color: $gray-light;
@@ -188,10 +193,13 @@ footer ul li {
 
 .navbar-inverse .navbar-nav > li > a {
   color: #9BBBA3;
+  font-family: 'Mission Gothic'
+
 }
 
 .navbar-inverse .navbar-brand {
   color: #9BBBA3;
+  font-family: 'Mission Gothic'
 }
 
 form {
