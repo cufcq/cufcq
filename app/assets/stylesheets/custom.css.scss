@@ -3,6 +3,12 @@
 /* universal */
 $gray-light: 3d3d3d;
 $gray-lighter: 414141;
+
+$green: #9BBBA3;
+$green-dark: #7C9682;
+$green-light: #A5C2AC;
+
+
 html {
   overflow-y: scroll;
 }
@@ -41,10 +47,11 @@ textarea {
   font-weight: normal;
   font-style: normal;
 }
-/* typography */
 
+/* These are for the buttons below the search box */
 label {
-  font-family: "Mission Gothic";
+  font-family: 'Mission Gothic';
+  font-size: 16px;
 }
 
 
@@ -54,13 +61,13 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3em;
-  letter-spacing: -2px;
+  letter-spacing: 0px;
   margin-bottom: 30px;
 }
 
 h2 {
   font-size: 1.2em;
-  letter-spacing: -1px;
+  letter-spacing: 0px;
   margin-bottom: 30px;
   font-weight: normal;
   color: $gray-light;
@@ -186,13 +193,21 @@ footer ul li {
   }
 }
 
+/* These are the elements of the navbar on top */
 .navbar-inverse .navbar-nav > li > a {
   color: #9BBBA3;
+  font-family: 'Mission Gothic'
+
 }
 
 .navbar-inverse .navbar-brand {
   color: #9BBBA3;
+  font-family: 'Mission Gothic'
 }
+
+/* These are for the show buttons on the dashboards */
+.btn-info {background-color: $green; border-color: $green-light}
+.btn-info:hover, .btn-info:focus, .btn-info.focus, .btn-info:active, .btn-info.active, .open > .dropdown-toggle.btn-info { background-color: $green-dark; border-color: $green}
 
 form {
                 width:500px;

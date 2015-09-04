@@ -32,46 +32,10 @@
 
     <div class="starter-template">
       <div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><b><a href="https://chrome.google.com/webstore/detail/ratemybuffs/acmpjoojinfcfpamnhnmkmpfipmagige"> Rate My Buffs </a></b></br>Made by Conner Simmering, Justin Olson, Samuel Volin</div>
-      <%= image_tag "logo-full.png", height: '214', width: '184'%>
+      <%= image_tag "logo-full-min.png", height: '214', width: '184'%>
       <h1 style="font-family : Canter;">Welcome to CU<r>FCQ</r>!</h1>
       <p  style="font-family : Mission Gothic;" class="lead">This is a website designed to help you understand FCQs and past grade data for <a href="/instructors">instructors</a>, <a href="/courses">courses</a>, and <a href="/departments">departments</a>. Select a search option, type in a parameter, and explore!</p>
 
-        <%= javascript_tag do %>
-        jQuery(function() {
-
-          $('#search').keypress(function() { // hide found text when user starts typing again
-              $('#found_name').html('');
-          });
-
-          $('#search').autocomplete({
-            minLength: 2,
-            source: function(request, response) {
-              $.ajax({
-                url: '<%= request.scheme + '://' + request.host_with_port %>/solr/select?wt=json&fq=type:Model&start=0&rows=20&q=*:*',
-                dataType: "json",
-                // pduey: note, you could use dataType : "jsonp" and add an additional parameter
-                // jsonp: json.wrf. see http://wiki.apache.org/solr/SolJSON
-                data: {
-                  fq: 'name_ac:' + '"' + request.term + '"' // wrap in quotes so user doesn't have to
-                },
-                success: function(data) {
-                  response($.map(data.response.docs, function( item ) {
-                    return {
-                      label: item.name_ac[0],
-                      // sunspot always returns model id in response formatted as 'Model ID'. keep just the ID
-                      // in a arbitrary attribute of the autocomplete plugin for later use.
-                      model_id: item.id.replace(/Model /,"")
-                    }
-                  }));
-                }
-              })
-            },
-            select: function(event, ui) {
-              $('#found_name').html('found ' + ui.item.label + ' with id: ' + ui.item.model_id);
-            }
-          });
-        });
-      <% end %>
       <%= form_tag('/', :method => "get", id: "search-form") do %>
       <p> <div class="input-group">
         <a href ="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top" ></a>

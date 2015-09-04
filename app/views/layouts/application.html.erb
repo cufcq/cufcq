@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= favicon_link_tag 'favicon.ico' %>
@@ -9,16 +9,14 @@
 </head>
 <body>
     <%= render 'layouts/header' %>
-    
+
     <div class="container">
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
       <%= yield %>
       <%= render 'layouts/footer' unless request.env['PATH_INFO'] == '/'%>
-<!--       This is where the debug part is
-      <%= debug(params) if Rails.env.development? %> -->
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>
-

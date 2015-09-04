@@ -15,9 +15,17 @@
 
 .tooltip {
   position: absolute;
-  width: 200px;
-  height: 28px;
+  width: 175px;
+  height: 34px;
   pointer-events: none;
+
+  position: absolute;
+  text-align: center;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: #9BBBA3;
+  border: 0px;
+  border-radius: 8px;
 }
 </style>
 <br>
@@ -31,7 +39,7 @@
 <option value="requested_returned_ratio">Requested Returned Ratio</option>
 <option value="courses_taught">Courses Taught</option>
 <option value="total_fcqs">Total Fcqs</option>
-  <!-- and so on... -->   
+  <!-- and so on... -->
   </select> </div>
   <div class="col-xs-6 col-sm-4"><b>X Axis:</b>  <select id = "x-axis" class="form-control input-md">
 <option value="average_respect">Average Respect</option>
@@ -41,7 +49,7 @@
 <option value="requested_returned_ratio">Requested Returned Ratio</option>
 <option value="courses_taught">Courses Taught</option>
 <option value="total_fcqs">Total Fcqs</option>
-  <!-- and so on... -->   
+  <!-- and so on... -->
   </select></div>
   <!-- Optional: clear the XS cols if their content doesn't match in height -->
   <div class="clearfix visible-xs-block"></div>
@@ -60,14 +68,14 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-/* 
+/*
  * value accessor - returns the value to encode for a given data object.
  * scale - maps value to a visual display encoding, such as a pixel position.
  * map function - maps from data value to display value
  * axis - sets up axis
- */ 
+ */
 
-// setup x 
+// setup x
 var xSelection = "average_respect";
 var ySelection = "average_respect";
 
@@ -176,7 +184,7 @@ data = d3.json( window.location.pathname + "/instructors.json", function( error,
       .attr("cx", xMap)
       .attr("cy", yMap)
       // .attr("opacity", 0.25)
-      .style("fill", function(d) { return color(cValue(d));}) 
+      .style("fill", function(d) { return color(cValue(d));})
       .on("mouseover", function(d) {
           tooltip.transition()
                .duration(200)
@@ -190,7 +198,7 @@ data = d3.json( window.location.pathname + "/instructors.json", function( error,
                .duration(500)
                .style("opacity", 0);
       });
-      
+
 
   //when the axes change
   d3.select('#y-axis')
