@@ -12,26 +12,27 @@
 <title>Instructors - CUFCQ</title>
 <div class="row">
   <div class="col-lg-6">
-    <div>    
-      <%= form_tag instructors_path, :method => 'get' do %>  
-      <%= hidden_field_tag :direction, params[:direction] %>  
-      <%= hidden_field_tag :sort, params[:sort] %>  
-      <p> <div class="input-group"> 
-        <%= text_field_tag :search, params[:search], :class => "form-control" %> 
-        <span class="input-group-btn"> 
+    <div>
+      <%= form_tag instructors_path, :method => 'get' do %>
+      <%= hidden_field_tag :direction, params[:direction] %>
+      <%= hidden_field_tag :sort, params[:sort] %>
+      <p> <div class="input-group">
+        <%= text_field_tag :search, params[:search], :class => "form-control" %>
+        <span class="input-group-btn">
           <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
-        </span>  
-      </div> </p>  
+        </span>
+      </div> </p>
       <% end %>
     </div>
   </div><!-- /.col-lg-6 -->
-  <div class="col-lg-6">  
-  <h1>Instructors
-  </br>
-  <small><%= @instructors.total_count() %> results</small>
-  </h1></div>
+  <div class="col-lg-6">
+    <h1 class="visible-lg">Instructors
+    </br>
+    <small class="visible-lg"><%= @instructors.total_count() %> results</small>
+    </h1>
   </div>
+</div>
   <!-- <h2 class="sub-header">Instructors</h2> -->
   <div class="table-responsive">
-    <div id="instructor_index_table"><%= render 'instructors/instructor_index_table'%></div> 
+    <div id="instructor_index_table"><%= render 'instructors/instructor_index_table'%></div>
   </div>

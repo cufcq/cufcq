@@ -39,7 +39,7 @@
       <%= form_tag('/', :method => "get", id: "search-form") do %>
       <p> <div class="input-group">
         <a href ="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top" ></a>
-        <%= text_field_tag :search, params[:search], :class => "form-control",:placeholder => 'Ex: Ralphie Buffalo' %>
+        <%= text_field_tag :search, params[:search], :class => "form-control" %>
         <span id="found_name"></span>
         <span class="input-group-btn" >
           <%= submit_tag "Search", :name => nil, :class=> "btn btn-danger" %>

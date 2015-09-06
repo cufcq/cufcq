@@ -203,6 +203,7 @@ footer ul li {
 .navbar-inverse .navbar-brand {
   color: #9BBBA3;
   font-family: 'Mission Gothic'
+  padd
 }
 
 /* These are for the show buttons on the dashboards */
@@ -266,6 +267,12 @@ form {
     display: table-cell;
     list-style-position:inside;
 
+}
+
+@media all and (max-width: 699px) {
+  #result {
+    display: none;
+  }
 }
 
 .challenge {
