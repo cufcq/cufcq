@@ -10,28 +10,40 @@
 <body>
 
 <title>Instructors - CUFCQ</title>
-<div class="row">
-  <div class="col-lg-6">
-    <div>
-      <%= form_tag instructors_path, :method => 'get' do %>
-      <%= hidden_field_tag :direction, params[:direction] %>
-      <%= hidden_field_tag :sort, params[:sort] %>
-      <p> <div class="input-group">
-        <%= text_field_tag :search, params[:search], :class => "form-control" %>
-        <span class="input-group-btn">
-          <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
+
+  <div class="input-group" max-width=0px height=0px> 
+    <form accept-charset="UTF-8" action="/instructors" method="get">
+  </div>
+
+  <div class="col-xs-6">
+    <br>
+    <br>
+    <div class="input-group">
+      <form accept-charset="UTF-8" action="/instructors" method="get">
+        <div style="margin:0;padding:0;display:inline">
+        <input name="utf8" type="hidden" value="&#x2713;"/></div>
+        <input class="form-control" id="search" name="search" type="text" />
+        <span class="input-group-btn" >
+          <%= submit_tag "Search", :name => nil, :class=> "btn btn-danger" %>
         </span>
-      </div> </p>
-      <% end %>
     </div>
-  </div><!-- /.col-lg-6 -->
-  <div class="col-lg-6">
-    <h1 class="visible-lg">Instructors
-    </br>
-    <small class="visible-lg"><%= @instructors.total_count() %> results</small>
-    </h1>
+  </div>
+
+    <div class="col-xs-3 visible-lg">
+      <h1 vertical-align="top ">Instructors
+      </br>
+      <small><%= @instructors.total_count() %> results</small>
+      </h1>
+    </div>
+  </div>
+
   </div>
 </div>
+</div>
+</br>
+
+
+
   <!-- <h2 class="sub-header">Instructors</h2> -->
   <div class="table-responsive">
     <div id="instructor_index_table"><%= render 'instructors/instructor_index_table'%></div>
