@@ -31,10 +31,6 @@
   <div class="container">
 
     <div class="starter-template">
-      <!-- <div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><b><a href="https://chrome.google.com/webstore/detail/ratemybuffs/acmpjoojinfcfpamnhnmkmpfipmagige"> Rate My Buffs </a></b></br>Made by Conner Simmering, Justin Olson, Samuel Volin</div> -->
-      <!-- <h1 style="font-family : Canter;">Welcome to CU<r>FCQ</r>!</h1>
-      <p  style="font-family : Mission Gothic;" class="lead">This is a website designed to help you understand FCQs and past grade data for <a href="/instructors">instructors</a>, <a href="/courses">courses</a>, and <a href="/departments">departments</a>. Select a search option, type in a parameter, and explore!</p> -->
-
 
       <div class="col-lg">
         <%= image_tag "logo-full-min.png", height: '214', width: '184'%>
@@ -42,32 +38,23 @@
         <p  style="font-family : Mission Gothic;" class="lead">This is a website designed to help you understand FCQs and past grade data for <a href="/instructors">instructors</a>, <a href="/courses">courses</a>, and <a href="/departments">departments</a>. Select a search option, type in a parameter, and explore!</p>
       </div>
 
-      <div class="row">
+      <!-- We need to keep this in its own row so it doesn't cause resizing issues for the box below -->
+      <div>
         <%= form_tag('/', :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], :class => "form-control"%>
-        <div class="col-xs-2">
-          <form accept-charset="UTF-8" action="/" id="search-form" method="get">
-            <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
-          <input class="form-control" id="search" name="search" type="text" />
-        </div>
       </div>
-
-      <span class="input-group-btn" >
-        <%= submit_tag "Search", :name => nil, :class=> "btn btn-danger btn-inline" %>
-      </span>
-      <br>
 
       <div class="row">
         <div class="col-md">
           <div class="input-group">
-          <form accept-charset="UTF-8" action="/" id="search-form" method="get">
-            <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
-          <input class="form-control" id="search" name="search" type="text" />            <!-- <input type="text" class="form-control" placeholder=".col-xs-2" type="text"> -->
-        <span class="input-group-btn" >
-          <%= submit_tag "Search", :name => nil, :class=> "btn btn-danger" %>
-        </span>
-      </div>
-      </div>
+            <form accept-charset="UTF-8" action="/" id="search-form" method="get">
+              <div style="margin:0;padding:0;display:inline">
+              <input name="utf8" type="hidden" value="&#x2713;" /></div>
+              <input class="form-control" id="search" name="search" type="text" />            <!-- <input type="text" class="form-control" placeholder=".col-xs-2" type="text"> -->
+              <span class="input-group-btn" >
+                <%= submit_tag "Search", :name => nil, :class=> "btn btn-danger" %>
+              </span>
+          </div>
+        </div>
       </div>
 
       <%= label_tag :option, "Instructors", :class => "radio-inline"%>
@@ -77,6 +64,7 @@
       <%= label_tag :option, "Departments", :class => "radio-inline"  %>
       <%= radio_button_tag :option, "/departments" %>
       <% end %>
+
     </div>
   </div>
   <script>
@@ -89,4 +77,5 @@
     ga('send', 'pageview');
 
   </script>
-</body></html>
+</body>
+</html>
