@@ -1,24 +1,26 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-          <!-- <a class="navbar-brand" style="font-family : Canter; font-size: 1.55em;">CU FCQ</a> -->
-          <a class="navbar-brand" style="font-size: 1.25em;" href="/">CU FCQ</a>
-          <li><%= link_to "Instructors",'/instructors' %></li>
-          <li><%= link_to "Courses",'/courses' %></li>
-          <li><%= link_to "Departments",'/departments' %></li>
-          <li><%= link_to "About Us", '/about' %></li>
-          <li><%= link_to "Disclaimer", '/disclaimer'%></li>
-          <li><%= link_to "RateMyBuffs", '/ratemybuffs'%></li>
+  <a class="navbar-brand" style="font-size: 1.75em;" href="/">CU FCQ</a>
 
-	<!-- This is a working search box need to edit the css so it looks nice
-	  <%= form_tag('/', :method => "get", id: "search-form") do %>
-          <%= select_tag(:option,options_for_select([['Instructors', '/instructors'], ['Courses', '/courses'],['Departments','/departments']])) %>
-          <%= text_field_tag :search, params[:search], :class => 'search' %>
-          <%= submit_tag "Search", :name => nil, :class=>'button' %>
-          <% end %>
-	-->
-       </ul>
-    </div><!-- /.navbar-collapse -->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Instructors",'/instructors' %></li>
+              <li><%= link_to "Courses",'/courses' %></li>
+              <li><%= link_to "Departments",'/departments' %></li>
+              <li><%= link_to "About", '/about' %></li>
+              <li><%= link_to "RateMyBuffs", '/ratemybuffs'%></li>
+            </ul>
+        </div>
+    </div>
 </header>

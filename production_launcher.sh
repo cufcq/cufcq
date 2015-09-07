@@ -1,12 +1,11 @@
 #!/bin/bash
 
-echo "FOR USE ON THE PRODUCTION SERVER"
+echo "PRODUCTION MODE"
 
 rake assets:precompile
 
 ./solr_start.sh -p
 
-echo "starting passenger"
-sudo passenger start -a 0.0.0.0 -p 80 -e production
-
-echo "production server closed!"
+echo "Starting server."
+sudo passenger start -a 0.0.0.0 -p 80 -e production -d
+echo "Server daemon started. "

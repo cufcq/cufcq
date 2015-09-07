@@ -89,6 +89,14 @@ p {
 }
 
 
+// centers, and sets max size for input group (for homepage)
+input,
+.input-group {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 /* header */
 

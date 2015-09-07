@@ -4,36 +4,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content=""> 
+    <meta name="author" content="">
   </head>
 
   <body>
 <title>Courses - CUFCQ</title>
 <div class="row">
   <div class="col-lg-6">
-    <div>    
-      <%= form_tag courses_path, :method => 'get' do %>  
-      <%= hidden_field_tag :direction, params[:direction] %>  
-      <%= hidden_field_tag :sort, params[:sort] %>  
-      <p> <div class="input-group"> 
-        <%= text_field_tag :search, params[:search], :class => "form-control" %> 
-        <span class="input-group-btn"> 
+    <div>
+      <%= form_tag courses_path, :method => 'get' do %>
+      <%= hidden_field_tag :direction, params[:direction] %>
+      <%= hidden_field_tag :sort, params[:sort] %>
+      <p> <div class="input-group">
+        <%= text_field_tag :search, params[:search], :class => "form-control" %>
+        <span class="input-group-btn">
           <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
-        </span>  
-      </div> </p>  
+        </span>
+      </div> </p>
       <% end %>
     </div>
   </div><!-- /.col-lg-6 -->
-  <div class="col-lg-6">  
-  <h1>Courses
+  <div class="col-lg-6">
+  <h1 class="visible-lg">Courses
   </br>
-  <small><%= @courses.total_count() %> results</small>
+  <small class="visible-lg"><%= @courses.total_count() %> results</small>
   </h1></div>
   </div>
-  
+
 
   <!-- <h2 class="sub-header">courses</h2> -->
   <div class="table-responsive">
-    <div id="course_index_table"><%= render 'courses/course_index_table'%></div> 
+    <div id="course_index_table"><%= render 'courses/course_index_table'%></div>
   </div>
-
