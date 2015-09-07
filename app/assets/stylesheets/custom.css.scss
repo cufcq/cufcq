@@ -89,6 +89,7 @@ p {
 }
 
 
+// centers, and sets max size for input group (for homepage)
 input,
 .input-group {
   max-width: 500px;
@@ -273,18 +274,6 @@ form {
     display: table-cell;
     list-style-position:inside;
 
-}
-
-.form-control-inline {
-    min-width: 0;
-    width: auto !important;
-    display: inline !important;
-}
-
-.btn-inline {
-    min-width: 0;
-    width: auto !important;
-    display: inline !important;
 }
 
 .challenge {
