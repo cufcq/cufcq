@@ -11,7 +11,9 @@
     <title><%= @fcq.capitalized_title %></title>
 
           <div class="page-header">
-          <%= render 'layouts/grade_pie' %>
+          <div id="container" style="min-width: 350px; height: 350px; margin: 0 auto">
+            <%= render 'layouts/grade_pie' %>
+          </div>
             <h1>
               <%= @fcq.yearterm_identifier %>
               <br><small>Course: <%= link_to @fcq.capitalized_title, @fcq.course %></small>

@@ -214,13 +214,14 @@ footer ul li {
 }
 
 /* These are for the show buttons on the dashboards */
-.btn-info {background-color: $green; border-color: $green-light}
-.btn-info:hover, .btn-info:focus, .btn-info.focus, .btn-info:active, .btn-info.active, .open > .dropdown-toggle.btn-info { background-color: $green-dark; border-color: $green}
+.btn-info {background-color: $green; border-color: $green-light; color: #000}
+.btn-info:hover, .btn-info:focus, .btn-info.focus, .btn-info:active, .btn-info.active, .open > .dropdown-toggle.btn-info { background-color: $green-dark; border-color: $green; color:#000}
 
 form {
                 width:500px;
                 margin:50px auto;
 }
+
 .search {
                 padding:8px 15px;
                 background:rgba(50, 50, 50, 0.2);
