@@ -38,11 +38,14 @@
       <%= render 'departments/department_enrollment' %>
       <br>
 
+
+      <div class="visible-lg">
       <h2 class="sub-header">Instructor ScatterPlot</h2>
       <set1>
         This utility can be used to visualize the instructors of the <%= @department.long_name %> department. You can change the graphed axes with the dropdowns below.<br>
       </set1>
       <%= render 'departments/department_scatterplot' %>
+      </div>
 
       <h2 class="sub-header">Department Instructors</h2>
       <button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#instructors">View Department Instructors</button>

@@ -7,28 +7,38 @@
     <meta name="author" content="">
   </head>
   <body>
-<title>Department - CUFCQ</title>
-<div class="row">
-  <div class="col-lg-6">
-    <div>
-      <%= form_tag departments_path, :method => 'get' do %>
-      <%= hidden_field_tag :direction, params[:direction] %>
-      <%= hidden_field_tag :sort, params[:sort] %>
-      <p> <div class="input-group">
-        <%= text_field_tag :search, params[:search], :class => "form-control" %>
-        <span class="input-group-btn">
-          <%= submit_tag "Search", :name => nil, :class => "btn btn-default" %>
-        </span>
-      </div> </p>
-      <% end %>
+
+  <title>Departments - CUFCQ</title>
+    <div class="input-group">
+      <form accept-charset="UTF-8" action="/departments" method="get" margin-top=0px margin-bottom=0px>
     </div>
-  </div><!-- /.col-lg-6 -->
-  <div class="col-lg-6">
-  <h1 class="visible-lg">Departments
-  </br>
-  <small class="visible-lg"><%= @departments.total_count()%> results</small>
-  </h1></div>
+
+    <div class="col-xs-6">
+      <br>
+      <br>
+      <div class="input-group">
+        <form accept-charset="UTF-8" action="/departments" method="get">
+          <div style="margin:0;padding:0;display:inline">
+          <input name="utf8" type="hidden" value="&#x2713;"/></div>
+          <input class="form-control" id="search" name="search" type="text" />
+          <span class="input-group-btn" >
+            <%= submit_tag "Search", :name => nil, :class=> "btn btn-danger" %>
+          </span>
+      </div>
+    </div>
+
+      <div class="col-xs-3 visible-lg">
+        <h1 vertical-align="top ">Departments
+        </br>
+        <small><%= @departments.total_count() %> results</small>
+        </h1>
+      </div>
+    </div>
+    </div>
   </div>
+  </div>
+  </br>
+
   <div class="table-responsive">
     <div id="department_index_table">
       <%= render 'departments/department_index_table'%>
