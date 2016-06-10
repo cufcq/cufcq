@@ -53,14 +53,14 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use Capistrano for deployment
-gem 'capistrano', group: :development
-# gem 'activerecord-postgres-hstore'
-
-group :development do
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv', '~> 2.0', require: false
-end
+# # Use Capistrano for deployment
+# gem 'capistrano', group: :development
+# # gem 'activerecord-postgres-hstore'
+#
+# group :development do
+#   gem 'capistrano-rails'
+#   gem 'capistrano-rbenv', '~> 2.0', require: false
+# end
 
 group :production do
   gem 'thin'

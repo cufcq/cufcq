@@ -5,7 +5,7 @@ Cufcq::Application.routes.draw do
   get "errors/internal_server_error"
   root 'static_pages#home'
 
-  #Users don't need to access all of the fcqs. This adds to much stress on the server. 
+  #Users don't need to access all of the fcqs. This adds to much stress on the server.
 
   constraints subdomain: 'www' do
     get ':any', to: redirect(subdomain: nil, path: '/%{any}'), any: /.*/
@@ -16,6 +16,7 @@ Cufcq::Application.routes.draw do
   match '/disclaimer', to: 'static_pages#disclaimer',    via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',    to: 'static_pages#about',    via: 'get'
+  match '/thanks',    to: 'static_pages#thanks',    via: 'get'
   match '/ratemybuffs',    to: 'static_pages#ratemybuffs',    via: 'get'
 
 

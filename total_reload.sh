@@ -44,5 +44,8 @@ bundle exec rake department_correction
 bundle exec rake course_names
 bundle exec rake course_missing_hstore
 
+#removes certain names from the project because they don't like it
+bundle exec rake remove
+
 #reindex solr
 bundle exec rake sunspot:solr:reindex

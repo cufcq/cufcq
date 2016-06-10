@@ -1,4 +1,5 @@
 #Official CU FCQ Project
+:warning: This project is considered finished, and will not be updated :warning:
 #####Project by: Samuel Volin, Alex Tsankov
 [![Build Status](https://travis-ci.org/cufcq/cufcq.svg?branch=master)](https://travis-ci.org/cufcq/cufcq)
 ### What is an FCQ?
